@@ -857,11 +857,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Honor\\source\\repos\\Project\\Project\\Project.csproj",
+      "projectUniqueName": "C:\\Users\\Honor\\Source\\Repos\\AP\\Project\\Project.csproj",
       "projectName": "Project",
-      "projectPath": "C:\\Users\\Honor\\source\\repos\\Project\\Project\\Project.csproj",
+      "projectPath": "C:\\Users\\Honor\\Source\\Repos\\AP\\Project\\Project.csproj",
       "packagesPath": "C:\\Users\\Honor\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Honor\\source\\repos\\Project\\Project\\obj\\",
+      "outputPath": "C:\\Users\\Honor\\Source\\Repos\\AP\\Project\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Honor\\AppData\\Roaming\\NuGet\\NuGet.Config",

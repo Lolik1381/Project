@@ -7,18 +7,20 @@ using System.Threading.Tasks;
 
 namespace Project.Models
 {
-    public class User
+    public class Profile
     {
         [Key]
         public int id { get; set; }
-        
-        [Required]
-        public string login { get; set; }
 
         [Required]
-        public int password { get; set; }
+        public string name { get; set; }
 
-        [ForeignKey("profileId")]
-        public Profile profile { get; set; }
+        [Required]
+        public int countPublications { get; set; }
+
+        [ForeignKey("userInfoId")]
+        public UserInfo userInfo { get; set; }
+
+        public List<Photo> Photos { get; set; } = new List<Photo>();
     }
 }

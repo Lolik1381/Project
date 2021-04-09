@@ -16,7 +16,7 @@ namespace Project.Controllers
 
         public ActionResult Index()
         {
-            IEnumerable<User> users = applicationContext.Users;
+            IEnumerable<User> users = applicationContext.users;
             ViewBag.Users = users;
             return View();
         }
