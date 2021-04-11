@@ -80,8 +80,6 @@ C:\Users\Honor\Source\Repos\AP\Project\obj\Debug\net5.0\scopedcss\bundle\Project
 C:\Users\Honor\Source\Repos\AP\Project\obj\Debug\net5.0\Project.TagHelpers.input.cache
 C:\Users\Honor\Source\Repos\AP\Project\obj\Debug\net5.0\Project.TagHelpers.output.cache
 C:\Users\Honor\Source\Repos\AP\Project\obj\Debug\net5.0\Project.RazorCoreGenerate.cache
-C:\Users\Honor\Source\Repos\AP\Project\obj\Debug\net5.0\Razor\Views\Home\Index.cshtml.g.cs
-C:\Users\Honor\Source\Repos\AP\Project\obj\Debug\net5.0\Razor\Views\Home\Privacy.cshtml.g.cs
 C:\Users\Honor\Source\Repos\AP\Project\obj\Debug\net5.0\Razor\Views\Shared\_Layout.cshtml.g.cs
 C:\Users\Honor\Source\Repos\AP\Project\obj\Debug\net5.0\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
 C:\Users\Honor\Source\Repos\AP\Project\obj\Debug\net5.0\Razor\Views\_ViewImports.cshtml.g.cs
@@ -94,3 +92,7 @@ C:\Users\Honor\Source\Repos\AP\Project\obj\Debug\net5.0\Project.dll
 C:\Users\Honor\Source\Repos\AP\Project\obj\Debug\net5.0\ref\Project.dll
 C:\Users\Honor\Source\Repos\AP\Project\obj\Debug\net5.0\Project.pdb
 C:\Users\Honor\Source\Repos\AP\Project\obj\Debug\net5.0\Project.genruntimeconfig.cache
+C:\Users\Honor\source\repos\AP\Project\obj\Debug\net5.0\Razor\Views\Home\enter.cshtml.g.cs
+C:\Users\Honor\source\repos\AP\Project\obj\Debug\net5.0\Razor\Views\Home\index.cshtml.g.cs
+C:\Users\Honor\source\repos\AP\Project\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Relational.Design.dll
+C:\Users\Honor\source\repos\AP\Project\bin\Debug\net5.0\Npgsql.EntityFrameworkCore.PostgreSQL.Design.dll

@@ -12,7 +12,12 @@ namespace Project.Controllers
 {
     public class HomeController : Controller
     {
-        ApplicationContext applicationContext = new ApplicationContext();
+        ApplicationContext applicationContext;
+
+        public HomeController(ApplicationContext applicationContext)
+        {
+            this.applicationContext = applicationContext;
+        }
 
         public ActionResult Index()
         {
