@@ -19,9 +19,9 @@ namespace Project.Data
         public void createDefaultData()
         {
             // Фотографии
-            Models.Photo photo1 = new Models.Photo { image = getByteImage(@"C:\Users\Honor\source\repos\AP\Project\wwwroot\img\vail.jpg"), name = "vail.jpg" };
-            Models.Photo photo2 = new Models.Photo { image = getByteImage(@"C:\Users\Honor\source\repos\AP\Project\wwwroot\img\vail.jpg"), name = "vail.jpg" };
-            Models.Photo photo3 = new Models.Photo { image = getByteImage(@"C:\Users\Honor\source\repos\AP\Project\wwwroot\img\vail.jpg"), name = "vail.jpg" };
+            Models.Photo photo1 = new Models.Photo { image = getByteImage(@"wwwroot\img\vail.jpg"), name = "vail.jpg" };
+            Models.Photo photo2 = new Models.Photo { image = getByteImage(@"wwwroot\img\vail.jpg"), name = "vail.jpg" };
+            Models.Photo photo3 = new Models.Photo { image = getByteImage(@"wwwroot\img\vail.jpg"), name = "vail.jpg" };
             dataBase.photos.AddRange(photo1);
 
             // Информация о пользователе
