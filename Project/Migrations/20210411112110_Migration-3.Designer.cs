@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using Project.Context;
@@ -9,9 +10,10 @@ using Project.Context;
 namespace Project.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    partial class ApplicationContextModelSnapshot : ModelSnapshot
+    [Migration("20210411112110_Migration-3")]
+    partial class Migration3
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -29,14 +31,6 @@ namespace Project.Migrations
                     b.Property<int?>("Profileid")
                         .HasColumnType("integer");
 
-                    b.Property<byte[]>("image")
-                        .IsRequired()
-                        .HasColumnType("bytea");
-
-                    b.Property<string>("name")
-                        .IsRequired()
-                        .HasColumnType("text");
-
                     b.HasKey("id");
 
                     b.HasIndex("Profileid");
@@ -53,10 +47,6 @@ namespace Project.Migrations
 
                     b.Property<int>("countPublications")
                         .HasColumnType("integer");
-
-                    b.Property<string>("lastName")
-                        .IsRequired()
-                        .HasColumnType("text");
 
                     b.Property<string>("name")
                         .IsRequired()
@@ -103,23 +93,6 @@ namespace Project.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("integer")
                         .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
-
-                    b.Property<string>("city")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string>("country")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<DateTime>("create")
-                        .HasColumnType("timestamp without time zone");
-
-                    b.Property<string>("hrefWebSite")
-                        .HasColumnType("text");
-
-                    b.Property<string>("personalInformation")
-                        .HasColumnType("text");
 
                     b.HasKey("id");
 

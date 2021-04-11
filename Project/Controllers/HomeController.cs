@@ -1,12 +1,15 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using Project.Context;
+using Project.Data;
 using Project.Models;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace Project.Controllers
 {
@@ -17,13 +20,22 @@ namespace Project.Controllers
         public HomeController(ApplicationContext applicationContext)
         {
             this.applicationContext = applicationContext;
+
+            new DefaultData(applicationContext).createDefaultData();
         }
 
         public ActionResult Index()
         {
-            IEnumerable<User> users = applicationContext.users;
-            ViewBag.Users = users;
             return View();
+        }
+
+        public IActionResult Authorization(string login, string password)
+        {
+            User user = applicationContext.users.Where(u => u.login.Equals(login) && u.password.Equals(password)).FirstOrDefault();
+
+            return user != null
+                ? RedirectToAction("Index", "UserProfile", new { userId = user.id })
+                : LocalRedirect("~/Home/Index");
         }
     }
 }

@@ -16,11 +16,14 @@ namespace Project.Models
         public string name { get; set; }
 
         [Required]
+        public string lastName { get; set; }
+
+        [Required]
         public int countPublications { get; set; }
 
         [ForeignKey("userInfoId")]
         public UserInfo userInfo { get; set; }
 
-        public List<Photo> Photos { get; set; } = new List<Photo>();
+        public List<Photo> photos { get; set; } = new List<Photo>();
     }
 }

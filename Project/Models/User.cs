@@ -16,7 +16,7 @@ namespace Project.Models
         public string login { get; set; }
 
         [Required]
-        public int password { get; set; }
+        public string password { get; set; }
 
         [ForeignKey("profileId")]
         public Profile profile { get; set; }
