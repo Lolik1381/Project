@@ -12,11 +12,16 @@ namespace Project.Controllers
 {
     public class HomeController : Controller
     {
-        ApplicationContext applicationContext = new ApplicationContext();
+        ApplicationContext applicationContext;
+
+        public HomeController(ApplicationContext applicationContext)
+        {
+            this.applicationContext = applicationContext;
+        }
 
         public ActionResult Index()
         {
-            IEnumerable<User> users = applicationContext.Users;
+            IEnumerable<User> users = applicationContext.users;
             ViewBag.Users = users;
             return View();
         }

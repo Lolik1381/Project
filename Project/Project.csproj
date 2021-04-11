@@ -1,8 +1,47 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Content Remove="wwwroot\img\14_18-814x1024.jpg" />
+    <Content Remove="wwwroot\img\caption (1).jpg" />
+    <Content Remove="wwwroot\img\caption (2).jpg" />
+    <Content Remove="wwwroot\img\caption (3).jpg" />
+    <Content Remove="wwwroot\img\caption (4).jpg" />
+    <Content Remove="wwwroot\img\caption (5).jpg" />
+    <Content Remove="wwwroot\img\caption (6).jpg" />
+    <Content Remove="wwwroot\img\caption (7).jpg" />
+    <Content Remove="wwwroot\img\caption.jpg" />
+    <Content Remove="wwwroot\img\header_foto.jpeg" />
+    <Content Remove="wwwroot\img\header_foto.jpg" />
+    <Content Remove="wwwroot\img\header_foto.png" />
+    <Content Remove="wwwroot\img\italy.jpg" />
+    <Content Remove="wwwroot\img\nav_plus.png" />
+    <Content Remove="wwwroot\img\TRIP.png" />
+    <Content Remove="wwwroot\img\vail.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\css\style.css" />
+    <None Include="wwwroot\img\14_18-814x1024.jpg" />
+    <None Include="wwwroot\img\caption (1).jpg" />
+    <None Include="wwwroot\img\caption (2).jpg" />
+    <None Include="wwwroot\img\caption (3).jpg" />
+    <None Include="wwwroot\img\caption (4).jpg" />
+    <None Include="wwwroot\img\caption (5).jpg" />
+    <None Include="wwwroot\img\caption (6).jpg" />
+    <None Include="wwwroot\img\caption (7).jpg" />
+    <None Include="wwwroot\img\caption.jpg" />
+    <None Include="wwwroot\img\header_foto.jpeg" />
+    <None Include="wwwroot\img\header_foto.jpg" />
+    <None Include="wwwroot\img\header_foto.png" />
+    <None Include="wwwroot\img\italy.jpg" />
+    <None Include="wwwroot\img\nav_plus.png" />
+    <None Include="wwwroot\img\TRIP.png" />
+    <None Include="wwwroot\img\vail.jpg" />
+  </ItemGroup> 
 
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="5.0.4">
@@ -10,6 +49,7 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="5.0.2" />
+    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL.Design" Version="1.1.0" />
   </ItemGroup>
 
 </Project>

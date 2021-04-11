@@ -9,11 +9,14 @@ namespace Project.Context
 {
     public class ApplicationContext : DbContext
     {
-        public DbSet<User> Users { get; set; }
+        public DbSet<User> users { get; set; }
+        public DbSet<UserInfo> userInfos { get; set; }
+        public DbSet<Profile> profiles { get; set; }
+        public DbSet<Photo> photos { get; set; }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        public ApplicationContext(DbContextOptions<ApplicationContext> options) : base(options)
         {
-            optionsBuilder.UseNpgsql("Host=localhost;Port=5432;Database=project;Username=postgres;Password=staslichagin");
+            Database.EnsureCreated();
         }
     }
 }
