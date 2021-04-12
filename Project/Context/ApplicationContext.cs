@@ -14,6 +14,7 @@ namespace Project.Context
         public DbSet<UserInfo> userInfos { get; set; }
         public DbSet<Profile> profiles { get; set; }
         public DbSet<Photo> photos { get; set; }
+        public DbSet<Direction> directions { get; set; }
 
         public ApplicationContext(DbContextOptions<ApplicationContext> options) : base(options)
         {

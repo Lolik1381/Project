@@ -6,14 +6,14 @@
 
   <ItemGroup>
     <Content Remove="wwwroot\img\14_18-814x1024.jpg" />
-    <Content Remove="wwwroot\img\caption (1).jpg" />
-    <Content Remove="wwwroot\img\caption (2).jpg" />
-    <Content Remove="wwwroot\img\caption (3).jpg" />
-    <Content Remove="wwwroot\img\caption (4).jpg" />
-    <Content Remove="wwwroot\img\caption (5).jpg" />
-    <Content Remove="wwwroot\img\caption (6).jpg" />
-    <Content Remove="wwwroot\img\caption (7).jpg" />
     <Content Remove="wwwroot\img\caption.jpg" />
+    <Content Remove="wwwroot\img\caption1.jpg" />
+    <Content Remove="wwwroot\img\caption2.jpg" />
+    <Content Remove="wwwroot\img\caption3.jpg" />
+    <Content Remove="wwwroot\img\caption4.jpg" />
+    <Content Remove="wwwroot\img\caption5.jpg" />
+    <Content Remove="wwwroot\img\caption6.jpg" />
+    <Content Remove="wwwroot\img\caption7.jpg" />
     <Content Remove="wwwroot\img\header_foto.jpeg" />
     <Content Remove="wwwroot\img\header_foto.jpg" />
     <Content Remove="wwwroot\img\header_foto.png" />
@@ -26,13 +26,13 @@
   <ItemGroup>
     <None Include="wwwroot\css\style.css" />
     <None Include="wwwroot\img\14_18-814x1024.jpg" />
-    <None Include="wwwroot\img\caption (1).jpg" />
-    <None Include="wwwroot\img\caption (2).jpg" />
-    <None Include="wwwroot\img\caption (3).jpg" />
-    <None Include="wwwroot\img\caption (4).jpg" />
-    <None Include="wwwroot\img\caption (5).jpg" />
-    <None Include="wwwroot\img\caption (6).jpg" />
-    <None Include="wwwroot\img\caption (7).jpg" />
+    <None Include="wwwroot\img\caption1.jpg" />
+    <None Include="wwwroot\img\caption3.jpg" />
+    <None Include="wwwroot\img\caption4.jpg" />
+    <None Include="wwwroot\img\caption7.jpg" />
+    <None Include="wwwroot\img\caption6.jpg" />
+    <None Include="wwwroot\img\caption5.jpg" />
+    <None Include="wwwroot\img\caption2.jpg" />
     <None Include="wwwroot\img\caption.jpg" />
     <None Include="wwwroot\img\header_foto.jpeg" />
     <None Include="wwwroot\img\header_foto.jpg" />
