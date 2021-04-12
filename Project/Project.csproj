@@ -5,6 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="Views\Home\account.cshtml" />
     <Content Remove="wwwroot\img\14_18-814x1024.jpg" />
     <Content Remove="wwwroot\img\caption.jpg" />
     <Content Remove="wwwroot\img\caption1.jpg" />
@@ -24,6 +25,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="Views\Home\account.cshtml" />
     <None Include="wwwroot\css\style.css" />
     <None Include="wwwroot\img\14_18-814x1024.jpg" />
     <None Include="wwwroot\img\caption1.jpg" />
