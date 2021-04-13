@@ -38,7 +38,7 @@ namespace Project.Controllers
             User user = applicationContext.users.Where(u => u.login.Equals(login) && u.password.Equals(password)).FirstOrDefault();
 
             return user != null
-                ? RedirectToAction("Index", "UserProfile", new { userId = user.id })
+                ? RedirectToAction("Index", "Account", new { userId = user.id })
                 : LocalRedirect("~/");
         }
 

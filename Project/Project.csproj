@@ -5,6 +5,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Views\Новая папка1\**" />
+    <Compile Remove="Views\Новая папка\**" />
+    <Content Remove="Views\Новая папка1\**" />
+    <Content Remove="Views\Новая папка\**" />
+    <EmbeddedResource Remove="Views\Новая папка1\**" />
+    <EmbeddedResource Remove="Views\Новая папка\**" />
+    <None Remove="Views\Новая папка1\**" />
+    <None Remove="Views\Новая папка\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Content Remove="Views\Home\account.cshtml" />
     <Content Remove="wwwroot\img\14_18-814x1024.jpg" />
     <Content Remove="wwwroot\img\caption.jpg" />
@@ -25,7 +36,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="Views\Home\account.cshtml" />
+    <None Include="Views\Account\Index.cshtml" />
     <None Include="wwwroot\css\style.css" />
     <None Include="wwwroot\img\14_18-814x1024.jpg" />
     <None Include="wwwroot\img\caption1.jpg" />
