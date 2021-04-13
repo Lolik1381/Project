@@ -1,88 +1,93 @@
-﻿
-
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head runat="server">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="~/js/site.js"></script>
 </head>
-	<body>
-		<div class="header">
-			<div class="note">
-				<div class="wrapper">
-					<a href="#" class="close">☓</a>
-					<p>ПРИМЕЧАНИЕ ДЛЯ ПУТЕШЕСТВЕННИКОВ.<a href="https://www.tripadvisor.ru/Articles-l297-COVID_2019.html">Что нужно знать о пандемии COVID‑19</a></p>
-				</div>
-			</div>
-			<div class="header-login">
-				<div class="wrapper">
-					<div class="conteiner">
-						<img src="img/TRIP.png" alt="" class="logo">
-						<a href="#popup" class="nav_1">Войти</a>
-						<a href="#" class="nav_2">Опубликовать</a>
-						<!--<a href="#" class="nav_3">Уведомления</a>
-						<a href="#" class="nav_4">Поездки</a>-->
-					</div>
+<body>
+    <div class="header">
+        <div class="note">
+            <div class="wrapper">
+                <a href="#" class="close">☓</a>
+                <p>ПРИМЕЧАНИЕ ДЛЯ ПУТЕШЕСТВЕННИКОВ.<a href="https://www.tripadvisor.ru/Articles-l297-COVID_2019.html">Что нужно знать о пандемии COVID‑19</a></p>
+            </div>
+        </div>
+        <div class="header-login">
+            <div class="wrapper">
+                <div class="conteiner">
+                    <img src="img/TRIP.png" alt="" class="logo">
+                    <a href="#popup" class="nav_1">Войти</a>
+                    <a href="#" class="nav_2">Опубликовать</a>
+                </div>
 
-					<div class="foto_preview">
-						<div class="conteiner_p">
-							<p>Отправляйся в путешествие прямо сейчас!</p>
-						</div>
+                <div class="foto_preview">
+                    <div class="conteiner_p">
+                        <p>Отправляйся в путешествие прямо сейчас!</p>
+                    </div>
 
-						<img src="img/header_foto.jpeg" alt="" width="600" class="preview_foto">
-					</div>
-				</div>
-			</div>
-		</div>
+                    <img src="img/header_foto.jpeg" alt="" width="600" class="preview_foto">
+                </div>
+            </div>
+        </div>
+    </div>
 
 
-		<div class="content">
-			<div class="wrapper">
-				<p>Направления, которые любят путешественники</p>
+    <div class="content">
+        <div class="wrapper">
+            <p>Направления, которые любят путешественники</p>
 
-				<div class="slider middle">
-					<div class="slides">
-						<input type="radio" name="r" id="r1" checked>
-						<input type="radio" name="r" id="r2">
-						<input type="radio" name="r" id="r3">
-						<input type="radio" name="r" id="r4">
+            <div class="slider middle">
+                <div class="slides">
+                    @foreach (var direction in ViewBag.directions)
+                    {
+                        <a href="#" class="slide"><img src=@direction.mainPhoto.name alt="" height="150"></a>
+                    }
+                </div>
 
-						<a href="#" class="slide s1"><img src="img/caption (1).jpg" alt="" height="150"></a>
-						<a href="#" class="slide"><img src="img/caption.jpg" alt="" height="150"></a>
-						<a href="#" class="slide"><img src="img/caption (5).jpg" alt="" height="150"></a>
-						<a href="#" class="slide"><img src="img/caption (3).jpg" alt="" height="150"></a>
-						<a href="#" class="slide"><img src="img/vail.jpg" alt="" height="150"></a>
-						<a href="#" class="slide"><img src="img/italy.jpg" alt="" height="150"></a>
-						<a href="#" class="slide"><img src="img/caption (7).jpg" alt="" height="150"></a>
-					</div>
+                <a class="prev" onclick="minusSlides(1)">&#10094;</a>
+                <a class="next" onclick="plusSlides(1)">&#10095;</a>
+            </div>
 
-					<div class="navigation">
-						<label for="r1" class="bar"></label>
-						<label for="r2" class="bar"></label>
-						<label for="r3" class="bar"></label>
-						<label for="r4" class="bar"></label>
-					</div>
-				</div>
 
-			</div>
-		</div>
-		<div class="footer"></div>
+        </div>
+    </div>
+    <div class="footer"></div>
 
-		<div id="popup" class="popup">
-			<a href="#" class="popup_area"></a>
-			<div class="popup_body">
-				<div class="popup_content">
-					<a href="#" class="popup_close">X</a>
+    <div id="popup" class="popup">
+        <a href="#" class="popup_area"></a>
+        <div class="popup_body">
+            <div class="popup_content">
+                <a href="#" class="popup_close">X</a>
 
-                    <form method="post" action="~/Home/Authorization">
-                        <label>Логин:</label><br />
-                        <input type="text" name="login" /><br />
-                        <label>Пароль:</label><br />
-                        <input type="password" name="password" /><br />
-                        <input type="submit" value="Войти" />
-                    </form>
-				</div>
-			</div>
-		</div>
-	</body>
+                <form method="post" action="">
+                    <label>Логин:</label><br />
+                    <input type="text" name="login" /><br />
+                    <label>Пароль:</label><br />
+                    <input type="password" name="password" /><br />
+                    <input type="submit" value="Войти" formaction="~/Home/Login" />
+                    <input type="submit" value="Зарегистрироваться" onclick="authorizationButton()" />
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div id="popup_authorization" class="popup">
+        <a href="#" class="popup_area"></a>
+        <div class="popup_body">
+            <div class="popup_content">
+                <a href="#" class="popup_close">X</a>
+
+                <form method="post" action="">
+                    <label>ewq:</label><br />
+                    <input type="text" name="login" /><br />
+                    <label>Пароль:</label><br />
+                    <input type="password" name="password" /><br />
+                    <input type="submit" value="Войти" formaction="~/Home/Login" />
+                    <input type="submit" value="Зарегистрироваться" />
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
 </html>

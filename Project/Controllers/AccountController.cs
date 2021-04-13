@@ -7,18 +7,18 @@ using System.Threading.Tasks;
 
 namespace Project.Controllers
 {
-    public class UserProfileController : Controller
+    public class AccountController : Controller
     {
         ApplicationContext applicationContext;
 
-        public UserProfileController(ApplicationContext applicationContext)
+        public AccountController(ApplicationContext applicationContext)
         {
             this.applicationContext = applicationContext;
         }
 
-        public string Index(int id)
+        public ActionResult Index(int id)
         {
-            return $"{id} index";
+            return View();
         }
     }
 }

@@ -26,16 +26,26 @@ namespace Project.Controllers
 
         public ActionResult Index()
         {
+            List<Direction> directions = applicationContext.directions.ToList();
+            ViewBag.directions = directions;
+
             return View();
         }
 
-        public IActionResult Authorization(string login, string password)
+        [HttpPost]
+        public IActionResult Login(string login, string password)
         {
             User user = applicationContext.users.Where(u => u.login.Equals(login) && u.password.Equals(password)).FirstOrDefault();
 
             return user != null
-                ? RedirectToAction("Index", "UserProfile", new { userId = user.id })
-                : LocalRedirect("~/Home/Index");
+                ? RedirectToAction("Index", "Account", new { userId = user.id })
+                : LocalRedirect("~/");
+        }
+
+        [HttpPost]
+        public IActionResult Authorization()
+        {
+            return null;
         }
     }
 }
