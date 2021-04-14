@@ -24,13 +24,11 @@ namespace Project.Models
         //[Required]
         public List<Photo> photos { get; set; } = new List<Photo>();
 
-        [ForeignKey("PhotoId")]
+        /*[ForeignKey("PhotoId")]*/
+        public int mainPhotoId { get; set; }
         public Photo mainPhoto { get; set; }
 
         [ForeignKey("LandmarksId")]
         public List<Landmark> landmarks { get; set; } = new List<Landmark>();
-
-
-
     }
 }

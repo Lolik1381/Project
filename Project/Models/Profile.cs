@@ -21,9 +21,18 @@ namespace Project.Models
         [Required]
         public int countPublications { get; set; }
 
-        [ForeignKey("userInfoId")]
+        public int userInfoId { get; set; }
+
+        [Required]
         public UserInfo userInfo { get; set; }
 
-        public List<Photo> photos { get; set; } = new List<Photo>();
+        public int mainPhotoId { get; set; }
+
+        [Required]
+        public Photo mainPhoto { get; set; }
+
+        public int backgroundPhotoId { get; set; }
+
+        public Photo backgroundPhoto { get; set; }
     }
 }

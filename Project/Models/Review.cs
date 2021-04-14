@@ -25,6 +25,5 @@ namespace Project.Models
         public string description { get; set; }
 
         public List<Photo> photos { get; set; } = new List<Photo>();
-
     }
 }

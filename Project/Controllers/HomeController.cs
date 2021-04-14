@@ -21,13 +21,23 @@ namespace Project.Controllers
         {
             this.applicationContext = applicationContext;
 
-            new DefaultData(applicationContext).createDefaultData();
+            if (DefaultSettings.isFirstData)
+            {
+                new DefaultData(applicationContext).createDefaultData();
+            }
         }
 
         public ActionResult Index()
         {
             List<Direction> directions = applicationContext.directions.ToList();
+            foreach(Direction d in directions)
+            {
+                d.mainPhoto = applicationContext.photos.Where(p => p.id == d.mainPhotoId).FirstOrDefault();
+            }
+
             ViewBag.directions = directions;
+            ViewBag.isUserAuthorization = DefaultSettings.isAuthorization;
+            ViewBag.hrefUserProfile = "/Account?userId=" + DefaultSettings.userId;
 
             return View();
         }
@@ -37,9 +47,13 @@ namespace Project.Controllers
         {
             User user = applicationContext.users.Where(u => u.login.Equals(login) && u.password.Equals(password)).FirstOrDefault();
 
-            return user != null
-                ? RedirectToAction("Index", "Account", new { userId = user.id })
-                : LocalRedirect("~/");
+            if (user != null)
+            {
+                DefaultSettings.isAuthorization = true;
+                DefaultSettings.userId = user.id;
+                return RedirectToAction("Index", "Account", new { userId = user.id });
+            }
+            return LocalRedirect("~/");
         }
 
         [HttpPost]
