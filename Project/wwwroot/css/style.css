@@ -277,16 +277,15 @@ input[name="r"]
 	padding: 30px 10px;
 }
 
-.popup_content
+.popup_content 
 {
 	background-color: #fff;
 	color: black;
 	max-width: 500px;
 	padding: 30px;
 	position: relative;
-
+	padding: 50px;
 	/*text-shadow*/
-
 }
 
 
@@ -308,6 +307,92 @@ input[name="r"]
 {
 
 }
+/*ƒл€ формы регистрации*/
+.popup_content {
+	position: relative;
+	width: 276px;
+	height: 442px;
+}
+
+.popup_content img {
+	display: block;
+	margin-bottom: 10px;
+	position: absolute;
+	top: 20px;
+	left: 30px;
+}
+
+.popup_content p {
+	font-weight: bold;
+	font-size: 30px;
+	display: block;
+	margin-top: 40px;
+	margin-bottom: 30px;
+}
+
+.popup_content label {
+	font-size: 20px;
+	color: dimgray;
+}
+
+.popup_content input {
+	width: 240px;
+	height: 15px;
+	padding: 10px;
+	border: 1px solid lightgray;
+	margin-bottom: 10px;
+	transition: 0.2s;
+}
+
+.popup_content input:hover {
+	transition: 0.5s;
+	border: 1px solid dimgray;
+}
+
+.popup_content input[type="submit"],
+.registration {
+	width: 150px;
+	height: 50px;
+	border-radius: 20px;
+	background-color: black;
+	color: white;
+	font-weight: bold;
+	display: block;
+	margin: 10px auto 0 auto;
+}
+
+.popup_content .enter {
+	width: 100px !important;
+	float: left;
+}
+
+.popup_content .enter:hover {
+	transition: 0.2s;
+	border-radius: 15px;
+}
+
+.registration {
+	float: right;
+	position: absolute;
+	left: 160px;
+	padding-top: 15px;
+	height: 35px;
+	letter-spacing: -0.4px;
+	transition: 0.2s;
+	font-size: 14px;
+	text-align: center;
+	line-height: 22px;
+}
+
+.registration:hover {
+	text-decoration: none;
+	color: white;
+	transition: 0.2s;
+	border-radius: 15px;
+}
+
+/*конец формы регистрации*/
+
 
 .content-accaunt {
 	background-color: #f2f2f2;
@@ -629,7 +714,7 @@ input[name="r"]
 .next {
 	cursor: pointer;
 	position: absolute;
-	top: 40%;
+	top: 58%;
 	width: auto;
 	padding: 16px;
 	margin-top: -50px;

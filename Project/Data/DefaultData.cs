@@ -70,15 +70,15 @@ namespace Project.Data
             Models.Photo photo9 = new Models.Photo { image = getByteImage(@"wwwroot\img\caption7.jpg"), name = @"img\caption7.jpg" };
             dataBase.photos.AddRange(photo1, photo2, photo3, photo4, photo5, photo6, photo7, photo8, photo9);
 
-            Models.Direction direction1 = new Models.Direction { mainPhoto = photo1 };
-            Models.Direction direction2 = new Models.Direction { mainPhoto = photo2 };
-            Models.Direction direction3 = new Models.Direction { mainPhoto = photo3 };
-            Models.Direction direction4 = new Models.Direction { mainPhoto = photo4 };
-            Models.Direction direction5 = new Models.Direction { mainPhoto = photo5 };
-            Models.Direction direction6 = new Models.Direction { mainPhoto = photo6 };
-            Models.Direction direction7 = new Models.Direction { mainPhoto = photo7 };
-            Models.Direction direction8 = new Models.Direction { mainPhoto = photo8 };
-            Models.Direction direction9 = new Models.Direction { mainPhoto = photo9 };
+            Models.Direction direction1 = new Models.Direction { mainPhoto = photo1,name = "qqq", shortDescription = "www", description = "eee" };
+            Models.Direction direction2 = new Models.Direction { mainPhoto = photo2, name = "qqq", shortDescription = "www", description = "eee" };
+            Models.Direction direction3 = new Models.Direction { mainPhoto = photo3, name = "qqq", shortDescription = "www", description = "eee" };
+            Models.Direction direction4 = new Models.Direction { mainPhoto = photo4, name = "qqq", shortDescription = "www", description = "eee" };
+            Models.Direction direction5 = new Models.Direction { mainPhoto = photo5, name = "qqq", shortDescription = "www", description = "eee" };
+            Models.Direction direction6 = new Models.Direction { mainPhoto = photo6, name = "qqq", shortDescription = "www", description = "eee" };
+            Models.Direction direction7 = new Models.Direction { mainPhoto = photo7, name = "qqq", shortDescription = "www", description = "eee" };
+            Models.Direction direction8 = new Models.Direction { mainPhoto = photo8, name = "qqq", shortDescription = "www", description = "eee" };
+            Models.Direction direction9 = new Models.Direction { mainPhoto = photo9, name = "qqq", shortDescription = "www", description = "eee" };
             dataBase.directions.AddRange(direction1, direction2, direction3, direction4, direction5, direction6, direction7, direction8, direction9);
 
             dataBase.SaveChanges();
