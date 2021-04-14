@@ -17,7 +17,17 @@
             <div class="wrapper">
                 <div class="conteiner">
                     <img src="img/TRIP.png" alt="" class="logo">
-                    <a href="#popup" class="nav_1">Войти</a>
+
+                    @if (!ViewBag.isUserAuthorization)
+                    {
+                        <a href="#popup" class="nav_1">Войти</a>
+                    }
+                    else
+                    {
+                        <a href=@ViewBag.hrefUserProfile class="nav_1 nav_1-1" style="display: block; margin-top: -0px;">
+                            <img src="img/italy.jpg" alt="" class="img-enter">
+                        </a>
+                    }
                     <a href="#" class="nav_2">Опубликовать</a>
                 </div>
 
