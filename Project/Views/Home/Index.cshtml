@@ -51,8 +51,7 @@
                 <div class="slides">
                     @foreach (var direction in ViewBag.directions)
                     {
-                        <a href="#" class="slide"><img src=@direction.mainPhoto.name alt="" height="150"></a>
-                    }
+        <a href="#" class="slide"><img src=@direction.mainPhoto.name alt="" height="150"></a>}
                 </div>
 
                 <a class="prev" onclick="minusSlides(1)">&#10094;</a>
@@ -71,12 +70,15 @@
                 <a href="#" class="popup_close">X</a>
 
                 <form method="post" action="">
+                    <img src="img/Tripadvisor-logo.png" width="90">
+                    <p>Войдите в систему, чтобы открыть все возможности Tripadvisor.</p>
                     <label>Логин:</label><br />
                     <input type="text" name="login" /><br />
                     <label>Пароль:</label><br />
                     <input type="password" name="password" /><br />
-                    <input type="submit" value="Войти" formaction="~/Home/Login" />
-                    <input type="submit" value="Зарегистрироваться" onclick="authorizationButton()" />
+                    <input type="submit" value="Войти" formaction="~/Home/Login" class="enter" />
+                    <a href="#popup2" class="registration">Зарегистрироваться</a>
+                    <!--<input type="submit" value="Зарегистрироваться" onclick="authorizationButton()" />-->
                 </form>
             </div>
         </div>
@@ -89,13 +91,31 @@
                 <a href="#" class="popup_close">X</a>
 
                 <form method="post" action="">
-                    <label>ewq:</label><br />
+                    <img src="img/Tripadvisor-logo.png" width="90">
+                    <p>Войдите в систему, чтобы открыть все возможности Tripadvisor.</p>
+                    <label>Логин:</label><br />
                     <input type="text" name="login" /><br />
                     <label>Пароль:</label><br />
                     <input type="password" name="password" /><br />
-                    <input type="submit" value="Войти" formaction="~/Home/Login" />
+                    <input type="submit" value="Войти" formaction="~/Home/Login" class="enter" />
+                    <a href="#popup2" class="registration">Зарегистрироваться</a>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div id="popup2" class="popup">
+        <a href="#" class="popup_area"></a>
+        <div class="popup_body">
+            <div class="popup_content">
+                <a href="#" class="popup_close">X</a>
+                <form method="post" action="">
+                    <img src="img/Tripadvisor-logo.png" width="90">
+                    <p>Зерегестрируйтесь в системе, чтобы открыть все возможности Tripadvisor.</p>
+                    <input type="text" name="login" placeholder="Придумайте логин:" /><br />
+                    <input type="password" name="password" placeholder="Придумайте пароль:" /><br />
                     <input type="submit" value="Зарегистрироваться" />
                 </form>
+
             </div>
         </div>
     </div>
