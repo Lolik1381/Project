@@ -27,7 +27,7 @@ namespace Project.Models
         [ForeignKey("PhotoId")]
         public Photo mainPhoto { get; set; }
 
-        [ForeignKey("LandmarksId")]
+        [ForeignKey("LandmarksId")] 
         public List<Landmark> landmarks { get; set; } = new List<Landmark>();
 
 
