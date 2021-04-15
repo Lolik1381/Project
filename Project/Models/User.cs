@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace Project.Models
 {
@@ -19,8 +14,6 @@ namespace Project.Models
         public string password { get; set; }
 
         public int profileId { get; set; }
-
-        [Required]
         public Profile profile { get; set; }
     }
 }

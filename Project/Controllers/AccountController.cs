@@ -33,7 +33,6 @@ namespace Project.Controllers
 
             ViewBag.name = profile.name;
             ViewBag.lastName = profile.lastName;
-            ViewBag.countPublications = profile.countPublications;
             ViewBag.mainPhoto = mainPhoto.image;
             
             ViewBag.city = userInfo.city;

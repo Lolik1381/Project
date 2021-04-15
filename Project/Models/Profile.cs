@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace Project.Models
 {
@@ -18,21 +13,10 @@ namespace Project.Models
         [Required]
         public string lastName { get; set; }
 
-        [Required]
-        public int countPublications { get; set; }
-
         public int userInfoId { get; set; }
-
-        [Required]
         public UserInfo userInfo { get; set; }
 
         public int mainPhotoId { get; set; }
-
-        [Required]
         public Photo mainPhoto { get; set; }
-
-        public int backgroundPhotoId { get; set; }
-
-        public Photo backgroundPhoto { get; set; }
     }
 }

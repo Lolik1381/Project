@@ -17,6 +17,11 @@ namespace Project.Context
         public DbSet<Direction> directions { get; set; }
         public DbSet<Landmark> landmarks { get; set; }
         public DbSet<Review> reviews { get; set; }
+        public DbSet<DirectionLandmarkLink> directionLandmarkLinks { get; set; }
+        public DbSet<DirectionPhotoLink> directionPhotoLinks { get; set; }
+        public DbSet<LandmarkPhotoLink> landmarkPhotoLinks { get; set; }
+        public DbSet<LandmarkReviewLink> landmarkReviewLinks { get; set; }
+        public DbSet<ReviewPhotoLink> reviewPhotoLinks { get; set; }
 
         public ApplicationContext(DbContextOptions<ApplicationContext> options) : base(options)
         {
@@ -27,26 +32,5 @@ namespace Project.Context
 
             Database.EnsureCreated();
         }
-
-/*        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            //modelBuilder.Entity<User>().HasData(DefaultData.createUser());
-            *//*modelBuilder.Entity<Direction>().HasData(
-                DefaultData.createDirection().ForEach(direction => new { direction.id, direction.name, PhotoId = 1 }).ToList()
-            );*//*
-            
-            modelBuilder.Entity<Photo>().HasData(new { id = 1, image = DefaultData.getByteImage(@"wwwroot\img\vail.jpg"), name = @"img\vail.jpg" });
-            foreach (Direction d in DefaultData.createDirection())
-            {
-                modelBuilder.Entity<Direction>().HasData(new { 
-                    id = d.id, 
-                    name = d.name, 
-                    description = d.description,
-                    shortDescription = d.shortDescription,
-                    PhotoId = 1 
-                });
-            }
-
-        }*/
     }
 }
