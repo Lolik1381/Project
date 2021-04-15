@@ -25,20 +25,32 @@ namespace Project.Data
 
         public void createUser()
         {
-            Models.Photo photo1 = new Models.Photo { image = getByteImage(@"wwwroot\img\vail.jpg"), name = @"img\vail.jpg" };
-            dataBase.photos.AddRange(photo1);
-
             Models.UserInfo userInfo1 = new Models.UserInfo { city = "Москва", country = "Россия", create = DateTime.Today };
-            dataBase.userInfos.AddRange(userInfo1);
+            Models.UserInfo userInfo2 = new Models.UserInfo { city = "Пенза", country = "Россия", create = DateTime.Today };
+            Models.UserInfo userInfo3 = new Models.UserInfo { city = "Уфа", country = "Россия", create = DateTime.Today };
+            Models.UserInfo userInfo4 = new Models.UserInfo { city = "Минск", country = "Белоруссия", create = DateTime.Today };
+            Models.UserInfo userInfo5 = new Models.UserInfo { city = "Бостон", country = "Массачусетс", create = DateTime.Today };
+            Models.UserInfo userInfo6 = new Models.UserInfo { city = "Katy", country = "Техас", create = DateTime.Today };
+            dataBase.userInfos.AddRange(userInfo1, userInfo2, userInfo3, userInfo4, userInfo5, userInfo6);
 
+            
+            Models.Photo photo1 = new Models.Photo { image = getByteImage(@"wwwroot\img\user1.jpg"), name = @"img\user1.jpg" };
+            Models.Photo photo2 = new Models.Photo { image = getByteImage(@"wwwroot\img\user2.jpg"), name = @"img\user2.jpg" };
+            Models.Photo photo3 = new Models.Photo { image = getByteImage(@"wwwroot\img\user3.jpg"), name = @"img\user3.jpg" };
+            Models.Photo photo4 = new Models.Photo { image = getByteImage(@"wwwroot\img\user4.jpg"), name = @"img\user4.jpg" };
+            Models.Photo photo5 = new Models.Photo { image = getByteImage(@"wwwroot\img\user5.jpg"), name = @"img\user5.jpg" };
+            Models.Photo photo6 = new Models.Photo { image = getByteImage(@"wwwroot\img\user6.jpg"), name = @"img\user6.jpg" };
+            dataBase.photos.AddRange(photo1, photo2, photo3, photo4, photo5, photo6);
+
+            #region
             Models.Profile profileForUser1 = new Models.Profile
             {
                 name = "Юлия",
                 lastName = "Раджабова",
-                countPublications = 2,
+                countPublications = 3,
                 mainPhoto = photo1,
                 userInfo = userInfo1,
-                backgroundPhoto = photo1
+                //backgroundPhoto = photo1
             };
             dataBase.profiles.AddRange(profileForUser1);
 
@@ -46,11 +58,150 @@ namespace Project.Data
 
             Models.User user1 = new Models.User
             {
-                login = "admin",
+                login = "yulia",
                 password = "admin",
                 profile = profileForUser1
             };
             dataBase.users.AddRange(user1);
+
+            dataBase.SaveChanges();
+
+            Models.Profile profileForUser2 = new Models.Profile
+            {
+                name = "Станислав",
+                lastName = "Лычагин",
+                countPublications = 3,
+                mainPhoto = photo2,
+                userInfo = userInfo2,
+            };
+            dataBase.profiles.AddRange(profileForUser1);
+
+            dataBase.SaveChanges();
+
+            Models.User user2 = new Models.User
+            {
+                login = "stas",
+                password = "admin",
+                profile = profileForUser2
+            };
+            dataBase.users.AddRange(user2);
+
+            dataBase.SaveChanges();
+
+            Models.Profile profileForUser3 = new Models.Profile
+            {
+                name = "Русаков",
+                lastName = "Никита",
+                countPublications = 1,
+                mainPhoto = photo3,
+                userInfo = userInfo3,
+            };
+            dataBase.profiles.AddRange(profileForUser1);
+
+            dataBase.SaveChanges();
+
+            Models.User user3 = new Models.User
+            {
+                login = "nikita",
+                password = "admin",
+                profile = profileForUser3
+            };
+            dataBase.users.AddRange(user3);
+
+            dataBase.SaveChanges();
+
+            Models.Profile profileForUser4 = new Models.Profile
+            {
+                name = "Михаил",
+                lastName = "Поляков",
+                countPublications = 0,
+                mainPhoto = photo4,
+                userInfo = userInfo4,
+            };
+            dataBase.profiles.AddRange(profileForUser4);
+
+            dataBase.SaveChanges();
+
+            Models.User user4 = new Models.User
+            {
+                login = "misha",
+                password = "admin",
+                profile = profileForUser4
+            };
+            dataBase.users.AddRange(user4);
+
+            dataBase.SaveChanges();
+
+            Models.Profile profileForUser5 = new Models.Profile
+            {
+                name = "Anastasia",
+                lastName = "Sya",
+                countPublications = 4,
+                mainPhoto = photo5,
+                userInfo = userInfo5,
+            };
+            dataBase.profiles.AddRange(profileForUser6);
+
+            dataBase.SaveChanges();
+
+            Models.User user5 = new Models.User
+            {
+                login = "anastasia",
+                password = "admin",
+                profile = profileForUser5
+            };
+            dataBase.users.AddRange(user5);
+
+            dataBase.SaveChanges();
+
+            Models.Profile profileForUser6 = new Models.Profile
+            {
+                name = "Denis",
+                lastName = "Kotov",
+                countPublications = 2,
+                mainPhoto = photo6,
+                userInfo = userInfo6,
+            };
+            dataBase.profiles.AddRange(profileForUser6);
+
+            dataBase.SaveChanges();
+
+            Models.User user6 = new Models.User
+            {
+                login = "denis",
+                password = "admin",
+                profile = profileForUser6
+            };
+            dataBase.users.AddRange(user6);
+
+            dataBase.SaveChanges();
+        }
+        #endregion
+
+        public void createReview()
+        {
+            //landmark4
+            Models.Review review1 = new Models.Review {
+                userId = 1, 
+                header = "Красивое место",
+                rating = 5, 
+                description = "Конечно специально не станешь лететь ради этого места в Доминикану. Но если есть возможность его посетить, то не упустите)"
+            };
+            //landmark12
+            Models.Review review2 = new Models.Review {
+                userId = 1, 
+                header = "Лучше билет am/pm.",
+                rating = 4.6M, 
+                description = "Взял билет на 86 (открытый балкон) и на 102 (закрытый) за $80. На 102 делать особо нечего, кроме фото без ограждений сзади. Потом вечером взял только на открытый на 86 этаже за $47. Лучше брать сразу билет am/pm. Для двух посещений."
+            }; 
+            //landmark3
+            Models.Review review3 = new Models.Review {
+                userId = 1, 
+                header = "После Оаху и карибов дорога не впечатлила.",
+                rating = 3, 
+                description = "Ездили вдвоем на спорт машине, Камаро СС без крыши. Дорога началась с трафика что мы в принципе и ожидали. Остановки делали постоянно, но все как то не окупалось такой дорогой и цены которые они просили за свои услуги и виды. Да, есть маленькие водопадики, обросшие гавайскими цветами и джунгли, отличные фиш тако продавались по дороге и кстати очень не дорого, неплохие сады за которые просили 15$ с человека,- нас после Оаху эти сады не зашли совсем, но Оаху были круче сады и бесплатно с дорогами на водопады. В совокупности для нас все это показалось очень накручено, да и вообще остров Мау,очень накрученные в интернете, пляжи хорошие, но на Арубе лучше, джунгли есть, но в Мексике круче, да и на соседнем Оуаху и Куаи есть места получше. Две горы с затухшими вулканами тоже мех...нам очень понравился остров Оаху, и пляжи лучше и горы красивее, не даров Аватар и Парк Юрского периода снимали не на Мауи, а на Оаху." 
+            };
+            dataBase.reviews.AddRange(review1, review2, review3);
 
             dataBase.SaveChanges();
         }
