@@ -20,8 +20,33 @@ namespace Project.Context
 
         public ApplicationContext(DbContextOptions<ApplicationContext> options) : base(options)
         {
-            Database.EnsureDeleted();
+            if (DefaultSettings.isFirstData)
+            {
+                Database.EnsureDeleted();
+            }
+
             Database.EnsureCreated();
         }
+
+/*        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            //modelBuilder.Entity<User>().HasData(DefaultData.createUser());
+            *//*modelBuilder.Entity<Direction>().HasData(
+                DefaultData.createDirection().ForEach(direction => new { direction.id, direction.name, PhotoId = 1 }).ToList()
+            );*//*
+            
+            modelBuilder.Entity<Photo>().HasData(new { id = 1, image = DefaultData.getByteImage(@"wwwroot\img\vail.jpg"), name = @"img\vail.jpg" });
+            foreach (Direction d in DefaultData.createDirection())
+            {
+                modelBuilder.Entity<Direction>().HasData(new { 
+                    id = d.id, 
+                    name = d.name, 
+                    description = d.description,
+                    shortDescription = d.shortDescription,
+                    PhotoId = 1 
+                });
+            }
+
+        }*/
     }
 }

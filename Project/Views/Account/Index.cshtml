@@ -16,15 +16,13 @@
 		</div>
 		<div class="header-login">
 			<div class="wrapper">
-				<div class="conteiner">
-					<img src="img/TRIP.png" alt="" class="logo">
-					<a href="#" class="nav_1">Войти</a>
-					<a href="#" class="nav_2">Опубликовать</a>
-					<!--<a href="#" class="nav_3">Уведомления</a>
-					<a href="#" class="nav_4">Поездки</a>-->
-				</div>
+                <div class="conteiner">
+                    <a href="/" style="display: block; float: left; margin-top: 0; margin-left: 0; margin-top: -5px;">
+                        <img src="img/TRIP.png" alt="" class="logo">
+                    </a>
 
-				
+                    <a href="#" class="nav_2">Опубликовать</a>
+                </div>
 			</div>
 		</div>
 	</div>
@@ -40,16 +38,14 @@
 			</div>
 		</div>
 
-
-
 		<div class="wrapper-accaunt-content">
 			<div class="wrapper-position">
 				<div class="header-profile">
-					<img src="img/italy.jpg" alt="">
+					<img src=@ViewBag.mainPhoto alt="">
 					<div class="about-header-profile">
-						<p>Gucci Gang</p>
+						<p>@ViewBag.name @ViewBag.lastName</p>
 						<p class="publ">Публикации</p>
-						<span>0</span>
+						<span>@ViewBag.countPublications</span>
 					</div>
 					<a class="account-edit" href="#popup">Редактировать профиль</a>
 				</div>
@@ -57,9 +53,9 @@
 					<div class="about-profile">
 						<span>Обо мне</span>
 						<div class="ob-container">
-							<p>Москва, Россия</p>
-							<p>Люблю путешествовать, побывал в Казани, Уфе, Смоленске, СПБ, Великих Луках и т.д.</p>
-							<p>В сообществе с апр. 2021 г.</p>
+							<p>@ViewBag.city, @ViewBag.country</p>
+							<p>@ViewBag.personalInformation</p>
+							<p>В сообществе с @ViewBag.create</p>
 							<a href="#" >Напишите подробнее о себе</a>
 							<a href="#" >Добавьте веб-сайт</a>
 						</div>

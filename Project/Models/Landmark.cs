@@ -22,6 +22,5 @@ namespace Project.Models
         public List<Photo> photos { get; set; } = new List<Photo>();
 
         public List<Review> reviews { get; set; } = new List<Review>();
-
     }
 }
