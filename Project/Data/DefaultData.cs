@@ -159,7 +159,7 @@ namespace Project.Data
             Models.Landmark landmark12 = new Models.Landmark
             {
                 name = "Empire state building",
-                rating = 3.9,
+                rating = 3.9M,
                 photos = new List<Models.Photo> { photo16},
             };
                 Models.Landmark landmark13 = new Models.Landmark

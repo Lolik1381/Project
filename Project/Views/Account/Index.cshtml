@@ -47,7 +47,7 @@
 						<p class="publ">Публикации</p>
 						<span>@ViewBag.countPublications</span>
 					</div>
-					<a class="account-edit" href="#popup">Редактировать профиль</a>
+					<a class="account-edit" href="#popup_adder">Редактировать профиль</a>
 				</div>
 				<div class="about-wrapper">
 					<div class="about-profile">
@@ -56,8 +56,8 @@
 							<p>@ViewBag.city, @ViewBag.country</p>
 							<p>@ViewBag.personalInformation</p>
 							<p>В сообществе с @ViewBag.create</p>
-							<a href="#" >Напишите подробнее о себе</a>
-							<a href="#" >Добавьте веб-сайт</a>
+							<a href="#popup_adder" >Напишите подробнее о себе</a>
+							<a href="#popup_adder" >Добавьте веб-сайт</a>
 						</div>
 					</div>
 					<div class="repost">
@@ -187,7 +187,31 @@
 			</div>
 		</div>
 	</div>
+    <div id="popup_adder" class="popup">
+        <a href="#" class="popup_area"></a>
+        <div class="popup_body">
+            <div class="popup_content popup_content-adder">
+                <a href="#" class="popup_close">X</a>
+                <div class="popup_title popup_title-adder">Расскажите о себе по-подробнее</div>
+                <div class="popup_text">
+                    <form action="">
+                        <label>Ваше фото</label><br />
+                        <input type="file" name="background-accaunt-photo"><br />
+                        <label>Имя:</label><br />
+                        <input type="text" name="name" /><br />
+                        <label>Место проживания:</label><br />
+                        <input type="text" name="home-place" /><br />
+                        <label>Веб-сайт:</label><br />
+                        <input type="text" name="website" /><br />
+                        <label>О себе:</label><br />
+                        <input type="text" name="home-place" /><br />
+                        <input type="submit" value="Подтвердить"></p>
+                    </form>
+                </div>
 
+            </div>
+        </div>
+    </div>
 	<script src="script.js"></script>
 </body>
 </html>
