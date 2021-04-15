@@ -12,7 +12,8 @@ namespace Project.Models
         [Key]
         public int id { get; set; }
 
-        [ForeignKey("userId")]
+        public int userId {get; set;}
+
         public User user { get; set; }
 
         [Required]
