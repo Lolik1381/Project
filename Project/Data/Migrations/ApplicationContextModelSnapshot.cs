@@ -2,7 +2,6 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
-using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using Project.Context;
@@ -10,10 +9,9 @@ using Project.Context;
 namespace Project.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    [Migration("20210414200905_Migration-6")]
-    partial class Migration6
+    partial class ApplicationContextModelSnapshot : ModelSnapshot
     {
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
+        protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -168,7 +166,7 @@ namespace Project.Migrations
                     b.Property<decimal>("rating")
                         .HasColumnType("numeric");
 
-                    b.Property<int?>("userId")
+                    b.Property<int>("userId")
                         .HasColumnType("integer");
 
                     b.HasKey("id");
@@ -302,7 +300,9 @@ namespace Project.Migrations
 
                     b.HasOne("Project.Models.User", "user")
                         .WithMany()
-                        .HasForeignKey("userId");
+                        .HasForeignKey("userId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("user");
                 });

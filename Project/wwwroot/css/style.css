@@ -1,6 +1,5 @@
 ﻿@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,400&display=swap');
 
-
 * {
 	padding: 0;
 	margin: 0;
@@ -81,7 +80,7 @@ a {
 }
 
 .header-login .nav_2 {
-	background: url(img/nav_plus.png) 4% 48% no-repeat;
+	background: url(../img/nav_plus.png) 4% 48% no-repeat;
 	background-size: 24px 24px;
 	width: 115px;
 	padding-left: 30px;
@@ -111,7 +110,7 @@ a {
 	width: 40px;
 	height: 40px;
 	padding: 0;
-	border-radius: 50%;
+	border-radius: 50% !important;
 }
 
 .header-login .nav_1:hover {
@@ -269,13 +268,13 @@ input[name="r"] {
 	padding: 30px 10px;
 }
 
-.popup_content 
-{
+.popup_content {
 	background-color: #fff;
 	color: black;
 	max-width: 500px;
 	padding: 30px;
 	position: relative;
+	top: -30px;
 	padding: 50px;
 	/*text-shadow*/
 }
@@ -384,62 +383,62 @@ input[name="r"] {
 	height: 442px;
 }
 
-.popup_content img {
-	display: block;
-	margin-bottom: 10px;
-	position: absolute;
-	top: 20px;
-	left: 30px;
-}
+	.popup_content img {
+		display: block;
+		margin-bottom: 10px;
+		position: absolute;
+		top: 20px;
+		left: 30px;
+	}
 
-.popup_content p {
-	font-weight: bold;
-	font-size: 30px;
-	display: block;
-	margin-top: 40px;
-	margin-bottom: 30px;
-}
+	.popup_content p {
+		font-weight: bold;
+		font-size: 30px;
+		display: block;
+		margin-top: 40px;
+		margin-bottom: 30px;
+	}
 
-.popup_content label {
-	font-size: 20px;
-	color: dimgray;
-}
+	.popup_content label {
+		font-size: 20px;
+		color: dimgray;
+	}
 
-.popup_content input {
-	width: 240px;
-	height: 15px;
-	padding: 10px;
-	border: 1px solid lightgray;
-	margin-bottom: 10px;
-	transition: 0.2s;
-}
+	.popup_content input {
+		width: 240px;
+		height: 15px;
+		padding: 10px;
+		border: 1px solid lightgray;
+		margin-bottom: 10px;
+		transition: 0.2s;
+	}
 
-.popup_content input:hover {
-	transition: 0.5s;
-	border: 1px solid dimgray;
-}
+		.popup_content input:hover {
+			transition: 0.5s;
+			border: 1px solid dimgray;
+		}
 
-.popup_content input[type="submit"],
-.registration {
-	width: 150px;
-	height: 50px;
-	border-radius: 20px;
-	background-color: black;
-	color: white;
-	font-weight: bold;
-	display: block;
-	margin: 10px auto 0 auto;
-}
+		.popup_content input[type="submit"],
+		.registration {
+			width: 150px;
+			height: 50px;
+			border-radius: 20px;
+			background-color: black;
+			color: white;
+			font-weight: bold;
+			display: block;
+			margin: 10px auto 0 auto;
+		}
 
-.popup_content .enter {
-	width: 100px !important;
-	float: left;
-}
+	.popup_content .enter {
+		width: 100px !important;
+		float: left;
+	}
 
-.popup_content .enter:hover {
-	transition: 0.2s;
-	border-radius: 15px;
-}
+		.popup_content .enter:hover {
+			transition: 0.2s;
+			border-radius: 15px;
+		}
 
 .registration {
 	float: right;
@@ -454,12 +453,12 @@ input[name="r"] {
 	line-height: 22px;
 }
 
-.registration:hover {
-	text-decoration: none;
-	color: white;
-	transition: 0.2s;
-	border-radius: 15px;
-}
+	.registration:hover {
+		text-decoration: none;
+		color: white;
+		transition: 0.2s;
+		border-radius: 15px;
+	}
 
 /*конец формы регистрации*/
 
@@ -628,14 +627,14 @@ input[name="r"] {
 	color: black;
 }
 
-	.about-profile p:before,
+	.about-profile p:not(:nth-child(2)):before,
 	.about-profile a:before,
 	.repost a:before {
 		content: "";
 		display: block;
 		width: 15px;
 		height: 15px;
-		background-image: url(img/icon-adress.png);
+		background-image: url(../img/icon-adress.png);
 		background-size: 15px 15px;
 		float: left;
 		position: absolute;
@@ -650,24 +649,24 @@ input[name="r"] {
 	}
 
 .repost .public-photo:before {
-	background-image: url(img/camera.png);
+	background-image: url(../img/camera.png);
 	background-size: 20px 20px;
 }
 
 .repost .add-feedback:before {
-	background-image: url(img/note.png);
+	background-image: url(../img/note.png);
 	background-size: 18px 18px;
 	background-repeat: no-repeat;
 }
 
 .about-profile p:nth-child(2):before {
-	background-image: url(img/aboutme.png);
+	background-image: url(../img/aboutme.png);
 	background-size: 14px 14px;
 	background-repeat: no-repeat;
 }
 
 .about-profile a:before {
-	background-image: url(img/plus.png);
+	background-image: url(../img/plus.png);
 	background-size: 14px 14px;
 	background-repeat: no-repeat;
 }
@@ -886,3 +885,13 @@ input[name="r"] {
 		margin-top: 20px;
 		border-right: none;
 	}
+/* Для popup_adder */
+.popup_title-adder {
+	font-weight: bold;
+	font-size: 30px !important;
+}
+
+.popup_content-adder {
+	height: 600px;
+	width: 275px;
+}
