@@ -1,9 +1,4 @@
-using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Threading.Tasks;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Project.Models
 {
@@ -12,7 +7,7 @@ namespace Project.Models
         [Key]
         public int id { get; set; }
 
-        [ForeignKey("userId")]
+        public int userId {get; set;}
         public User user { get; set; }
 
         [Required]
@@ -23,7 +18,5 @@ namespace Project.Models
 
         [Required]
         public string description { get; set; }
-
-        public List<Photo> photos { get; set; } = new List<Photo>();
     }
 }
