@@ -7,24 +7,18 @@
 </head>
 <body>
 	<div class="header header-account">
-		<div class="note">
-			<div class="wrapper">
-				<a href="#" class="close">☓</a>
-				<p>ПРИМЕЧАНИЕ ДЛЯ ПУТЕШЕСТВЕННИКОВ.<a href="https://www.tripadvisor.ru/Articles-l297-COVID_2019.html">Что нужно знать о пандемии COVID‑19</a></p>
-			</div>
-		</div>
 		<div class="header-login">
 			<div class="wrapper">
                 <div class="conteiner">
                     <a href="/" style="display: block; float: left; margin-top: 0; margin-left: 0; margin-top: -5px;">
                         <img src="img/TRIP.png" alt="" class="logo">
                     </a>
-
+                    <form method="post" action="post">
+                        <input type="submit" value="Выйти" formaction="~/Account/Exit" class="nav_1 nav-form" />
+                    </form>    
                     <a href="#" class="nav_2">Опубликовать</a>
 
-                    <form method="post" action="post">
-                        <input type="submit" value="Выйти" formaction="~/Account/Exit" class="nav_1" />
-                    </form>
+                    
                 </div>
 			</div>
 		</div>
@@ -92,12 +86,12 @@
                             }
                         </div>
                     </div>
-                    <div class="repost">
-                        <span>Поделитесь советами для путешественников</span>
-                        <div class="ob-container">
-                            <a href="#" class="public-photo">Опубликовать фотографии</a>
-                            <a href="#" class="add-feedback">Написать отзыв</a>
-                        </div>
+                    
+                </div>
+                <div class="repost">
+                    <span>Поделитесь советами для путешественников</span>
+                    <div class="ob-container">
+                        <a href="#" class="add-feedback">Написать отзыв</a>
                     </div>
                 </div>
                 <div class="message-conteiner">
@@ -156,16 +150,16 @@
                     <div class="popup_title popup_title-adder">Расскажите о себе по-подробнее</div>
                     <div class="popup_text">
                         <form action="" method="post" enctype="multipart/form-data">
-                            <label>Ваше фото</label><br />
+                            <label>Ваше фото<sup>*</sup></label><br />
                             <input type="file" name="mainPhoto"><br />
-                            <label>Фамилия и имя:</label><br />
-                            <input type="text" name="name" /><br />
-                            <label>Место проживания:</label><br />
-                            <input type="text" name="homePlace" /><br />
+                            <label>Фамилия и имя:<sup>*</sup></label><br />
+                            <input type="text" name="name" required/><br />
+                            <label>Место проживания:<sup>*</sup></label><br />
+                            <input type="text" name="homePlace" required/><br />
                             <label>Веб-сайт:</label><br />
                             <input type="text" name="website" /><br />
-                            <label>О себе:</label><br />
-                            <input type="text" name="personalInformation" /><br />
+                            <label>О себе:<sup>*</sup></label><br />
+                            <input type="text" name="personalInformation" required/><br />
                             <input type="submit" value="Подтвердить" formaction="~/Account/EditAccount">
                         </form>
                     </div>

@@ -7,12 +7,7 @@
 </head>
 <body>
     <div class="header">
-        <div class="note">
-            <div class="wrapper">
-                <a href="#" class="close">☓</a>
-                <p>ПРИМЕЧАНИЕ ДЛЯ ПУТЕШЕСТВЕННИКОВ.<a href="https://www.tripadvisor.ru/Articles-l297-COVID_2019.html">Что нужно знать о пандемии COVID‑19</a></p>
-            </div>
-        </div>
+        
         <div class="header-login">
             <div class="wrapper">
                 <div class="conteiner">
@@ -51,7 +46,12 @@
                 <div class="slides">
                     @foreach (var direction in ViewBag.directions)
                     {
-                        <a href=@Url.Action("Index", "Direction", new { id = direction.id })  class="slide"><img src=@direction.mainPhoto.name alt="" height="150"></a>
+                    <a href=@Url.Action("Index", "Direction", new { id = direction.id }) class="slide">
+                        <img src=@direction.mainPhoto.name alt="" height="150">
+                        <div class="shadow">
+                            <div class="text-over-photo">Новый Амстердам</div>
+                        </div>
+                    </a>
                     }
                 </div>
 
