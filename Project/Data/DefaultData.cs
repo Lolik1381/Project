@@ -21,16 +21,17 @@ namespace Project.Data
             createUser();
             createLandmark();
             createDirection();
+            createReview();
         }
 
         public void createUser()
         {
-            Models.UserInfo userInfo1 = new Models.UserInfo { city = "Москва", country = "Россия", create = DateTime.Today };
-            Models.UserInfo userInfo2 = new Models.UserInfo { city = "Пенза", country = "Россия", create = DateTime.Today };
-            Models.UserInfo userInfo3 = new Models.UserInfo { city = "Уфа", country = "Россия", create = DateTime.Today };
-            Models.UserInfo userInfo4 = new Models.UserInfo { city = "Минск", country = "Белоруссия", create = DateTime.Today };
-            Models.UserInfo userInfo5 = new Models.UserInfo { city = "Бостон", country = "Массачусетс", create = DateTime.Today };
-            Models.UserInfo userInfo6 = new Models.UserInfo { city = "Katy", country = "Техас", create = DateTime.Today };
+            Models.UserInfo userInfo1 = new Models.UserInfo { placeResidence = "Москва, Россия", create = DateTime.Today };
+            Models.UserInfo userInfo2 = new Models.UserInfo { placeResidence = "Пенза, Россия", create = DateTime.Today };
+            Models.UserInfo userInfo3 = new Models.UserInfo { placeResidence = "Уфа, Россия", create = DateTime.Today };
+            Models.UserInfo userInfo4 = new Models.UserInfo { placeResidence = "Минск, Белоруссия", create = DateTime.Today };
+            Models.UserInfo userInfo5 = new Models.UserInfo { placeResidence = "Бостон, Массачусетс", create = DateTime.Today };
+            Models.UserInfo userInfo6 = new Models.UserInfo { placeResidence = "Katy, Техас", create = DateTime.Today };
             dataBase.userInfos.AddRange(userInfo1, userInfo2, userInfo3, userInfo4, userInfo5, userInfo6);
 
             
@@ -49,7 +50,6 @@ namespace Project.Data
                 lastName = "Раджабова",
                 mainPhoto = photo1,
                 userInfo = userInfo1,
-                //backgroundPhoto = photo1
             };
             dataBase.profiles.AddRange(profileForUser1);
 
@@ -169,28 +169,28 @@ namespace Project.Data
             dataBase.users.AddRange(user6);
 
             dataBase.SaveChanges();
+            #endregion
         }
-        #endregion
 
         public void createReview()
         {
             //landmark4
             Models.Review review1 = new Models.Review {
-                userId = 1, 
+                user = dataBase.users.Where(user => user.login.Equals("stas")).Single(),
                 header = "Красивое место",
                 rating = 5, 
                 description = "Конечно специально не станешь лететь ради этого места в Доминикану. Но если есть возможность его посетить, то не упустите)"
             };
             //landmark12
             Models.Review review2 = new Models.Review {
-                userId = 1, 
+                user = dataBase.users.Where(user => user.login.Equals("stas")).Single(),
                 header = "Лучше билет am/pm.",
                 rating = 4.6M, 
                 description = "Взял билет на 86 (открытый балкон) и на 102 (закрытый) за $80. На 102 делать особо нечего, кроме фото без ограждений сзади. Потом вечером взял только на открытый на 86 этаже за $47. Лучше брать сразу билет am/pm. Для двух посещений."
             }; 
             //landmark3
             Models.Review review3 = new Models.Review {
-                userId = 1, 
+                user = dataBase.users.Where(user => user.login.Equals("stas")).Single(),
                 header = "После Оаху и карибов дорога не впечатлила.",
                 rating = 3, 
                 description = "Ездили вдвоем на спорт машине, Камаро СС без крыши. Дорога началась с трафика что мы в принципе и ожидали. Остановки делали постоянно, но все как то не окупалось такой дорогой и цены которые они просили за свои услуги и виды. Да, есть маленькие водопадики, обросшие гавайскими цветами и джунгли, отличные фиш тако продавались по дороге и кстати очень не дорого, неплохие сады за которые просили 15$ с человека,- нас после Оаху эти сады не зашли совсем, но Оаху были круче сады и бесплатно с дорогами на водопады. В совокупности для нас все это показалось очень накручено, да и вообще остров Мау,очень накрученные в интернете, пляжи хорошие, но на Арубе лучше, джунгли есть, но в Мексике круче, да и на соседнем Оуаху и Куаи есть места получше. Две горы с затухшими вулканами тоже мех...нам очень понравился остров Оаху, и пляжи лучше и горы красивее, не даров Аватар и Парк Юрского периода снимали не на Мауи, а на Оаху." 
@@ -329,7 +329,7 @@ namespace Project.Data
             };
             dataBase.landmarks.AddRange(landmark1, landmark2, landmark3, landmark4, landmark5, landmark6, landmark7, landmark8, landmark9, landmark10, landmark11, landmark12, landmark13, landmark14, landmark15, landmark16, landmark17, landmark18);
 
-            Models.LandmarkPhotoLink landmarkPhotoLink1 = new Models.LandmarkPhotoLink { landmark = landmark1, photo = photo1 };
+            /*Models.LandmarkPhotoLink landmarkPhotoLink1 = new Models.LandmarkPhotoLink { landmark = landmark1, photo = photo1 };
             Models.LandmarkPhotoLink landmarkPhotoLink2 = new Models.LandmarkPhotoLink { landmark = landmark1, photo = photo2 };
             Models.LandmarkPhotoLink landmarkPhotoLink3 = new Models.LandmarkPhotoLink { landmark = landmark2, photo = photo3 };
             Models.LandmarkPhotoLink landmarkPhotoLink4 = new Models.LandmarkPhotoLink { landmark = landmark3, photo = photo4 };
@@ -353,7 +353,7 @@ namespace Project.Data
             Models.LandmarkPhotoLink landmarkPhotoLink22 = new Models.LandmarkPhotoLink { landmark = landmark17, photo = photo22 };
             Models.LandmarkPhotoLink landmarkPhotoLink23 = new Models.LandmarkPhotoLink { landmark = landmark17, photo = photo23 };
             Models.LandmarkPhotoLink landmarkPhotoLink24 = new Models.LandmarkPhotoLink { landmark = landmark18, photo = photo24 };
-
+*/
             dataBase.SaveChanges();
         }
 

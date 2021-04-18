@@ -13,10 +13,12 @@ namespace Project.Models
         [Required]
         public string lastName { get; set; }
 
-        public int userInfoId { get; set; }
+        [Required]
         public UserInfo userInfo { get; set; }
 
-        public int mainPhotoId { get; set; }
+        [Required]
         public Photo mainPhoto { get; set; }
+
+        public Photo backgroundPhoto { get; set; }
     }
 }

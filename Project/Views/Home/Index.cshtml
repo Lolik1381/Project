@@ -51,7 +51,7 @@
                 <div class="slides">
                     @foreach (var direction in ViewBag.directions)
                     {
-        <a href="#" class="slide"><img src=@direction.mainPhoto.name alt="" height="150"></a>}
+                        <a href="#" class="slide"><img src=@direction.mainPhoto.name alt="" height="150"></a>}
                 </div>
 
                 <a class="prev" onclick="minusSlides(1)">&#10094;</a>
@@ -102,19 +102,44 @@
             </div>
         </div>
     </div>
+
     <div id="popup2" class="popup">
         <a href="#" class="popup_area"></a>
         <div class="popup_body">
             <div class="popup_content">
                 <a href="#" class="popup_close">X</a>
-                <form method="post" action="">
+                <form method="post" action="post">
                     <img src="img/Tripadvisor-logo.png" width="90">
                     <p>Зерегестрируйтесь в системе, чтобы открыть все возможности Tripadvisor.</p>
                     <input type="text" name="login" placeholder="Придумайте логин:" /><br />
                     <input type="password" name="password" placeholder="Придумайте пароль:" /><br />
-                    <input type="submit" value="Зарегистрироваться" />
+                    <input type="submit" value="Зарегистрироваться" formaction="~/Home/Authorization" />
                 </form>
+            </div>
+        </div>
+    </div>
 
+    <div id="popup3" class="popup">
+        <a href="#" class="popup_area"></a>
+        <div class="popup_body">
+            <div class="popup_content popup_content-adder">
+                <a href="#" class="popup_close">X</a>
+                <div class="popup_title popup_title-adder">Расскажите о себе по-подробнее</div>
+                <div class="popup_text">
+                    <form action="" method="post" enctype="multipart/form-data">
+                        <label>Ваше фото</label><br />
+                        <input type="file" name="backgroundAccauntPhoto"><br />
+                        <label>Фамилия и имя:</label><br />
+                        <input type="text" name="name" /><br />
+                        <label>Место проживания:</label><br />
+                        <input type="text" name="homePlace" /><br />
+                        <label>Веб-сайт:</label><br />
+                        <input type="text" name="website" /><br />
+                        <label>О себе:</label><br />
+                        <input type="text" name="personalInformation" /><br />
+                        <input type="submit" value="Подтвердить" formaction="~/Account/EditAccount">
+                    </form>
+                </div>
             </div>
         </div>
     </div>

@@ -3,7 +3,6 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-@*	<link rel="stylesheet" href="style.css">*@
 	<title>Ваш аккаунт</title>
 </head>
 <body>
@@ -22,6 +21,10 @@
                     </a>
 
                     <a href="#" class="nav_2">Опубликовать</a>
+
+                    <form method="post" action="post">
+                        <input type="submit" value="Выйти" formaction="~/Account/Exit" class="nav_1" />
+                    </form>
                 </div>
 			</div>
 		</div>
@@ -29,14 +32,28 @@
 
 
     <div class="content content-accaunt">
-        <div class="photo-add">
-            <div class="wrapper-accaunt-content">
-                <div class="text-add">
-                    <img src="img/gallery.png" alt="" width="15">
-                    <a href="#popup" class="ref-add-fhoto">Добавить фото обложки</a>
+        @if (ViewBag.backgroundPhoto != null)
+        {
+            <div class="photo-add" style="background-image: url(data:image/jpeg;base64, @(Convert.ToBase64String(@ViewBag.backgroundPhoto)));">
+                <div class="wrapper-accaunt-content">
+                    <div class="text-add">
+                        <img src="img/gallery.png" alt="" width="15">
+                        <a href="#popup" class="ref-add-fhoto">Добавить фото обложки</a>
+                    </div>
                 </div>
             </div>
-        </div>
+        }
+        else
+        {
+            <div class="photo-add">
+                <div class="wrapper-accaunt-content">
+                    <div class="text-add">
+                        <img src="img/gallery.png" alt="" width="15">
+                        <a href="#popup" class="ref-add-fhoto">Добавить фото обложки</a>
+                    </div>
+                </div>
+            </div>
+        }
 
         <div class="wrapper-accaunt-content">
             <div class="wrapper-position">
@@ -53,7 +70,7 @@
                     <div class="about-profile">
                         <span>Обо мне</span>
                         <div class="ob-container">
-                            <p>@ViewBag.city, @ViewBag.country</p>
+                            <p>@ViewBag.placeResidence</p>
                             <p>В сообществе с @ViewBag.create</p>
 
                             @if (@ViewBag.personalInformation == null)
@@ -84,97 +101,29 @@
                     </div>
                 </div>
                 <div class="message-conteiner">
-                    <div class="message">
-                        <img src="img/italy.jpg" alt="">
-                        <span class="name">Gucci Gange</span>
-                        <span class="write">написал(а) отзыв</span>
-                        <p class="date">окт. 2020 г.</p>
-                        <div class="message-rating">
-                            <div class="message-rating-green"></div>
-                            <div class="message-rating-green"></div>
-                            <div class="message-rating-green"></div>
-                            <div class="message-rating-white"></div>
-                            <div class="message-rating-white .message-rating-green-5"></div>
-                        </div>
-                        <a href="#" class="message-place">Kimpton</a>
-                        <p class="message-message">Lorem ipsum dolor, sit amet consectetur adipisicing, elit. Et quas harum quod odio, aliquam molestiae blanditiis temporibus laborum quis voluptate quia ipsa quo. Enim totam sit facilis voluptates recusandae doloremque.lit. Et quas harum quod odio, aliquam molestiae blanditiis temporibus laborum quis voluptate quia ipsa quo. Enim totam sit facilis voluptates recusandae doloremque.lit. Et quas harum quod odio, aliquam molestiae blanditiis temporibus laborum quis voluptate quia ipsa quo. Enim totam sit facilis voluptates recusandae doloremque.lit. Et quas harum quod odio, aliquam molestiae blanditiis temporibus laborum quis voluptate quia ipsa quo. Enim totam sit facilis voluptates recusandae doloremque.lit. Et quas harum quod odio, aliquam molestiae blanditiis temporibus laborum quis voluptate quia ipsa quo. Enim totam sit facilis voluptates recusandae doloremque.</p>
-                    </div>
-                    <div class="message">
-                        <img src="img/italy.jpg" alt="">
-                        <span class="name">Gucci Gang</span>
-                        <span class="write">написал(а) отзыв</span>
-                        <p class="date">окт. 2020 г.</p>
-                        <div class="message-rating">
-                            <div class="message-rating-green"></div>
-                            <div class="message-rating-green"></div>
-                            <div class="message-rating-green"></div>
-                            <div class="message-rating-green"></div>
-                            <div class="message-rating-white .message-rating-green-5"></div>
-                        </div>
-                        <a href="#" class="message-place">Kimpton</a>
-                        <p class="message-message">Lorem ipsum dolor, sit amet consectetur adipisicing, elit. Et quas harum quod odio, aliquam molestiae blanditiis temporibus laborum quis voluptate quia ipsa quo. Enim totam sit facilis voluptates recusandae doloremque.</p>
-                    </div>
-                    <div class="message">
-                        <img src="img/italy.jpg" alt="">
-                        <span class="name">Gucci Gang</span>
-                        <span class="write">написал(а) отзыв</span>
-                        <p class="date">окт. 2020 г.</p>
-                        <div class="message-rating">
-                            <div class="message-rating-green"></div>
-                            <div class="message-rating-green"></div>
-                            <div class="message-rating-green"></div>
-                            <div class="message-rating-green"></div>
-                            <div class="message-rating-green .message-rating-green-5"></div>
-                        </div>
-                        <a href="#" class="message-place">Kimpton</a>
-                        <p class="message-message">Lorem ipsum dolor, sit amet consectetur adipisicing, elit. Et quas harum quod odio, aliquam molestiae blanditiis temporibus laborum quis voluptate quia ipsa quo. Enim totam sit facilis voluptates recusandae doloremque.</p>
-                    </div>
-                    <div class="message">
-                        <img src="img/italy.jpg" alt="">
-                        <span class="name">Gucci Gang</span>
-                        <span class="write">написал(а) отзыв</span>
-                        <p class="date">окт. 2020 г.</p>
-                        <div class="message-rating">
-                            <div class="message-rating-green"></div>
-                            <div class="message-rating-green"></div>
-                            <div class="message-rating-green"></div>
-                            <div class="message-rating-green"></div>
-                            <div class="message-rating-green .message-rating-green-5"></div>
-                        </div>
-                        <a href="#" class="message-place">Kimpton</a>
-                        <p class="message-message">Lorem ipsum dolor, sit amet consectetur adipisicing, elit. Et quas harum quod odio, aliquam molestiae blanditiis temporibus laborum quis voluptate quia ipsa quo. Enim totam sit facilis voluptates recusandae doloremque.</p>
-                    </div>
-                    <div class="message">
-                        <img src="img/italy.jpg" alt="">
-                        <span class="name">Gucci Gang</span>
-                        <span class="write">написал(а) отзыв</span>
-                        <p class="date">окт. 2020 г.</p>
-                        <div class="message-rating">
-                            <div class="message-rating-green"></div>
-                            <div class="message-rating-green"></div>
-                            <div class="message-rating-green"></div>
-                            <div class="message-rating-green"></div>
-                            <div class="message-rating-green .message-rating-green-5"></div>
-                        </div>
-                        <a href="#" class="message-place">Kimpton</a>
-                        <p class="message-message">Lorem ipsum dolor, sit amet consectetur adipisicing, elit. Et quas harum quod odio, aliquam molestiae blanditiis temporibus laborum quis voluptate quia ipsa quo. Enim totam sit facilis voluptates recusandae doloremque.</p>
-                    </div>
-                    <div class="message">
-                        <img src="img/italy.jpg" alt="">
-                        <span class="name">Gucci Gang</span>
-                        <span class="write">написал(а) отзыв</span>
-                        <p class="date">окт. 2020 г.</p>
-                        <div class="message-rating">
-                            <div class="message-rating-green"></div>
-                            <div class="message-rating-green"></div>
-                            <div class="message-rating-green"></div>
-                            <div class="message-rating-green"></div>
-                            <div class="message-rating-green .message-rating-green-5"></div>
-                        </div>
-                        <a href="#" class="message-place">Kimpton</a>
-                        <p class="message-message">Lorem ipsum dolor, sit amet consectetur adipisicing, elit. Et quas harum quod odio, aliquam molestiae blanditiis temporibus laborum quis voluptate quia ipsa quo. Enim totam sit facilis voluptates recusandae doloremque.</p>
-                    </div>
+                    @foreach (var review in ViewBag.reviews)
+                    {
+                        <div class="message">
+                            <img src="data:image/jpeg;base64,@(Convert.ToBase64String(review.user.profile.mainPhoto.image))" alt="">
+                            <span class="name">@review.user.profile.name @review.user.profile.lastName</span>
+                            <span class="write">написал(а) отзыв</span>
+                            <p class="date">окт. 2020 г.</p>
+                            <div class="message-rating">
+                                @for (int i = 0; i < Math.Round(review.rating); ++i)
+                                {
+                                    <div class="message-rating-green"></div>
+                                }
 
+                                @for (int i = 0; i < 5 - Math.Round(review.rating); ++i)
+                                {
+                                    <div class="message-rating-white"></div>
+                                }
+                                @*<div class="message-rating-white .message-rating-green-5"></div>*@
+                            </div>
+                            <a href="#" class="message-place">@review.header</a>
+                            <p class="message-message">@review.description</p>
+                        </div>
+                    }
                 </div>
 
                 <div class="clearfix"></div>
@@ -193,9 +142,9 @@
                     <a href="#" class="popup_close">X</a>
                     <div class="popup_title popup_title-accaunt">Выберите фото на обложку</div>
                     <div class="popup_text">
-                        <form action="">
-                            <input type="file" name="background-accaunt-photo">
-                            <input type="submit" value="Подтвердить"></p>
+                        <form action="" method="post" enctype="multipart/form-data">
+                            <input type="file" name="backgroundAccauntPhoto">
+                            <input type="submit" value="Подтвердить" formaction="~/Account/BackgroundPhoto">
                         </form>
                     </div>
                 </div>
@@ -206,12 +155,11 @@
             <a href="#" class="popup_area"></a>
             <div class="popup_body">
                 <div class="popup_content popup_content-adder">
-                    <a href="#" class="popup_close">X</a>
                     <div class="popup_title popup_title-adder">Расскажите о себе по-подробнее</div>
                     <div class="popup_text">
                         <form action="" method="post" enctype="multipart/form-data">
                             <label>Ваше фото</label><br />
-                            <input type="file" name="backgroundAccauntPhoto"><br />
+                            <input type="file" name="mainPhoto"><br />
                             <label>Фамилия и имя:</label><br />
                             <input type="text" name="name" /><br />
                             <label>Место проживания:</label><br />
@@ -220,13 +168,12 @@
                             <input type="text" name="website" /><br />
                             <label>О себе:</label><br />
                             <input type="text" name="personalInformation" /><br />
-                            <input type="submit" value="Подтвердить" formaction="~/Account/EditAccount"></p>
+                            <input type="submit" value="Подтвердить" formaction="~/Account/EditAccount">
                         </form>
                     </div>
                 </div>
             </div>
         </div>
-
-        <script src="script.js"></script>
+    </div>
 </body>
 </html>

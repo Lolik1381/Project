@@ -476,9 +476,9 @@ input[name="r"] {
 	opacity: 0.6;
 }
 
-	.photo-add:hover {
-		opacity: 1;
-	}
+.photo-add:hover {
+	opacity: 1;
+}
 
 .content .text-add {
 	width: 250px;

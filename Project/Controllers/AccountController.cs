@@ -1,8 +1,10 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Project.Context;
 using Project.Data;
 using Project.Models;
+using Project.Service;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,68 +14,62 @@ namespace Project.Controllers
 {
     public class AccountController : Controller
     {
-        ApplicationContext applicationContext;
+        IHomeService homeService;
 
-        public AccountController(ApplicationContext applicationContext)
+        public AccountController(IHomeService homeService)
         {
-            this.applicationContext = applicationContext;
+            this.homeService = homeService;
         }
 
         public ActionResult Index(int userId)
         {
-            User user = applicationContext.users.Where(u => u.id == userId).FirstOrDefault();
+            User user = homeService.getUserById(userId);
             if (user == null)
             {
                 return RedirectToAction("Index", "Home");
             }
 
-            Profile profile = applicationContext.profiles.Where(p => p.id == user.profileId).FirstOrDefault();
-            Photo mainPhoto = applicationContext.photos.Where(p => p.id == profile.mainPhotoId).FirstOrDefault();
-            UserInfo userInfo = applicationContext.userInfos.Where(u => u.id == profile.userInfoId).FirstOrDefault();
+            Profile profile = user.profile;
+            List<Review> reviews = homeService.getReviewsByUserId(user.id);
+
+            ViewBag.reviews = reviews;
+            ViewBag.countPublications = reviews.ToArray().Length;
 
             ViewBag.name = profile.name;
             ViewBag.lastName = profile.lastName;
-            ViewBag.mainPhoto = mainPhoto.image;
-            
-            ViewBag.city = userInfo.city;
-            ViewBag.country = userInfo.country;
-            ViewBag.personalInformation = userInfo.personalInformation;
-            ViewBag.hrefWebSite = userInfo.hrefWebSite;
-            ViewBag.create = userInfo.create.ToShortDateString();
+            ViewBag.mainPhoto = profile.mainPhoto.image;
+            ViewBag.backgroundPhoto = profile.backgroundPhoto != null ? profile.backgroundPhoto.image : null;
+
+            ViewBag.placeResidence = profile.userInfo.placeResidence;
+            ViewBag.personalInformation = profile.userInfo.personalInformation;
+            ViewBag.hrefWebSite = profile.userInfo.hrefWebSite;
+            ViewBag.create = profile.userInfo.create.ToShortDateString();
 
             return View();
         }
 
         [HttpPost]
-        public ActionResult EditAccount(IFormFile backgroundAccauntPhoto, string name, string homePlace, string website, string personalInformation)
+        public ActionResult EditAccount(IFormFile mainPhoto, string name, string homePlace, string website, string personalInformation)
         {
-            User user = applicationContext.users.Where(u => u.id.Equals(DefaultSettings.userId)).FirstOrDefault();
+            User user = homeService.getUserById(DefaultSettings.userId);
             if (user == null)
             {
                 return RedirectToAction("Index", "Home");
             }
 
-            Profile userProfile = applicationContext.profiles.Where(p => p.id.Equals(user.profileId)).FirstOrDefault();
-            UserInfo userInfo = applicationContext.userInfos.Where(userInfo => userInfo.id.Equals(userProfile.userInfoId)).FirstOrDefault();
+            Profile profile = user.profile;
+            UserInfo userInfo = profile.userInfo;
 
-            if (backgroundAccauntPhoto != null)
+            Photo profileMainPhoto = null;
+            string profileName = null;
+            string profileLastName = null;
+
+            if (mainPhoto != null)
             {
-                Random random = new Random();
-                string fileName = $"~/img/{System.IO.Path.GetFileName(backgroundAccauntPhoto.FileName)}";
-                while (applicationContext.photos.Where(p => p.name.Equals(fileName)).FirstOrDefault() != null)
-                {
-                    fileName = $"{fileName}{random.Next()}";
-                }
+                string photoName = $"~/img/{System.IO.Path.GetFileName(mainPhoto.FileName)}";
 
-                applicationContext.photos.Add(new Photo { name = fileName, image = Util.getByteImage(backgroundAccauntPhoto) });
-                applicationContext.SaveChanges();
-
-/*                applicationContext.photos.Remove(applicationContext.photos.Where(p => p.id.Equals(userProfile.mainPhotoId)).FirstOrDefault());
-                applicationContext.SaveChanges();*/
-
-                int photoId = applicationContext.photos.Where(p => p.name.Equals(fileName)).First().id;
-                userProfile.mainPhotoId = photoId;
-                applicationContext.SaveChanges();
+                homeService.savePhoto(new Photo { name = photoName, image = Util.getByteImage(mainPhoto) });
+                profileMainPhoto = homeService.getPhotoByName(photoName);
             }
 
             if (name != null)
@@ -81,30 +77,36 @@ namespace Project.Controllers
                 string[] fullName = name.Split(" ");
                 if (fullName.Length == 2 && fullName[0].Length > 2)
                 {
-                    userProfile.name = fullName[0];
-                    userProfile.lastName = fullName[1];
-                    applicationContext.SaveChanges();
+                    profileName = fullName[0];
+                    profileLastName = fullName[1];
                 }
             }
 
-            if (homePlace != null)
-            {
-                string[] home = homePlace.Split(",");
-                userInfo.city = home[0];
-                userInfo.country = home[1];
-                applicationContext.SaveChanges();
-            }
+            homeService.changeProfile(profile, profileMainPhoto, profileName, profileLastName, null);
+            homeService.changeUserInfo(userInfo, homePlace, website, personalInformation);
 
-            if (website != null)
-            {
-                userInfo.hrefWebSite = website;
-                applicationContext.SaveChanges();
-            }
+            return LocalRedirect($"~/Account?userId={DefaultSettings.userId}");
+        }
 
-            if (personalInformation != null)
+        [HttpPost]
+        public ActionResult Exit()
+        {
+            DefaultSettings.isAuthorization = false;
+            DefaultSettings.userId = -1;
+
+            return RedirectToAction("Index", "Home");
+        }
+
+        [HttpPost]
+        public ActionResult BackgroundPhoto(IFormFile backgroundAccauntPhoto)
+        {
+            if (backgroundAccauntPhoto != null)
             {
-                userInfo.personalInformation = personalInformation;
-                applicationContext.SaveChanges();
+                User user = homeService.getUserById(DefaultSettings.userId);
+                string photoName = $"~/img/{System.IO.Path.GetFileName(backgroundAccauntPhoto.FileName)}";
+
+                homeService.savePhoto(new Photo { name = photoName, image = Util.getByteImage(backgroundAccauntPhoto) });
+                homeService.changeProfile(user.profile, null, null, null, homeService.getPhotoByName(photoName));
             }
 
             return LocalRedirect($"~/Account?userId={DefaultSettings.userId}");
