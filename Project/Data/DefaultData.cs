@@ -293,13 +293,15 @@ namespace Project.Data
             Models.Landmark landmark12 = new Models.Landmark
             {
                 name = "Empire state building",
-                rating = 3.9M
+                rating = 3.9M,
+                photos = new List<Models.Photo> { photo16},
             };
-            Models.Landmark landmark13 = new Models.Landmark
-            {
-                name = "Бруклинский мост",
-                rating = 4.3M
-            };
+                Models.Landmark landmark13 = new Models.Landmark
+                {
+                    name = "Бруклинский мост",
+                    rating = 4.3M,
+                    photos = new List<Models.Photo> { photo17 },
+                };
             Models.Landmark landmark14 = new Models.Landmark
             {
                 name = "Центральный парк",
