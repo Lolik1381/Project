@@ -229,133 +229,125 @@ namespace Project.Data
             dataBase.photos.AddRange(photo1, photo2, photo3, photo4, photo5, photo6, photo7, photo8, photo9, photo10, photo11, photo12, photo13, photo14, photo15, photo16, photo17, photo18, photo19, photo20, photo21, photo22, photo23, photo24);
 
             //direction1 - "Йеллоустонский национальный парк, Вайоминг"
-            Models.Landmark landmark1 = new Models.Landmark 
+            Models.Landmark landmark1 = new Models.Landmark
             {
                 name = "Upper Geyser Basin",
-                rating = 5
-             };
+                rating = 5,
+                photos = new List<Models.Photo> { photo1, photo2 },
+            };
             Models.Landmark landmark2 = new Models.Landmark
             {
                 name = "Большой призматический источник",
-                rating = 4.9M
+                rating = 4.9M,
+                photos = new List<Models.Photo> { photo3 },
             };
             //direction2 - Пунта-Кана, Доминикана
             Models.Landmark landmark3 = new Models.Landmark
             {
                 name = "Лагуна Азул",
-                rating = 4.7M
+                rating = 4.7M,
+                photos = new List<Models.Photo> { photo5, photo4 },
             };
             //direction3 Остров Мауи, Гавайи
             Models.Landmark landmark4 = new Models.Landmark
             {
                 name = "Hana Highway - Road to Hana",
-                rating = 4.5M
+                rating = 4.5M,
+                photos = new List<Models.Photo> { photo6 },
             };
             //direction 4 Орландо, Флорида
             Models.Landmark landmark5 = new Models.Landmark
             {
                 name = "Magic Kingdom",
-                rating = 4.3M
+                rating = 4.3M,
+                photos = new List<Models.Photo> { photo7 },
             };
             Models.Landmark landmark6 = new Models.Landmark
             {
                 name = "Universal Studios Florida",
-                rating = 4.4M
+                rating = 4.4M,
+                photos = new List<Models.Photo> { photo8, photo9 },
             };
             //direction5 Седона, Аризона
             Models.Landmark landmark7 = new Models.Landmark
             {
                 name = "Soldier Pass",
-                rating = 4.4M
+                rating = 4.4M,
+                photos = new List<Models.Photo> { photo10 },
             };
             Models.Landmark landmark8 = new Models.Landmark
             {
                 name = "Devil's Bridge Trail",
-                rating = 4
+                rating = 4,
+                photos = new List<Models.Photo> { photo11 },
             };
             //direction 6 Канкун, Мексика
             Models.Landmark landmark9 = new Models.Landmark
             {
                 name = "Mayan Museum of Cancun",
-                rating = 4.2M
+                rating = 4.2M,
+                photos = new List<Models.Photo> { photo12 },
             };
             Models.Landmark landmark10 = new Models.Landmark
             {
                 name = "Руины Эль-Рей",
-                rating = 4
+                rating = 4,
+                photos = new List<Models.Photo> { photo13, photo14 },
             };
             Models.Landmark landmark11 = new Models.Landmark
             {
                 name = "Пляж Playa Delfines",
-                rating = 4.4M
+                rating = 4.4M,
+                photos = new List<Models.Photo> { photo15 },
             };
             //direction 7 Нью-Йорк, Нью-Йорк
             Models.Landmark landmark12 = new Models.Landmark
             {
                 name = "Empire state building",
                 rating = 3.9M,
-                photos = new List<Models.Photo> { photo16},
+                photos = new List<Models.Photo> { photo16 },
             };
-                Models.Landmark landmark13 = new Models.Landmark
-                {
-                    name = "Бруклинский мост",
-                    rating = 4.3M,
-                    photos = new List<Models.Photo> { photo17 },
-                };
+            Models.Landmark landmark13 = new Models.Landmark
+            {
+                name = "Бруклинский мост",
+                rating = 4.3M,
+                photos = new List<Models.Photo> { photo17 },
+            };
             Models.Landmark landmark14 = new Models.Landmark
             {
                 name = "Центральный парк",
-                rating = 4.4M
+                rating = 4.4M,
+                photos = new List<Models.Photo> { photo18 },
             };
             //direction 8 Лас-Вегас, Невада
             Models.Landmark landmark15 = new Models.Landmark
             {
                 name = "The Strip",
-                rating = 4.2M
+                rating = 4.2M,
+                photos = new List<Models.Photo> { photo19 },
             };
             Models.Landmark landmark16 = new Models.Landmark
             {
                 name = "Bellagio Conservatory & Botanical Garden",
-                rating = 4.3M
+                rating = 4.3M,
+                photos = new List<Models.Photo> { photo20, photo21 },
             };
             //direction 9 Лондон, UK
             Models.Landmark landmark17 = new Models.Landmark
             {
                 name = "Лондонский Тауэр",
-                rating = 4.4M
+                rating = 4.4M,
+                photos = new List<Models.Photo> { photo22, photo23 },
             };
             Models.Landmark landmark18 = new Models.Landmark
             {
                 name = "Британский музей",
-                rating = 4.5M
+                rating = 4.5M,
+                photos = new List<Models.Photo> { photo24 },
             };
+
             dataBase.landmarks.AddRange(landmark1, landmark2, landmark3, landmark4, landmark5, landmark6, landmark7, landmark8, landmark9, landmark10, landmark11, landmark12, landmark13, landmark14, landmark15, landmark16, landmark17, landmark18);
 
-            /*Models.LandmarkPhotoLink landmarkPhotoLink1 = new Models.LandmarkPhotoLink { landmark = landmark1, photo = photo1 };
-            Models.LandmarkPhotoLink landmarkPhotoLink2 = new Models.LandmarkPhotoLink { landmark = landmark1, photo = photo2 };
-            Models.LandmarkPhotoLink landmarkPhotoLink3 = new Models.LandmarkPhotoLink { landmark = landmark2, photo = photo3 };
-            Models.LandmarkPhotoLink landmarkPhotoLink4 = new Models.LandmarkPhotoLink { landmark = landmark3, photo = photo4 };
-            Models.LandmarkPhotoLink landmarkPhotoLink5 = new Models.LandmarkPhotoLink { landmark = landmark3, photo = photo5 };
-            Models.LandmarkPhotoLink landmarkPhotoLink6 = new Models.LandmarkPhotoLink { landmark = landmark4, photo = photo6 };
-            Models.LandmarkPhotoLink landmarkPhotoLink7 = new Models.LandmarkPhotoLink { landmark = landmark5, photo = photo7 };
-            Models.LandmarkPhotoLink landmarkPhotoLink8 = new Models.LandmarkPhotoLink { landmark = landmark6, photo = photo8 };
-            Models.LandmarkPhotoLink landmarkPhotoLink9 = new Models.LandmarkPhotoLink { landmark = landmark6, photo = photo9 };
-            Models.LandmarkPhotoLink landmarkPhotoLink10 = new Models.LandmarkPhotoLink { landmark = landmark7, photo = photo10 };
-            Models.LandmarkPhotoLink landmarkPhotoLink11 = new Models.LandmarkPhotoLink { landmark = landmark8, photo = photo11 };
-            Models.LandmarkPhotoLink landmarkPhotoLink12 = new Models.LandmarkPhotoLink { landmark = landmark9, photo = photo12 };
-            Models.LandmarkPhotoLink landmarkPhotoLink13 = new Models.LandmarkPhotoLink { landmark = landmark10, photo = photo13 };
-            Models.LandmarkPhotoLink landmarkPhotoLink14 = new Models.LandmarkPhotoLink { landmark = landmark10, photo = photo14 };
-            Models.LandmarkPhotoLink landmarkPhotoLink15 = new Models.LandmarkPhotoLink { landmark = landmark11, photo = photo15 };
-            Models.LandmarkPhotoLink landmarkPhotoLink16 = new Models.LandmarkPhotoLink { landmark = landmark12, photo = photo16 };
-            Models.LandmarkPhotoLink landmarkPhotoLink17 = new Models.LandmarkPhotoLink { landmark = landmark13, photo = photo17 };
-            Models.LandmarkPhotoLink landmarkPhotoLink18 = new Models.LandmarkPhotoLink { landmark = landmark14, photo = photo18 };
-            Models.LandmarkPhotoLink landmarkPhotoLink19 = new Models.LandmarkPhotoLink { landmark = landmark15, photo = photo19 };
-            Models.LandmarkPhotoLink landmarkPhotoLink20 = new Models.LandmarkPhotoLink { landmark = landmark16, photo = photo20 };
-            Models.LandmarkPhotoLink landmarkPhotoLink21 = new Models.LandmarkPhotoLink { landmark = landmark16, photo = photo21 };
-            Models.LandmarkPhotoLink landmarkPhotoLink22 = new Models.LandmarkPhotoLink { landmark = landmark17, photo = photo22 };
-            Models.LandmarkPhotoLink landmarkPhotoLink23 = new Models.LandmarkPhotoLink { landmark = landmark17, photo = photo23 };
-            Models.LandmarkPhotoLink landmarkPhotoLink24 = new Models.LandmarkPhotoLink { landmark = landmark18, photo = photo24 };
-*/
             dataBase.SaveChanges();
         }
 

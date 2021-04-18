@@ -51,7 +51,8 @@
                 <div class="slides">
                     @foreach (var direction in ViewBag.directions)
                     {
-                        <a href="#" class="slide"><img src=@direction.mainPhoto.name alt="" height="150"></a>}
+                        <a href=@Url.Action("Index", "Direction", new { id = direction.id })  class="slide"><img src=@direction.mainPhoto.name alt="" height="150"></a>
+                    }
                 </div>
 
                 <a class="prev" onclick="minusSlides(1)">&#10094;</a>
