@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace Project.Models
 {
@@ -16,7 +17,12 @@ namespace Project.Models
         [Required]
         public string description { get; set; }
 
-        public int mainPhotoId { get; set; }
+        [Required]
         public Photo mainPhoto { get; set; }
+
+        public List<Photo> photos { get; set; }
+
+        [Required]
+        public List<Landmark> landmarks { get; set; }
     }
 }

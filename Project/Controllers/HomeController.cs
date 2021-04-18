@@ -1,39 +1,24 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Logging;
-using Project.Context;
-using Project.Data;
 using Project.Models;
+using Project.Service;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
-using static System.Net.Mime.MediaTypeNames;
 
 namespace Project.Controllers
 {
     public class HomeController : Controller
     {
-        ApplicationContext applicationContext;
+        IHomeService homeService;
 
-        public HomeController(ApplicationContext applicationContext)
+        public HomeController(IHomeService homeService)
         {
-            this.applicationContext = applicationContext;
-
-            if (DefaultSettings.isFirstData)
-            {
-                new DefaultData(applicationContext).createDefaultData();
-            }
+            this.homeService = homeService;
+            this.homeService.startMigrationData();
         }
 
         public ActionResult Index()
         {
-            List<Direction> directions = applicationContext.directions.ToList();
-            foreach(Direction d in directions)
-            {
-                d.mainPhoto = applicationContext.photos.Where(p => p.id == d.mainPhotoId).FirstOrDefault();
-            }
+            List<Direction> directions = homeService.getDirections();
 
             ViewBag.directions = directions;
             ViewBag.isUserAuthorization = DefaultSettings.isAuthorization;
@@ -45,7 +30,7 @@ namespace Project.Controllers
         [HttpPost]
         public IActionResult Login(string login, string password)
         {
-            User user = applicationContext.users.Where(u => u.login.Equals(login) && u.password.Equals(password)).FirstOrDefault();
+            User user = homeService.getUserByLoginAndPassword(login, password);
 
             if (user != null)
             {
@@ -53,13 +38,28 @@ namespace Project.Controllers
                 DefaultSettings.userId = user.id;
                 return RedirectToAction("Index", "Account", new { userId = user.id });
             }
+
             return LocalRedirect("~/");
         }
 
         [HttpPost]
-        public IActionResult Authorization()
+        public IActionResult Authorization(string login, string password)
         {
-            return null;
+            User user = homeService.getUserByLoginAndPassword(login, password);
+            
+            if (user != null)
+            {
+                return LocalRedirect("~/");
+            }
+
+            UserInfo userInfo = new UserInfo { create = DateTime.Now, placeResidence = "Место проживания" };
+            Profile profile = new Profile { name = "Имя", lastName = "Фамилия", mainPhoto = homeService.getPhotoById(1), userInfo = userInfo };
+            user = new User { login = login, password = password, profile = profile};
+            homeService.saveUser(user);
+
+            DefaultSettings.isAuthorization = true;
+            DefaultSettings.userId = homeService.getUserByLogin(login).id;
+            return LocalRedirect("~/#popup3");
         }
     }
 }

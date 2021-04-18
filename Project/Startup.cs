@@ -6,6 +6,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Project.Context;
+using Project.Service;
+using Project.Service.Impl;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,6 +29,8 @@ namespace Project
         {
             services.AddDbContext<ApplicationContext>(options => options.UseNpgsql(Configuration.GetConnectionString("DefaultConnection")));
             services.AddMvc();
+
+            services.AddTransient<IHomeService, HomeService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

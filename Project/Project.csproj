@@ -6,13 +6,9 @@
 
   <ItemGroup>
     <Compile Remove="Views\Новая папка1\**" />
-    <Compile Remove="Views\Новая папка\**" />
     <Content Remove="Views\Новая папка1\**" />
-    <Content Remove="Views\Новая папка\**" />
     <EmbeddedResource Remove="Views\Новая папка1\**" />
-    <EmbeddedResource Remove="Views\Новая папка\**" />
     <None Remove="Views\Новая папка1\**" />
-    <None Remove="Views\Новая папка\**" />
   </ItemGroup>
 
   <ItemGroup>
@@ -64,10 +60,6 @@
     </PackageReference>
     <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="5.0.2" />
     <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL.Design" Version="1.1.0" />
-  </ItemGroup> 
-
-  <ItemGroup>
-    <Folder Include="Data\Migrations\" />
   </ItemGroup> 
 
   <ProjectExtensions><VisualStudio><UserProperties appsettings_1json__JsonSchema="" /></VisualStudio></ProjectExtensions>

@@ -17,11 +17,6 @@ namespace Project.Context
         public DbSet<Direction> directions { get; set; }
         public DbSet<Landmark> landmarks { get; set; }
         public DbSet<Review> reviews { get; set; }
-        public DbSet<DirectionLandmarkLink> directionLandmarkLinks { get; set; }
-        public DbSet<DirectionPhotoLink> directionPhotoLinks { get; set; }
-        public DbSet<LandmarkPhotoLink> landmarkPhotoLinks { get; set; }
-        public DbSet<LandmarkReviewLink> landmarkReviewLinks { get; set; }
-        public DbSet<ReviewPhotoLink> reviewPhotoLinks { get; set; }
 
         public ApplicationContext(DbContextOptions<ApplicationContext> options) : base(options)
         {

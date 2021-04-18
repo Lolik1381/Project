@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace Project.Models
@@ -7,7 +8,7 @@ namespace Project.Models
         [Key]
         public int id { get; set; }
 
-        public int userId {get; set;}
+        [Required]
         public User user { get; set; }
 
         [Required]
@@ -18,5 +19,7 @@ namespace Project.Models
 
         [Required]
         public string description { get; set; }
+
+        public List<Photo> photos { get; set; }
     }
 }

@@ -9,10 +9,7 @@ namespace Project.Models
         public int id { get; set; }
 
         [Required]
-        public string city { get; set; }
-
-        [Required]
-        public string country { get; set; }
+        public string placeResidence { get; set; }
 
         public string personalInformation { get; set; }
 

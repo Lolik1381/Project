@@ -30,7 +30,7 @@ namespace Project.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<int>("mainPhotoId")
+                    b.Property<int?>("mainPhotoid")
                         .HasColumnType("integer");
 
                     b.Property<string>("name")
@@ -43,53 +43,9 @@ namespace Project.Migrations
 
                     b.HasKey("id");
 
-                    b.HasIndex("mainPhotoId");
+                    b.HasIndex("mainPhotoid");
 
                     b.ToTable("directions");
-                });
-
-            modelBuilder.Entity("Project.Models.DirectionLandmarkLink", b =>
-                {
-                    b.Property<int>("id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer")
-                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
-
-                    b.Property<int>("directionId")
-                        .HasColumnType("integer");
-
-                    b.Property<int>("landmarkId")
-                        .HasColumnType("integer");
-
-                    b.HasKey("id");
-
-                    b.HasIndex("directionId");
-
-                    b.HasIndex("landmarkId");
-
-                    b.ToTable("directionLandmarkLinks");
-                });
-
-            modelBuilder.Entity("Project.Models.DirectionPhotoLink", b =>
-                {
-                    b.Property<int>("id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer")
-                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
-
-                    b.Property<int>("directionId")
-                        .HasColumnType("integer");
-
-                    b.Property<int>("photoId")
-                        .HasColumnType("integer");
-
-                    b.HasKey("id");
-
-                    b.HasIndex("directionId");
-
-                    b.HasIndex("photoId");
-
-                    b.ToTable("directionPhotoLinks");
                 });
 
             modelBuilder.Entity("Project.Models.Landmark", b =>
@@ -98,6 +54,9 @@ namespace Project.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("integer")
                         .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
+
+                    b.Property<int?>("Directionid")
+                        .HasColumnType("integer");
 
                     b.Property<string>("name")
                         .IsRequired()
@@ -108,51 +67,9 @@ namespace Project.Migrations
 
                     b.HasKey("id");
 
+                    b.HasIndex("Directionid");
+
                     b.ToTable("landmarks");
-                });
-
-            modelBuilder.Entity("Project.Models.LandmarkPhotoLink", b =>
-                {
-                    b.Property<int>("id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer")
-                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
-
-                    b.Property<int>("landmarkId")
-                        .HasColumnType("integer");
-
-                    b.Property<int>("photoId")
-                        .HasColumnType("integer");
-
-                    b.HasKey("id");
-
-                    b.HasIndex("landmarkId");
-
-                    b.HasIndex("photoId");
-
-                    b.ToTable("landmarkPhotoLinks");
-                });
-
-            modelBuilder.Entity("Project.Models.LandmarkReviewLink", b =>
-                {
-                    b.Property<int>("id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer")
-                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
-
-                    b.Property<int>("landmarkId")
-                        .HasColumnType("integer");
-
-                    b.Property<int>("reviewId")
-                        .HasColumnType("integer");
-
-                    b.HasKey("id");
-
-                    b.HasIndex("landmarkId");
-
-                    b.HasIndex("reviewId");
-
-                    b.ToTable("landmarkReviewLinks");
                 });
 
             modelBuilder.Entity("Project.Models.Photo", b =>
@@ -161,6 +78,15 @@ namespace Project.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("integer")
                         .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
+
+                    b.Property<int?>("Directionid")
+                        .HasColumnType("integer");
+
+                    b.Property<int?>("Landmarkid")
+                        .HasColumnType("integer");
+
+                    b.Property<int?>("Reviewid")
+                        .HasColumnType("integer");
 
                     b.Property<byte[]>("image")
                         .IsRequired()
@@ -172,6 +98,12 @@ namespace Project.Migrations
 
                     b.HasKey("id");
 
+                    b.HasIndex("Directionid");
+
+                    b.HasIndex("Landmarkid");
+
+                    b.HasIndex("Reviewid");
+
                     b.ToTable("photos");
                 });
 
@@ -182,25 +114,30 @@ namespace Project.Migrations
                         .HasColumnType("integer")
                         .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
+                    b.Property<int?>("backgroundPhotoid")
+                        .HasColumnType("integer");
+
                     b.Property<string>("lastName")
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<int>("mainPhotoId")
+                    b.Property<int?>("mainPhotoid")
                         .HasColumnType("integer");
 
                     b.Property<string>("name")
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<int>("userInfoId")
+                    b.Property<int?>("userInfoid")
                         .HasColumnType("integer");
 
                     b.HasKey("id");
 
-                    b.HasIndex("mainPhotoId");
+                    b.HasIndex("backgroundPhotoid");
 
-                    b.HasIndex("userInfoId");
+                    b.HasIndex("mainPhotoid");
+
+                    b.HasIndex("userInfoid");
 
                     b.ToTable("profiles");
                 });
@@ -211,6 +148,9 @@ namespace Project.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("integer")
                         .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
+
+                    b.Property<int?>("Landmarkid")
+                        .HasColumnType("integer");
 
                     b.Property<string>("description")
                         .IsRequired()
@@ -223,36 +163,16 @@ namespace Project.Migrations
                     b.Property<decimal>("rating")
                         .HasColumnType("numeric");
 
-                    b.Property<int>("userId")
+                    b.Property<int?>("userid")
                         .HasColumnType("integer");
 
                     b.HasKey("id");
 
-                    b.HasIndex("userId");
+                    b.HasIndex("Landmarkid");
+
+                    b.HasIndex("userid");
 
                     b.ToTable("reviews");
-                });
-
-            modelBuilder.Entity("Project.Models.ReviewPhotoLink", b =>
-                {
-                    b.Property<int>("id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer")
-                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
-
-                    b.Property<int>("photoId")
-                        .HasColumnType("integer");
-
-                    b.Property<int>("reviewId")
-                        .HasColumnType("integer");
-
-                    b.HasKey("id");
-
-                    b.HasIndex("photoId");
-
-                    b.HasIndex("reviewId");
-
-                    b.ToTable("reviewPhotoLinks");
                 });
 
             modelBuilder.Entity("Project.Models.User", b =>
@@ -270,12 +190,12 @@ namespace Project.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<int>("profileId")
+                    b.Property<int?>("profileid")
                         .HasColumnType("integer");
 
                     b.HasKey("id");
 
-                    b.HasIndex("profileId");
+                    b.HasIndex("profileid");
 
                     b.ToTable("users");
                 });
@@ -287,14 +207,6 @@ namespace Project.Migrations
                         .HasColumnType("integer")
                         .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
-                    b.Property<string>("city")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string>("country")
-                        .IsRequired()
-                        .HasColumnType("text");
-
                     b.Property<DateTime>("create")
                         .HasColumnType("timestamp without time zone");
 
@@ -302,6 +214,10 @@ namespace Project.Migrations
                         .HasColumnType("text");
 
                     b.Property<string>("personalInformation")
+                        .HasColumnType("text");
+
+                    b.Property<string>("placeResidence")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.HasKey("id");
@@ -313,102 +229,48 @@ namespace Project.Migrations
                 {
                     b.HasOne("Project.Models.Photo", "mainPhoto")
                         .WithMany()
-                        .HasForeignKey("mainPhotoId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("mainPhotoid");
 
                     b.Navigation("mainPhoto");
                 });
 
-            modelBuilder.Entity("Project.Models.DirectionLandmarkLink", b =>
+            modelBuilder.Entity("Project.Models.Landmark", b =>
                 {
-                    b.HasOne("Project.Models.Direction", "direction")
-                        .WithMany()
-                        .HasForeignKey("directionId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Project.Models.Landmark", "landmark")
-                        .WithMany()
-                        .HasForeignKey("landmarkId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("direction");
-
-                    b.Navigation("landmark");
+                    b.HasOne("Project.Models.Direction", null)
+                        .WithMany("landmarks")
+                        .HasForeignKey("Directionid");
                 });
 
-            modelBuilder.Entity("Project.Models.DirectionPhotoLink", b =>
+            modelBuilder.Entity("Project.Models.Photo", b =>
                 {
-                    b.HasOne("Project.Models.Direction", "direction")
-                        .WithMany()
-                        .HasForeignKey("directionId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.HasOne("Project.Models.Direction", null)
+                        .WithMany("photos")
+                        .HasForeignKey("Directionid");
 
-                    b.HasOne("Project.Models.Photo", "photo")
-                        .WithMany()
-                        .HasForeignKey("photoId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.HasOne("Project.Models.Landmark", null)
+                        .WithMany("photos")
+                        .HasForeignKey("Landmarkid");
 
-                    b.Navigation("direction");
-
-                    b.Navigation("photo");
-                });
-
-            modelBuilder.Entity("Project.Models.LandmarkPhotoLink", b =>
-                {
-                    b.HasOne("Project.Models.Landmark", "landmark")
-                        .WithMany()
-                        .HasForeignKey("landmarkId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Project.Models.Photo", "photo")
-                        .WithMany()
-                        .HasForeignKey("photoId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("landmark");
-
-                    b.Navigation("photo");
-                });
-
-            modelBuilder.Entity("Project.Models.LandmarkReviewLink", b =>
-                {
-                    b.HasOne("Project.Models.Landmark", "landmark")
-                        .WithMany()
-                        .HasForeignKey("landmarkId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Project.Models.Review", "review")
-                        .WithMany()
-                        .HasForeignKey("reviewId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("landmark");
-
-                    b.Navigation("review");
+                    b.HasOne("Project.Models.Review", null)
+                        .WithMany("photos")
+                        .HasForeignKey("Reviewid");
                 });
 
             modelBuilder.Entity("Project.Models.Profile", b =>
                 {
+                    b.HasOne("Project.Models.Photo", "backgroundPhoto")
+                        .WithMany()
+                        .HasForeignKey("backgroundPhotoid");
+
                     b.HasOne("Project.Models.Photo", "mainPhoto")
                         .WithMany()
-                        .HasForeignKey("mainPhotoId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("mainPhotoid");
 
                     b.HasOne("Project.Models.UserInfo", "userInfo")
                         .WithMany()
-                        .HasForeignKey("userInfoId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("userInfoid");
+
+                    b.Navigation("backgroundPhoto");
 
                     b.Navigation("mainPhoto");
 
@@ -417,43 +279,43 @@ namespace Project.Migrations
 
             modelBuilder.Entity("Project.Models.Review", b =>
                 {
+                    b.HasOne("Project.Models.Landmark", null)
+                        .WithMany("reviews")
+                        .HasForeignKey("Landmarkid");
+
                     b.HasOne("Project.Models.User", "user")
                         .WithMany()
-                        .HasForeignKey("userId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("userid");
 
                     b.Navigation("user");
-                });
-
-            modelBuilder.Entity("Project.Models.ReviewPhotoLink", b =>
-                {
-                    b.HasOne("Project.Models.Photo", "photo")
-                        .WithMany()
-                        .HasForeignKey("photoId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Project.Models.Review", "review")
-                        .WithMany()
-                        .HasForeignKey("reviewId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("photo");
-
-                    b.Navigation("review");
                 });
 
             modelBuilder.Entity("Project.Models.User", b =>
                 {
                     b.HasOne("Project.Models.Profile", "profile")
                         .WithMany()
-                        .HasForeignKey("profileId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("profileid");
 
                     b.Navigation("profile");
+                });
+
+            modelBuilder.Entity("Project.Models.Direction", b =>
+                {
+                    b.Navigation("landmarks");
+
+                    b.Navigation("photos");
+                });
+
+            modelBuilder.Entity("Project.Models.Landmark", b =>
+                {
+                    b.Navigation("photos");
+
+                    b.Navigation("reviews");
+                });
+
+            modelBuilder.Entity("Project.Models.Review", b =>
+                {
+                    b.Navigation("photos");
                 });
 #pragma warning restore 612, 618
         }
