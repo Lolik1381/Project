@@ -15,6 +15,9 @@ namespace Project.Models
         public decimal rating { get; set; }
 
         [Required]
+        public Photo mainPhoto { get; set; }
+
+        [Required]
         public List<Photo> photos { get; set; }
 
         public List<Review> reviews { get; set; }
