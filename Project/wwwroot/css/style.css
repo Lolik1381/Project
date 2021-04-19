@@ -607,11 +607,10 @@ input[name="r"] {
 }
 
 .repost {
-	width: 300px;
+	width: 600px;
 	min-height: 10px;
 	background-color: #fff;
 	margin-top: 20px;
-	margin-right: 175px;
 	margin-bottom: 20px;
 	padding: 30px 100px 25px 100px;
 	transition: 0.4s;
