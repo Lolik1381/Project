@@ -97,26 +97,36 @@
                 <div class="message-conteiner">
                     @foreach (var review in ViewBag.reviews)
                     {
-                        <div class="message">
-                            <img src="data:image/jpeg;base64,@(Convert.ToBase64String(review.user.profile.mainPhoto.image))" alt="">
-                            <span class="name">@review.user.profile.name @review.user.profile.lastName</span>
-                            <span class="write">написал(а) отзыв</span>
-                            <p class="date">окт. 2020 г.</p>
-                            <div class="message-rating">
-                                @for (int i = 0; i < Math.Round(review.rating); ++i)
-                                {
-                                    <div class="message-rating-green"></div>
-                                }
+                    <div class="message">
+                        <img src="data:image/jpeg;base64,@(Convert.ToBase64String(review.user.profile.mainPhoto.image))" alt="">
+                        <span class="name">@review.user.profile.name @review.user.profile.lastName</span>
+                        <span class="write">написал(а) отзыв</span>
+                        <p class="date">окт. 2020 г.</p>
+                        <div class="message-rating">
+                            @for (int i = 0; i < Math.Round(review.rating); ++i)
+                            {
+                    <div class="message-rating-green"></div>}
 
-                                @for (int i = 0; i < 5 - Math.Round(review.rating); ++i)
-                                {
-                                    <div class="message-rating-white"></div>
-                                }
-                                @*<div class="message-rating-white .message-rating-green-5"></div>*@
-                            </div>
-                            <a href="#" class="message-place">@review.header</a>
-                            <p class="message-message">@review.description</p>
+                            @for (int i = 0; i < 5 - Math.Round(review.rating); ++i)
+                            {
+                    <div class="message-rating-white"></div>}
+                            @*<div class="message-rating-white .message-rating-green-5"></div>*@
                         </div>
+                        <a href="#" class="message-place">@review.header</a>
+                        <p class="message-message">@review.description</p>
+                        <div class="rating-place">
+                            <img src="img/italy.jpg" alt="" class="img-place">
+                            <a href="#" class="ref-place">Kimpton</a>
+                            <div class="message-rating message-rating-place">
+                                <div class="message-rating-green"></div>
+                                <div class="message-rating-green"></div>
+                                <div class="message-rating-white"></div>
+                                <div class="message-rating-white"></div>
+                                <div class="message-rating-white .message-rating-green-5"></div>
+                            </div>
+                            <div class="feedback">5 отзывов</div>
+                        </div>
+                    </div>
                     }
                 </div>
 
