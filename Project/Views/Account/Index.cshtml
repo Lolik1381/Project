@@ -7,24 +7,18 @@
 </head>
 <body>
 	<div class="header header-account">
-		<div class="note">
-			<div class="wrapper">
-				<a href="#" class="close">☓</a>
-				<p>ПРИМЕЧАНИЕ ДЛЯ ПУТЕШЕСТВЕННИКОВ.<a href="https://www.tripadvisor.ru/Articles-l297-COVID_2019.html">Что нужно знать о пандемии COVID‑19</a></p>
-			</div>
-		</div>
 		<div class="header-login">
 			<div class="wrapper">
                 <div class="conteiner">
                     <a href="/" style="display: block; float: left; margin-top: 0; margin-left: 0; margin-top: -5px;">
-                        <img src="img/TRIP.png" alt="" class="logo">
+                        <img src="~/img/TRIP-2.png" alt="" class="logo">
                     </a>
-
+                    <form method="post" action="post">
+                        <input type="submit" value="Выйти" formaction="~/Account/Exit" class="nav_1 nav-form" />
+                    </form>    
                     <a href="#" class="nav_2">Опубликовать</a>
 
-                    <form method="post" action="post">
-                        <input type="submit" value="Выйти" formaction="~/Account/Exit" class="nav_1" />
-                    </form>
+                    
                 </div>
 			</div>
 		</div>
@@ -92,36 +86,47 @@
                             }
                         </div>
                     </div>
-                    <div class="repost">
-                        <span>Поделитесь советами для путешественников</span>
-                        <div class="ob-container">
-                            <a href="#" class="public-photo">Опубликовать фотографии</a>
-                            <a href="#" class="add-feedback">Написать отзыв</a>
-                        </div>
+                    
+                </div>
+                <div class="repost">
+                    <span>Поделитесь советами для путешественников</span>
+                    <div class="ob-container">
+                        <a href="#" class="add-feedback">Написать отзыв</a>
                     </div>
                 </div>
                 <div class="message-conteiner">
                     @foreach (var review in ViewBag.reviews)
                     {
-                        <div class="message">
-                            <img src="data:image/jpeg;base64,@(Convert.ToBase64String(review.user.profile.mainPhoto.image))" alt="">
-                            <span class="name">@review.user.profile.name @review.user.profile.lastName</span>
-                            <span class="write">написал(а) отзыв</span>
-                            <p class="date">окт. 2020 г.</p>
-                            <div class="message-rating">
-                                @for (int i = 0; i < Math.Round(review.rating); ++i)
-                                {
-                                    <div class="message-rating-green"></div>
-                                }
+                    <div class="message">
+                        <img src="data:image/jpeg;base64,@(Convert.ToBase64String(review.user.profile.mainPhoto.image))" alt="">
+                        <span class="name">@review.user.profile.name @review.user.profile.lastName</span>
+                        <span class="write">написал(а) отзыв</span>
+                        <p class="date">окт. 2020 г.</p>
+                        <div class="message-rating">
+                            @for (int i = 0; i < Math.Round(review.rating); ++i)
+                            {
+                    <div class="message-rating-green"></div>}
 
-                                @for (int i = 0; i < 5 - Math.Round(review.rating); ++i)
-                                {
-                                    <div class="message-rating-white"></div>
-                                }
-                            </div>
-                            <a href="#" class="message-place">@review.header</a>
-                            <p class="message-message">@review.description</p>
+                            @for (int i = 0; i < 5 - Math.Round(review.rating); ++i)
+                            {
+                    <div class="message-rating-white"></div>}
+                            @*<div class="message-rating-white .message-rating-green-5"></div>*@
                         </div>
+                        <a href="#" class="message-place">@review.header</a>
+                        <p class="message-message">@review.description</p>
+                        <div class="rating-place">
+                            <img src="img/italy.jpg" alt="" class="img-place">
+                            <a href="#" class="ref-place">Kimpton</a>
+                            <div class="message-rating message-rating-place">
+                                <div class="message-rating-green"></div>
+                                <div class="message-rating-green"></div>
+                                <div class="message-rating-white"></div>
+                                <div class="message-rating-white"></div>
+                                <div class="message-rating-white .message-rating-green-5"></div>
+                            </div>
+                            <div class="feedback">5 отзывов</div>
+                        </div>
+                    </div>
                     }
                 </div>
 
@@ -155,16 +160,16 @@
                     <div class="popup_title popup_title-adder">Расскажите о себе по-подробнее</div>
                     <div class="popup_text">
                         <form action="" method="post" enctype="multipart/form-data">
-                            <label>Ваше фото</label><br />
+                            <label>Ваше фото<sup>*</sup></label><br />
                             <input type="file" name="mainPhoto"><br />
-                            <label>Фамилия и имя:</label><br />
-                            <input type="text" name="name" /><br />
-                            <label>Место проживания:</label><br />
-                            <input type="text" name="homePlace" /><br />
+                            <label>Фамилия и имя:<sup>*</sup></label><br />
+                            <input type="text" name="name" required/><br />
+                            <label>Место проживания:<sup>*</sup></label><br />
+                            <input type="text" name="homePlace" required/><br />
                             <label>Веб-сайт:</label><br />
                             <input type="text" name="website" /><br />
-                            <label>О себе:</label><br />
-                            <input type="text" name="personalInformation" /><br />
+                            <label>О себе:<sup>*</sup></label><br />
+                            <input type="text" name="personalInformation" required/><br />
                             <input type="submit" value="Подтвердить" formaction="~/Account/EditAccount">
                         </form>
                     </div>

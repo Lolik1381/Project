@@ -3,6 +3,8 @@ using Project.Models;
 using Project.Service;
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace Project.Controllers
 {
@@ -25,7 +27,7 @@ namespace Project.Controllers
 
             Random random = new Random();
             ViewBag.galleryPhotos = new List<Photo>
-            {
+        {
                 direction.photos[random.Next(direction.photos.ToArray().Length)],
                 direction.photos[random.Next(direction.photos.ToArray().Length)],
                 direction.photos[random.Next(direction.photos.ToArray().Length)]

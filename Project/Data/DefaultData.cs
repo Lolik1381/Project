@@ -19,9 +19,9 @@ namespace Project.Data
         public void createDefaultData()
         {
             createUser();
+            createReview();
             createLandmark();
             createDirection();
-            createReview();
         }
 
         public void createUser()

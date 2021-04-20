@@ -27,7 +27,6 @@
     <Content Remove="wwwroot\img\header_foto.png" />
     <Content Remove="wwwroot\img\italy.jpg" />
     <Content Remove="wwwroot\img\nav_plus.png" />
-    <Content Remove="wwwroot\img\TRIP.png" />
     <Content Remove="wwwroot\img\vail.jpg" />
   </ItemGroup>
 
@@ -48,7 +47,6 @@
     <None Include="wwwroot\img\header_foto.png" />
     <None Include="wwwroot\img\italy.jpg" />
     <None Include="wwwroot\img\nav_plus.png" />
-    <None Include="wwwroot\img\TRIP.png" />
     <None Include="wwwroot\img\vail.jpg" />
   </ItemGroup> 
 
