@@ -1004,3 +1004,41 @@ input[name="r"] {
 	box-shadow: 0 0 5px 2px;
 	z-index:200;
 }
+/*Рейтинг для мест и фото*/
+.rating-place {
+	width: 200px;
+	height: 40px;
+	border: 1px solid lightgray;
+	margin-top: 10px;
+}
+
+	.rating-place .img-place {
+		width: 40px;
+		height: 40px;
+		float: left;
+		border-radius: 0;
+	}
+
+.ref-place {
+	font-size: 12px;
+	font-weight: bold;
+}
+
+	.ref-place:hover {
+		color: black;
+		text-decoration: none;
+	}
+
+.message-rating-place {
+	margin-top: 5px;
+}
+
+.message-rating-place div {
+	width: 10px;
+	height: 10px;
+}
+
+.feedback {
+	font-size: 10px;
+	color: gray;
+}
