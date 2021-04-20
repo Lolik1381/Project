@@ -1,10 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Project.Data;
 using Project.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Project.Context
 {
@@ -17,6 +12,8 @@ namespace Project.Context
         public DbSet<Direction> directions { get; set; }
         public DbSet<Landmark> landmarks { get; set; }
         public DbSet<Review> reviews { get; set; }
+        public DbSet<Restaurant> restaurants { get; set; }
+        public DbSet<Hotel> restingPlaces { get; set; }
 
         public ApplicationContext(DbContextOptions<ApplicationContext> options) : base(options)
         {

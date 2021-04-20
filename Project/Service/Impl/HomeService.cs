@@ -124,5 +124,27 @@ namespace Project.Service.Impl
                .Where(user => user.login.Equals(login))
                .FirstOrDefault();
         }
+
+        public Landmark getLandmarkByName(string name)
+        {
+            return applicationContext.landmarks
+                .Include(landmark => landmark.photos)
+                .Include(landmark => landmark.reviews)
+                .Where(l => l.name.Equals(name))
+                .FirstOrDefault();
+        }
+
+        public Direction getDirectionById(int id)
+        {
+            return applicationContext.directions
+                .Include(direction => direction.mainPhoto)
+                .Include(direction => direction.photos)
+                .Include(direction => direction.landmarks)
+                    .ThenInclude(landmark => landmark.photos)
+                .Include(direction => direction.landmarks)
+                    .ThenInclude(landmark => landmark.reviews)
+                .Where(d => d.id == id)
+                .FirstOrDefault();
+        }
     }
 }
