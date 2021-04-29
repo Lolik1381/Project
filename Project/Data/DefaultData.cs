@@ -458,8 +458,7 @@ namespace Project.Data
                     dataBase.landmarks.Where(l => l.name.Equals("Empire state building")).Single(),
                     dataBase.landmarks.Where(l => l.name.Equals("Бруклинский мост")).Single(),
                     dataBase.landmarks.Where(l => l.name.Equals("Центральный парк")).Single(),
-                    dataBase.landmarks.Where(l => l.name.Equals("Центральный парк")).Single(),
-                    dataBase.landmarks.Where(l => l.name.Equals("Центральный парк")).Single()
+                    dataBase.landmarks.Where(l => l.name.Equals("Пляж Playa Delfines")).Single()
                 },
                 photos = new List<Models.Photo> { photo17 },
                 mainPhoto = photo7, 

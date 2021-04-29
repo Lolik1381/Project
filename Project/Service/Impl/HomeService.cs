@@ -143,6 +143,10 @@ namespace Project.Service.Impl
                     .ThenInclude(landmark => landmark.photos)
                 .Include(direction => direction.landmarks)
                     .ThenInclude(landmark => landmark.reviews)
+                .Include(direction => direction.hotels)
+                    .ThenInclude(landmark => landmark.mainPhoto)
+                .Include(direction => direction.restaurants)
+                    .ThenInclude(landmark => landmark.mainPhoto)
                 .Where(d => d.id == id)
                 .FirstOrDefault();
         }

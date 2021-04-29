@@ -33,9 +33,12 @@ namespace Project.Controllers
                 direction.photos[random.Next(direction.photos.ToArray().Length)]
             };
             ViewBag.landmarks = direction.landmarks;
+            ViewBag.hotel = direction.hotels;
+            ViewBag.restaurant = direction.restaurants;
             ViewBag.name = direction.name;
             ViewBag.shortDescription = direction.shortDescription;
             ViewBag.description = direction.description;
+            ViewBag.isUserAuthorization = DefaultSettings.isAuthorization;
 
             return View();
         }

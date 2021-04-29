@@ -24,5 +24,11 @@ namespace Project.Models
 
         [Required]
         public List<Landmark> landmarks { get; set; }
+
+        [Required]
+        public List<Hotel> hotels { get; set; }
+
+        [Required]
+        public List<Restaurant> restaurants { get; set; }
     }
 }

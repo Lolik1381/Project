@@ -47,7 +47,7 @@
                     @foreach (var direction in ViewBag.directions)
                     {
                     <a href=@Url.Action("Index", "Direction", new { id = direction.id }) class="slide">
-                        <img src=@direction.mainPhoto.name alt="" height="150">
+                        <img src=@direction.mainPhoto.name alt="" height="150" class="img-slide">
                         <div class="shadow">
                             <div class="text-over-photo">Новый Амстердам</div>
                         </div>

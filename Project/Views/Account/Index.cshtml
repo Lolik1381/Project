@@ -17,8 +17,6 @@
                         <input type="submit" value="Выйти" formaction="~/Account/Exit" class="nav_1 nav-form" />
                     </form>    
                     <a href="#" class="nav_2">Опубликовать</a>
-
-                    
                 </div>
 			</div>
 		</div>
@@ -105,12 +103,13 @@
                         <div class="message-rating">
                             @for (int i = 0; i < Math.Round(review.rating); ++i)
                             {
-                    <div class="message-rating-green"></div>}
+                                <div class="message-rating-green"></div>
+                            }
 
                             @for (int i = 0; i < 5 - Math.Round(review.rating); ++i)
                             {
-                    <div class="message-rating-white"></div>}
-                            @*<div class="message-rating-white .message-rating-green-5"></div>*@
+                                <div class="message-rating-white"></div>
+                            }
                         </div>
                         <a href="#" class="message-place">@review.header</a>
                         <p class="message-message">@review.description</p>
