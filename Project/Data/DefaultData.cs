@@ -387,6 +387,12 @@ namespace Project.Data
                     dataBase.landmarks.Where(l => l.name.Equals("Upper Geyser Basin")).Single(),
                     dataBase.landmarks.Where(l => l.name.Equals("Большой призматический источник")).Single()
                 },
+                hotels = new List<Models.Hotel>
+                {
+                    dataBase.hotels.Where(l => l.name.Equals("Old Faithful Inn")).Single()
+                    dataBase.hotels.Where(l => l.name.Equals("Roosevelt Lodge Cabins")).Single()
+                    dataBase.hotels.Where(l => l.name.Equals("Madison Campground")).Single()
+                },
                 photos = new List<Models.Photo> { photo11 },
                 mainPhoto = photo1, 
                 name = "Йеллоустонский национальный парк, Вайоминг",
@@ -446,6 +452,13 @@ namespace Project.Data
                     dataBase.landmarks.Where(l => l.name.Equals("Руины Эль-Рей")).Single(),
                     dataBase.landmarks.Where(l => l.name.Equals("Пляж Playa Delfines")).Single()
                 },
+                hotels = new List<Models.Hotel>
+                {
+                    dataBase.hotels.Where(l => l.name.Equals("NIZUC Resort and Spa")).Single()
+                    dataBase.hotels.Where(l => l.name.Equals("Hyatt Zilara Cancun")).Single()
+                    dataBase.hotels.Where(l => l.name.Equals("Le Blanc Spa Resort Cancun")).Single()
+                    dataBase.hotels.Where(l => l.name.Equals("Secrets Playa Mujeres Golf & Spa Resort")).Single()
+                },
                 photos = new List<Models.Photo> { photo16 },
                 mainPhoto = photo6, 
                 name = "Канкун, Мексика",
@@ -497,25 +510,208 @@ namespace Project.Data
             dataBase.SaveChanges();
         }
 
-        public void createHote()
+        public void createHotel()
         {
-            Models.Photo photo1 = new Models.Photo { image = null, name = "" };
+            Models.Photo photo1 = new Models.Photo {image = Util.getByteImage(@"wwwroot\img\nizuc-resort-and-spa.jpg"), name = @"img\nizuc-resort-and-spa.jpg"};
+            Models.Photo photo2 = new Models.Photo {image = Util.getByteImage(@"wwwroot\img\nizuc-resort-and-spa1.jpg"), name = @"img\nizuc-resort-and-spa1.jpg"};
+            Models.Photo photo3 = new Models.Photo {image = Util.getByteImage(@"wwwroot\img\nizuc-resort-and-spa2.jpg"), name = @"img\nizuc-resort-and-spa2.jpg"};
+            Models.Photo photo4 = new Models.Photo {image = Util.getByteImage(@"wwwroot\img\hyatt-zilara-cancun.jpg"), name = @"img\hyatt-zilara-cancun.jpg"};
+            Models.Photo photo5 = new Models.Photo {image = Util.getByteImage(@"wwwroot\img\hyatt-zilara-cancun1.jpg"), name = @"img\hyatt-zilara-cancun1.jpg"};
+            Models.Photo photo6 = new Models.Photo {image = Util.getByteImage(@"wwwroot\img\hyatt-zilara-cancun2.jpg"), name = @"img\hyatt-zilara-cancun2.jpg"};
+            Models.Photo photo7 = new Models.Photo {image = Util.getByteImage(@"wwwroot\img\le-blanc-spa-resort-cancun.jpg"), name = @"img\le-blanc-spa-resort-cancun.jpg"};
+            Models.Photo photo8 = new Models.Photo {image = Util.getByteImage(@"wwwroot\img\le-blanc-spa-resort-cancun1.jpg"), name = @"img\le-blanc-spa-resort-cancun1.jpg"};
+            Models.Photo photo9 = new Models.Photo {image = Util.getByteImage(@"wwwroot\img\le-blanc-spa-resort-cancun2.jpg"), name = @"img\le-blanc-spa-resort-cancun2.jpg"};
+            Models.Photo photo10 = new Models.Photo {image = Util.getByteImage(@"wwwroot\img\secrets-playa.jpg"), name = @"img\secrets-playa.jpg"};
+            Models.Photo photo11 = new Models.Photo {image = Util.getByteImage(@"wwwroot\img\secrets-playa1.jpg"), name = @"img\secrets-playa1.jpg"};
+            Models.Photo photo12 = new Models.Photo {image = Util.getByteImage(@"wwwroot\img\secrets-playa2.jpg"), name = @"img\secrets-playa2.jpg"};
+            Models.Photo photo13 = new Models.Photo {image = Util.getByteImage(@"wwwroot\img\old-faithful-inn.jpg"), name = @"img\old-faithful-inn.jpg"};
+            Models.Photo photo14 = new Models.Photo {image = Util.getByteImage(@"wwwroot\img\old-faithful-inn1.jpg"), name = @"img\old-faithful-inn1.jpg"};
+            Models.Photo photo15 = new Models.Photo {image = Util.getByteImage(@"wwwroot\img\old-faithful-inn2.jpg"), name = @"img\old-faithful-inn2.jpg"};
+            Models.Photo photo16 = new Models.Photo {image = Util.getByteImage(@"wwwroot\img\Roosevelt-Lodge-Cabins.jpg"), name = @"img\Roosevelt-Lodge-Cabins.jpg"};
+            Models.Photo photo17 = new Models.Photo {image = Util.getByteImage(@"wwwroot\img\Roosevelt-Lodge-Cabins1.jpg"), name = @"img\Roosevelt-Lodge-Cabins1.jpg"};
+            Models.Photo photo18 = new Models.Photo {image = Util.getByteImage(@"wwwroot\img\roosevelt-lodge-cabins2.jpg"), name = @"img\roosevelt-lodge-cabins2.jpg"};
+            Models.Photo photo19 = new Models.Photo {image = Util.getByteImage(@"wwwroot\img\madison-campground.jpg"), name = @"img\madison-campground.jpg"};
+            Models.Photo photo20 = new Models.Photo {image = Util.getByteImage(@"wwwroot\img\madison-campground1.jpg"), name = @"img\madison-campground1.jpg"};
+            Models.Photo photo21 = new Models.Photo {image = Util.getByteImage(@"wwwroot\img\madison-campground2.jpg"), name = @"img\madison-campground2.jpg"};
+            Models.Photo photo22 = new Models.Photo {image = Util.getByteImage(@"wwwroot\img\sanctuary-cap-cana-aerial.jpg"), name = @"img\sanctuary-cap-cana-aerial.jpg"};
+            Models.Photo photo23 = new Models.Photo {image = Util.getByteImage(@"wwwroot\img\sanctuary-cap-cana-aerial1.jpg"), name = @"img\sanctuary-cap-cana-aerial1.jpg"};
+            Models.Photo photo24 = new Models.Photo {image = Util.getByteImage(@"wwwroot\img\sanctuary-cap-cana-aerial2.jpg"), name = @"img\sanctuary-cap-cana-aerial2.jpg"};
 
+            Models.Photo photo13 = new Models.Photo {image = Util.getByteImage(@"wwwroot\img\old-faithful-inn.jpg"), name = @"img\old-faithful-inn.jpg"};
+            Models.Photo photo14 = new Models.Photo {image = Util.getByteImage(@"wwwroot\img\old-faithful-inn1.jpg"), name = @"img\old-faithful-inn1.jpg"};
+            Models.Photo photo15 = new Models.Photo {image = Util.getByteImage(@"wwwroot\img\old-faithful-inn2.jpg"), name = @"img\old-faithful-inn2.jpg"};
+            Models.Photo photo16 = new Models.Photo {image = Util.getByteImage(@"wwwroot\img\Roosevelt-Lodge-Cabins.jpg"), name = @"img\Roosevelt-Lodge-Cabins.jpg"};
+            Models.Photo photo17 = new Models.Photo {image = Util.getByteImage(@"wwwroot\img\Roosevelt-Lodge-Cabins1.jpg"), name = @"img\Roosevelt-Lodge-Cabins1.jpg"};
+            Models.Photo photo18 = new Models.Photo {image = Util.getByteImage(@"wwwroot\img\roosevelt-lodge-cabins2.jpg"), name = @"img\roosevelt-lodge-cabins2.jpg"};
+            Models.Photo photo19 = new Models.Photo {image = Util.getByteImage(@"wwwroot\img\madison-campground.jpg"), name = @"img\madison-campground.jpg"};
+            Models.Photo phot20 = new Models.Photo {image = Util.getByteImage(@"wwwroot\img\madison-campground1.jpg"), name = @"img\madison-campground1.jpg"};
+            Models.Photo photo21 = new Models.Photo {image = Util.getByteImage(@"wwwroot\img\madison-campground2.jpg"), name = @"img\madison-campground2.jpg"};
+
+         
+            dataBase.photos.AddRange(photo1, photo2, photo3, photo4, photo5, photo6, photo7, photo8, photo9, photo10, photo11, photo12, photo13, photo14, photo15, photo16, photo17, photo18, photo19, photo20, photo21);
+            
             Models.Hotel hotel1 = new Models.Hotel
             {
-                name = "name",
-                location = "location",
-                phoneNumber = "",
-                description = "description",
-                hrefSite = "hrefSite",
-                countStars = 2,
-                styleHotel = "styleHotel",
-                languages = "languages",
+                //https://www.tripadvisor.ru/Hotel_Review-g150807-d3580898-Reviews-NIZUC_Resort_and_Spa-Cancun_Yucatan_Peninsula.html
+                name = "NIZUC Resort and Spa",
+                location = "Blvd Kukulcan Km 21 Lote 1-03 Km 21.26, Канкун 77500 Мексика",
+                description = "Ищете романтический курорт в Канкуне? Можете больше не искать. Ниcук Резорт & Спа подойдет вам наилучшим образом.Номера оборудованы ТВ с плоским экраном, кондиционером и холодильником, а гости могут в любой момент быть онлайн благодаря бесплатному Wi-Fi, который предлагает курорт.Ниcук Резорт & Спа предлагает услуги консьержа и обслуживание в номер, чтобы сделать пребывание гостей здесь еще более приятным. К услугам гостей также бассейн и завтрак. Те, кто приезжает в Ниcук Резорт & Спа на машине, могут воспользоваться бесплатной парковкой.Не премините посетить итальянские рестораны, например Bacoli Tratoria, Restaurante Condimento и Da Vinci, расположенные недалеко от Ниcук Резорт & Спа.Если у вас будет достаточно времени, посетите Руины Эль-Рей, Yamil Lu'um и Scorpion’s Temple — популярные древние руины, до которых достаточно легко добраться.Сотрудники Ниcук Резорт & Спа с нетерпением вас ждут. Вы будете приятно удивлены уровнем обслуживания.",
+                countStars = 5,
+                styleHotel = "Роскошный ; Романтический",
+                languages = "Испанский",
                 mainPhoto = photo1,
-                photos = new List<Models.Photo>
+                photos = new List<Models.Photo> {photo1, photo2, photo3},
+               //отзывов пока нет
+                reviews = new List<Models.Review>
                 {
-                    photo1
-                },
+                    dataBase.reviews.Where(r => r.header.Equals("ewq")).Single()
+                }
+            };
+            Models.Hotel hotel2 = new Models.Hotel
+            {
+                //https://www.tripadvisor.ru/Hotel_Review-g150807-d642781-Reviews-Hyatt_Zilara_Cancun-Cancun_Yucatan_Peninsula.html
+                name = "Hyatt Zilara Cancun",
+                location = "Boulevard Kukulcan Zona Hotelera, Канкун 77500 Мексика",
+                phoneNumber = "810 52 55 7005 8701",
+                description = "Роял — это отличный выбор для гостей Канкуна, элитная атмосфера и множество полезных услуг сделают пребывание здесь очень приятным. Номера оборудованы ТВ с плоским экраном, мини-баром и холодильником, а выйти в Сеть в Royal Cancun очень просто благодаря бесплатному Wi-Fi. Вы также можете воспользоваться следующими услугами, которые предлагает курорт "все включено": услугами консьержа и обслуживанием номеров. Кроме того, к услугам гостей есть бассейн и завтрак. Дополнительное удобство для гостей — бесплатная парковка. Расположенные поблизости достопримечательности, такие как Scorpion’s Temple (1,1 км) и Avenida Kukulkan (2,1 км), превращают курорт все включено Роял в отличное место пребывания для гостей Канкуна. При посещении Канкуна вам может захотеться отведать омаров в одном из близлежащих ресторанов, например в Lorenzillo's, Harry's Cancún или Puerto Madero. И самое главное — проживая в курорте "все включено" Cancun Royal, вы легко сможете посетить многие великолепные достопримечательности Канкуна, например Tres Rios Ecopark, Parque Urbano Kabah и arte Garden, которые являются популярными парками. Желаем приятно провести время в Канкуне!",
+                countStars = 4,
+                styleHotel = "С красивым видом ; С зелеными насаждениями",
+                languages = "Испанский",
+                mainPhoto = photo4,
+                photos = new List<Models.Photo> {photo4, photo5, photo6},
+                reviews = new List<Models.Review>
+                {
+                    dataBase.reviews.Where(r => r.header.Equals("ewq")).Single()
+                }
+            };
+            Models.Hotel hotel3 = new Models.Hotel
+            {
+                //https://www.tripadvisor.ru/Hotel_Review-g150807-d154868-Reviews-Le_Blanc_Spa_Resort_Cancun-Cancun_Yucatan_Peninsula.html
+                name = "Le Blanc Spa Resort Cancun",
+                location = "Boulevard Kukulcan Km 10 Zona Hotelera, Канкун 77550 Мексика",
+                phoneNumber = "810 1 888-205-9375",
+                description = "Ищете романтический курорт все включено в Канкуне? Можете больше не искать. Ле Бланк Спа Резорт подойдет вам наилучшим образом. Учитывая близкое расположение таких популярных достопримечательностей, как Scorpion’s Temple (1,9 км) и Avenida Kukulkan (2,9 км), гости курорта все включено Le Blanc без труда смогут посетить одни из самых известных мест Канкуна. Номера оборудованы ТВ с плоским экраном, кондиционером и мини-баром, а гости могут в любой момент быть онлайн благодаря бесплатному Wi-Fi, который предлагает курорт все включено. Le Blanc Resort предлагает обслуживание в номер и услуги консьержа, чтобы сделать пребывание гостей здесь еще более приятным. К услугам гостей также бассейн и бесплатный завтрак. Те, кто приезжает в Ле Бланк Спа Резорт на машине, могут воспользоваться бесплатной парковкой. Если вы любите итальянские рестораны, курорт все включено Le Blanc удобно расположен рядом с Casa Rolandi, Limoncello и Restaurante Chianti. Во время своей поездки обязательно посетите популярные художественные галереи, например Antaras Onix и Galeria Balance Cancun, расположенные в шаговой доступности от курорта все включено. Сотрудники Ле Бланк Спа Резорт с нетерпением вас ждут. Вы будете приятно удивлены уровнем обслуживания.",
+                hrefSite = "https://www.leblancsparesorts.com/cancun/en/offers",
+                countStars = 5,
+                styleHotel = "С видом на океан ; Роскошный",
+                languages = "Английский, Испанский",
+                mainPhoto = photo7,
+                photos = new List<Models.Photo> {photo7, photo8, photo9},
+                reviews = new List<Models.Review>
+                {
+                    dataBase.reviews.Where(r => r.header.Equals("ewq")).Single()
+                }
+            };
+            Models.Hotel hotel4 = new Models.Hotel
+            {
+                //https://www.tripadvisor.ru/Hotel_Review-g1229340-d6510287-Reviews-Secrets_Playa_Mujeres_Golf_Spa_Resort-Playa_Mujeres_Yucatan_Peninsula.html
+                name = "Secrets Playa Mujeres Golf & Spa Resort",
+                location = "Prolongacion Bonampak S/N, Плайя-Мухерес 77400 Мексика",
+                phoneNumber = "810 52 998 271 6304",
+                countStars = 5,
+                styleHotel = "С видом на бухту ; С видом на океан",
+                languages = "Испанский",
+                mainPhoto = photo10,
+                photos = new List<Models.Photo> {photo10, photo11, photo12},
+                reviews = new List<Models.Review>
+                {
+                    dataBase.reviews.Where(r => r.header.Equals("ewq")).Single()
+                }
+            };
+            Models.Hotel hotel5 = new Models.Hotel
+            {
+                //https://www.tripadvisor.ru/Hotel_Review-g60999-d220121-Reviews-Old_Faithful_Inn-Yellowstone_National_Park_Wyoming.html
+                name = "Old Faithful Inn",
+                location = "3200 Old Faithful Inn Rd, Йеллоустонский национальный парк, WY 82190",
+                countStars = 2,
+                languages = "Английский",
+                mainPhoto = photo13,
+                photos = new List<Models.Photo> {photo13, photo14, photo15},
+                reviews = new List<Models.Review>
+                {
+                    dataBase.reviews.Where(r => r.header.Equals("ewq")).Single()
+                }
+            };
+            Models.Hotel hotel6 = new Models.Hotel
+            {
+                //https://www.tripadvisor.ru/Hotel_Review-g60999-d220052-Reviews-Roosevelt_Lodge_Cabins-Yellowstone_National_Park_Wyoming.html
+                name = "Roosevelt Lodge Cabins",
+                location = "100 Roosevelt Lodge Rd, Йеллоустонский национальный парк, WY 82190",
+                countStars = 2,
+                languages = "Английский",
+                mainPhoto = photo16,
+                photos = new List<Models.Photo> {photo16, photo17, photo18},
+                reviews = new List<Models.Review>
+                {
+                    dataBase.reviews.Where(r => r.header.Equals("ewq")).Single()
+                }
+            };
+
+            //direction1
+            Models.Hotel hotel7 = new Models.Hotel
+            {
+                //https://www.tripadvisor.ru/Hotel_Review-g60999-d219061-Reviews-Madison_Campground-Yellowstone_National_Park_Wyoming.html
+                name = "Madison Campground",
+                location = "30 Madison Campground Rd, Йеллоустонский национальный парк, WY 82190",
+                countStars = 1,
+                styleHotel = "Семейный",
+                languages = "Английский",
+                mainPhoto = photo19,
+                photos = new List<Models.Photo> {photo19, photo20, photo21},
+                reviews = new List<Models.Review>
+                {
+                    dataBase.reviews.Where(r => r.header.Equals("ewq")).Single()
+                }
+            };
+            Models.Hotel hotel8 = new Models.Hotel
+            {
+                //https://www.tripadvisor.ru/Hotel_Review-g16884615-d1022212-Reviews-Sanctuary_Cap_Cana-Cap_Cana_Punta_Cana_La_Altagracia_Province_Dominican_Republic.html
+                name = "Sanctuary Cap Cana",
+                location = "Boulevard Zona Hotelera Playa Juanillo, Cap Cana, Пунта-Кана 23000 Доминикана",
+                phoneNumber = "810 1 833-297-5292",
+                description = "Sanctuary Cap Cana by Playa Hotels & Resorts — это отличный выбор для путешественников в Пунта-Кане. Это хорошее соотношение цены и качества, комфорта и удобства, романтической атмосферы и услуг, призванных сделать пребывание здесь очень приятным. Номера в Sanctuary Cap Cana Hotel оборудованы ТВ с плоским экраном, холодильником и мини-баром. Гости могут быть постоянно на связи благодаря платному Wi-Fi. К вашим услугам во время пребывания в Sanctuary Cap Cana Hotel также бассейн и бар у бассейна. Ищете, где оставить машину? Sanctuary Cap Cana by Playa Hotels & Resorts предлагает бесплатная парковка предоставляется Если вы ищете хороший паб, вам стоит сходить в Api Beach, Bohemian Tapas & Wine Bar или La Taberna de Charlo, если вы остановились в отеле Sanctuary Cap Cana Hotel. Если вы хотите лучше узнать Пунта-Кана, посетите парк, например Экологический парк Indigenous Eyes. Мы уверены, что Sanctuary Cap Cana by Playa Hotels & Resorts вам понравится. Проживая здесь, вы сможете увидеть все, что Пунта-Кана предлагает своим гостям.",
+                hrefSite = "https://sanctuarycapcana.com/?utm_source=Tripadvisor&utm_medium=hotelwebsite&utm_campaign=businessadvantage",
+                countStars = 5,
+                styleHotel = "С красивым видом",
+                languages = "Английский, Испанский",
+                mainPhoto = photo22,
+                photos = new List<Models.Photo> {photo22, photo23, photo24},
+                reviews = new List<Models.Review>
+                {
+                    dataBase.reviews.Where(r => r.header.Equals("ewq")).Single()
+                }
+            };
+            Models.Hotel hotel3 = new Models.Hotel
+            {
+                //https://www.tripadvisor.ru/Hotel_Review-g150807-d154868-Reviews-Le_Blanc_Spa_Resort_Cancun-Cancun_Yucatan_Peninsula.html
+                name = "Le Blanc Spa Resort Cancun",
+                location = "Boulevard Kukulcan Km 10 Zona Hotelera, Канкун 77550 Мексика",
+                phoneNumber = "810 1 888-205-9375",
+                description = "Ищете романтический курорт все включено в Канкуне? Можете больше не искать. Ле Бланк Спа Резорт подойдет вам наилучшим образом. Учитывая близкое расположение таких популярных достопримечательностей, как Scorpion’s Temple (1,9 км) и Avenida Kukulkan (2,9 км), гости курорта "все включено" Le Blanc без труда смогут посетить одни из самых известных мест Канкуна. Номера оборудованы ТВ с плоским экраном, кондиционером и мини-баром, а гости могут в любой момент быть онлайн благодаря бесплатному Wi-Fi, который предлагает курорт все включено. Le Blanc Resort предлагает обслуживание в номер и услуги консьержа, чтобы сделать пребывание гостей здесь еще более приятным. К услугам гостей также бассейн и бесплатный завтрак. Те, кто приезжает в Ле Бланк Спа Резорт на машине, могут воспользоваться бесплатной парковкой. Если вы любите итальянские рестораны, курорт все включено Le Blanc удобно расположен рядом с Casa Rolandi, Limoncello и Restaurante Chianti. Во время своей поездки обязательно посетите популярные художественные галереи, например Antaras Onix и Galeria Balance Cancun, расположенные в шаговой доступности от курорта все включено. Сотрудники Ле Бланк Спа Резорт с нетерпением вас ждут. Вы будете приятно удивлены уровнем обслуживания.",
+                hrefSite = "https://www.leblancsparesorts.com/cancun/en/offers",
+                countStars = 5,
+                styleHotel = "С видом на океан ; Роскошный",
+                languages = "Английский, Испанский",
+                mainPhoto = photo7,
+                photos = new List<Models.Photo> {photo7, photo8, photo9},
+                reviews = new List<Models.Review>
+                {
+                    dataBase.reviews.Where(r => r.header.Equals("ewq")).Single()
+                }
+            };
+            Models.Hotel hotel3 = new Models.Hotel
+            {
+                //https://www.tripadvisor.ru/Hotel_Review-g150807-d154868-Reviews-Le_Blanc_Spa_Resort_Cancun-Cancun_Yucatan_Peninsula.html
+                name = "Le Blanc Spa Resort Cancun",
+                location = "Boulevard Kukulcan Km 10 Zona Hotelera, Канкун 77550 Мексика",
+                phoneNumber = "810 1 888-205-9375",
+                description = "Ищете романтический курорт все включено в Канкуне? Можете больше не искать. Ле Бланк Спа Резорт подойдет вам наилучшим образом. Учитывая близкое расположение таких популярных достопримечательностей, как Scorpion’s Temple (1,9 км) и Avenida Kukulkan (2,9 км), гости курорта "все включено" Le Blanc без труда смогут посетить одни из самых известных мест Канкуна. Номера оборудованы ТВ с плоским экраном, кондиционером и мини-баром, а гости могут в любой момент быть онлайн благодаря бесплатному Wi-Fi, который предлагает курорт все включено. Le Blanc Resort предлагает обслуживание в номер и услуги консьержа, чтобы сделать пребывание гостей здесь еще более приятным. К услугам гостей также бассейн и бесплатный завтрак. Те, кто приезжает в Ле Бланк Спа Резорт на машине, могут воспользоваться бесплатной парковкой. Если вы любите итальянские рестораны, курорт все включено Le Blanc удобно расположен рядом с Casa Rolandi, Limoncello и Restaurante Chianti. Во время своей поездки обязательно посетите популярные художественные галереи, например Antaras Onix и Galeria Balance Cancun, расположенные в шаговой доступности от курорта все включено. Сотрудники Ле Бланк Спа Резорт с нетерпением вас ждут. Вы будете приятно удивлены уровнем обслуживания.",
+                hrefSite = "https://www.leblancsparesorts.com/cancun/en/offers",
+                countStars = 5,
+                styleHotel = "С видом на океан ; Роскошный",
+                languages = "Английский, Испанский",
+                mainPhoto = photo7,
+                photos = new List<Models.Photo> {photo7, photo8, photo9},
                 reviews = new List<Models.Review>
                 {
                     dataBase.reviews.Where(r => r.header.Equals("ewq")).Single()
@@ -523,25 +719,86 @@ namespace Project.Data
             };
 
 
-        }
+                dataBase.hotels.AddRange(hotel1, hotel2, hotel3, hotel4, hotel5, hotel6, hotel7);
+
+            dataBase.SaveChanges();
+            }
 
         public void createRestaurant()
         {
-            Models.Photo photo1 = new Models.Photo { image = null, name = "" };
+            Models.Photo photo1 = new Models.Photo {image = Util.getByteImage(@"wwwroot\img\lorenzillos.jpg"), name = @"img\lorenzillos.jpg"};
+            Models.Photo photo2 = new Models.Photo {image = Util.getByteImage(@"wwwroot\img\lorenzillos1.jpg"), name = @"img\lorenzillos1.jpg"};
+            Models.Photo photo3 = new Models.Photo {image = Util.getByteImage(@"wwwroot\img\lorenzillos2.jpg"), name = @"img\lorenzillos2.jpg"};
+            Models.Photo photo4 = new Models.Photo {image = Util.getByteImage(@"wwwroot\img\Taqueria-Coapenitos.jpg"), name = @"img\Taqueria-Coapenitos.jpg"};
+            Models.Photo photo5 = new Models.Photo {image = Util.getByteImage(@"wwwroot\img\Taqueria-Coapenitos1.jpg"), name = @"img\Taqueria-Coapenitos1.jpg"};
+            Models.Photo photo6 = new Models.Photo {image = Util.getByteImage(@"wwwroot\img\Taqueria-Coapenitos2.jpg"), name = @"img\Taqueria-Coapenitos2.jpg"};
+            Models.Photo photo7 = new Models.Photo {image = Util.getByteImage(@"wwwroot\img\les-cepages-restaurant.jpg"), name = @"img\les-cepages-restaurant.jpg"};
+            Models.Photo photo8 = new Models.Photo {image = Util.getByteImage(@"wwwroot\img\les-cepages-restaurant1.jpg"), name = @"img\les-cepages-restaurant1.jpg"};
+            Models.Photo photo9 = new Models.Photo {image = Util.getByteImage(@"wwwroot\img\les-cepages-restaurant2.jpg"), name = @"img\les-cepages-restaurant2.jpg"};
+            Models.Photo photo10 = new Models.Photo {image = Util.getByteImage(@"wwwroot\img\Porfirio's-Cancún.jpg"), name = @"img\Porfirio's-Cancún.jpg"};
+            Models.Photo photo11 = new Models.Photo {image = Util.getByteImage(@"wwwroot\img\Porfirio's-Cancún1.jpg"), name = @"img\Porfirio's-Cancún1.jpg"};
+            Models.Photo photo12 = new Models.Photo {image = Util.getByteImage(@"wwwroot\img\Porfirio's-Cancún2.jpg"), name = @"img\Porfirio's-Cancún2.jpg"};
+            dataBase.photos.AddRange(photo1, photo2, photo3, photo4, photo5, photo6, photo7, photo8, photo9, photo10, photo11, photo12);
 
+             //direction 6 Канкун, Мексика
             Models.Restaurant restaurant1 = new Models.Restaurant
             {
-                name = "name",
-                location = "location",
-                phone = "",
-                webSite = "webSite",
-                typeCuisine = "typeCuisine",
-                service = "service",
+                //https://www.tripadvisor.ru/Restaurant_Review-g150807-d787079-Reviews-Lorenzillo_s-Cancun_Yucatan_Peninsula.html
+                name = "Lorenzillo's",
+                location = "Blvd. Kukulcan km 10.5 Zona Hotelera, Канкун 77500 Мексика",
+                phone = "+52 998 883 1254",
+                webSite = "http://www.lorenzillos.com.mx/",
+                typeCuisine = "Карибская, Морепродукты, Супы",
+                specialMenu = "Подходит для вегетарианцев, Для веганов, Безглютеновые блюда"
                 mainPhoto = photo1,
-                photos = new List<Models.Photo>
+                photos = new List<Models.Photo> {photo1, photo2, photo3},
+                reviews = new List<Models.Review>
                 {
-                    photo1
-                },
+                    dataBase.reviews.Where(r => r.header.Equals("ewq")).Single()
+                }
+            };
+            Models.Restaurant restaurant2 = new Models.Restaurant
+            {
+                //https://www.tripadvisor.ru/Restaurant_Review-g150807-d9726218-Reviews-Taqueria_Coapenitos-Cancun_Yucatan_Peninsula.html
+                name = "Taqueria Coapenitos",
+                location = "Av Nader No.25 Edificio Tapachula SM 02, Канкун 77500 Мексика",
+                phone = "+52 998 415 4227",
+                typeCuisine = "Мексиканская, Латиноамериканская, Бар",
+                specialMenu = "Подходит для вегетарианцев"
+                mainPhoto = photo4,
+                photos = new List<Models.Photo> {photo4, photo5, photo6},
+                reviews = new List<Models.Review>
+                {
+                    dataBase.reviews.Where(r => r.header.Equals("ewq")).Single()
+                }
+            };
+            Models.Restaurant restaurant3 = new Models.Restaurant
+            {
+                //https://www.tripadvisor.ru/Restaurant_Review-g150807-d3378512-Reviews-Les_Cepages_Restaurant-Cancun_Yucatan_Peninsula.html
+                name = "Les Cepages Restaurant",
+                location = "Av. Nichupté Sm 16 Plaza Nichupté Local 15, Канкун 77505 Мексика",
+                phone = "+52 998 802 1093",
+                webSite = "https://www.facebook.com/RestLesCepages/",
+                typeCuisine = "Французская, Европейская, Современная, Международная",
+                specialMenu = "Подходит для вегетарианцев, Для веганов, Безглютеновые блюда"
+                mainPhoto = photo7,
+                photos = new List<Models.Photo> {photo7, photo8, photo9},
+                reviews = new List<Models.Review>
+                {
+                    dataBase.reviews.Where(r => r.header.Equals("ewq")).Single()
+                }
+            };
+            Models.Restaurant restaurant4 = new Models.Restaurant
+            {
+                //https://www.tripadvisor.ru/Restaurant_Review-g150807-d8002763-Reviews-Porfirio_s_Cancun-Cancun_Yucatan_Peninsula.html
+                name = "Porfirio's Cancún",
+                location = "Boulevard Kukulcan 14. 2 No. 1 Zona Hotelera, Канкун 77504 Мексика",
+                phone = "+52 998 840 6040",
+                webSite = "https://porfirios.com.mx/restaurante-mexicano-en-cancun",
+                typeCuisine = "Мексиканская, Латиноамериканская, Современная",
+                specialMenu = "Подходит для вегетарианцев, Для веганов, Безглютеновые блюда"
+                mainPhoto = photo10,
+                photos = new List<Models.Photo> {photo10, photo11, photo12},
                 reviews = new List<Models.Review>
                 {
                     dataBase.reviews.Where(r => r.header.Equals("ewq")).Single()
