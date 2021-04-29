@@ -14,10 +14,8 @@ namespace Project.Models
         [Required]
         public string location { get; set; }
 
-        [Required]
         public string phone { get; set; }
 
-        [Required]
         public string webSite { get; set; }
 
         [Required]
@@ -29,8 +27,7 @@ namespace Project.Models
         [Required]
         public string typeCuisine { get; set; }
 
-        [Required]
-        public string service { get; set; }
+        public string specialMenu { get; set; }
 
         public List<Review> reviews { get; set; }
     }

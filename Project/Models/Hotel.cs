@@ -14,13 +14,10 @@ namespace Project.Models
         [Required]
         public string location { get; set; }
 
-        [Required]
         public string phoneNumber { get; set; }
 
-        [Required]
         public string description { get; set; }
 
-        [Required]
         public string hrefSite { get; set; }
 
         [Required]
