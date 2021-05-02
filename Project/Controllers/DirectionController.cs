@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 using Project.Models;
 using Project.Service;
 using System;
@@ -11,15 +12,18 @@ namespace Project.Controllers
     public class DirectionController : Controller
     {
         private IHomeService homeService;
+        private UserManager<User> userManager;
 
-        public DirectionController(IHomeService homeService)
+        public DirectionController(IHomeService homeService, UserManager<User> userManager)
         {
             this.homeService = homeService;
+            this.userManager = userManager;
         }
 
         public ActionResult Index(int id)
         {
             Direction direction = homeService.getDirectionById(id);
+            User user = userManager.GetUserAsync(User).Result;
             if (direction == null)
             {
                 return LocalRedirect("~/");
@@ -48,11 +52,10 @@ namespace Project.Controllers
             ViewBag.name = direction.name;
             ViewBag.shortDescription = direction.shortDescription;
             ViewBag.description = direction.description;
-            ViewBag.isUserAuthorization = DefaultSettings.isAuthorization;
-            ViewBag.hrefUserProfile = "/Account?userId=" + DefaultSettings.userId;
-            if (DefaultSettings.isAuthorization)
+            ViewBag.hrefUserProfile = "/Account?userId=" + user?.Id;
+            if (User.Identity.IsAuthenticated)
             {
-                ViewBag.photoProfile = homeService.getUserById(DefaultSettings.userId).profile.mainPhoto;
+                ViewBag.photoProfile = homeService.getUserById(userManager.GetUserId(User)).Result.profile.mainPhoto;
             }
 
             return View();

@@ -1,55 +1,48 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using Project.Context;
 using Project.Data;
 using Project.Models;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace Project.Service.Impl
 {
     public class HomeService : IHomeService
     {
         private ApplicationContext applicationContext;
+        private UserManager<User> userManager;
 
-        public HomeService(ApplicationContext applicationContext)
+        public HomeService(ApplicationContext applicationContext, UserManager<User> userManager)
         {
             this.applicationContext = applicationContext;
+            this.userManager = userManager;
         }
 
-        public User getUserById(int id)
+        public async Task<User> getUserById(string id)
         {
-            return applicationContext.users
+            return await applicationContext.users
                 .Include(user => user.profile)
                     .ThenInclude(profile => profile.mainPhoto)
                 .Include(user => user.profile)
                     .ThenInclude(profile => profile.userInfo)
                 .Include(user => user.profile)
                     .ThenInclude(profile => profile.backgroundPhoto)
-                .Where(user => user.id == id)
-                .Single();
+                .Where(user => user.Id == id)
+                .FirstOrDefaultAsync();
         }
 
-        public Photo getPhotoByName(string name)
+        public async Task<Photo> getPhotoByName(string name)
         {
-            return applicationContext.photos
+            return await applicationContext.photos
                 .Where(photo => photo.name.Equals(name))
-                .FirstOrDefault();
+                .FirstOrDefaultAsync();
         }
 
-        public User getUserByLoginAndPassword(string login, string password)
+        public async Task<List<Direction>> getDirections()
         {
-            return applicationContext.users
-                .Include(user => user.profile)
-                    .ThenInclude(profile => profile.mainPhoto)
-                .Include(user => user.profile)
-                    .ThenInclude(profile => profile.userInfo)
-                .Where(user => user.login.Equals(login) && user.password.Equals(password))
-                .FirstOrDefault();
-        }
-
-        public List<Direction> getDirections()
-        {
-            return applicationContext.directions
+            return await applicationContext.directions
                  .Include(direction => direction.mainPhoto)
                  .Include(direction => direction.photos)
 
@@ -61,14 +54,14 @@ namespace Project.Service.Impl
 
                  .Include(direction => direction.restaurants)
                     .ThenInclude(restaurants => restaurants.reviews)
-                 .ToList();
+                 .ToListAsync();
         }
 
         public void startMigrationData()
         {
             if (DefaultSettings.isFirstData)
             {
-                new DefaultData(applicationContext).createDefaultData();
+                new DefaultData(applicationContext, userManager).createDefaultData();
             }
         }
 
@@ -95,9 +88,9 @@ namespace Project.Service.Impl
             applicationContext.SaveChanges();
         }
 
-        public List<Review> getReviewsByUserId(int userId)
+        public async Task<List<Review>> getReviewsByUserId(string userId)
         {
-            return applicationContext.reviews
+            return await applicationContext.reviews
                  .Include(review => review.user)
                     .ThenInclude(user => user.profile)
                         .ThenInclude(profile => profile.mainPhoto)
@@ -105,8 +98,8 @@ namespace Project.Service.Impl
                     .ThenInclude(user => user.profile)
                         .ThenInclude(profile => profile.userInfo)
                  .Include(review => review.photos)
-                 .Where(review => review.user.id == userId)
-                 .ToList();
+                 .Where(review => review.user.Id == userId)
+                 .ToListAsync();
         }
 
         public Photo getPhotoById(int id)
@@ -120,17 +113,6 @@ namespace Project.Service.Impl
         {
             applicationContext.users.Add(user);
             applicationContext.SaveChanges();
-        }
-
-        public User getUserByLogin(string login)
-        {
-            return applicationContext.users
-               .Include(user => user.profile)
-                   .ThenInclude(profile => profile.mainPhoto)
-               .Include(user => user.profile)
-                   .ThenInclude(profile => profile.userInfo)
-               .Where(user => user.login.Equals(login))
-               .FirstOrDefault();
         }
 
         public Landmark getLandmarkByName(string name)
@@ -199,13 +181,13 @@ namespace Project.Service.Impl
             return direction;
         }
 
-        public Hotel getHotelById(int? id)
+        public async Task<Hotel> getHotelById(int? id)
         {
-            Hotel hotel = applicationContext.hotels
+            Hotel hotel = await applicationContext.hotels
                  .Include(hotel => hotel.mainPhoto)
                  .Include(hotel => hotel.reviews)
                  .Where(hotel => hotel.id == id)
-                 .FirstOrDefault();
+                 .FirstOrDefaultAsync();
 
             if (hotel != null)
             {
@@ -217,13 +199,13 @@ namespace Project.Service.Impl
             return hotel;
         }
 
-        public Landmark getLandmarkById(int? id)
+        public async Task<Landmark> getLandmarkById(int? id)
         {
-            Landmark landmark = applicationContext.landmarks
+            Landmark landmark = await applicationContext.landmarks
                  .Include(landmark => landmark.mainPhoto)
                  .Include(landmark => landmark.reviews)
                  .Where(landmark => landmark.id == id)
-                 .FirstOrDefault();
+                 .FirstOrDefaultAsync();
 
             if (landmark != null)
             {
@@ -235,13 +217,13 @@ namespace Project.Service.Impl
             return landmark;
         }
 
-        public Restaurant getRestaurantById(int? id)
+        public async Task<Restaurant> getRestaurantById(int? id)
         {
-            Restaurant restaurant = applicationContext.restaurants
+            Restaurant restaurant = await applicationContext.restaurants
                  .Include(restaurant => restaurant.mainPhoto)
                  .Include(restaurant => restaurant.reviews)
                  .Where(restaurant => restaurant.id == id)
-                 .FirstOrDefault();
+                 .FirstOrDefaultAsync();
 
             if (restaurant != null)
             {
@@ -251,6 +233,27 @@ namespace Project.Service.Impl
             }
 
             return restaurant;
+        }
+
+        public async Task<List<Landmark>> getLandmarks()
+        {
+            return await applicationContext.landmarks
+                .Include(landmark => landmark.mainPhoto)
+                .ToListAsync();
+        }
+
+        public async Task<List<Hotel>> getHotels()
+        {
+            return await applicationContext.hotels
+                .Include(hotel => hotel.mainPhoto)
+                .ToListAsync();
+        }
+
+        public async Task<List<Restaurant>> getRestaurants()
+        {
+            return await applicationContext.restaurants
+                .Include(restaurant => restaurant.mainPhoto)
+                .ToListAsync();
         }
     }
 }

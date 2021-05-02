@@ -1,0 +1,13 @@
+﻿<form asp-controller="Review" asp-action="Index">
+    <div>
+        Title: <input type="text" name="searchText" />
+        <input type="submit" value="Поиск" formaction="~/Review/Index" />
+    </div>
+</form>
+
+@foreach(var information in ViewBag.reviewInformation)
+{
+    <p>
+        @information.name
+    </p>
+}

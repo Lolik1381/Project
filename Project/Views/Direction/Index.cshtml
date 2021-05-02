@@ -15,17 +15,18 @@
                     <a href="/" style="display: block; float: left; margin-top: 0; margin-left: 0; margin-top: -5px;">
                         <img src="~/img/TRIP-2.png" alt="" class="logo">
                     </a>
-                    @if (!ViewBag.isUserAuthorization)
+                    @if (!User.Identity.IsAuthenticated)
                     {
-                        <a href="#popup" class="nav_1">Войти</a>
+                        <a asp-controller="Account" asp-action="Login" class="nav_1">Вход</a>
+                        <a asp-controller="Account" asp-action="Register" class="nav_1" style="width:110px;">Регистрация</a>
                     }
                     else
                     {
                         <a href=@ViewBag.hrefUserProfile class="nav_1 nav_1-1" style="display: block; margin-top: -0px;">
                             <img src="data:image/jpeg;base64, @(Convert.ToBase64String(ViewBag.photoProfile.image))" alt="" class="img-enter">
                         </a>
+                        <a href=@Url.Action("Index", "Review") class="nav_2">Написать отзыв</a>
                     }
-                    <a href="#" class="nav_2">Опубликовать</a>
                 </div>
             </div>
         </div>

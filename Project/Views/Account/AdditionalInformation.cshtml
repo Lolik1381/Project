@@ -1,0 +1,39 @@
+﻿@model Project.ViewModels.AdditionalInformationViewModel
+
+<h2>Дополните информацию о себе</h2>
+<form method="post" asp-controller="Account" asp-action="AdditionalInformation">
+    <div asp-validation-summary="ModelOnly"></div>
+    <div>
+        <label asp-for="Name"></label><br />
+        <input asp-for="Name" />
+        <span asp-validation-for="Name"></span>
+    </div>
+    <div>
+        <label asp-for="Lastname"></label><br />
+        <input asp-for="Lastname" />
+        <span asp-validation-for="Lastname"></span>
+    </div>
+    <div>
+        <label asp-for="City"></label><br />
+        <input asp-for="City" />
+        <span asp-validation-for="City"></span>
+    </div>
+    <div>
+        <label asp-for="Country"></label><br />
+        <input asp-for="Country" />
+        <span asp-validation-for="Country"></span>
+    </div>
+    <div>
+        <label asp-for="Websity"></label><br />
+        <input asp-for="Websity" />
+        <span asp-validation-for="Websity"></span>
+    </div>
+    <div>
+        <label asp-for="PersonalInformation"></label><br />
+        <input asp-for="PersonalInformation" />
+        <span asp-validation-for="PersonalInformation"></span>
+    </div>
+    <div>
+        <input type="submit" value="Подтвердить" />
+    </div>
+</form>

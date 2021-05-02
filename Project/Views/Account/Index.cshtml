@@ -30,9 +30,9 @@
                         <img src="~/img/TRIP-2.png" alt="" class="logo">
                     </a>
                     <form method="post" action="post">
-                        <input type="submit" value="Выйти" formaction="~/Account/Exit" class="nav_1 nav-form" />
+                        <input type="submit" value="Выйти" formaction="~/Account/Logout" class="nav_1 nav-form" />
                     </form>    
-                    <a href="#" class="nav_2">Опубликовать</a>
+                    <a href=@Url.Action("Index", "Review") class="nav_2">Написать отзыв</a>
                 </div>
 			</div>
 		</div>
