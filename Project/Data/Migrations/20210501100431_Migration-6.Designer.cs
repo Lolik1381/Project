@@ -10,8 +10,8 @@ using Project.Context;
 namespace Project.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    [Migration("20210429161845_Migration-3")]
-    partial class Migration3
+    [Migration("20210501100431_Migration-6")]
+    partial class Migration6
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -64,11 +64,9 @@ namespace Project.Migrations
                         .HasColumnType("integer");
 
                     b.Property<string>("description")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("hrefSite")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("languages")
@@ -87,11 +85,12 @@ namespace Project.Migrations
                         .HasColumnType("text");
 
                     b.Property<string>("phoneNumber")
-                        .IsRequired()
                         .HasColumnType("text");
 
+                    b.Property<decimal>("rating")
+                        .HasColumnType("numeric");
+
                     b.Property<string>("styleHotel")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.HasKey("id");
@@ -100,7 +99,7 @@ namespace Project.Migrations
 
                     b.HasIndex("mainPhotoid");
 
-                    b.ToTable("restingPlaces");
+                    b.ToTable("hotels");
                 });
 
             modelBuilder.Entity("Project.Models.Landmark", b =>
@@ -234,11 +233,12 @@ namespace Project.Migrations
                         .HasColumnType("text");
 
                     b.Property<string>("phone")
-                        .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<string>("service")
-                        .IsRequired()
+                    b.Property<decimal>("rating")
+                        .HasColumnType("numeric");
+
+                    b.Property<string>("specialMenu")
                         .HasColumnType("text");
 
                     b.Property<string>("typeCuisine")
@@ -246,7 +246,6 @@ namespace Project.Migrations
                         .HasColumnType("text");
 
                     b.Property<string>("webSite")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.HasKey("id");
@@ -265,15 +264,6 @@ namespace Project.Migrations
                         .HasColumnType("integer")
                         .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
-                    b.Property<int?>("Hotelid")
-                        .HasColumnType("integer");
-
-                    b.Property<int?>("Landmarkid")
-                        .HasColumnType("integer");
-
-                    b.Property<int?>("Restaurantid")
-                        .HasColumnType("integer");
-
                     b.Property<string>("description")
                         .IsRequired()
                         .HasColumnType("text");
@@ -282,19 +272,28 @@ namespace Project.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
+                    b.Property<int?>("hotelId")
+                        .HasColumnType("integer");
+
+                    b.Property<int?>("landmarkId")
+                        .HasColumnType("integer");
+
                     b.Property<decimal>("rating")
                         .HasColumnType("numeric");
+
+                    b.Property<int?>("restaurantId")
+                        .HasColumnType("integer");
 
                     b.Property<int?>("userid")
                         .HasColumnType("integer");
 
                     b.HasKey("id");
 
-                    b.HasIndex("Hotelid");
+                    b.HasIndex("hotelId");
 
-                    b.HasIndex("Landmarkid");
+                    b.HasIndex("landmarkId");
 
-                    b.HasIndex("Restaurantid");
+                    b.HasIndex("restaurantId");
 
                     b.HasIndex("userid");
 
@@ -447,15 +446,15 @@ namespace Project.Migrations
                 {
                     b.HasOne("Project.Models.Hotel", null)
                         .WithMany("reviews")
-                        .HasForeignKey("Hotelid");
+                        .HasForeignKey("hotelId");
 
                     b.HasOne("Project.Models.Landmark", null)
                         .WithMany("reviews")
-                        .HasForeignKey("Landmarkid");
+                        .HasForeignKey("landmarkId");
 
                     b.HasOne("Project.Models.Restaurant", null)
                         .WithMany("reviews")
-                        .HasForeignKey("Restaurantid");
+                        .HasForeignKey("restaurantId");
 
                     b.HasOne("Project.Models.User", "user")
                         .WithMany()

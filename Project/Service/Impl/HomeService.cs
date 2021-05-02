@@ -52,7 +52,15 @@ namespace Project.Service.Impl
             return applicationContext.directions
                  .Include(direction => direction.mainPhoto)
                  .Include(direction => direction.photos)
+
                  .Include(direction => direction.landmarks)
+                    .ThenInclude(landmark => landmark.reviews)
+
+                 .Include(direction => direction.hotels)
+                    .ThenInclude(hotels => hotels.reviews)
+
+                 .Include(direction => direction.restaurants)
+                    .ThenInclude(restaurants => restaurants.reviews)
                  .ToList();
         }
 
@@ -136,19 +144,113 @@ namespace Project.Service.Impl
 
         public Direction getDirectionById(int id)
         {
-            return applicationContext.directions
+            Direction direction = applicationContext.directions
                 .Include(direction => direction.mainPhoto)
                 .Include(direction => direction.photos)
+
                 .Include(direction => direction.landmarks)
                     .ThenInclude(landmark => landmark.photos)
                 .Include(direction => direction.landmarks)
+                    .ThenInclude(hotel => hotel.mainPhoto)
+                .Include(direction => direction.landmarks)
                     .ThenInclude(landmark => landmark.reviews)
+
                 .Include(direction => direction.hotels)
-                    .ThenInclude(landmark => landmark.mainPhoto)
+                    .ThenInclude(landmark => landmark.photos)
+                .Include(direction => direction.hotels)
+                    .ThenInclude(hotel => hotel.mainPhoto)
+                .Include(direction => direction.hotels)
+                    .ThenInclude(hotel => hotel.reviews)
+
                 .Include(direction => direction.restaurants)
-                    .ThenInclude(landmark => landmark.mainPhoto)
+                    .ThenInclude(landmark => landmark.photos)
+                .Include(direction => direction.restaurants)
+                    .ThenInclude(restaurant => restaurant.mainPhoto)
+                .Include(direction => direction.restaurants)
+                    .ThenInclude(restaurant => restaurant.reviews)
+
                 .Where(d => d.id == id)
                 .FirstOrDefault();
+            
+            if (direction != null)
+            {
+                foreach (var landmarks in direction.landmarks)
+                {
+                    landmarks.rating = landmarks.reviews.Count > 0
+                        ? landmarks.reviews.Sum(review => review.rating) / landmarks.reviews.Count
+                        : 0;
+                }
+
+                foreach (var hotel in direction.hotels)
+                {
+                    hotel.rating = hotel.reviews.Count > 0
+                        ? hotel.reviews.Sum(review => review.rating) / hotel.reviews.Count
+                        : 0;
+                }
+
+                foreach (var restaurants in direction.restaurants)
+                {
+                    restaurants.rating = restaurants.reviews.Count > 0
+                        ? restaurants.reviews.Sum(review => review.rating) / restaurants.reviews.Count
+                        : 0;
+                }
+            }
+
+            return direction;
+        }
+
+        public Hotel getHotelById(int? id)
+        {
+            Hotel hotel = applicationContext.hotels
+                 .Include(hotel => hotel.mainPhoto)
+                 .Include(hotel => hotel.reviews)
+                 .Where(hotel => hotel.id == id)
+                 .FirstOrDefault();
+
+            if (hotel != null)
+            {
+                hotel.rating = hotel.reviews.Count > 0
+                    ? hotel.reviews.Sum(review => review.rating) / hotel.reviews.Count
+                    : 0;
+            }
+
+            return hotel;
+        }
+
+        public Landmark getLandmarkById(int? id)
+        {
+            Landmark landmark = applicationContext.landmarks
+                 .Include(landmark => landmark.mainPhoto)
+                 .Include(landmark => landmark.reviews)
+                 .Where(landmark => landmark.id == id)
+                 .FirstOrDefault();
+
+            if (landmark != null)
+            {
+                landmark.rating = landmark.reviews.Count > 0
+                    ? landmark.reviews.Sum(review => review.rating) / landmark.reviews.Count
+                    : 0;
+            }
+
+            return landmark;
+        }
+
+        public Restaurant getRestaurantById(int? id)
+        {
+            Restaurant restaurant = applicationContext.restaurants
+                 .Include(restaurant => restaurant.mainPhoto)
+                 .Include(restaurant => restaurant.reviews)
+                 .Where(restaurant => restaurant.id == id)
+                 .FirstOrDefault();
+
+            if (restaurant != null)
+            {
+                restaurant.rating = restaurant.reviews.Count > 0
+                    ? restaurant.reviews.Sum(review => review.rating) / restaurant.reviews.Count
+                    : 0;
+            }
+
+            return restaurant;
         }
     }
 }

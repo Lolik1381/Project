@@ -13,7 +13,7 @@ namespace Project.Context
         public DbSet<Landmark> landmarks { get; set; }
         public DbSet<Review> reviews { get; set; }
         public DbSet<Restaurant> restaurants { get; set; }
-        public DbSet<Hotel> restingPlaces { get; set; }
+        public DbSet<Hotel> hotels { get; set; }
 
         public ApplicationContext(DbContextOptions<ApplicationContext> options) : base(options)
         {

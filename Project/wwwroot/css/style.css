@@ -603,7 +603,7 @@ input[name="r"] {
 }
 
 .repost {
-    width: 600px;
+    width: 780px;
     min-height: 10px;
     background-color: #fff;
     margin-top: 20px;
@@ -780,7 +780,7 @@ input[name="r"] {
     font-weight: bold;
     display: block;
     float: left;
-    margin-left: 5px;
+    margin-top: 5px;
     clear: right;
     margin-bottom: 5px;
 }
@@ -980,17 +980,16 @@ input[name="r"] {
     color: white;
     font-family: "Arial Black", Gadget, sans-serif;
     font-weight: bold;
-    font-size: 30px;
+    font-size: 20px;
     line-height: 35px;
 }
 
 .shadow {
     position: absolute;
-    z-index: 100;
-    bottom: 3px;
-    left: 5px;
+    bottom: -5px;
     width: 242px;
-    height: 242px;
+    height: 250px;
+    margin-left: 5px;
     border-radius: 15px;
     background-image: linear-gradient(to top, black -100%, transparent 30%);
 }
@@ -1004,7 +1003,7 @@ input[name="r"] {
 
 /*Рейтинг для мест и фото*/
 .rating-place {
-    width: 200px;
+    width: 400px;
     height: 40px;
     border: 1px solid lightgray;
     margin-top: 10px;

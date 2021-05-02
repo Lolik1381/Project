@@ -22,7 +22,7 @@
                     else
                     {
                         <a href=@ViewBag.hrefUserProfile class="nav_1 nav_1-1" style="display: block; margin-top: -0px;">
-                            <img src="img/italy.jpg" alt="" class="img-enter">
+                            <img src="data:image/jpeg;base64, @(Convert.ToBase64String(ViewBag.photoProfile.image))" alt="" class="img-enter">
                         </a>
                     }
                     <a href="#" class="nav_2">Опубликовать</a>
@@ -75,8 +75,8 @@
                     {
                         <div class="photo-block slides direction-slides-1">
                             <div class="content-photo">
-                                <a href="#" class="slide">
-                                    <img src="data:image/jpeg;base64,@(Convert.ToBase64String(landmark.photos[0].image))" alt="" width="250" height="179">
+                                <a href=@Url.Action("Index", "Landmark", new { id = landmark.id }) class="slide">
+                                    <img src="data:image/jpeg;base64,@(Convert.ToBase64String(landmark.mainPhoto.image))" alt="" width="250" height="179">
                                 </a>
                                 <p class="paragraf">@landmark.name</p>
                                 <div class="message-rating-direction message-rating">
@@ -119,8 +119,8 @@
                     {
                         <div class="photo-block slides direction-slides-2">
                             <div class="content-photo">
-                                <a href="#" class="slide">
-                                    <img src="data:image/jpeg;base64,@(Convert.ToBase64String(hotel.photos[0].image))" alt="" width="250" height="179">
+                                <a href=@Url.Action("Index", "Hotel", new { id = hotel.id }) class="slide">
+                                    <img src="data:image/jpeg;base64,@(Convert.ToBase64String(hotel.mainPhoto.image))" alt="" width="250" height="179">
                                 </a>
                                 <p class="paragraf">@hotel.name</p>
                                 <div class="message-rating-direction message-rating">
@@ -163,12 +163,12 @@
                     {
                         <div class="photo-block slides direction-slides-3">
                             <div class="content-photo">
-                                <a href="#" class="slide">
-                                    <img src="data:image/jpeg;base64,@(Convert.ToBase64String(restaurant.photos[0].image))" alt="" width="250" height="179">
+                                <a href=@Url.Action("Index", "Restaurant", new { id = restaurant.id }) class="slide">
+                                    <img src="data:image/jpeg;base64,@(Convert.ToBase64String(restaurant.mainPhoto.image))" alt="" width="250" height="179">
                                 </a>
                                 <p class="paragraf">@restaurant.name</p>
                                 <div class="message-rating-direction message-rating">
-                                    @for (int i = 0; i < Math.Round(restaurant); ++i)
+                                    @for (int i = 0; i < Math.Round(restaurant.rating); ++i)
                                     {
                                         <div class="message-rating-green"></div>
                                     }

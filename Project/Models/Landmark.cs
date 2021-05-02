@@ -12,13 +12,11 @@ namespace Project.Models
         public string name { get; set; }
 
         [Required]
-        public decimal rating { get; set; }
-
-        [Required]
         public Photo mainPhoto { get; set; }
 
-        [Required]
         public List<Photo> photos { get; set; }
+
+        public decimal rating { get; set; }
 
         public List<Review> reviews { get; set; }
     }

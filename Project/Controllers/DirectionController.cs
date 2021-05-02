@@ -25,12 +25,22 @@ namespace Project.Controllers
                 return LocalRedirect("~/");
             }
 
+            List<Photo> allPhoto = new List<Photo>();
+            allPhoto.Add(direction.mainPhoto);
+            allPhoto.AddRange(direction.photos);
+            direction.landmarks.ForEach(l => allPhoto.Add(l.mainPhoto));
+            direction.landmarks.ForEach(l => allPhoto.AddRange(l.photos));
+            direction.hotels.ForEach(h => allPhoto.Add(h.mainPhoto));
+            direction.hotels.ForEach(h => allPhoto.AddRange(h.photos));
+            direction.restaurants.ForEach(r => allPhoto.Add(r.mainPhoto));
+            direction.restaurants.ForEach(r => allPhoto.AddRange(r.photos));
+
             Random random = new Random();
             ViewBag.galleryPhotos = new List<Photo>
-        {
-                direction.photos[random.Next(direction.photos.ToArray().Length)],
-                direction.photos[random.Next(direction.photos.ToArray().Length)],
-                direction.photos[random.Next(direction.photos.ToArray().Length)]
+            {
+                allPhoto[random.Next(allPhoto.Count)],
+                allPhoto[random.Next(allPhoto.Count)],
+                allPhoto[random.Next(allPhoto.Count)]
             };
             ViewBag.landmarks = direction.landmarks;
             ViewBag.hotel = direction.hotels;
@@ -39,6 +49,11 @@ namespace Project.Controllers
             ViewBag.shortDescription = direction.shortDescription;
             ViewBag.description = direction.description;
             ViewBag.isUserAuthorization = DefaultSettings.isAuthorization;
+            ViewBag.hrefUserProfile = "/Account?userId=" + DefaultSettings.userId;
+            if (DefaultSettings.isAuthorization)
+            {
+                ViewBag.photoProfile = homeService.getUserById(DefaultSettings.userId).profile.mainPhoto;
+            }
 
             return View();
         }

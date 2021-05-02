@@ -23,7 +23,6 @@ namespace Project.Models
         [Required]
         public int countStars { get; set; }
 
-        [Required]
         public string styleHotel { get; set; }
 
         [Required]
@@ -34,6 +33,8 @@ namespace Project.Models
 
         [Required]
         public Photo mainPhoto { get; set; }
+
+        public decimal rating { get; set; }
 
         public List<Review> reviews { get; set; }
     }

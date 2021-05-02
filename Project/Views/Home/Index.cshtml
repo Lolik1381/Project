@@ -20,7 +20,7 @@
                     else
                     {
                         <a href=@ViewBag.hrefUserProfile class="nav_1 nav_1-1" style="display: block; margin-top: -0px;">
-                            <img src="img/italy.jpg" alt="" class="img-enter">
+                            <img src="data:image/jpeg;base64, @(Convert.ToBase64String(ViewBag.photoProfile.image))" alt="" class="img-enter">
                         </a>
                     }
                     <a href="#" class="nav_2">Опубликовать</a>
@@ -49,7 +49,7 @@
                     <a href=@Url.Action("Index", "Direction", new { id = direction.id }) class="slide">
                         <img src=@direction.mainPhoto.name alt="" height="150" class="img-slide">
                         <div class="shadow">
-                            <div class="text-over-photo">Новый Амстердам</div>
+                            <div class="text-over-photo">@direction.name</div>
                         </div>
                     </a>
                     }

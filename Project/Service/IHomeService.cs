@@ -17,8 +17,11 @@ namespace Project.Service
         public User getUserById(int id);
         public Photo getPhotoByName(string name);
         public Photo getPhotoById(int id);
+        public Landmark getLandmarkById(int? id);
         public Landmark getLandmarkByName(string name);
         public Direction getDirectionById(int id);
+        public Hotel getHotelById(int? id);
+        public Restaurant getRestaurantById(int? id);
 
         public void changeProfile(Profile profile, Photo mainPhoto, string name, string lastName, Photo backgroundPhoto);
         public void changeUserInfo(UserInfo userInfo, string placeResidence, string personalInformation, string hrefWebSite);

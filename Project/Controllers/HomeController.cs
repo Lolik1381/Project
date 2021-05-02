@@ -23,6 +23,10 @@ namespace Project.Controllers
             ViewBag.directions = directions;
             ViewBag.isUserAuthorization = DefaultSettings.isAuthorization;
             ViewBag.hrefUserProfile = "/Account?userId=" + DefaultSettings.userId;
+            if (DefaultSettings.isAuthorization)
+            {
+                ViewBag.photoProfile = homeService.getUserById(DefaultSettings.userId).profile.mainPhoto;
+            }
 
             return View();
         }

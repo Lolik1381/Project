@@ -21,5 +21,11 @@ namespace Project.Models
         public string description { get; set; }
 
         public List<Photo> photos { get; set; }
+
+        public int? hotelId { get; set; }
+
+        public int? landmarkId { get; set; }
+
+        public int? restaurantId { get; set; }
     }
 }

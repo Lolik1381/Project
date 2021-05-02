@@ -31,8 +31,52 @@ namespace Project.Controllers
 
             Profile profile = user.profile;
             List<Review> reviews = homeService.getReviewsByUserId(user.id);
+            List<UserAccountReview> userAccountReviews = new List<UserAccountReview>();
+            
+            reviews.ForEach(review =>
+            {
+                Hotel hotel = review.hotelId != null ? homeService.getHotelById(review.hotelId) : null;
+                Landmark landmark = review.landmarkId != null ? homeService.getLandmarkById(review.landmarkId) : null;
+                Restaurant restaurant = review.restaurantId != null ? homeService.getRestaurantById(review.restaurantId) : null;
+
+                if (hotel != null)
+                {
+                    userAccountReviews.Add(new UserAccountReview
+                    {
+                        reviewId = review.id,
+                        photo = hotel.mainPhoto,
+                        countReview = hotel.reviews.Count,
+                        name = hotel.name,
+                        rating = hotel.rating
+                    });
+                } else if (landmark != null)
+                {
+                    userAccountReviews.Add(new UserAccountReview
+                    {
+                        reviewId = review.id,
+                        photo = landmark.mainPhoto,
+                        countReview = landmark.reviews.Count,
+                        name = landmark.name,
+                        rating = landmark.rating
+                    });
+                } else if (restaurant != null)
+                {
+                    userAccountReviews.Add(new UserAccountReview
+                    {
+                        reviewId = review.id,
+                        photo = restaurant.mainPhoto,
+                        countReview = restaurant.reviews.Count,
+                        name = restaurant.name,
+                        rating = restaurant.rating
+                    });
+                } else
+                {
+                    throw new Exception("Ошибка привязки отзыва!");
+                }
+            });
 
             ViewBag.reviews = reviews;
+            ViewBag.belongReviews = userAccountReviews;
             ViewBag.countPublications = reviews.ToArray().Length;
 
             ViewBag.name = profile.name;

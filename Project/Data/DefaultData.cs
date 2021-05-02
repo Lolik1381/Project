@@ -21,6 +21,8 @@ namespace Project.Data
             createUser();
             createReview();
             createLandmark();
+            createHotel();
+            createRestaurant();
             createDirection();
         }
 
@@ -178,7 +180,7 @@ namespace Project.Data
             Models.Review review1 = new Models.Review {
                 user = dataBase.users.Where(user => user.login.Equals("stas")).Single(),
                 header = "Красивое место",
-                rating = 5, 
+                rating = 5,
                 description = "Конечно специально не станешь лететь ради этого места в Доминикану. Но если есть возможность его посетить, то не упустите)"
             };
             //landmark12
@@ -235,27 +237,33 @@ namespace Project.Data
             {
                 name = "Upper Geyser Basin",
                 rating = 5,
-                photos = new List<Models.Photo> { photo1, photo2 },
+                mainPhoto = photo1,
+                photos = new List<Models.Photo> { photo2 },
             };
             Models.Landmark landmark2 = new Models.Landmark
             {
                 name = "Большой призматический источник",
                 rating = 4.9M,
-                photos = new List<Models.Photo> { photo3 },
+                mainPhoto = photo3
             };
             //direction2 - Пунта-Кана, Доминикана
             Models.Landmark landmark3 = new Models.Landmark
             {
                 name = "Лагуна Азул",
                 rating = 4.7M,
-                photos = new List<Models.Photo> { photo5, photo4 },
+                mainPhoto = photo5,
+                photos = new List<Models.Photo> { photo4 },
+                reviews = new List<Models.Review>
+                {
+                    dataBase.reviews.Where(review => review.header.Equals("После Оаху и карибов дорога не впечатлила.")).Single()
+                }
             };
             //direction3 Остров Мауи, Гавайи
             Models.Landmark landmark4 = new Models.Landmark
             {
                 name = "Hana Highway - Road to Hana",
                 rating = 4.5M,
-                photos = new List<Models.Photo> { photo6 },
+                mainPhoto = photo6,
                 reviews = new List<Models.Review>
                 {
                     dataBase.reviews.Where(review => review.header.Equals("Красивое место")).Single()
@@ -266,95 +274,110 @@ namespace Project.Data
             {
                 name = "Magic Kingdom",
                 rating = 4.3M,
-                photos = new List<Models.Photo> { photo7 },
+                mainPhoto = photo7
             };
             Models.Landmark landmark6 = new Models.Landmark
             {
                 name = "Universal Studios Florida",
                 rating = 4.4M,
-                photos = new List<Models.Photo> { photo8, photo9 },
+                mainPhoto = photo8,
+                photos = new List<Models.Photo> { photo9 },
             };
             //direction5 Седона, Аризона
             Models.Landmark landmark7 = new Models.Landmark
             {
                 name = "Soldier Pass",
                 rating = 4.4M,
-                photos = new List<Models.Photo> { photo10 },
+                mainPhoto = photo10
             };
             Models.Landmark landmark8 = new Models.Landmark
             {
                 name = "Devil's Bridge Trail",
                 rating = 4,
-                photos = new List<Models.Photo> { photo11 },
+                mainPhoto = photo11
             };
             //direction 6 Канкун, Мексика
             Models.Landmark landmark9 = new Models.Landmark
             {
                 name = "Mayan Museum of Cancun",
                 rating = 4.2M,
-                photos = new List<Models.Photo> { photo12 },
+                mainPhoto = photo12
             };
             Models.Landmark landmark10 = new Models.Landmark
             {
                 name = "Руины Эль-Рей",
                 rating = 4,
-                photos = new List<Models.Photo> { photo13, photo14 },
+                mainPhoto = photo13,
+                photos = new List<Models.Photo> { photo14 }
             };
             Models.Landmark landmark11 = new Models.Landmark
             {
                 name = "Пляж Playa Delfines",
                 rating = 4.4M,
-                photos = new List<Models.Photo> { photo15 },
+                mainPhoto = photo15
             };
             //direction 7 Нью-Йорк, Нью-Йорк
             Models.Landmark landmark12 = new Models.Landmark
             {
                 name = "Empire state building",
                 rating = 3.9M,
-                photos = new List<Models.Photo> { photo16 },
+                mainPhoto = photo16,
+                reviews = new List<Models.Review>
+                {
+                    dataBase.reviews.Where(review => review.header.Equals("Лучше билет am/pm.")).Single()
+                }
             };
             Models.Landmark landmark13 = new Models.Landmark
             {
                 name = "Бруклинский мост",
                 rating = 4.3M,
-                photos = new List<Models.Photo> { photo17 },
+                mainPhoto = photo17
             };
             Models.Landmark landmark14 = new Models.Landmark
             {
                 name = "Центральный парк",
                 rating = 4.4M,
-                photos = new List<Models.Photo> { photo18 },
+                mainPhoto = photo18
             };
             //direction 8 Лас-Вегас, Невада
             Models.Landmark landmark15 = new Models.Landmark
             {
                 name = "The Strip",
                 rating = 4.2M,
-                photos = new List<Models.Photo> { photo19 },
+                mainPhoto = photo19
             };
             Models.Landmark landmark16 = new Models.Landmark
             {
                 name = "Bellagio Conservatory & Botanical Garden",
                 rating = 4.3M,
-                photos = new List<Models.Photo> { photo20, photo21 },
+                mainPhoto = photo20,
+                photos = new List<Models.Photo> { photo21 }
             };
             //direction 9 Лондон, UK
             Models.Landmark landmark17 = new Models.Landmark
             {
                 name = "Лондонский Тауэр",
                 rating = 4.4M,
-                photos = new List<Models.Photo> { photo22, photo23 },
+                mainPhoto = photo22,
+                photos = new List<Models.Photo> { photo23 },
             };
             Models.Landmark landmark18 = new Models.Landmark
             {
                 name = "Британский музей",
                 rating = 4.5M,
-                photos = new List<Models.Photo> { photo24 },
+                mainPhoto = photo24
             };
 
             dataBase.landmarks.AddRange(landmark1, landmark2, landmark3, landmark4, landmark5, landmark6, landmark7, landmark8, landmark9, landmark10, landmark11, landmark12, landmark13, landmark14, landmark15, landmark16, landmark17, landmark18);
-
             dataBase.SaveChanges();
+
+            // Привязка review к landmark
+            dataBase.reviews.Where(review => review.header.Equals("Красивое место")).Single().landmarkId =
+                dataBase.landmarks.Where(landmark => landmark.name.Equals("Hana Highway - Road to Hana")).Select(landmark => landmark.id).Single();
+            dataBase.reviews.Where(review => review.header.Equals("Лучше билет am/pm.")).Single().landmarkId =
+                dataBase.landmarks.Where(landmark => landmark.name.Equals("Empire state building")).Select(landmark => landmark.id).Single();
+            dataBase.reviews.Where(review => review.header.Equals("После Оаху и карибов дорога не впечатлила.")).Single().landmarkId =
+                dataBase.landmarks.Where(landmark => landmark.name.Equals("Лагуна Азул")).Select(landmark => landmark.id).Single();
         }
 
         public void createDirection()
@@ -389,8 +412,8 @@ namespace Project.Data
                 },
                 hotels = new List<Models.Hotel>
                 {
-                    dataBase.hotels.Where(l => l.name.Equals("Old Faithful Inn")).Single()
-                    dataBase.hotels.Where(l => l.name.Equals("Roosevelt Lodge Cabins")).Single()
+                    dataBase.hotels.Where(l => l.name.Equals("Old Faithful Inn")).Single(),
+                    dataBase.hotels.Where(l => l.name.Equals("Roosevelt Lodge Cabins")).Single(),
                     dataBase.hotels.Where(l => l.name.Equals("Madison Campground")).Single()
                 },
                 photos = new List<Models.Photo> { photo11 },
@@ -454,10 +477,14 @@ namespace Project.Data
                 },
                 hotels = new List<Models.Hotel>
                 {
-                    dataBase.hotels.Where(l => l.name.Equals("NIZUC Resort and Spa")).Single()
-                    dataBase.hotels.Where(l => l.name.Equals("Hyatt Zilara Cancun")).Single()
-                    dataBase.hotels.Where(l => l.name.Equals("Le Blanc Spa Resort Cancun")).Single()
+                    dataBase.hotels.Where(l => l.name.Equals("NIZUC Resort and Spa")).Single(),
+                    dataBase.hotels.Where(l => l.name.Equals("Hyatt Zilara Cancun")).Single(),
+                    dataBase.hotels.Where(l => l.name.Equals("Le Blanc Spa Resort Cancun")).Single(),
                     dataBase.hotels.Where(l => l.name.Equals("Secrets Playa Mujeres Golf & Spa Resort")).Single()
+                },
+                restaurants = new List<Models.Restaurant>
+                {
+                    dataBase.restaurants.Where(r => r.name.Equals("Lorenzillo's")).Single()
                 },
                 photos = new List<Models.Photo> { photo16 },
                 mainPhoto = photo6, 
@@ -536,7 +563,7 @@ namespace Project.Data
             Models.Photo photo23 = new Models.Photo {image = Util.getByteImage(@"wwwroot\img\sanctuary-cap-cana-aerial1.jpg"), name = @"img\sanctuary-cap-cana-aerial1.jpg"};
             Models.Photo photo24 = new Models.Photo {image = Util.getByteImage(@"wwwroot\img\sanctuary-cap-cana-aerial2.jpg"), name = @"img\sanctuary-cap-cana-aerial2.jpg"};
 
-            Models.Photo photo13 = new Models.Photo {image = Util.getByteImage(@"wwwroot\img\old-faithful-inn.jpg"), name = @"img\old-faithful-inn.jpg"};
+/*            Models.Photo photo13 = new Models.Photo {image = Util.getByteImage(@"wwwroot\img\old-faithful-inn.jpg"), name = @"img\old-faithful-inn.jpg"};
             Models.Photo photo14 = new Models.Photo {image = Util.getByteImage(@"wwwroot\img\old-faithful-inn1.jpg"), name = @"img\old-faithful-inn1.jpg"};
             Models.Photo photo15 = new Models.Photo {image = Util.getByteImage(@"wwwroot\img\old-faithful-inn2.jpg"), name = @"img\old-faithful-inn2.jpg"};
             Models.Photo photo16 = new Models.Photo {image = Util.getByteImage(@"wwwroot\img\Roosevelt-Lodge-Cabins.jpg"), name = @"img\Roosevelt-Lodge-Cabins.jpg"};
@@ -544,9 +571,8 @@ namespace Project.Data
             Models.Photo photo18 = new Models.Photo {image = Util.getByteImage(@"wwwroot\img\roosevelt-lodge-cabins2.jpg"), name = @"img\roosevelt-lodge-cabins2.jpg"};
             Models.Photo photo19 = new Models.Photo {image = Util.getByteImage(@"wwwroot\img\madison-campground.jpg"), name = @"img\madison-campground.jpg"};
             Models.Photo phot20 = new Models.Photo {image = Util.getByteImage(@"wwwroot\img\madison-campground1.jpg"), name = @"img\madison-campground1.jpg"};
-            Models.Photo photo21 = new Models.Photo {image = Util.getByteImage(@"wwwroot\img\madison-campground2.jpg"), name = @"img\madison-campground2.jpg"};
+            Models.Photo photo21 = new Models.Photo {image = Util.getByteImage(@"wwwroot\img\madison-campground2.jpg"), name = @"img\madison-campground2.jpg"};*/
 
-         
             dataBase.photos.AddRange(photo1, photo2, photo3, photo4, photo5, photo6, photo7, photo8, photo9, photo10, photo11, photo12, photo13, photo14, photo15, photo16, photo17, photo18, photo19, photo20, photo21);
             
             Models.Hotel hotel1 = new Models.Hotel
@@ -559,12 +585,7 @@ namespace Project.Data
                 styleHotel = "Роскошный ; Романтический",
                 languages = "Испанский",
                 mainPhoto = photo1,
-                photos = new List<Models.Photo> {photo1, photo2, photo3},
-               //отзывов пока нет
-                reviews = new List<Models.Review>
-                {
-                    dataBase.reviews.Where(r => r.header.Equals("ewq")).Single()
-                }
+                photos = new List<Models.Photo> {photo2, photo3},
             };
             Models.Hotel hotel2 = new Models.Hotel
             {
@@ -572,16 +593,12 @@ namespace Project.Data
                 name = "Hyatt Zilara Cancun",
                 location = "Boulevard Kukulcan Zona Hotelera, Канкун 77500 Мексика",
                 phoneNumber = "810 52 55 7005 8701",
-                description = "Роял — это отличный выбор для гостей Канкуна, элитная атмосфера и множество полезных услуг сделают пребывание здесь очень приятным. Номера оборудованы ТВ с плоским экраном, мини-баром и холодильником, а выйти в Сеть в Royal Cancun очень просто благодаря бесплатному Wi-Fi. Вы также можете воспользоваться следующими услугами, которые предлагает курорт "все включено": услугами консьержа и обслуживанием номеров. Кроме того, к услугам гостей есть бассейн и завтрак. Дополнительное удобство для гостей — бесплатная парковка. Расположенные поблизости достопримечательности, такие как Scorpion’s Temple (1,1 км) и Avenida Kukulkan (2,1 км), превращают курорт все включено Роял в отличное место пребывания для гостей Канкуна. При посещении Канкуна вам может захотеться отведать омаров в одном из близлежащих ресторанов, например в Lorenzillo's, Harry's Cancún или Puerto Madero. И самое главное — проживая в курорте "все включено" Cancun Royal, вы легко сможете посетить многие великолепные достопримечательности Канкуна, например Tres Rios Ecopark, Parque Urbano Kabah и arte Garden, которые являются популярными парками. Желаем приятно провести время в Канкуне!",
+                description = "Роял — это отличный выбор для гостей Канкуна, элитная атмосфера и множество полезных услуг сделают пребывание здесь очень приятным. Номера оборудованы ТВ с плоским экраном, мини-баром и холодильником, а выйти в Сеть в Royal Cancun очень просто благодаря бесплатному Wi-Fi. Вы также можете воспользоваться следующими услугами, которые предлагает курорт \"все включено\": услугами консьержа и обслуживанием номеров. Кроме того, к услугам гостей есть бассейн и завтрак. Дополнительное удобство для гостей — бесплатная парковка. Расположенные поблизости достопримечательности, такие как Scorpion’s Temple (1,1 км) и Avenida Kukulkan (2,1 км), превращают курорт все включено Роял в отличное место пребывания для гостей Канкуна. При посещении Канкуна вам может захотеться отведать омаров в одном из близлежащих ресторанов, например в Lorenzillo's, Harry's Cancún или Puerto Madero. И самое главное — проживая в курорте \"все включено\" Cancun Royal, вы легко сможете посетить многие великолепные достопримечательности Канкуна, например Tres Rios Ecopark, Parque Urbano Kabah и arte Garden, которые являются популярными парками. Желаем приятно провести время в Канкуне!",
                 countStars = 4,
                 styleHotel = "С красивым видом ; С зелеными насаждениями",
                 languages = "Испанский",
                 mainPhoto = photo4,
-                photos = new List<Models.Photo> {photo4, photo5, photo6},
-                reviews = new List<Models.Review>
-                {
-                    dataBase.reviews.Where(r => r.header.Equals("ewq")).Single()
-                }
+                photos = new List<Models.Photo> {photo5, photo6},
             };
             Models.Hotel hotel3 = new Models.Hotel
             {
@@ -595,11 +612,7 @@ namespace Project.Data
                 styleHotel = "С видом на океан ; Роскошный",
                 languages = "Английский, Испанский",
                 mainPhoto = photo7,
-                photos = new List<Models.Photo> {photo7, photo8, photo9},
-                reviews = new List<Models.Review>
-                {
-                    dataBase.reviews.Where(r => r.header.Equals("ewq")).Single()
-                }
+                photos = new List<Models.Photo> {photo8, photo9},
             };
             Models.Hotel hotel4 = new Models.Hotel
             {
@@ -611,11 +624,7 @@ namespace Project.Data
                 styleHotel = "С видом на бухту ; С видом на океан",
                 languages = "Испанский",
                 mainPhoto = photo10,
-                photos = new List<Models.Photo> {photo10, photo11, photo12},
-                reviews = new List<Models.Review>
-                {
-                    dataBase.reviews.Where(r => r.header.Equals("ewq")).Single()
-                }
+                photos = new List<Models.Photo> {photo11, photo12},
             };
             Models.Hotel hotel5 = new Models.Hotel
             {
@@ -625,11 +634,7 @@ namespace Project.Data
                 countStars = 2,
                 languages = "Английский",
                 mainPhoto = photo13,
-                photos = new List<Models.Photo> {photo13, photo14, photo15},
-                reviews = new List<Models.Review>
-                {
-                    dataBase.reviews.Where(r => r.header.Equals("ewq")).Single()
-                }
+                photos = new List<Models.Photo> {photo14, photo15},
             };
             Models.Hotel hotel6 = new Models.Hotel
             {
@@ -639,11 +644,7 @@ namespace Project.Data
                 countStars = 2,
                 languages = "Английский",
                 mainPhoto = photo16,
-                photos = new List<Models.Photo> {photo16, photo17, photo18},
-                reviews = new List<Models.Review>
-                {
-                    dataBase.reviews.Where(r => r.header.Equals("ewq")).Single()
-                }
+                photos = new List<Models.Photo> {photo17, photo18},
             };
 
             //direction1
@@ -656,11 +657,7 @@ namespace Project.Data
                 styleHotel = "Семейный",
                 languages = "Английский",
                 mainPhoto = photo19,
-                photos = new List<Models.Photo> {photo19, photo20, photo21},
-                reviews = new List<Models.Review>
-                {
-                    dataBase.reviews.Where(r => r.header.Equals("ewq")).Single()
-                }
+                photos = new List<Models.Photo> {photo20, photo21},
             };
             Models.Hotel hotel8 = new Models.Hotel
             {
@@ -674,54 +671,40 @@ namespace Project.Data
                 styleHotel = "С красивым видом",
                 languages = "Английский, Испанский",
                 mainPhoto = photo22,
-                photos = new List<Models.Photo> {photo22, photo23, photo24},
-                reviews = new List<Models.Review>
-                {
-                    dataBase.reviews.Where(r => r.header.Equals("ewq")).Single()
-                }
+                photos = new List<Models.Photo> {photo23, photo24},
             };
-            Models.Hotel hotel3 = new Models.Hotel
+            Models.Hotel hotel9 = new Models.Hotel
             {
                 //https://www.tripadvisor.ru/Hotel_Review-g150807-d154868-Reviews-Le_Blanc_Spa_Resort_Cancun-Cancun_Yucatan_Peninsula.html
                 name = "Le Blanc Spa Resort Cancun",
                 location = "Boulevard Kukulcan Km 10 Zona Hotelera, Канкун 77550 Мексика",
                 phoneNumber = "810 1 888-205-9375",
-                description = "Ищете романтический курорт все включено в Канкуне? Можете больше не искать. Ле Бланк Спа Резорт подойдет вам наилучшим образом. Учитывая близкое расположение таких популярных достопримечательностей, как Scorpion’s Temple (1,9 км) и Avenida Kukulkan (2,9 км), гости курорта "все включено" Le Blanc без труда смогут посетить одни из самых известных мест Канкуна. Номера оборудованы ТВ с плоским экраном, кондиционером и мини-баром, а гости могут в любой момент быть онлайн благодаря бесплатному Wi-Fi, который предлагает курорт все включено. Le Blanc Resort предлагает обслуживание в номер и услуги консьержа, чтобы сделать пребывание гостей здесь еще более приятным. К услугам гостей также бассейн и бесплатный завтрак. Те, кто приезжает в Ле Бланк Спа Резорт на машине, могут воспользоваться бесплатной парковкой. Если вы любите итальянские рестораны, курорт все включено Le Blanc удобно расположен рядом с Casa Rolandi, Limoncello и Restaurante Chianti. Во время своей поездки обязательно посетите популярные художественные галереи, например Antaras Onix и Galeria Balance Cancun, расположенные в шаговой доступности от курорта все включено. Сотрудники Ле Бланк Спа Резорт с нетерпением вас ждут. Вы будете приятно удивлены уровнем обслуживания.",
+                description = "Ищете романтический курорт все включено в Канкуне? Можете больше не искать. Ле Бланк Спа Резорт подойдет вам наилучшим образом. Учитывая близкое расположение таких популярных достопримечательностей, как Scorpion’s Temple (1,9 км) и Avenida Kukulkan (2,9 км), гости курорта \"все включено\" Le Blanc без труда смогут посетить одни из самых известных мест Канкуна. Номера оборудованы ТВ с плоским экраном, кондиционером и мини-баром, а гости могут в любой момент быть онлайн благодаря бесплатному Wi-Fi, который предлагает курорт все включено. Le Blanc Resort предлагает обслуживание в номер и услуги консьержа, чтобы сделать пребывание гостей здесь еще более приятным. К услугам гостей также бассейн и бесплатный завтрак. Те, кто приезжает в Ле Бланк Спа Резорт на машине, могут воспользоваться бесплатной парковкой. Если вы любите итальянские рестораны, курорт все включено Le Blanc удобно расположен рядом с Casa Rolandi, Limoncello и Restaurante Chianti. Во время своей поездки обязательно посетите популярные художественные галереи, например Antaras Onix и Galeria Balance Cancun, расположенные в шаговой доступности от курорта все включено. Сотрудники Ле Бланк Спа Резорт с нетерпением вас ждут. Вы будете приятно удивлены уровнем обслуживания.",
                 hrefSite = "https://www.leblancsparesorts.com/cancun/en/offers",
                 countStars = 5,
                 styleHotel = "С видом на океан ; Роскошный",
                 languages = "Английский, Испанский",
                 mainPhoto = photo7,
-                photos = new List<Models.Photo> {photo7, photo8, photo9},
-                reviews = new List<Models.Review>
-                {
-                    dataBase.reviews.Where(r => r.header.Equals("ewq")).Single()
-                }
+                photos = new List<Models.Photo> {photo8, photo9},
             };
-            Models.Hotel hotel3 = new Models.Hotel
+            Models.Hotel hotel10 = new Models.Hotel
             {
                 //https://www.tripadvisor.ru/Hotel_Review-g150807-d154868-Reviews-Le_Blanc_Spa_Resort_Cancun-Cancun_Yucatan_Peninsula.html
                 name = "Le Blanc Spa Resort Cancun",
                 location = "Boulevard Kukulcan Km 10 Zona Hotelera, Канкун 77550 Мексика",
                 phoneNumber = "810 1 888-205-9375",
-                description = "Ищете романтический курорт все включено в Канкуне? Можете больше не искать. Ле Бланк Спа Резорт подойдет вам наилучшим образом. Учитывая близкое расположение таких популярных достопримечательностей, как Scorpion’s Temple (1,9 км) и Avenida Kukulkan (2,9 км), гости курорта "все включено" Le Blanc без труда смогут посетить одни из самых известных мест Канкуна. Номера оборудованы ТВ с плоским экраном, кондиционером и мини-баром, а гости могут в любой момент быть онлайн благодаря бесплатному Wi-Fi, который предлагает курорт все включено. Le Blanc Resort предлагает обслуживание в номер и услуги консьержа, чтобы сделать пребывание гостей здесь еще более приятным. К услугам гостей также бассейн и бесплатный завтрак. Те, кто приезжает в Ле Бланк Спа Резорт на машине, могут воспользоваться бесплатной парковкой. Если вы любите итальянские рестораны, курорт все включено Le Blanc удобно расположен рядом с Casa Rolandi, Limoncello и Restaurante Chianti. Во время своей поездки обязательно посетите популярные художественные галереи, например Antaras Onix и Galeria Balance Cancun, расположенные в шаговой доступности от курорта все включено. Сотрудники Ле Бланк Спа Резорт с нетерпением вас ждут. Вы будете приятно удивлены уровнем обслуживания.",
+                description = "Ищете романтический курорт все включено в Канкуне? Можете больше не искать. Ле Бланк Спа Резорт подойдет вам наилучшим образом. Учитывая близкое расположение таких популярных достопримечательностей, как Scorpion’s Temple (1,9 км) и Avenida Kukulkan (2,9 км), гости курорта \"все включено\" Le Blanc без труда смогут посетить одни из самых известных мест Канкуна. Номера оборудованы ТВ с плоским экраном, кондиционером и мини-баром, а гости могут в любой момент быть онлайн благодаря бесплатному Wi-Fi, который предлагает курорт все включено. Le Blanc Resort предлагает обслуживание в номер и услуги консьержа, чтобы сделать пребывание гостей здесь еще более приятным. К услугам гостей также бассейн и бесплатный завтрак. Те, кто приезжает в Ле Бланк Спа Резорт на машине, могут воспользоваться бесплатной парковкой. Если вы любите итальянские рестораны, курорт все включено Le Blanc удобно расположен рядом с Casa Rolandi, Limoncello и Restaurante Chianti. Во время своей поездки обязательно посетите популярные художественные галереи, например Antaras Onix и Galeria Balance Cancun, расположенные в шаговой доступности от курорта все включено. Сотрудники Ле Бланк Спа Резорт с нетерпением вас ждут. Вы будете приятно удивлены уровнем обслуживания.",
                 hrefSite = "https://www.leblancsparesorts.com/cancun/en/offers",
                 countStars = 5,
                 styleHotel = "С видом на океан ; Роскошный",
                 languages = "Английский, Испанский",
                 mainPhoto = photo7,
-                photos = new List<Models.Photo> {photo7, photo8, photo9},
-                reviews = new List<Models.Review>
-                {
-                    dataBase.reviews.Where(r => r.header.Equals("ewq")).Single()
-                }
+                photos = new List<Models.Photo> {photo8, photo9},
             };
 
-
-                dataBase.hotels.AddRange(hotel1, hotel2, hotel3, hotel4, hotel5, hotel6, hotel7);
-
+            dataBase.hotels.AddRange(hotel1, hotel2, hotel3, hotel4, hotel5, hotel6, hotel7);
             dataBase.SaveChanges();
-            }
+        }
 
         public void createRestaurant()
         {
@@ -734,12 +717,12 @@ namespace Project.Data
             Models.Photo photo7 = new Models.Photo {image = Util.getByteImage(@"wwwroot\img\les-cepages-restaurant.jpg"), name = @"img\les-cepages-restaurant.jpg"};
             Models.Photo photo8 = new Models.Photo {image = Util.getByteImage(@"wwwroot\img\les-cepages-restaurant1.jpg"), name = @"img\les-cepages-restaurant1.jpg"};
             Models.Photo photo9 = new Models.Photo {image = Util.getByteImage(@"wwwroot\img\les-cepages-restaurant2.jpg"), name = @"img\les-cepages-restaurant2.jpg"};
-            Models.Photo photo10 = new Models.Photo {image = Util.getByteImage(@"wwwroot\img\Porfirio's-Cancún.jpg"), name = @"img\Porfirio's-Cancún.jpg"};
-            Models.Photo photo11 = new Models.Photo {image = Util.getByteImage(@"wwwroot\img\Porfirio's-Cancún1.jpg"), name = @"img\Porfirio's-Cancún1.jpg"};
-            Models.Photo photo12 = new Models.Photo {image = Util.getByteImage(@"wwwroot\img\Porfirio's-Cancún2.jpg"), name = @"img\Porfirio's-Cancún2.jpg"};
+            Models.Photo photo10 = new Models.Photo {image = Util.getByteImage(@"wwwroot\img\Porfirio1.jpg"), name = @"img\Porfirio's-Cancún.jpg"};
+            Models.Photo photo11 = new Models.Photo {image = Util.getByteImage(@"wwwroot\img\Porfirio3.jpg"), name = @"img\Porfirio's-Cancún1.jpg"};
+            Models.Photo photo12 = new Models.Photo {image = Util.getByteImage(@"wwwroot\img\Porfirio2.jpg"), name = @"img\Porfirio's-Cancún2.jpg"};
             dataBase.photos.AddRange(photo1, photo2, photo3, photo4, photo5, photo6, photo7, photo8, photo9, photo10, photo11, photo12);
 
-             //direction 6 Канкун, Мексика
+            //direction 6 Канкун, Мексика
             Models.Restaurant restaurant1 = new Models.Restaurant
             {
                 //https://www.tripadvisor.ru/Restaurant_Review-g150807-d787079-Reviews-Lorenzillo_s-Cancun_Yucatan_Peninsula.html
@@ -748,13 +731,9 @@ namespace Project.Data
                 phone = "+52 998 883 1254",
                 webSite = "http://www.lorenzillos.com.mx/",
                 typeCuisine = "Карибская, Морепродукты, Супы",
-                specialMenu = "Подходит для вегетарианцев, Для веганов, Безглютеновые блюда"
+                specialMenu = "Подходит для вегетарианцев, Для веганов, Безглютеновые блюда",
                 mainPhoto = photo1,
-                photos = new List<Models.Photo> {photo1, photo2, photo3},
-                reviews = new List<Models.Review>
-                {
-                    dataBase.reviews.Where(r => r.header.Equals("ewq")).Single()
-                }
+                photos = new List<Models.Photo> {photo2, photo3},
             };
             Models.Restaurant restaurant2 = new Models.Restaurant
             {
@@ -763,13 +742,9 @@ namespace Project.Data
                 location = "Av Nader No.25 Edificio Tapachula SM 02, Канкун 77500 Мексика",
                 phone = "+52 998 415 4227",
                 typeCuisine = "Мексиканская, Латиноамериканская, Бар",
-                specialMenu = "Подходит для вегетарианцев"
+                specialMenu = "Подходит для вегетарианцев",
                 mainPhoto = photo4,
-                photos = new List<Models.Photo> {photo4, photo5, photo6},
-                reviews = new List<Models.Review>
-                {
-                    dataBase.reviews.Where(r => r.header.Equals("ewq")).Single()
-                }
+                photos = new List<Models.Photo> {photo5, photo6},
             };
             Models.Restaurant restaurant3 = new Models.Restaurant
             {
@@ -779,13 +754,9 @@ namespace Project.Data
                 phone = "+52 998 802 1093",
                 webSite = "https://www.facebook.com/RestLesCepages/",
                 typeCuisine = "Французская, Европейская, Современная, Международная",
-                specialMenu = "Подходит для вегетарианцев, Для веганов, Безглютеновые блюда"
+                specialMenu = "Подходит для вегетарианцев, Для веганов, Безглютеновые блюда",
                 mainPhoto = photo7,
-                photos = new List<Models.Photo> {photo7, photo8, photo9},
-                reviews = new List<Models.Review>
-                {
-                    dataBase.reviews.Where(r => r.header.Equals("ewq")).Single()
-                }
+                photos = new List<Models.Photo> {photo8, photo9},
             };
             Models.Restaurant restaurant4 = new Models.Restaurant
             {
@@ -795,14 +766,13 @@ namespace Project.Data
                 phone = "+52 998 840 6040",
                 webSite = "https://porfirios.com.mx/restaurante-mexicano-en-cancun",
                 typeCuisine = "Мексиканская, Латиноамериканская, Современная",
-                specialMenu = "Подходит для вегетарианцев, Для веганов, Безглютеновые блюда"
+                specialMenu = "Подходит для вегетарианцев, Для веганов, Безглютеновые блюда",
                 mainPhoto = photo10,
-                photos = new List<Models.Photo> {photo10, photo11, photo12},
-                reviews = new List<Models.Review>
-                {
-                    dataBase.reviews.Where(r => r.header.Equals("ewq")).Single()
-                }
+                photos = new List<Models.Photo> {photo11, photo12},
             };
+
+            dataBase.restaurants.AddRange(restaurant1, restaurant2, restaurant3, restaurant4);
+            dataBase.SaveChanges();
         }
     }
 }

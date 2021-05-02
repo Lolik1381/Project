@@ -29,6 +29,8 @@ namespace Project.Models
 
         public string specialMenu { get; set; }
 
+        public decimal rating { get; set; }
+
         public List<Review> reviews { get; set; }
     }
 }
