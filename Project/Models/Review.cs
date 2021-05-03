@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
@@ -19,6 +20,12 @@ namespace Project.Models
 
         [Required]
         public string description { get; set; }
+
+        [Required]
+        public DateTime created { get; set; } 
+
+        [Required]
+        public DateTime dateTravel { get; set; }
 
         public List<Photo> photos { get; set; }
 

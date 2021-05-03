@@ -20,10 +20,10 @@ namespace Project.Controllers
             this.userManager = userManager;
         }
 
-        public ActionResult Index(int id)
+        public async Task<ActionResult> Index(int id)
         {
-            Direction direction = homeService.getDirectionById(id);
-            User user = userManager.GetUserAsync(User).Result;
+            Direction direction = await homeService.getDirectionById(id);
+            User user = await userManager.GetUserAsync(User);
             if (direction == null)
             {
                 return LocalRedirect("~/");
@@ -55,7 +55,7 @@ namespace Project.Controllers
             ViewBag.hrefUserProfile = "/Account?userId=" + user?.Id;
             if (User.Identity.IsAuthenticated)
             {
-                ViewBag.photoProfile = homeService.getUserById(userManager.GetUserId(User)).Result.profile.mainPhoto;
+                ViewBag.photoProfile = (await homeService.getUserById(userManager.GetUserId(User))).profile.mainPhoto;
             }
 
             return View();

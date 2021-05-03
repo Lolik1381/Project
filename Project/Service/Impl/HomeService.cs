@@ -20,6 +20,14 @@ namespace Project.Service.Impl
             this.userManager = userManager;
         }
 
+        public void startMigrationData()
+        {
+            if (DefaultSettings.isFirstData)
+            {
+                new DefaultData(applicationContext, userManager).createDefaultData();
+            }
+        }
+
         public async Task<User> getUserById(string id)
         {
             return await applicationContext.users
@@ -57,35 +65,27 @@ namespace Project.Service.Impl
                  .ToListAsync();
         }
 
-        public void startMigrationData()
+        public async Task savePhoto(Photo photo)
         {
-            if (DefaultSettings.isFirstData)
-            {
-                new DefaultData(applicationContext, userManager).createDefaultData();
-            }
+            await applicationContext.photos.AddAsync(photo);
+            await applicationContext.SaveChangesAsync();
         }
 
-        public void savePhoto(Photo photo)
-        {
-            applicationContext.photos.Add(photo);
-            applicationContext.SaveChanges();
-        }
-
-        public void changeProfile(Profile profile, Photo mainPhoto, string name, string lastName, Photo backgroundPhoto)
+        public async Task changeProfile(Profile profile, Photo mainPhoto, string name, string lastName, Photo backgroundPhoto)
         {
             profile.mainPhoto = mainPhoto != null ? mainPhoto : profile.mainPhoto;
             profile.name = name != null ? name : profile.name;
             profile.lastName = lastName != null ? lastName : profile.lastName;
             profile.backgroundPhoto = backgroundPhoto != null ? backgroundPhoto : profile.backgroundPhoto;
-            applicationContext.SaveChanges();
+            await applicationContext.SaveChangesAsync();
         }
 
-        public void changeUserInfo(UserInfo userInfo, string placeResidence, string personalInformation, string hrefWebSite)
+        public async Task changeUserInfo(UserInfo userInfo, string placeResidence, string personalInformation, string hrefWebSite)
         {
             userInfo.placeResidence = placeResidence != null ? placeResidence : userInfo.placeResidence;
             userInfo.personalInformation = personalInformation != null ? personalInformation : userInfo.personalInformation;
             userInfo.hrefWebSite = hrefWebSite != null ? hrefWebSite : userInfo.hrefWebSite;
-            applicationContext.SaveChanges();
+            await applicationContext.SaveChangesAsync();
         }
 
         public async Task<List<Review>> getReviewsByUserId(string userId)
@@ -102,31 +102,31 @@ namespace Project.Service.Impl
                  .ToListAsync();
         }
 
-        public Photo getPhotoById(int id)
+        public async Task<Photo> getPhotoById(int id)
         {
-            return applicationContext.photos
+            return await applicationContext.photos
                 .Where(photo => photo.id == id)
-                .FirstOrDefault();
+                .FirstOrDefaultAsync();
         }
 
-        public void saveUser(User user)
+        public async Task saveUser(User user)
         {
-            applicationContext.users.Add(user);
-            applicationContext.SaveChanges();
+            await applicationContext.users.AddAsync(user);
+            await applicationContext.SaveChangesAsync();
         }
 
-        public Landmark getLandmarkByName(string name)
+        public async Task<Landmark> getLandmarkByName(string name)
         {
-            return applicationContext.landmarks
+            return await applicationContext.landmarks
                 .Include(landmark => landmark.photos)
                 .Include(landmark => landmark.reviews)
                 .Where(l => l.name.Equals(name))
-                .FirstOrDefault();
+                .FirstOrDefaultAsync();
         }
 
-        public Direction getDirectionById(int id)
+        public async Task<Direction> getDirectionById(int id)
         {
-            Direction direction = applicationContext.directions
+            Direction direction = await applicationContext.directions
                 .Include(direction => direction.mainPhoto)
                 .Include(direction => direction.photos)
 
@@ -152,7 +152,7 @@ namespace Project.Service.Impl
                     .ThenInclude(restaurant => restaurant.reviews)
 
                 .Where(d => d.id == id)
-                .FirstOrDefault();
+                .FirstOrDefaultAsync();
             
             if (direction != null)
             {
@@ -186,6 +186,7 @@ namespace Project.Service.Impl
             Hotel hotel = await applicationContext.hotels
                  .Include(hotel => hotel.mainPhoto)
                  .Include(hotel => hotel.reviews)
+                 .Include(hotel => hotel.photos)
                  .Where(hotel => hotel.id == id)
                  .FirstOrDefaultAsync();
 
@@ -203,7 +204,15 @@ namespace Project.Service.Impl
         {
             Landmark landmark = await applicationContext.landmarks
                  .Include(landmark => landmark.mainPhoto)
+
                  .Include(landmark => landmark.reviews)
+                    .ThenInclude(review => review.user)
+                        .ThenInclude(user => user.profile)
+                            .ThenInclude(profile => profile.mainPhoto)
+                 .Include(landmark => landmark.reviews)
+                    .ThenInclude(review => review.photos)
+
+                 .Include(landmark => landmark.photos)
                  .Where(landmark => landmark.id == id)
                  .FirstOrDefaultAsync();
 
@@ -222,6 +231,7 @@ namespace Project.Service.Impl
             Restaurant restaurant = await applicationContext.restaurants
                  .Include(restaurant => restaurant.mainPhoto)
                  .Include(restaurant => restaurant.reviews)
+                 .Include(restaurant => restaurant.photos)
                  .Where(restaurant => restaurant.id == id)
                  .FirstOrDefaultAsync();
 
@@ -254,6 +264,59 @@ namespace Project.Service.Impl
             return await applicationContext.restaurants
                 .Include(restaurant => restaurant.mainPhoto)
                 .ToListAsync();
+        }
+
+        public async Task savePhotos(List<Photo> photos)
+        {
+            await applicationContext.photos.AddRangeAsync(photos);
+            await applicationContext.SaveChangesAsync();
+        }
+
+        public async Task saveReview(Review review)
+        {
+            await applicationContext.reviews.AddAsync(review);
+            await applicationContext.SaveChangesAsync();
+        }
+
+        public async Task saveChanges()
+        {
+            await applicationContext.SaveChangesAsync();
+        }
+
+        public async Task changeHotelReview(Hotel hotel, Review review)
+        {
+            hotel.reviews.Add(review);
+            await applicationContext.SaveChangesAsync();
+        }
+
+        public async Task changeLandmarkReview(Landmark landmark, Review review)
+        {
+            landmark.reviews.Add(review);
+            await applicationContext.SaveChangesAsync();
+        }
+
+        public async Task changeRestaurantReview(Restaurant restaurant, Review review)
+        {
+            restaurant.reviews.Add(review);
+            await applicationContext.SaveChangesAsync();
+        }
+
+        public async Task changeHotelPhoto(Hotel hotel, List<Photo> photos)
+        {
+            hotel.photos.AddRange(photos);
+            await applicationContext.SaveChangesAsync();
+        }
+
+        public async Task changeLandmarkPhoto(Landmark landmark, List<Photo> photos)
+        {
+            landmark.photos.AddRange(photos);
+            await applicationContext.SaveChangesAsync();
+        }
+
+        public async Task changeRestaurantPhoto(Restaurant restaurant, List<Photo> photos)
+        {
+            restaurant.photos.AddRange(photos);
+            await applicationContext.SaveChangesAsync();
         }
     }
 }

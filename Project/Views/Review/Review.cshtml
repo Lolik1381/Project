@@ -1,0 +1,38 @@
+﻿@model Project.ViewModels.ReviewModel
+<h2>Оставь свой отзыв</h2>
+@Html.DisplayForModel()
+
+<form method="post" asp-controller="Review" asp-action="Review" enctype="multipart/form-data">
+    <div asp-validation-summary="ModelOnly"></div>
+    <div>
+        <label asp-for="Rating"></label><br />
+        <input asp-for="Rating" />
+        <span asp-validation-for="Rating"></span>
+    </div>
+    <div>
+        <label asp-for="Description"></label><br />
+        <input asp-for="Description" />
+        <span asp-validation-for="Description"></span>
+    </div>
+    <div>
+        <label asp-for="Name"></label><br />
+        <input asp-for="Name" />
+        <span asp-validation-for="Name"></span>
+    </div>
+    <div>
+        <label asp-for="Date"></label><br />
+        <input asp-for="Date" />
+        <span asp-validation-for="Date"></span>
+    </div>
+    <div>
+        <label asp-for="Files"></label><br />
+        <input asp-for="Files" type="file" multiple>
+        <span asp-validation-for="Files"></span>
+    </div>
+    <div>
+        <input asp-for="Type" type="hidden" value="@ViewBag.type" />
+    </div>
+    <div>
+        <input type="submit" value="Отправить отзыв" />
+    </div>
+</form>

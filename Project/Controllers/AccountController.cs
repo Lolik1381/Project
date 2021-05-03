@@ -114,7 +114,7 @@ namespace Project.Controllers
                 {
                     name = model.Name,
                     lastName = model.Lastname,
-                    mainPhoto = homeService.getPhotoById(2),
+                    mainPhoto = await homeService.getPhotoById(2),
                     userInfo = new UserInfo
                     {
                         create = DateTime.Now,
@@ -191,6 +191,10 @@ namespace Project.Controllers
                 }
             }
 
+            ViewBag.userId = userId;
+            ViewBag.currentUserId = userManager.GetUserId(User);
+            ViewBag.hrefUserProfile = $"/Account?userId={ViewBag.currentUserId}";
+
             ViewBag.reviews = reviews;
             ViewBag.belongReviews = userAccountReviews;
             ViewBag.countPublications = reviews.ToArray().Length;
@@ -229,7 +233,7 @@ namespace Project.Controllers
             {
                 string photoName = $"~/img/{System.IO.Path.GetFileName(mainPhoto.FileName)}";
 
-                homeService.savePhoto(new Photo { name = photoName, image = Util.getByteImage(mainPhoto) });
+                await homeService.savePhoto(new Photo { name = photoName, image = Util.getByteImage(mainPhoto) });
                 profileMainPhoto = await homeService.getPhotoByName(photoName);
             }
 
@@ -243,8 +247,8 @@ namespace Project.Controllers
                 }
             }
 
-            homeService.changeProfile(profile, profileMainPhoto, profileName, profileLastName, null);
-            homeService.changeUserInfo(userInfo, homePlace, website, personalInformation);
+            await homeService.changeProfile(profile, profileMainPhoto, profileName, profileLastName, null);
+            await homeService.changeUserInfo(userInfo, homePlace, website, personalInformation);
 
             return LocalRedirect($"~/Account?userId={userManager.GetUserAsync(User)?.Id}");
         }
@@ -258,8 +262,8 @@ namespace Project.Controllers
                 User user = await homeService.getUserById(userManager.GetUserAsync(User).Result.Id);
                 string photoName = $"~/img/{System.IO.Path.GetFileName(backgroundAccauntPhoto.FileName)}";
 
-                homeService.savePhoto(new Photo { name = photoName, image = Util.getByteImage(backgroundAccauntPhoto) });
-                homeService.changeProfile(user.profile, null, null, null, homeService.getPhotoByName(photoName).Result);
+                await homeService.savePhoto(new Photo { name = photoName, image = Util.getByteImage(backgroundAccauntPhoto) });
+                await homeService.changeProfile(user.profile, null, null, null, homeService.getPhotoByName(photoName).Result);
             }
 
             return LocalRedirect($"~/Account?userId={userManager.GetUserId(User)}");

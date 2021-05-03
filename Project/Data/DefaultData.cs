@@ -21,12 +21,24 @@ namespace Project.Data
 
         public void createDefaultData()
         {
+            createPhoto();
             createUser();
             createReview();
             createLandmark();
             createHotel();
             createRestaurant();
             createDirection();
+        }
+
+        public void createPhoto()
+        {
+            Photo photo1 = new Photo { image = Util.getByteImage(@"wwwroot\img\white.jpg"), name = "white.jpg" };
+
+            Photo photo2 = new Photo { image = Util.getByteImage(@"wwwroot\img\sliderLeft.png"), name = "sliderLeft.jpg" };
+            Photo photo3 = new Photo { image = Util.getByteImage(@"wwwroot\img\sliderRight.png"), name = "sliderRight.jpg" };
+
+            dataBase.photos.AddRange(photo1, photo2, photo3);
+            dataBase.SaveChanges();
         }
 
         public void createUser()
@@ -169,6 +181,8 @@ namespace Project.Data
                     .Include(user => user.profile)
                     .Where(user => user.profile.name.Equals("Станислав"))
                     .Single(),
+                created = DateTime.Now,
+                dateTravel = DateTime.Now,
                 header = "После Оаху и карибов дорога не впечатлила.",
                 rating = 3,
                 description = "Ездили вдвоем на спорт машине, Камаро СС без крыши. Дорога началась с трафика что мы в принципе и ожидали. Остановки делали постоянно, но все как то не окупалось такой дорогой и цены которые они просили за свои услуги и виды. Да, есть маленькие водопадики, обросшие гавайскими цветами и джунгли, отличные фиш тако продавались по дороге и кстати очень не дорого, неплохие сады за которые просили 15$ с человека,- нас после Оаху эти сады не зашли совсем, но Оаху были круче сады и бесплатно с дорогами на водопады. В совокупности для нас все это показалось очень накручено, да и вообще остров Мау,очень накрученные в интернете, пляжи хорошие, но на Арубе лучше, джунгли есть, но в Мексике круче, да и на соседнем Оуаху и Куаи есть места получше. Две горы с затухшими вулканами тоже мех...нам очень понравился остров Оаху, и пляжи лучше и горы красивее, не даров Аватар и Парк Юрского периода снимали не на Мауи, а на Оаху."
@@ -182,6 +196,8 @@ namespace Project.Data
                     .Include(user => user.profile)
                     .Where(user => user.profile.name.Equals("Станислав"))
                     .Single(),
+                created = DateTime.Now,
+                dateTravel = DateTime.Now,
                 header = "Красивое место",
                 rating = 5,
                 description = "Конечно специально не станешь лететь ради этого места в Доминикану. Но если есть возможность его посетить, то не упустите)"
@@ -216,6 +232,8 @@ namespace Project.Data
                     .Include(user => user.profile)
                     .Where(user => user.profile.name.Equals("Станислав"))
                     .Single(),
+                created = DateTime.Now,
+                dateTravel = DateTime.Now,
                 header = "Лучше билет am/pm.",
                 rating = 4.6M,
                 description = "Взял билет на 86 (открытый балкон) и на 102 (закрытый) за $80. На 102 делать особо нечего, кроме фото без ограждений сзади. Потом вечером взял только на открытый на 86 этаже за $47. Лучше брать сразу билет am/pm. Для двух посещений."
@@ -399,7 +417,7 @@ namespace Project.Data
                 name = "Лондонский Тауэр",
                 rating = 4.4M,
                 mainPhoto = photo22,
-                photos = new List<Photo> { photo23 },
+                photos = new List<Photo> { photo23, photo1, photo10, photo11, photo13, photo14 },
             };
             Landmark landmark18 = new Landmark
             {
