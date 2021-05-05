@@ -1451,3 +1451,197 @@ span.sim-dot {
 {
     background-color: #fff !important;
 }
+
+/*Для publish*/
+.place-header
+{
+    color: #4e4e4e;
+    font-weight: bold;
+}
+
+.places-place
+{
+    height: 400px;
+    /*background-color: lightgray;*/
+    margin-top: 10px;
+   /* border: 1px solid lightgray;*/
+   position: relative;
+   border: 1px solid lightgray;
+}
+
+.places-place:hover
+{
+    box-shadow: 0 0 10px 1px darkgray;
+    transition: 0.2s;
+}
+
+.places-place .place-image
+{
+    width: 240px;
+    height: 100%;
+    float: left;
+}
+.places-place .place-image img
+{
+    margin: auto;
+    transition: 0.3s ease;
+    border-radius: 0;
+    top: -50px;
+    width: 100%; height: 100%;
+    -o-object-fit: cover;
+    object-fit: cover;
+    object-position: center;
+    background-color: red;
+}
+.places-place .place-title
+{
+    color: #006699;
+    font-weight: bold;
+    display: block;
+    width: 200px;
+    margin-left: 20px;
+    float: left;
+    font-size: 20px;
+    padding-top: 10px;
+}
+
+.rating-places-place
+{
+    position: absolute;
+    left: 260px;
+    top: 50px;
+}
+.place-position
+{
+    font-size: 12px !important;
+    position: absolute;
+    left: 260px;
+    top: 35px;
+
+}
+.places:focus
+{
+    height: 300px;
+    background-color: red;
+    transition-duration: 50ms;
+    outline: none;
+}
+
+
+.wrapper-places
+{
+    margin-left: 300px;
+    margin-right:  300px;
+    width: 800px;
+}
+
+.search-places {
+    width: 250px;
+    transition: width 0.4s ease-in-out !important;
+    margin-left: 275px;
+    transition: 0.4s !important;
+    position: static;
+    padding: 8px 0px 8px 15px;
+}
+
+/* When the input field gets focus, change its width to 100% */
+.search-places:focus {
+    width: 550px;
+    margin-left: 60px;
+    transition: 0.4s;
+    margin-top: 0px;
+}
+
+.well-done-btn-places
+{
+    position: static;
+    opacity: 0;
+    cursor: default;
+    display: block;
+    margin-top: -50px;
+    font-size: 14px;
+}
+
+.search-places:focus ~ .well-done-btn-places
+{
+    opacity: 1;
+    transition: 0.4s;
+    cursor: pointer;
+}
+.content {
+
+}
+
+
+/*Временно*/
+.accordion{}
+.accordion-item{
+    position: relative;
+}
+.accordion-item__trigger{
+    display: block;
+}
+.accordion-content{
+    display: none;
+}
+.accordion-item__input{
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+}
+
+.accordion-item__input:checked ~ .accordion-item__trigger{
+
+}
+.accordion-item__input:checked ~ .accordion-content {
+    display: block;
+}
+
+
+.form-publish {
+    width: 400px;
+    min-height: 50px;
+    float: left;
+    margin-top: 50px;
+    margin-left: 20px;
+}
+
+.send-publish {
+    display: block;
+    width: 100px;
+    height: 35px;
+    background-color: black;
+    color: white;
+    border: none;
+    font-weight: bold;
+    border-radius: 4px;
+    font-size: 14px;
+    margin-top: 30px;
+    clear: both;
+}
+
+.form-publish h4 {
+    padding-bottom: 5px;
+    padding-top: 5px;
+}
+
+.form-publish input[type="text"],
+.form-publish textarea {
+    width: 500px;
+    height: 35px;
+    border: 1px solid lightgray;
+    padding-left: 10px;
+    border-radius: 5px;
+    color: #505050;
+}
+.form-publish textarea {
+    padding-top: 7px;
+    padding-bottom: 7px;
+}
+.form-publish select {
+    display: block;
+    width: 100px;
+    float: left;
+    margin-right: 20px;
+}
