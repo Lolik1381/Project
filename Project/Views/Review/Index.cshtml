@@ -1,13 +1,212 @@
-﻿<form asp-controller="Review" asp-action="Index">
+﻿@*<form asp-controller="Review" asp-action="Index">
     <div>
         Title: <input type="text" name="searchText" />
         <input type="submit" value="Поиск" formaction="~/Review/Index" />
     </div>
 </form>
 
-@foreach(var information in ViewBag.reviewInformation)
+@foreach (var information in ViewBag.reviewInformation)
 {
     <p>
         @information.name
     </p>
-}
+}*@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style-1.css">
+    <title>Tripadvisor: прочтите отзывы, сравните цены и забронируйте</title>
+</head>
+<body>
+    <div class="header header-account">
+
+        <div class="header-login">
+            <div class="wrapper">
+                <div class="conteiner">
+                    <img src="img/TRIP-1.png" alt="" class="logo">
+                    <a href="#popup" class="nav_1">Войти</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="content">
+        <div class="wrapper-places">
+            <form action="">
+                <input type="text" name="searching" class="text-search search-places" placeholder="Поиск мест..">
+                <input type="submit" value="Готово" name="enter-data" class="well-done-btn well-done-btn-places">
+            </form>
+
+            <div class="clearfix"></div>
+            <div class="places">
+                <div class="places-place">
+                    <div class="place-image">
+                        <img src="img/4.jpg" alt="">
+                    </div>
+                    <a href="#" class="place-title">Gran Cenote</a>
+                    <p class="place-position">Soliman Bay Road, Тулум, Мексика</p>
+                    <form action="#">
+                        <div class="rating rating-places-place rating_set">
+                            <div class="rating_value rating_value-hidden">3.6</div>
+                            <div class="rating_body">
+                                <div class="rating_active"></div>
+                                <div class="rating_items">
+                                    <input type="radio" class="rating_item" value="1" name="rating">
+                                    <input type="radio" class="rating_item" value="2" name="rating">
+                                    <input type="radio" class="rating_item" value="3" name="rating">
+                                    <input type="radio" class="rating_item" value="4" name="rating">
+                                    <input type="radio" class="rating_item" value="5" name="rating">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-publish">
+                            <h4>Заголовок Вашего отзыва</h4>
+                            <input type="text" placeholder="Опишите кратко свою поездку или какую-нибудь интересную деталь" required>
+                            <h4>Ваш отзыв</h4>
+                            <textarea name="text" placeholder="Делясь своим опытом, Вы помогаете другим путешественникам сделать правильный выбор и составить план идеальной поездки" required></textarea>
+                            <h4>Когда Вы посетили этот объект?</h4>
+                            <select required>
+                                <option value="jan">январь</option>
+                                <option value="feb">февраль</option>
+                                <option value="march">март</option>
+                                <option value="apr">апрель</option>
+                                <option value="may">май</option>
+                                <option value="jun">июнь</option>
+                                <option value="jul">июль</option>
+                                <option value="aug">август</option>
+                                <option value="sep">сентябрь</option>
+                                <option value="jct">октябрь</option>
+                                <option value="nov">ноябрь</option>
+                            </select>
+                            <select id="year" required>
+                                <option value="jan">2020</option>
+                                <option value="feb">2019</option>
+                                <option value="march">2018</option>
+                                <option value="apr">2017</option>
+                                <option value="may">2016</option>
+                                <option value="jun">2015</option>
+                                <option value="jul">2014</option>
+                                <option value="aug">2013</option>
+                                <option value="sep">2012</option>
+                                <option value="jct">2011</option>
+                                <option value="nov">2010</option>
+                            </select>
+                            <!--<script>
+                                for (let year = 1920; year <= 2020; year++) {
+                                  let options = document.createElement("OPTION");
+                                  document.getElementById("year").appendChild(options).innerHTML = year;
+                                }
+                            </script>	-->
+                            <input type="submit" value="Отправить" class="send-publish">
+                        </div>
+
+                    </form>
+                </div>
+                <div class="places-place">
+                    <div class="place-image">
+                        <img src="img/3.jpg" alt="">
+                    </div>
+                    <a href="#" class="place-title">Gran Cenote</a>
+                    <p class="place-position">Soliman Bay Road, Тулум, Мексика</p>
+                    <form action="#">
+                        <div class="rating rating-places-place rating_set">
+                            <div class="rating_value rating_value-hidden">3.6</div>
+                            <div class="rating_body">
+                                <div class="rating_active"></div>
+                                <div class="rating_items">
+                                    <input type="radio" class="rating_item" value="1" name="rating">
+                                    <input type="radio" class="rating_item" value="2" name="rating">
+                                    <input type="radio" class="rating_item" value="3" name="rating">
+                                    <input type="radio" class="rating_item" value="4" name="rating">
+                                    <input type="radio" class="rating_item" value="5" name="rating">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-publish">
+                            <h4>Заголовок Вашего отзыва</h4>
+                            <input type="text" placeholder="Опишите кратко свою поездку или какую-нибудь интересную деталь" required>
+                            <h4>Ваш отзыв</h4>
+                            <textarea name="text" placeholder="Делясь своим опытом, Вы помогаете другим путешественникам сделать правильный выбор и составить план идеальной поездки" required></textarea>
+                            <h4>Когда Вы посетили этот объект?</h4>
+                            <select required>
+                                <option value="jan">январь</option>
+                                <option value="feb">февраль</option>
+                                <option value="march">март</option>
+                                <option value="apr">апрель</option>
+                                <option value="may">май</option>
+                                <option value="jun">июнь</option>
+                                <option value="jul">июль</option>
+                                <option value="aug">август</option>
+                                <option value="sep">сентябрь</option>
+                                <option value="jct">октябрь</option>
+                                <option value="nov">ноябрь</option>
+                            </select>
+                            <select id="year2" required>
+                                <option value="jan">2020</option>
+                                <option value="feb">2019</option>
+                                <option value="march">2018</option>
+                                <option value="apr">2017</option>
+                                <option value="may">2016</option>
+                                <option value="jun">2015</option>
+                                <option value="jul">2014</option>
+                                <option value="aug">2013</option>
+                                <option value="sep">2012</option>
+                                <option value="jct">2011</option>
+                                <option value="nov">2010</option>
+                            </select>
+                            <input type="submit" value="Отправить" class="send-publish">
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer"></div>
+
+
+    <div id="popup" class="popup">
+        <a href="#" class="popup_area"></a>
+        <div class="popup_body">
+            <div class="popup_content">
+                <a href="#" class="popup_close">X</a>
+                <form method="post" action="">
+                    <img src="img/Tripadvisor-logo-2.png" width="90">
+                    <p>Войдите в систему, чтобы открыть все возможности Самолёта.</p>
+                    <label>Логин:</label><br />
+                    <input type="text" name="login" /><br />
+                    <label>Пароль:</label><br />
+                    <input type="password" name="password" /><br />
+                    <input type="submit" value="Войти" formaction="~/Home/Login" class="enter" />
+                    <a href="#popup2" class="registration">Зарегистрироваться</a>
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+    <div id="popup2" class="popup">
+        <a href="#" class="popup_area"></a>
+        <div class="popup_body">
+            <div class="popup_content">
+                <a href="#" class="popup_close">X</a>
+                <form method="post" action="">
+                    <img src="img/Tripadvisor-logo-2.png" width="90">
+                    <p>Зерегестрируйтесь в системе, чтобы открыть все возможности Самолёта.</p>
+                    <input type="text" name="login" placeholder="Придумайте логин:" /><br />
+                    <input type="password" name="password" placeholder="Придумайте пароль:" /><br />
+                    <input type="submit" value="Зарегистрироваться" />
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+
+    <script src="script2.js"></script>
+</body>
+</html>
