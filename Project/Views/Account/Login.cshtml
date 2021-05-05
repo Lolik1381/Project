@@ -1,0 +1,50 @@
+﻿@model Project.ViewModels.LoginViewModel
+
+<!DOCTYPE html>
+<html lang="en">
+<head runat="server">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="~/js/site.js"></script>
+</head>
+<body>
+    <div class="header header-account">
+        <div class="header-login">
+            <div class="wrapper">
+                <div class="conteiner">
+                    <a href="/" style="display: block; float: left; margin-top: 0; margin-left: 0; margin-top: -5px;">
+                        <img src="~/img/TRIP-2.png" alt="" class="logo">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="content">
+        <div class="wrapper">
+            <h2 style="text-align: center; font-size: 35px;">Вход в приложение</h2>
+            <form method="post" asp-controller="Account" asp-action="Login" asp-route-returnUrl="@Model.ReturnUrl">
+                <div asp-validation-summary="ModelOnly"></div>
+                <div>
+                    <label asp-for="Email"></label><br />
+                    <input asp-for="Email" />
+                    <span asp-validation-for="Email"></span>
+                </div>
+                <div>
+                    <label asp-for="Password"></label><br />
+                    <input asp-for="Password" />
+                    <span asp-validation-for="Password"></span>
+                </div>
+                <div>
+                    <label asp-for="RememberMe"></label><br />
+                    <input asp-for="RememberMe" />
+                </div>
+                <div>
+                    <input type="submit" value="Войти" />
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="footer"></div>
+</body>
+</html>

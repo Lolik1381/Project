@@ -1,65 +1,39 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 using Project.Models;
 using Project.Service;
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Project.Controllers
 {
     public class HomeController : Controller
     {
+        readonly UserManager<User> userManager;
         IHomeService homeService;
 
-        public HomeController(IHomeService homeService)
+        public HomeController(IHomeService homeService, UserManager<User> userManager)
         {
             this.homeService = homeService;
+            this.userManager = userManager;
             this.homeService.startMigrationData();
         }
 
-        public ActionResult Index()
+        public async Task<ActionResult> Index()
         {
-            List<Direction> directions = homeService.getDirections();
+            User user = await userManager.GetUserAsync(User);
+            List<Direction> directions = await homeService.getDirections();
 
             ViewBag.directions = directions;
-            ViewBag.isUserAuthorization = DefaultSettings.isAuthorization;
-            ViewBag.hrefUserProfile = "/Account?userId=" + DefaultSettings.userId;
+            ViewBag.hrefUserProfile = "/Account?userId=" + user?.Id;
+            if (User.Identity.IsAuthenticated)
+            {
+                User userWithProfile = await homeService.getUserById(user.Id);
+                ViewBag.photoProfile = userWithProfile.profile.mainPhoto;
+            }
 
             return View();
-        }
-
-        [HttpPost]
-        public IActionResult Login(string login, string password)
-        {
-            User user = homeService.getUserByLoginAndPassword(login, password);
-
-            if (user != null)
-            {
-                DefaultSettings.isAuthorization = true;
-                DefaultSettings.userId = user.id;
-                return RedirectToAction("Index", "Account", new { userId = user.id });
-            }
-
-            return LocalRedirect("~/");
-        }
-
-        [HttpPost]
-        public IActionResult Authorization(string login, string password)
-        {
-            User user = homeService.getUserByLoginAndPassword(login, password);
-            
-            if (user != null)
-            {
-                return LocalRedirect("~/");
-            }
-
-            UserInfo userInfo = new UserInfo { create = DateTime.Now, placeResidence = "Место проживания" };
-            Profile profile = new Profile { name = "Имя", lastName = "Фамилия", mainPhoto = homeService.getPhotoById(1), userInfo = userInfo };
-            user = new User { login = login, password = password, profile = profile};
-            homeService.saveUser(user);
-
-            DefaultSettings.isAuthorization = true;
-            DefaultSettings.userId = homeService.getUserByLogin(login).id;
-            return LocalRedirect("~/#popup3");
         }
     }
 }

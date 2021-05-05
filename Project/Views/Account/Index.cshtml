@@ -1,4 +1,20 @@
-﻿<!DOCTYPE html>
+﻿@functions 
+{
+    public UserAccountReview getUserAccountReviewById(List<UserAccountReview> userAccountReviews, int id)
+    {
+        foreach(var userReview in userAccountReviews)
+        {
+            if (userReview.reviewId == id)
+            {
+                return userReview;
+            }
+        }
+
+        return null;
+    }
+}
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
@@ -13,12 +29,20 @@
                     <a href="/" style="display: block; float: left; margin-top: 0; margin-left: 0; margin-top: -5px;">
                         <img src="~/img/TRIP-2.png" alt="" class="logo">
                     </a>
-                    <form method="post" action="post">
-                        <input type="submit" value="Выйти" formaction="~/Account/Exit" class="nav_1 nav-form" />
-                    </form>    
-                    <a href="#" class="nav_2">Опубликовать</a>
+                    @if (ViewBag.currentUserId.Equals(ViewBag.userId))
+                    {
+                        <form method="post" action="post">
+                            <input type="submit" value="Выйти" formaction="~/Account/Logout" class="nav_1 nav-form" />
+                        </form>
+                    }
+                    else
+                    {
+                        <a href=@ViewBag.hrefUserProfile class="nav_1 nav_1-1" style="display: block; margin-top: -0px;">
+                            <img src="data:image/jpeg;base64, @(Convert.ToBase64String(@ViewBag.mainPhoto))" alt="" class="img-enter">
+                        </a>
+                    }
 
-                    
+                    <a href=@Url.Action("Index", "Review") class="nav_2">Написать отзыв</a>
                 </div>
 			</div>
 		</div>
@@ -28,24 +52,31 @@
     <div class="content content-accaunt">
         @if (ViewBag.backgroundPhoto != null)
         {
-            <div class="photo-add" style="background-image: url(data:image/jpeg;base64, @(Convert.ToBase64String(@ViewBag.backgroundPhoto)));">
-                <div class="wrapper-accaunt-content">
-                    <div class="text-add">
-                        <img src="img/gallery.png" alt="" width="15">
-                        <a href="#popup" class="ref-add-fhoto">Добавить фото обложки</a>
+            @*style="background-image: url(data:image/jpeg;base64,@(Convert.ToBase64String(ViewBag.sliderArrowLeft.image)));"*@
+            <div class="photo-add" style="background-image: url(data:image/jpeg;base64,@(Convert.ToBase64String(@ViewBag.backgroundPhoto)));">
+                @if (ViewBag.currentUserId.Equals(ViewBag.userId))
+                {
+                    <div class="wrapper-accaunt-content">
+                        <div class="text-add">
+                            <img src="img/gallery.png" alt="" width="15">
+                            <a href="#popup" class="ref-add-fhoto">Изменить фото обложки</a>
+                        </div>
                     </div>
-                </div>
+                }
             </div>
         }
         else
         {
             <div class="photo-add">
-                <div class="wrapper-accaunt-content">
-                    <div class="text-add">
-                        <img src="img/gallery.png" alt="" width="15">
-                        <a href="#popup" class="ref-add-fhoto">Добавить фото обложки</a>
+                @if (ViewBag.currentUserId.Equals(ViewBag.userId))
+                {
+                    <div class="wrapper-accaunt-content">
+                        <div class="text-add">
+                            <img src="img/gallery.png" alt="" width="15">
+                            <a href="#popup" class="ref-add-fhoto">Добавить фото обложки</a>
+                        </div>
                     </div>
-                </div>
+                }
             </div>
         }
 
@@ -58,7 +89,10 @@
                         <p class="publ">Публикации</p>
                         <span>@ViewBag.countPublications</span>
                     </div>
-                    <a class="account-edit" href="#popup_adder">Редактировать профиль</a>
+                    @if (ViewBag.currentUserId.Equals(ViewBag.userId))
+                    {
+                        <a class="account-edit" href="#popup_adder">Редактировать профиль</a>
+                    }
                 </div>
                 <div class="about-wrapper">
                     <div class="about-profile">
@@ -67,7 +101,7 @@
                             <p>@ViewBag.placeResidence</p>
                             <p>В сообществе с @ViewBag.create</p>
 
-                            @if (@ViewBag.personalInformation == null)
+                            @if (ViewBag.personalInformation == null && ViewBag.currentUserId.Equals(ViewBag.userId))
                             {
                                 <a href="#popup_adder">Напишите подробнее о себе</a>
                             }
@@ -76,7 +110,7 @@
                                 <p>@ViewBag.personalInformation</p>
                             }
 
-                            @if (@ViewBag.hrefWebSite == null)
+                            @if (ViewBag.hrefWebSite == null && ViewBag.currentUserId.Equals(ViewBag.userId))
                             {
                                 <a href="#popup_adder">Добавьте веб-сайт</a>
                             }
@@ -86,47 +120,58 @@
                             }
                         </div>
                     </div>
-                    
+
                 </div>
-                <div class="repost">
-                    <span>Поделитесь советами для путешественников</span>
-                    <div class="ob-container">
-                        <a href="#" class="add-feedback">Написать отзыв</a>
+
+                @if (@ViewBag.countPublications == 0)
+                {
+                    <div class="repost">
+                        <span>Поделитесь советами для путешественников</span>
+                        <div class="ob-container">
+                            <a href="#" class="add-feedback">Написать отзыв</a>
+                        </div>
                     </div>
-                </div>
+                }
+
                 <div class="message-conteiner">
                     @foreach (var review in ViewBag.reviews)
                     {
-                    <div class="message">
-                        <img src="data:image/jpeg;base64,@(Convert.ToBase64String(review.user.profile.mainPhoto.image))" alt="">
-                        <span class="name">@review.user.profile.name @review.user.profile.lastName</span>
-                        <span class="write">написал(а) отзыв</span>
-                        <p class="date">окт. 2020 г.</p>
-                        <div class="message-rating">
-                            @for (int i = 0; i < Math.Round(review.rating); ++i)
-                            {
-                    <div class="message-rating-green"></div>}
+                        <div class="message">
+                            <img src="data:image/jpeg;base64,@(Convert.ToBase64String(review.user.profile.mainPhoto.image))" alt="">
+                            <span class="name">@review.user.profile.name @review.user.profile.lastName</span>
+                            <span class="write">написал(а) отзыв</span>
+                            <p class="date">@review.created</p>
+                            <div class="message-rating" style="display: block; margin-top: 50px;">
+                                @for (int i = 0; i < Math.Round(review.rating); ++i)
+                                {
+                                    <div class="message-rating-green"></div>
+                                }
 
-                            @for (int i = 0; i < 5 - Math.Round(review.rating); ++i)
-                            {
-                    <div class="message-rating-white"></div>}
-                            @*<div class="message-rating-white .message-rating-green-5"></div>*@
-                        </div>
-                        <a href="#" class="message-place">@review.header</a>
-                        <p class="message-message">@review.description</p>
-                        <div class="rating-place">
-                            <img src="img/italy.jpg" alt="" class="img-place">
-                            <a href="#" class="ref-place">Kimpton</a>
-                            <div class="message-rating message-rating-place">
-                                <div class="message-rating-green"></div>
-                                <div class="message-rating-green"></div>
-                                <div class="message-rating-white"></div>
-                                <div class="message-rating-white"></div>
-                                <div class="message-rating-white .message-rating-green-5"></div>
+                                @for (int i = 0; i < 5 - Math.Round(review.rating); ++i)
+                                {
+                                    <div class="message-rating-white"></div>
+                                }
                             </div>
-                            <div class="feedback">5 отзывов</div>
+                            <br />
+                            <div class="message-place">@review.header</div>
+                            <p class="message-message">@review.description</p>
+                            <div class="rating-place">
+                                <img src="data:image/jpeg;base64, @(Convert.ToBase64String(getUserAccountReviewById(ViewBag.belongReviews, review.id).photo.image))" alt="" class="img-place">
+                                <a href="#" class="ref-place">@getUserAccountReviewById(ViewBag.belongReviews, review.id).name</a>
+                                <div class="message-rating message-rating-place">
+                                    @for (int i = 0; i < Math.Round(getUserAccountReviewById(ViewBag.belongReviews, review.id).rating); ++i)
+                                    {
+                                        <div class="message-rating-green"></div>
+                                    }
+
+                                    @for (int i = 0; i < 5 - Math.Round(getUserAccountReviewById(ViewBag.belongReviews, review.id).rating); ++i)
+                                    {
+                                        <div class="message-rating-white"></div>
+                                    }
+                                </div>
+                                <div class="feedback">@getUserAccountReviewById(ViewBag.belongReviews, review.id).countReview отзыв(ов)</div>
+                            </div>
                         </div>
-                    </div>
                     }
                 </div>
 
@@ -156,20 +201,20 @@
         <div id="popup_adder" class="popup">
             <a href="#" class="popup_area"></a>
             <div class="popup_body">
-                <div class="popup_content popup_content-adder">
+                <div class="popup_content popup_content-adder" style="width: 276px;">
                     <div class="popup_title popup_title-adder">Расскажите о себе по-подробнее</div>
                     <div class="popup_text">
                         <form action="" method="post" enctype="multipart/form-data">
                             <label>Ваше фото<sup>*</sup></label><br />
                             <input type="file" name="mainPhoto"><br />
                             <label>Фамилия и имя:<sup>*</sup></label><br />
-                            <input type="text" name="name" required/><br />
+                            <input type="text" name="name" required /><br />
                             <label>Место проживания:<sup>*</sup></label><br />
-                            <input type="text" name="homePlace" required/><br />
+                            <input type="text" name="homePlace" required /><br />
                             <label>Веб-сайт:</label><br />
                             <input type="text" name="website" /><br />
                             <label>О себе:<sup>*</sup></label><br />
-                            <input type="text" name="personalInformation" required/><br />
+                            <input type="text" name="personalInformation" required /><br />
                             <input type="submit" value="Подтвердить" formaction="~/Account/EditAccount">
                         </form>
                     </div>

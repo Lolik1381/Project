@@ -1,9 +1,10 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using Project.Models;
 
 namespace Project.Context
 {
-    public class ApplicationContext : DbContext
+    public class ApplicationContext : IdentityDbContext<User>
     {
         public DbSet<User> users { get; set; }
         public DbSet<UserInfo> userInfos { get; set; }
@@ -13,7 +14,7 @@ namespace Project.Context
         public DbSet<Landmark> landmarks { get; set; }
         public DbSet<Review> reviews { get; set; }
         public DbSet<Restaurant> restaurants { get; set; }
-        public DbSet<Hotel> restingPlaces { get; set; }
+        public DbSet<Hotel> hotels { get; set; }
 
         public ApplicationContext(DbContextOptions<ApplicationContext> options) : base(options)
         {

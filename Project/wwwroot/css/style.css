@@ -261,7 +261,6 @@ input[name="r"] {
     opacity: 0;
     visibility: hidden;
     transition: all 0.3s ease 0s;
-    z-index: 100;
 }
 
 .popup:target {
@@ -747,6 +746,7 @@ input[name="r"] {
 }*/
 
 
+
 /*ÐÅÉÒÈÍÃ*/
 .message-rating-green {
     width: 15px;
@@ -1136,7 +1136,6 @@ div.sim-slider-arrow-left {
   left: 10px;
   top: 45%;
   display: block;
-  background: url("img/slider - left.png") no-repeat;
   background-size: 60px 60px;
   transition: 0.1s;
 }
@@ -1145,7 +1144,6 @@ div.sim-slider-arrow-right {
   right: 10px;
   top: 45%;
   display: block;
-  background: url("img/slider - right.png") no-repeat;
   background-size: 60px 60px;
   transition: 0.1s;
 }
@@ -1342,13 +1340,13 @@ span.sim-dot {
 }
 .float-div
 {
-    /*float: right;*/
+    float: right;
     margin-left: 20px;
     margin-top: 8px;
 }
 .float-div:first-child
 {
-    margin-top: 0px;
+    margin-top: 6px;
 }
 
 .rating-conteiner

@@ -8,8 +8,6 @@ namespace Project
 {
     public class DefaultSettings
     {
-        public static bool isAuthorization = false;
         public static bool isFirstData = false;
-        public static int userId = -1;
     }
 }

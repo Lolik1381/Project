@@ -13,17 +13,18 @@
                 <div class="conteiner">
                     <img src="~/img/TRIP-2.png" alt="" class="logo">
 
-                    @if (!ViewBag.isUserAuthorization)
+                    @if (!User.Identity.IsAuthenticated)
                     {
-                        <a href="#popup" class="nav_1">Войти</a>
+                        <a asp-controller="Account" asp-action="Login" class="nav_1">Вход</a>
+                        <a asp-controller="Account" asp-action="Register" class="nav_1" style="width:110px;">Регистрация</a>
                     }
                     else
                     {
                         <a href=@ViewBag.hrefUserProfile class="nav_1 nav_1-1" style="display: block; margin-top: -0px;">
-                            <img src="img/italy.jpg" alt="" class="img-enter">
+                            <img src="data:image/jpeg;base64, @(Convert.ToBase64String(ViewBag.photoProfile.image))" alt="" class="img-enter">
                         </a>
+                        <a href=@Url.Action("Index", "Review") class="nav_2">Написать отзыв</a>
                     }
-                    <a href="#" class="nav_2">Опубликовать</a>
                 </div>
 
                 <div class="foto_preview">
@@ -47,9 +48,9 @@
                     @foreach (var direction in ViewBag.directions)
                     {
                     <a href=@Url.Action("Index", "Direction", new { id = direction.id }) class="slide">
-                        <img src=@direction.mainPhoto.name alt="" height="150">
+                        <img src=@direction.mainPhoto.name alt="" height="150" class="img-slide">
                         <div class="shadow">
-                            <div class="text-over-photo">Новый Амстердам</div>
+                            <div class="text-over-photo">@direction.name</div>
                         </div>
                     </a>
                     }
