@@ -1056,8 +1056,16 @@ input[name="r"] {
     width: 300px;
     box-shadow: 0 1px 1px 2px #e6e6e6;
     float: left;
-    background-color: #f2f2f2;
+    background-color: #f7f7f7;
+    max-height: 363px;
+    overflow-y: auto !important;
+    overflow-x: hidden;
+    margin-bottom: 20px;
 }
+.information::-webkit-scrollbar {
+  width: 0;
+}
+
 .text-info
 {
     font-weight: bold;
@@ -1644,4 +1652,197 @@ span.sim-dot {
     width: 100px;
     float: left;
     margin-right: 20px;
+}
+
+/*Для страницы residence*/
+.name-smaller-rus {
+    font-size: 26px !important;
+    line-height: 25px !important;
+}
+.name-red {
+    color: #00adcb !important;
+    line-height: 10px !important;
+}
+
+.position-static {
+    position: static !important;
+    color: #545454;
+    font-weight: normal;
+    display: block;
+    max-width: 300px !important;
+    width: unset !important;
+    float: left;
+    margin-top: 10px !important;
+    margin-left: 10px;
+}
+.position-static-first {
+    margin-left: 0px !important;
+}
+.position-static:before,
+.hotel-conveniences-feachers span:before{
+    content: '';
+    display: block;
+    width: 15px;
+    height: 15px;
+    background-image: url(img/icon-adress.png);
+    background-size: 15px 15px;
+    float: left;
+}
+.position-static-phone:before {
+    background-image: url(img/phone.png);
+    background-size: 14px 14px;
+    background-repeat: no-repeat;
+}
+
+.information-about-hotel {
+    width: 1036px;
+    min-height: 50px;
+}
+
+.hotel-conveniences,
+.hotel-equipment,
+.hotel-type {
+    width: 33.1%;
+    min-height: 10px;
+    float: left;
+    border-right: 1px solid gray;
+}
+.hotel-type {
+    border-right: none;
+}
+.hotel-header {
+    text-align: center;
+}
+
+.popup_content-for-information {
+    width: 1100px;
+    height: 450px !important;
+    overflow: auto;
+}
+.text-margin {
+    display: block;
+    margin-left: 60px;
+    margin-top: -10px;
+}
+
+.header-links .hotel-conveniences,
+.header-links .hotel-equipment, 
+.header-links .hotel-type {
+    display: block;
+    width: 32% !important;
+    height: 40px;
+    border: 1px solid lightgray;
+    margin-top: 10px;
+    font-size: 14px;
+}
+.header-links a {
+    font-size: 14px;
+    margin-top: unset;
+    line-height: 40px;
+    display: block;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+}
+.header-links a:hover {
+    color: black;
+}
+.header-links {
+    margin-top: 10px;
+}
+.header-links .hotel-conveniences {
+    border-top: 3px solid black;
+    border-bottom: none;
+    border-right: none;
+    font-weight: bold;
+}
+.header-links .hotel-equipment {
+    border-right: none;
+}
+.feachers-left-column span,
+.feachers-right-column span {
+    display: block;
+    width: 400px;
+    font-size: 15px;
+    margin-top: 15px;
+    color: #565656;
+}
+.feachers-left-column,
+.feachers-right-column {
+    width: 220px;
+    min-height: 50px;
+    overflow: hidden;
+    float: left;
+}
+.feachers-right-column {
+    margin-right:  0px;
+    margin-left: 43px;
+    width: 220px;
+}
+.hotel-conveniences-feachers span:before {
+    margin-right: 5px;
+}
+
+.message-place-hover:hover {
+    text-decoration: none;
+    color: black;
+}
+
+/*Иконки*/
+.hotel-conveniences-feachers .for-bedroom:before {
+    background-image: url(img/for-bedroom.png);
+}
+.hotel-conveniences-feachers .cup-of-tea:before {
+    background-image: url(img/cup-of-tea.png);
+}
+.hotel-conveniences-feachers .kitchen:before {
+    background-image: url(img/kitchen.png);
+}
+.hotel-conveniences-feachers .bathroom:before {
+    background-image: url(img/bathroom.png);
+}
+.hotel-conveniences-feachers .snow:before {
+    background-image: url(img/snow.png);
+}
+.hotel-conveniences-feachers .call:before {
+    background-image: url(img/call.png);
+}
+.hotel-conveniences-feachers .play:before {
+    background-image: url(img/play.png);
+}
+.hotel-conveniences-feachers .parking:before {
+    background-image: url(img/parking.png);
+}
+.hotel-conveniences-feachers .swim:before {
+    background-image: url(img/swim.png);
+}
+.hotel-conveniences-feachers .cocktail:before {
+    background-image: url(img/cocktail.png);
+}
+.hotel-conveniences-feachers .ticket:before {
+    background-image: url(img/ticket.png);
+}
+.hotel-conveniences-feachers .wifi:before {
+    background-image: url(img/wifi.png);
+}
+.hotel-conveniences-feachers .family:before {
+    background-image: url(img/family.png);
+}
+.hotel-conveniences-feachers .bag:before {
+    background-image: url(img/bag.png);
+}
+.hotel-conveniences-feachers .no-smoking:before {
+    background-image: url(img/no-smoking.png);
+}
+.hotel-conveniences-feachers .hanger:before {
+    background-image: url(img/hanger.png);
+}
+.hotel-conveniences-feachers .sun:before {
+    background-image: url(img/sun.png);
+}
+.hotel-conveniences-feachers .taxi:before {
+    background-image: url(img/taxi.png);
+}
+.hotel-conveniences-feachers .river:before {
+    background-image: url(img/river.png);
 }
