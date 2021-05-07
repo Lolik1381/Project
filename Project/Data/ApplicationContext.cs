@@ -15,6 +15,7 @@ namespace Project.Context
         public DbSet<Review> reviews { get; set; }
         public DbSet<Restaurant> restaurants { get; set; }
         public DbSet<Hotel> hotels { get; set; }
+        public DbSet<RoomEquipment> roomEquipment { get; set; }
 
         public ApplicationContext(DbContextOptions<ApplicationContext> options) : base(options)
         {

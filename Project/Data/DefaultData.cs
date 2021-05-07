@@ -733,7 +733,9 @@ namespace Project.Data
             Photo photo90 = new Photo { image = Util.getByteImage(@"wwwroot\img\The-Landmark-London2.jpg"), name = @"img\The-Landmark-London2.jpg" };
             
             dataBase.photos.AddRange(photo1, photo2, photo3, photo4, photo5, photo6, photo7, photo8, photo9, photo10, photo11, photo12, photo13, photo14, photo15, photo16, photo17, photo18, photo19, photo20, photo21, photo22, photo23, photo24, photo25, photo26, photo27, photo28, photo29, photo30, photo31, photo32, photo33, photo34, photo35, photo36, photo37, photo38, photo39, photo40, photo41, photo42, photo43, photo44, photo45, photo46, photo47, photo48, photo49, photo50, photo51, photo52, photo53, photo54, photo55, photo56, photo57, photo58, photo59, photo60, photo61, photo62, photo63, photo64, photo65, photo66, photo67, photo68, photo69, photo70, photo71, photo72, photo73, photo74, photo75, photo76, photo77, photo78, photo79, photo80, photo81, photo82, photo83, photo84, photo85, photo86, photo87, photo88, photo89, photo90);
-            
+
+            RoomEquipment roomEquipment1 = new RoomEquipment { name = "ewq", photo = photo1 };
+
             Hotel hotel1 = new Hotel
             {
                 //https://www.tripadvisor.ru/Hotel_Review-g150807-d3580898-Reviews-NIZUC_Resort_and_Spa-Cancun_Yucatan_Peninsula.html
@@ -772,6 +774,11 @@ namespace Project.Data
                 languages = "Английский, Испанский",
                 mainPhoto = photo7,
                 photos = new List<Photo> {photo8, photo9},
+                roomEquipment = new List<RoomEquipment>
+                {
+                    roomEquipment1,
+                    roomEquipment2
+                }
             };
             Hotel hotel4 = new Hotel
             {
@@ -1146,7 +1153,88 @@ namespace Project.Data
             Photo photo10 = new Photo {image = Util.getByteImage(@"wwwroot\img\Porfirio1.jpg"), name = @"img\Porfirio's-Cancún.jpg"};
             Photo photo11 = new Photo {image = Util.getByteImage(@"wwwroot\img\Porfirio3.jpg"), name = @"img\Porfirio's-Cancún1.jpg"};
             Photo photo12 = new Photo {image = Util.getByteImage(@"wwwroot\img\Porfirio2.jpg"), name = @"img\Porfirio's-Cancún2.jpg"};
-            dataBase.photos.AddRange(photo1, photo2, photo3, photo4, photo5, photo6, photo7, photo8, photo9, photo10, photo11, photo12);
+
+            Photo photo13 = new Photo {image = Util.getByteImage(@"wwwroot\img\old-faithful-inn.jpg"), name = @"img\old-faithful-inn.jpg"};
+            Photo photo14 = new Photo {image = Util.getByteImage(@"wwwroot\img\old-faithful-inn1.jpg"), name = @"img\old-faithful-inn1.jpg"};
+            Photo photo15 = new Photo {image = Util.getByteImage(@"wwwroot\img\old-faithful-inn2.jpg"), name = @"img\old-faithful-inn2.jpg"};
+            Photo photo16 = new Photo {image = Util.getByteImage(@"wwwroot\img\Roosevelt-Lodge-Cabins.jpg"), name = @"img\Roosevelt-Lodge-Cabins.jpg"};
+            Photo photo17 = new Photo {image = Util.getByteImage(@"wwwroot\img\Roosevelt-Lodge-Cabins1.jpg"), name = @"img\Roosevelt-Lodge-Cabins1.jpg"};
+            Photo photo18 = new Photo {image = Util.getByteImage(@"wwwroot\img\roosevelt-lodge-cabins2.jpg"), name = @"img\roosevelt-lodge-cabins2.jpg"};
+            Photo photo19 = new Photo {image = Util.getByteImage(@"wwwroot\img\madison-campground.jpg"), name = @"img\madison-campground.jpg"};
+            Photo photo20 = new Photo {image = Util.getByteImage(@"wwwroot\img\madison-campground1.jpg"), name = @"img\madison-campground1.jpg"};
+            Photo photo21 = new Photo {image = Util.getByteImage(@"wwwroot\img\madison-campground2.jpg"), name = @"img\madison-campground2.jpg"};
+            Photo photo22 = new Photo {image = Util.getByteImage(@"wwwroot\img\sanctuary-cap-cana-aerial.jpg"), name = @"img\sanctuary-cap-cana-aerial.jpg"};
+            Photo photo23 = new Photo {image = Util.getByteImage(@"wwwroot\img\sanctuary-cap-cana-aerial1.jpg"), name = @"img\sanctuary-cap-cana-aerial1.jpg"};
+            Photo photo24 = new Photo {image = Util.getByteImage(@"wwwroot\img\sanctuary-cap-cana-aerial2.jpg"), name = @"img\sanctuary-cap-cana-aerial2.jpg"};
+            Photo photo25 = new Photo {image = Util.getByteImage(@"wwwroot\img\Zoetry-Agua-Punta-Cana.jpg"), name = @"img\Zoetry-Agua-Punta-Cana.jpg" };
+            Photo photo26 = new Photo {image = Util.getByteImage(@"wwwroot\img\Zoetry-Agua-Punta-Cana1.jpg"), name = @"img\Zoetry-Agua-Punta-Cana1.jpg" };
+            Photo photo27 = new Photo {image = Util.getByteImage(@"wwwroot\img\Zoetry-Agua-Punta-Cana2.jpg"), name = @"img\Zoetry-Agua-Punta-Cana2.jpg" };
+            Photo photo28 = new Photo {image = Util.getByteImage(@"wwwroot\img\Excellence-Punta-Cana.jpg"), name = @"img\Excellence-Punta-Cana.jpg" };
+            Photo photo29 = new Photo {image = Util.getByteImage(@"wwwroot\img\Excellence-Punta-Cana1.jpg"), name = @"img\Excellence-Punta-Cana1.jpg" };
+            Photo photo30 = new Photo {image = Util.getByteImage(@"wwwroot\img\Excellence-Punta-Cana2.jpg"), name = @"img\Excellence-Punta-Cana2.jpg" };
+            Photo photo31 = new Photo { image = Util.getByteImage(@"wwwroot\img\Royalton-Punta-Cana-Resort.jpg"), name = @"img\Royalton-Punta-Cana-Resort.jpg" };
+            Photo photo32 = new Photo { image = Util.getByteImage(@"wwwroot\img\Royalton-Punta-Cana-Resort1.jpg"), name = @"img\Royalton-Punta-Cana-Resort1.jpg" };
+            Photo photo33 = new Photo { image = Util.getByteImage(@"wwwroot\img\Royalton-Punta-Cana-Resort2.jpg"), name = @"img\Royalton-Punta-Cana-Resort2.jpg" };
+            Photo photo34 = new Photo { image = Util.getByteImage(@"wwwroot\img\Hotel-Wailea.jpg"), name = @"img\Hotel-Wailea.jpg" };
+            Photo photo35 = new Photo { image = Util.getByteImage(@"wwwroot\img\Hotel-Wailea1.jpg"), name = @"img\Hotel-Wailea1.jpg" };
+            Photo photo36 = new Photo { image = Util.getByteImage(@"wwwroot\img\Hotel-Wailea2.jpg"), name = @"img\Hotel-Wailea2.jpg" };
+            Photo photo37 = new Photo { image = Util.getByteImage(@"wwwroot\img\hana-maui-resort.jpg"), name = @"img\hana-maui-resort.jpg" };
+            Photo photo38 = new Photo { image = Util.getByteImage(@"wwwroot\img\hana-maui-resort1.jpg"), name = @"img\hana-maui-resort1.jpg" };
+            Photo photo39 = new Photo { image = Util.getByteImage(@"wwwroot\img\hana-maui-resort2.jpg"), name = @"img\hana-maui-resort2.jpg" };
+            Photo photo40 = new Photo { image = Util.getByteImage(@"wwwroot\img\andaz-maui-at-wailea.jpg"), name = @"img\andaz-maui-at-wailea.jpg" };
+            Photo photo41 = new Photo { image = Util.getByteImage(@"wwwroot\img\andaz-maui-at-wailea1.jpg"), name = @"img\andaz-maui-at-wailea1.jpg" };
+            Photo photo42 = new Photo { image = Util.getByteImage(@"wwwroot\img\andaz-maui-at-wailea2.jpg"), name = @"img\andaz-maui-at-wailea2.jpg" };
+            Photo photo43 = new Photo { image = Util.getByteImage(@"wwwroot\img\disney-s-animal-kingdom.jpg"), name = @"img\disney-s-animal-kingdom.jpg" };
+            Photo photo44 = new Photo { image = Util.getByteImage(@"wwwroot\img\disney-s-animal-kingdom1.jpg"), name = @"img\disney-s-animal-kingdom1.jpg" };
+            Photo photo45 = new Photo { image = Util.getByteImage(@"wwwroot\img\disney-s-animal-kingdom2.jpg"), name = @"img\disney-s-animal-kingdom2.jpg" };
+            Photo photo46 = new Photo { image = Util.getByteImage(@"wwwroot\img\hilton-orlando-bonnet.jpg"), name = @"img\hilton-orlando-bonnet.jpg" };
+            Photo photo47 = new Photo { image = Util.getByteImage(@"wwwroot\img\hilton-orlando-bonnet1.jpg"), name = @"img\hilton-orlando-bonnet1.jpg" };
+            Photo photo48 = new Photo { image = Util.getByteImage(@"wwwroot\img\hilton-orlando-bonnet2.jpg"), name = @"img\hilton-orlando-bonnet2.jpg" };
+            Photo photo49 = new Photo { image = Util.getByteImage(@"wwwroot\img\four-seasons-resort-orlando.jpg"), name = @"img\four-seasons-resort-orlando.jpg" };
+            Photo photo50 = new Photo { image = Util.getByteImage(@"wwwroot\img\four-seasons-resort-orlando1.jpg"), name = @"img\four-seasons-resort-orlando1.jpg" };
+            Photo photo51 = new Photo { image = Util.getByteImage(@"wwwroot\img\four-seasons-resort-orlando2.jpg"), name = @"img\four-seasons-resort-orlando2.jpg" };
+            Photo photo52 = new Photo { image = Util.getByteImage(@"wwwroot\img\the-alfond-inn.jpg"), name = @"img\the-alfond-inn.jpg" };
+            Photo photo53 = new Photo { image = Util.getByteImage(@"wwwroot\img\the-alfond-inn1.jpg"), name = @"img\the-alfond-inn1.jpg" };
+            Photo photo54 = new Photo { image = Util.getByteImage(@"wwwroot\img\the-alfond-inn2.jpg"), name = @"img\the-alfond-inn2.jpg" };
+            Photo photo55 = new Photo { image = Util.getByteImage(@"wwwroot\img\el-portal-sedona-hotel.jpg"), name = @"img\el-portal-sedona-hotel.jpg" };
+            Photo photo56 = new Photo { image = Util.getByteImage(@"wwwroot\img\el-portal-sedona-hotel1.jpg"), name = @"img\el-portal-sedona-hotel1.jpg" };
+            Photo photo57 = new Photo { image = Util.getByteImage(@"wwwroot\img\el-portal-sedona-hotel2.jpg"), name = @"img\el-portal-sedona-hotel2.jpg" };
+            Photo photo58 = new Photo { image = Util.getByteImage(@"wwwroot\img\Auberge-de-Sedona.jpg"), name = @"img\Auberge-de-Sedona.jpg" };
+            Photo photo59 = new Photo { image = Util.getByteImage(@"wwwroot\img\Auberge-de-Sedona1.jpg"), name = @"img\Auberge-de-Sedona1.jpg" };
+            Photo photo60 = new Photo { image = Util.getByteImage(@"wwwroot\img\Auberge-de-Sedona2.jpg"), name = @"img\Auberge-de-Sedona2.jpg" };
+            Photo photo61 = new Photo { image = Util.getByteImage(@"wwwroot\img\enchantment-resort.jpg"), name = @"img\enchantment-resort.jpg" };
+            Photo photo62 = new Photo { image = Util.getByteImage(@"wwwroot\img\enchantment-resort1.jpg"), name = @"img\enchantment-resort1.jpg" };
+            Photo photo63 = new Photo { image = Util.getByteImage(@"wwwroot\img\enchantment-resort2.jpg"), name = @"img\enchantment-resort2.jpg" };
+            Photo photo64 = new Photo { image = Util.getByteImage(@"wwwroot\img\park-central.jpg"), name = @"img\park-central.jpg" };
+            Photo photo65 = new Photo { image = Util.getByteImage(@"wwwroot\img\park-central1.jpg"), name = @"img\park-central1.jpg" };
+            Photo photo66 = new Photo { image = Util.getByteImage(@"wwwroot\img\park-central2.jpg"), name = @"img\park-central2.jpg" };
+            Photo photo67 = new Photo { image = Util.getByteImage(@"wwwroot\img\Moxy-NYC-Chelsea.jpg"), name = @"img\Moxy-NYC-Chelsea.jpg" };
+            Photo photo68 = new Photo { image = Util.getByteImage(@"wwwroot\img\Moxy-NYC-Chelsea1.jpg"), name = @"img\Moxy-NYC-Chelsea1.jpg" };
+            Photo photo69 = new Photo { image = Util.getByteImage(@"wwwroot\img\Moxy-NYC-Chelsea2.jpg"), name = @"img\Moxy-NYC-Chelsea2.jpg" };
+            Photo photo70 = new Photo { image = Util.getByteImage(@"wwwroot\img\The-Standard.jpg"), name = @"img\The-Standard.jpg" };
+            Photo photo71 = new Photo { image = Util.getByteImage(@"wwwroot\img\The-Standard1.jpg"), name = @"img\The-Standard1.jpg" };
+            Photo photo72 = new Photo { image = Util.getByteImage(@"wwwroot\img\The-Standard2.jpg"), name = @"img\The-Standard2.jpg" };
+            Photo photo73 = new Photo { image = Util.getByteImage(@"wwwroot\img\aria.jpg"), name = @"img\aria.jpg" };
+            Photo photo74 = new Photo { image = Util.getByteImage(@"wwwroot\img\aria1.jpg"), name = @"img\aria1.jpg" };
+            Photo photo75 = new Photo { image = Util.getByteImage(@"wwwroot\img\aria2.jpg"), name = @"img\aria2.jpg" };
+            Photo photo76 = new Photo { image = Util.getByteImage(@"wwwroot\img\bellagio-las-vegas.jpg"), name = @"img\bellagio-las-vegas.jpg" };
+            Photo photo77 = new Photo { image = Util.getByteImage(@"wwwroot\img\bellagio-las-vegas1.jpg"), name = @"img\bellagio-las-vegas1.jpg" };
+            Photo photo78 = new Photo { image = Util.getByteImage(@"wwwroot\img\bellagio-las-vegas2.jpg"), name = @"img\bellagio-las-vegas2.jpg" };
+            Photo photo79 = new Photo { image = Util.getByteImage(@"wwwroot\img\Cosmopolitan.jpg"), name = @"img\Cosmopolitan.jpg" };
+            Photo photo80 = new Photo { image = Util.getByteImage(@"wwwroot\img\Cosmopolitan1.jpg"), name = @"img\Cosmopolitan1.jpg" };
+            Photo photo81 = new Photo { image = Util.getByteImage(@"wwwroot\img\Cosmopolitan2.jpg"), name = @"img\Cosmopolitan2.jpg" };
+            Photo photo82 = new Photo { image = Util.getByteImage(@"wwwroot\img\the-venetian-las-vegas.jpg"), name = @"img\the-venetian-las-vegas.jpg" };
+            Photo photo83 = new Photo { image = Util.getByteImage(@"wwwroot\img\the-venetian-las-vegas1.jpg"), name = @"img\the-venetian-las-vegas1.jpg" };
+            Photo photo84 = new Photo { image = Util.getByteImage(@"wwwroot\img\the-venetian-las-vegas2.jpg"), name = @"img\the-venetian-las-vegas2.jpg" };
+            Photo photo85 = new Photo { image = Util.getByteImage(@"wwwroot\img\Vintry-&-Mercer.jpg"), name = @"img\Vintry-&-Mercer.jpg" };
+            Photo photo86 = new Photo { image = Util.getByteImage(@"wwwroot\img\Vintry-&-Mercer1.jpg"), name = @"img\Vintry-&-Mercer1.jpg" };
+            Photo photo87 = new Photo { image = Util.getByteImage(@"wwwroot\img\Vintry-&-Mercer2.jpg"), name = @"img\Vintry-&-Mercer2.jpg" };
+            Photo photo88 = new Photo { image = Util.getByteImage(@"wwwroot\img\The-Landmark-London.jpg"), name = @"img\The-Landmark-London.jpg" };
+            Photo photo89 = new Photo { image = Util.getByteImage(@"wwwroot\img\The-Landmark-London1.jpg"), name = @"img\The-Landmark-London1.jpg" };
+            Photo photo90 = new Photo { image = Util.getByteImage(@"wwwroot\img\The-Landmark-London2.jpg"), name = @"img\The-Landmark-London2.jpg" };
+            
+            dataBase.photos.AddRange(photo1, photo2, photo3, photo4, photo5, photo6, photo7, photo8, photo9, photo10, photo11, photo12, photo13, photo14, photo15, photo16, photo17, photo18, photo19, photo20, photo21, photo22, photo23, photo24, photo25, photo26, photo27, photo28, photo29, photo30, photo31, photo32, photo33, photo34, photo35, photo36, photo37, photo38, photo39, photo40, photo41, photo42, photo43, photo44, photo45, photo46, photo47, photo48, photo49, photo50, photo51, photo52, photo53, photo54, photo55, photo56, photo57, photo58, photo59, photo60, photo61, photo62, photo63, photo64, photo65, photo66, photo67, photo68, photo69, photo70, photo71, photo72, photo73, photo74, photo75, photo76, photo77, photo78, photo79, photo80, photo81, photo82, photo83, photo84, photo85, photo86, photo87, photo88, photo89, photo90);
+            
 
             //direction 6 Канкун, Мексика
             Restaurant restaurant1 = new Restaurant
@@ -1197,6 +1285,19 @@ namespace Project.Data
                 photos = new List<Photo> {photo11, photo12},
             };
 
+            //1
+             Restaurant restaurant1 = new Restaurant
+            {
+                //
+                name = "",
+                location = "",
+                phone = "",
+                webSite = "",
+                typeCuisine = "",
+                specialMenu = "",
+                mainPhoto = photo1,
+                photos = new List<Photo> {photo2, photo3},
+            };
             dataBase.restaurants.AddRange(restaurant1, restaurant2, restaurant3, restaurant4);
             dataBase.SaveChanges();
         }

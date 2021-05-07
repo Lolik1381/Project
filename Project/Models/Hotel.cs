@@ -37,5 +37,8 @@ namespace Project.Models
         public decimal rating { get; set; }
 
         public List<Review> reviews { get; set; }
+
+        [Required]
+        public List<RoomEquipment> roomEquipment { get; set; }
     }
 }
