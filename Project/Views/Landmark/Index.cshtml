@@ -82,7 +82,7 @@
 
             <div class="send-photo">
                 <p>Отправить</p>
-                <a href=@Url.Action("Review", "Review", new { type = "Landmark", id = ViewBag.landmark.id }) class="send-btn">Написать отзыв</a>
+                <a href=@Html.Raw(Url.Action("Review", "Review", new { type = "Landmark", id = ViewBag.landmark.id })) class="send-btn">Написать отзыв</a>
                 <a href="#popup0" class="send-btn send-btn-2">Загрузить фотографию</a>
             </div>
             <div class="clearfix"></div>

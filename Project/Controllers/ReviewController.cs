@@ -22,22 +22,68 @@ namespace Project.Controllers
             this.userManager = userManager;
         }
 
+        [Authorize]
         public async Task<ActionResult> Index(string searchText)
         {
+            User user = await homeService.getUserById(userManager.GetUserId(User));
+
             ViewBag.reviewInformation = await Search(searchText);
+            ViewBag.photoProfile = user.profile.mainPhoto;
+            ViewBag.hrefUserProfile = $"/Account?userId={user?.Id}";
+
             return View();
         }
 
         [HttpGet]
         [Authorize]
-        public IActionResult Review(int id, string type)
+        public async Task<IActionResult> Review(int id, string type)
         {
+            if (id == 0)
+            {
+                return null;
+            }
+
             if (!type.Equals("Landmark") && !type.Equals("Restaurant") && !type.Equals("Hotel"))
             {
                 throw new Exception("Не верный тип привязки отзыва!");
             }
 
+            User user = await homeService.getUserById(userManager.GetUserId(User));
+            Landmark landmark = type.Equals("Landmark") ? await homeService.getLandmarkById(id) : null;
+            Hotel hotel = type.Equals("Hotel") ? await homeService.getHotelById(id) : null;
+            Restaurant restaurant = type.Equals("Restaurant") ? await homeService.getRestaurantById(id) : null;
+
+            ReviewInformationModel review = new ReviewInformationModel();
+            if (landmark != null)
+            {
+                review.mainPhoto = landmark.mainPhoto;
+                review.name = landmark.name;
+                review.place = null;
+                review.id = landmark.id;
+                review.type = type;
+            } 
+            else if (hotel != null)
+            {
+                review.mainPhoto = hotel.mainPhoto;
+                review.name = hotel.name;
+                review.place = null;
+                review.id = hotel.id;
+                review.type = type;
+            }
+            else if (restaurant != null)
+            {
+                review.mainPhoto = restaurant.mainPhoto;
+                review.name = restaurant.name;
+                review.place = null;
+                review.id = restaurant.id;
+                review.type = type;
+            }
+
+            ViewBag.reviewInformation = new List<ReviewInformationModel> { review };
+            ViewBag.photoProfile = user.profile.mainPhoto;
+            ViewBag.hrefUserProfile = $"/Account?userId={user?.Id}";
             ViewBag.type = type;
+
             return View();
         }
 
@@ -50,7 +96,10 @@ namespace Project.Controllers
             User user = await homeService.getUserById(userId);
 
             List<Photo> photos = new List<Photo>();
-            reviewModel.Files.ForEach(file => photos.Add(new Photo { image = Util.getByteImage(file), name = file.FileName }));
+            if (reviewModel.Files != null)
+            {
+                reviewModel.Files.ForEach(file => photos.Add(new Photo { image = Util.getByteImage(file), name = file.FileName }));
+            }
             await homeService.savePhotos(photos);
 
             Review review = new Review
@@ -106,7 +155,14 @@ namespace Project.Controllers
                 List<Hotel> searchHotels = hotels.Where(hotel => hotel.name.ToLower().Contains(searchText)).ToList();
                 if (searchHotels != null)
                 {
-                    searchHotels.ForEach(hotel => reviewInformation.Add(new ReviewInformationModel { mainPhoto = hotel.mainPhoto, name = hotel.name, place = null }));
+                    searchHotels.ForEach(hotel => reviewInformation.Add(new ReviewInformationModel 
+                    { 
+                        mainPhoto = hotel.mainPhoto, 
+                        name = hotel.name, 
+                        place = null,
+                        id = hotel.id,
+                        type = "Hotel"
+                    }));
                 }
             }
             if (restaurants != null)
@@ -114,7 +170,14 @@ namespace Project.Controllers
                 List<Restaurant> searchRestaurants = restaurants.Where(restaurant => restaurant.name.ToLower().Contains(searchText)).ToList();
                 if (searchRestaurants != null)
                 {
-                    searchRestaurants.ForEach(restaurant => reviewInformation.Add(new ReviewInformationModel { mainPhoto = restaurant.mainPhoto, name = restaurant.name, place = null }));
+                    searchRestaurants.ForEach(restaurant => reviewInformation.Add(new ReviewInformationModel 
+                    { 
+                        mainPhoto = restaurant.mainPhoto, 
+                        name = restaurant.name, 
+                        place = null,
+                        id = restaurant.id,
+                        type = "Restaurant"
+                    }));
                 }
             }
             if (landmarks != null)
@@ -122,7 +185,14 @@ namespace Project.Controllers
                 List<Landmark> searchLandmark = landmarks.Where(landmark => landmark.name.ToLower().Contains(searchText)).ToList();
                 if (searchLandmark != null)
                 {
-                    searchLandmark.ForEach(landmark => reviewInformation.Add(new ReviewInformationModel { mainPhoto = landmark.mainPhoto, name = landmark.name, place = null }));
+                    searchLandmark.ForEach(landmark => reviewInformation.Add(new ReviewInformationModel 
+                    { 
+                        mainPhoto = landmark.mainPhoto, 
+                        name = landmark.name, 
+                        place = null,
+                        id = landmark.id,
+                        type = "Landmark"
+                    }));
                 }
             }
 
@@ -138,15 +208,36 @@ namespace Project.Controllers
             List<ReviewInformationModel> reviewInformation = new List<ReviewInformationModel>();
             if (hotels != null)
             {
-                hotels.ForEach(hotel => reviewInformation.Add(new ReviewInformationModel { mainPhoto = hotel.mainPhoto, name = hotel.name, place = null }));
+                hotels.ForEach(hotel => reviewInformation.Add(new ReviewInformationModel 
+                { 
+                    mainPhoto = hotel.mainPhoto, 
+                    name = hotel.name, 
+                    place = null,
+                    id = hotel.id,
+                    type = "Hotel"
+                }));
             }
             if (restaurants != null)
             {
-                restaurants.ForEach(restaurant => reviewInformation.Add(new ReviewInformationModel { mainPhoto = restaurant.mainPhoto, name = restaurant.name, place = null }));
+                restaurants.ForEach(restaurant => reviewInformation.Add(new ReviewInformationModel 
+                { 
+                    mainPhoto = restaurant.mainPhoto, 
+                    name = restaurant.name, 
+                    place = null,
+                    id = restaurant.id,
+                    type = "Restaurant"
+                }));
             }
             if (landmarks != null)
             {
-                landmarks.ForEach(landmark => reviewInformation.Add(new ReviewInformationModel { mainPhoto = landmark.mainPhoto, name = landmark.name, place = null }));
+                landmarks.ForEach(landmark => reviewInformation.Add(new ReviewInformationModel 
+                { 
+                    mainPhoto = landmark.mainPhoto, 
+                    name = landmark.name, 
+                    place = null,
+                    id = landmark.id,
+                    type = "Landmark"
+                }));
             }
 
             return reviewInformation;

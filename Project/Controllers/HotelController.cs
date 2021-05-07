@@ -16,9 +16,9 @@ namespace Project.Controllers
             this.homeService = homeService;
         }
 
-        public string Index(int id)
+        public string Index(int Id)
         {
-            return $"Hotel {id}";
+            return $"Hotel {Id}";
         }
     }
 }

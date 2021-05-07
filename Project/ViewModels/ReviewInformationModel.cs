@@ -11,5 +11,8 @@ namespace Project.ViewModels
         public Photo mainPhoto;
         public string name;
         public string place;
+
+        public int id;
+        public string type;
     }
 }

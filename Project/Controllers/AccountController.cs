@@ -160,7 +160,9 @@ namespace Project.Controllers
                         photo = hotel.mainPhoto,
                         countReview = hotel.reviews.Count,
                         name = hotel.name,
-                        rating = hotel.rating
+                        rating = hotel.rating,
+                        type = "Hotel",
+                        id = review.hotelId
                     });
                 }
                 else if (landmark != null)
@@ -171,7 +173,9 @@ namespace Project.Controllers
                         photo = landmark.mainPhoto,
                         countReview = landmark.reviews.Count,
                         name = landmark.name,
-                        rating = landmark.rating
+                        rating = landmark.rating,
+                        type = "Landmark",
+                        id = review.landmarkId
                     });
                 }
                 else if (restaurant != null)
@@ -182,7 +186,9 @@ namespace Project.Controllers
                         photo = restaurant.mainPhoto,
                         countReview = restaurant.reviews.Count,
                         name = restaurant.name,
-                        rating = restaurant.rating
+                        rating = restaurant.rating,
+                        type = "Restaurant",
+                        id = review.restaurantId
                     });
                 }
                 else
