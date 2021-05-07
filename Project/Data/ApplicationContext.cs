@@ -16,7 +16,8 @@ namespace Project.Context
         public DbSet<Restaurant> restaurants { get; set; }
         public DbSet<Hotel> hotels { get; set; }
         public DbSet<RoomEquipment> roomEquipment { get; set; }
-
+        public DbSet<RoomType> roomTypes { get; set; }
+        public DbSet<Services> services { get; set; }
         public ApplicationContext(DbContextOptions<ApplicationContext> options) : base(options)
         {
             if (DefaultSettings.isFirstData)

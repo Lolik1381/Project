@@ -731,10 +731,91 @@ namespace Project.Data
             Photo photo88 = new Photo { image = Util.getByteImage(@"wwwroot\img\The-Landmark-London.jpg"), name = @"img\The-Landmark-London.jpg" };
             Photo photo89 = new Photo { image = Util.getByteImage(@"wwwroot\img\The-Landmark-London1.jpg"), name = @"img\The-Landmark-London1.jpg" };
             Photo photo90 = new Photo { image = Util.getByteImage(@"wwwroot\img\The-Landmark-London2.jpg"), name = @"img\The-Landmark-London2.jpg" };
-            
-            dataBase.photos.AddRange(photo1, photo2, photo3, photo4, photo5, photo6, photo7, photo8, photo9, photo10, photo11, photo12, photo13, photo14, photo15, photo16, photo17, photo18, photo19, photo20, photo21, photo22, photo23, photo24, photo25, photo26, photo27, photo28, photo29, photo30, photo31, photo32, photo33, photo34, photo35, photo36, photo37, photo38, photo39, photo40, photo41, photo42, photo43, photo44, photo45, photo46, photo47, photo48, photo49, photo50, photo51, photo52, photo53, photo54, photo55, photo56, photo57, photo58, photo59, photo60, photo61, photo62, photo63, photo64, photo65, photo66, photo67, photo68, photo69, photo70, photo71, photo72, photo73, photo74, photo75, photo76, photo77, photo78, photo79, photo80, photo81, photo82, photo83, photo84, photo85, photo86, photo87, photo88, photo89, photo90);
 
-            RoomEquipment roomEquipment1 = new RoomEquipment { name = "ewq", photo = photo1 };
+            Photo photo91 = new Photo { image = Util.getByteImage(@"wwwroot\img\for-bedroom.png"), name = @"img\for-bedroom.png" };
+            Photo photo92 = new Photo { image = Util.getByteImage(@"wwwroot\img\cup-of-tea.png"), name = @"img\cup-of-tea.png" };
+            Photo photo93 = new Photo { image = Util.getByteImage(@"wwwroot\img\kitchen.png"), name = @"img\kitchen.png" };
+            Photo photo94 = new Photo { image = Util.getByteImage(@"wwwroot\img\bathroom.png"), name = @"img\bathroom.png" };
+            Photo photo95 = new Photo { image = Util.getByteImage(@"wwwroot\img\snow.png"), name = @"img\snow.png" };
+            Photo photo96 = new Photo { image = Util.getByteImage(@"wwwroot\img\call.png"), name = @"img\call.png" };
+            Photo photo97 = new Photo { image = Util.getByteImage(@"wwwroot\img\play.png"), name = @"img\play.png" };
+            Photo photo98 = new Photo { image = Util.getByteImage(@"wwwroot\img\parking.png"), name = @"img\parking.png" };
+            Photo photo99 = new Photo { image = Util.getByteImage(@"wwwroot\img\swim.png"), name = @"img\swim.png" };
+            Photo photo100 = new Photo { image = Util.getByteImage(@"wwwroot\img\cocktail.png"), name = @"img\cocktail.png" };
+            Photo photo101 = new Photo { image = Util.getByteImage(@"wwwroot\img\ticket.png"), name = @"img\ticket.png" };
+            Photo photo102 = new Photo { image = Util.getByteImage(@"wwwroot\img\wifi.png"), name = @"img\wifi.png" };
+            Photo photo103 = new Photo { image = Util.getByteImage(@"wwwroot\img\family.png"), name = @"img\family.png" };
+            Photo photo104 = new Photo { image = Util.getByteImage(@"wwwroot\img\bag.png"), name = @"img\bag.png" };
+            Photo photo105 = new Photo { image = Util.getByteImage(@"wwwroot\img\no-smoking.png"), name = @"img\no-smoking.png" };
+            Photo photo106 = new Photo { image = Util.getByteImage(@"wwwroot\img\hanger.png"), name = @"img\hanger.png" };
+            Photo photo107 = new Photo { image = Util.getByteImage(@"wwwroot\img\sun.png"), name = @"img\sun.png" };
+            Photo photo108 = new Photo { image = Util.getByteImage(@"wwwroot\img\taxi.png"), name = @"img\taxi.png" };
+            Photo photo109 = new Photo { image = Util.getByteImage(@"wwwroot\img\river.png"), name = @"img\river.png" };
+            dataBase.photos.AddRange(photo1, photo2, photo3, photo4, photo5, photo6, photo7, photo8, photo9, photo10, photo11, photo12, photo13, photo14, photo15, photo16, photo17, photo18, photo19, photo20, photo21, photo22, photo23, photo24, photo25, photo26, photo27, photo28, photo29, photo30, photo31, photo32, photo33, photo34, photo35, photo36, photo37, photo38, photo39, photo40, photo41, photo42, photo43, photo44, photo45, photo46, photo47, photo48, photo49, photo50, photo51, photo52, photo53, photo54, photo55, photo56, photo57, photo58, photo59, photo60, photo61, photo62, photo63, photo64, photo65, photo66, photo67, photo68, photo69, photo70, photo71, photo72, photo73, photo74, photo75, photo76, photo77, photo78, photo79, photo80, photo81, photo82, photo83, photo84, photo85, photo86, photo87, photo88, photo89, photo90, photo91, photo92, photo93, photo94, photo95, photo96, photo97, photo98, photo99, photo100, photo101, photo102, photo103, photo104, photo105, photo106, photo107, photo108, photo109);
+
+            RoomEquipment roomEquipment1 = new RoomEquipment { name = "Шторы, блокирующие свет", photo = photo91 };
+            RoomEquipment roomEquipment2 = new RoomEquipment { name = "Обеденная зона", photo = photo91 };
+            RoomEquipment roomEquipment3 = new RoomEquipment { name = "Диван-кровать", photo = photo91 };
+            RoomEquipment roomEquipment4 = new RoomEquipment { name = "Отдельный балкон", photo = photo91 };
+            RoomEquipment roomEquipment5 = new RoomEquipment { name = "Сейф", photo = photo91 };
+            RoomEquipment roomEquipment6 = new RoomEquipment { name = "Диван", photo = photo91 };
+            RoomEquipment roomEquipment7 = new RoomEquipment { name = "VIP-номера", photo = photo91 };
+            RoomEquipment roomEquipment8 = new RoomEquipment { name = "Кафельный/мраморный пол", photo = photo91 };
+            RoomEquipment roomEquipment9 = new RoomEquipment { name = "Уборка номеров", photo = photo91 };
+            RoomEquipment roomEquipment10 = new RoomEquipment { name = "Телефон", photo = photo91 };
+            RoomEquipment roomEquipment11= new RoomEquipment { name = "Утюг", photo = photo91 };
+            RoomEquipment roomEquipment12 = new RoomEquipment { name = "Мини-кухня", photo = photo92 };
+            RoomEquipment roomEquipment13 = new RoomEquipment { name = "Микроволновая печь", photo = photo93 };
+            RoomEquipment roomEquipment14 = new RoomEquipment { name = "Кухонная плита", photo = photo93 };
+            RoomEquipment roomEquipment15 = new RoomEquipment { name = "Кухонная утварь", photo = photo93 };
+            RoomEquipment roomEquipment16 = new RoomEquipment { name = "Холодильник", photo = photo93 };
+            RoomEquipment roomEquipment17 = new RoomEquipment { name = "Электрический чайник", photo = photo93 };
+            RoomEquipment roomEquipment18 = new RoomEquipment { name = "Бесплатные туалетные принадлежности", photo = photo94 };
+            RoomEquipment roomEquipment19 = new RoomEquipment { name = "Душевая кабина без поддона на полу", photo = photo94 };
+            RoomEquipment roomEquipment20 = new RoomEquipment { name = "Ванна/душ", photo = photo94 };
+            RoomEquipment roomEquipment21 = new RoomEquipment { name = "Фен", photo = photo94 };
+            RoomEquipment roomEquipment22 = new RoomEquipment { name = "Кондиционер", photo = photo95 };
+            RoomEquipment roomEquipment23 = new RoomEquipment { name = "ТВ с плоским экраном", photo = photo97 };
+            RoomEquipment roomEquipment24 = new RoomEquipment { name = "Обслуживание номеров", photo = photo96 };
+            RoomEquipment roomEquipment25 = new RoomEquipment { name = "Мини-бар", photo = photo93 };
+            dataBase.roomEquipment.AddRange(roomEquipment1, roomEquipment2, roomEquipment3, roomEquipment4, roomEquipment5, roomEquipment6, roomEquipment7, roomEquipment8, roomEquipment9, roomEquipment10, roomEquipment11, roomEquipment12, roomEquipment13, roomEquipment14, roomEquipment15, roomEquipment16, roomEquipment17, roomEquipment18, roomEquipment19, roomEquipment20, roomEquipment21, roomEquipment22, roomEquipment23, roomEquipment24);
+
+            RoomType roomType1 = new RoomType { name = "С видом на океан", photo = photo109 };
+            RoomType roomType2 = new RoomType { name = "Номера для некурящих", photo = photo105 };
+            RoomType roomType3 = new RoomType { name = "Семейные номера", photo = photo91 };
+            RoomType roomType4 = new RoomType { name = "С видом на город", photo = photo109 };
+            RoomType roomType5 = new RoomType { name = "Номера-люксы", photo = photo91 };
+            dataBase.roomTypes.AddRange(roomType1, roomType2, roomType3, roomType4, roomType5);
+
+            Services services1 = new Services { name = "Бесплатная парковка", photo = photo98 };
+            Services services2 = new Services { name = "Услуга парковки автомобиля сотрудником отеля", photo = photo98 };
+            Services services3 = new Services { name = "Платная общественная парковка поблизости", photo = photo98 };
+            Services services4 = new Services { name = "Бассейн", photo = photo99 };
+            Services services5 = new Services { name = "Бассейн с подогревом", photo = photo99 };
+            Services services6 = new Services { name = "Фитнес-центр", photo = photo99 };
+            Services services7 = new Services { name = "Джакузи", photo = photo99 };
+            Services services8 = new Services { name = "Бар/лаунж", photo = photo100 };
+            Services services9 = new Services { name = "Игровая комната", photo = photo101 };
+            Services services10 = new Services { name = "Теннисный корт", photo = photo101 };
+            Services services11 = new Services { name = "Прокат снаряжения для водных видов спорта", photo = photo101 };
+            Services services12 = new Services { name = "Боулинг", photo = photo101 };
+            Services services13 = new Services { name = "Настольный теннис", photo = photo101 };
+            Services services14 = new Services { name = "Wi-Fi", photo = photo102 };
+            Services services15 = new Services { name = "Бесплатный WiFi", photo = photo102 };
+            Services services16 = new Services { name = "Возможен завтрак", photo = photo92 };
+            Services services17 = new Services { name = "Буфет", photo = photo93 };
+            Services services18 = new Services { name = "Торговый автомат", photo = photo93 };
+            Services services19 = new Services { name = "Подходит для детей / семьи", photo = photo103 };
+            Services services20 = new Services { name = "Бесплатное размещение для детей", photo = photo103 };
+            Services services21 = new Services { name = "Бизнес-центр с Wi-Fi", photo = photo104 };
+            Services services22 = new Services { name = "Конференц-залы", photo = photo104 };
+            Services services23 = new Services { name = "Помещения для проведения конференций", photo = photo104 };
+            Services services24 = new Services { name = "Отель для некурящих", photo = photo105 };
+            Services services25 = new Services { name = "Услуги прачечной", photo = photo106 };
+            Services services26 = new Services { name = "Прачечная с самообслуживанием", photo = photo91 };
+            Services services27 = new Services { name = "Пляж", photo = photo107 };
+            Services services28 = new Services { name = "Услуги такси", photo = photo108 };
+            dataBase.services.AddRange(services1, services2, services3, services4, services5, services6, services7, services8, services9, services10, services11, services12, services13, services14, services15, services16, services17, services18, services19, services20, services21, services22, services23, services24, services25, services26, services27, services28);
 
             Hotel hotel1 = new Hotel
             {
@@ -746,7 +827,41 @@ namespace Project.Data
                 styleHotel = "Роскошный ; Романтический",
                 languages = "Испанский",
                 mainPhoto = photo1,
-                photos = new List<Photo> {photo2, photo3},
+                photos = new List<Photo> { photo2, photo3 },
+                roomEquipment = new List<RoomEquipment>
+                {
+                    roomEquipment1,
+                    roomEquipment4,
+                    roomEquipment22,
+                    roomEquipment24,
+                    roomEquipment23,
+                    roomEquipment7,
+                    roomEquipment11,
+                    roomEquipment25
+                },
+
+                roomType = new List<RoomType>
+                { 
+                    roomType1,
+                    roomType2,
+                    roomType3,
+                    roomType5
+                },
+
+                services = new List<Services>
+                {
+                    services1,
+                    services4,
+                    services8,
+                    services10,
+                    services2,
+                    services7,
+                    services6,
+                    services21,
+                    services25,
+                    services15,
+                    services27
+                }
             };
             Hotel hotel2 = new Hotel
             {
@@ -760,6 +875,40 @@ namespace Project.Data
                 languages = "Испанский",
                 mainPhoto = photo4,
                 photos = new List<Photo> {photo5, photo6},
+                roomEquipment = new List<RoomEquipment>
+                {
+                    roomEquipment4,
+                    roomEquipment16,
+                    roomEquipment24,
+                    roomEquipment23,
+                    roomEquipment7,
+                    roomEquipment22,
+                    roomEquipment25,
+                    roomEquipment9
+                },
+
+                roomType = new List<RoomType>
+                {
+                    roomType1,
+                    roomType2,
+                    roomType5
+                },
+
+                services = new List<Services>
+                {
+                    services1,
+                    services4,
+                    services2,
+                    services7,
+                    services6,
+                    services8,
+                    services22,
+                    services23,
+                    services14,
+                    services28,
+                    services27,
+                    services25
+                }
             };
             Hotel hotel3 = new Hotel
             {
@@ -776,8 +925,38 @@ namespace Project.Data
                 photos = new List<Photo> {photo8, photo9},
                 roomEquipment = new List<RoomEquipment>
                 {
-                    roomEquipment1,
-                    roomEquipment2
+                    roomEquipment4,
+                    roomEquipment16,
+                    roomEquipment24,
+                    roomEquipment23,
+                    roomEquipment7,
+                    roomEquipment22,
+                    roomEquipment25,
+                    roomEquipment9,
+                    roomEquipment11
+                },
+
+                roomType = new List<RoomType>
+                {
+                    roomType1,
+                    roomType2,
+                    roomType5
+                },
+
+                services = new List<Services>
+                {
+                    services1,
+                    services4,
+                    services11,
+                    services2,
+                    services7,
+                    services8,
+                    services6,
+                    services15,
+                    services14,
+                    services28,
+                    services27,
+                    services25
                 }
             };
             Hotel hotel4 = new Hotel
@@ -791,8 +970,39 @@ namespace Project.Data
                 languages = "Испанский",
                 mainPhoto = photo10,
                 photos = new List<Photo> {photo11, photo12},
+                roomEquipment = new List<RoomEquipment>
+                {
+                    roomEquipment4,
+                    roomEquipment5,
+                    roomEquipment7,
+                    roomEquipment9,
+                    roomEquipment11,
+                    roomEquipment22,
+                    roomEquipment23,
+                    roomEquipment24,
+                    roomEquipment25
+                },
+
+                roomType = new List<RoomType>
+                {
+                    roomType1,
+                    roomType2,
+                    roomType5
+                },
+
+                services = new List<Services>
+                {
+                    services1,
+                    services4,
+                    services6,
+                    services7,
+                    services8,
+                    services14,
+                    services15,
+                    services25,
+                    services27,
+                }
             };
-            
 
             //direction1
             Hotel hotel5 = new Hotel
@@ -804,6 +1014,29 @@ namespace Project.Data
                 languages = "Английский",
                 mainPhoto = photo13,
                 photos = new List<Photo> { photo14, photo15 },
+                roomEquipment = new List<RoomEquipment>
+                {
+                    roomEquipment3,
+                    roomEquipment6,
+                    roomEquipment9,
+                    roomEquipment10,
+                    roomEquipment17,
+                    roomEquipment20,
+                    roomEquipment21
+                },
+
+                roomType = new List<RoomType>
+                {
+                    roomType2,
+                    roomType3
+                },
+
+                services = new List<Services>
+                {
+                    services1,
+                    services8,
+                    services24
+                }
             };
             Hotel hotel6 = new Hotel
             {
@@ -814,6 +1047,26 @@ namespace Project.Data
                 languages = "Английский",
                 mainPhoto = photo16,
                 photos = new List<Photo> { photo17, photo18 },
+                roomEquipment = new List<RoomEquipment>
+                {
+                    roomEquipment6,
+                    roomEquipment10,
+                    roomEquipment17,
+                    roomEquipment20
+                },
+
+                roomType = new List<RoomType>
+                {
+                    roomType2
+                },
+
+                services = new List<Services>
+                {
+                    services1,
+                    services8,
+                    services24,
+                    services25
+                }
             };
             Hotel hotel7 = new Hotel
             {
@@ -825,6 +1078,22 @@ namespace Project.Data
                 languages = "Английский",
                 mainPhoto = photo19,
                 photos = new List<Photo> {photo20, photo21},
+                roomEquipment = new List<RoomEquipment>
+                {
+                    roomEquipment6,
+                    roomEquipment13
+                },
+
+                roomType = new List<RoomType>
+                {
+                    roomType2
+                },
+
+                services = new List<Services>
+                {
+                    services1,
+                    services18
+                }
             };
             //direction2
             Hotel hotel8 = new Hotel
@@ -840,6 +1109,39 @@ namespace Project.Data
                 languages = "Английский, Испанский",
                 mainPhoto = photo22,
                 photos = new List<Photo> { photo23, photo24 },
+                roomEquipment = new List<RoomEquipment>
+                {
+                    roomEquipment1,
+                    roomEquipment4,
+                    roomEquipment5,
+                    roomEquipment11,
+                    roomEquipment16,
+                    roomEquipment22,
+                    roomEquipment24,
+                    roomEquipment25
+                },
+
+                roomType = new List<RoomType>
+                {
+                    roomType1,
+                    roomType2,
+                    roomType5
+                },
+
+                services = new List<Services>
+                {
+                    services1,
+                    services4,
+                    services6,
+                    services7,
+                    services8,
+                    services14,
+                    services18,
+                    services19,
+                    services25,
+                    services27,
+                    services28
+                }
             };
             Hotel hotel9 = new Hotel
             {
@@ -851,6 +1153,40 @@ namespace Project.Data
                 languages = "Испанский",
                 mainPhoto = photo25,
                 photos = new List<Photo> { photo26, photo27 },
+                roomEquipment = new List<RoomEquipment>
+                {
+                    roomEquipment4,
+                    roomEquipment5,
+                    roomEquipment7,
+                    roomEquipment16,
+                    roomEquipment22,
+                    roomEquipment23,
+                    roomEquipment24,
+                    roomEquipment25
+                },
+
+                roomType = new List<RoomType>
+                {
+                    roomType1,
+                    roomType2,
+                    roomType5
+                },
+
+                services = new List<Services>
+                {
+                    services1,
+                    services4,
+                    services6,
+                    services7,
+                    services8,
+                    services14,
+                    services16,
+                    services17,
+                    services19,
+                    services25,
+                    services27,
+                    services28
+                }
             };
             Hotel hotel10 = new Hotel
             {
@@ -864,6 +1200,36 @@ namespace Project.Data
                 languages = "Испанский",
                 mainPhoto = photo28,
                 photos = new List<Photo> { photo29, photo30 },
+                roomEquipment = new List<RoomEquipment>
+                {
+                    roomEquipment4,
+                    roomEquipment5,
+                    roomEquipment7,
+                    roomEquipment9,
+                    roomEquipment24
+                },
+
+                roomType = new List<RoomType>
+                {
+                    roomType1,
+                    roomType2,
+                    roomType5
+                },
+
+                services = new List<Services>
+                {
+                    services1,
+                    services4,
+                    services6,
+                    services7,
+                    services8,
+                    services14,
+                    services19,
+                    services22,
+                    services25,
+                    services27,
+                    services28
+                }
             };
             Hotel hotel11 = new Hotel
             {
@@ -877,6 +1243,45 @@ namespace Project.Data
                 languages = "Испанский",
                 mainPhoto = photo31,
                 photos = new List<Photo> { photo32, photo33 },
+                roomEquipment = new List<RoomEquipment>
+                {
+                    roomEquipment4,
+                    roomEquipment5,
+                    roomEquipment7,
+                    roomEquipment9,
+                    roomEquipment11,
+                    roomEquipment16,
+                    roomEquipment22,
+                    roomEquipment23,
+                    roomEquipment24,
+                    roomEquipment25
+                },
+
+                roomType = new List<RoomType>
+                {
+                    roomType1,
+                    roomType2,
+                    roomType3,
+                    roomType5
+                },
+
+                services = new List<Services>
+                {
+                    services1,
+                    services4,
+                    services6,
+                    services7,
+                    services8,
+                    services9,
+                    services10,
+                    services14,
+                    services16,
+                    services19,
+                    services22,
+                    services25,
+                    services27,
+                    services28
+                }
             };
             //3
             Hotel hotel12 = new Hotel
@@ -892,6 +1297,44 @@ namespace Project.Data
                 languages = "Английский, Французский, Японский",
                 mainPhoto = photo34,
                 photos = new List<Photo> { photo35, photo36 },
+                roomEquipment = new List<RoomEquipment>
+                {
+                    roomEquipment4,
+                    roomEquipment5,
+                    roomEquipment6,
+                    roomEquipment8,
+                    roomEquipment9,
+                    roomEquipment11,
+                    roomEquipment12,
+                    roomEquipment16,
+                    roomEquipment18,
+                    roomEquipment20,
+                    roomEquipment21,
+                    roomEquipment22,
+                    roomEquipment23,
+                    roomEquipment24,
+                    roomEquipment25
+                },
+
+                roomType = new List<RoomType>
+                {
+                    roomType1,
+                    roomType2,
+                    roomType5
+                },
+
+                services = new List<Services>
+                {
+                    services2,
+                    services4,
+                    services6,
+                    services7,
+                    services8,
+                    services11,
+                    services14,
+                    services25,
+                    services27
+                }
             };
             Hotel hotel13 = new Hotel
             {
@@ -906,6 +1349,47 @@ namespace Project.Data
                 languages = "Английский",
                 mainPhoto = photo37,
                 photos = new List<Photo> { photo38, photo39 },
+                roomEquipment = new List<RoomEquipment>
+                {
+                    roomEquipment5,
+                    roomEquipment6,
+                    roomEquipment8,
+                    roomEquipment9,
+                    roomEquipment10,
+                    roomEquipment16,
+                    roomEquipment18,
+                    roomEquipment19,
+                    roomEquipment20,
+                    roomEquipment21,
+                    roomEquipment22,
+                    roomEquipment23,
+                    roomEquipment24,
+                    roomEquipment25
+                },
+
+                roomType = new List<RoomType>
+                {
+                    roomType1,
+                    roomType2,
+                    roomType3,
+                    roomType5
+                },
+
+                services = new List<Services>
+                {
+                    services1,
+                    services4,
+                    services6,
+                    services7,
+                    services8,
+                    services10,
+                    services11,
+                    services15,
+                    services16,
+                    services19,
+                    services25,
+                    services27
+                }
             };
             Hotel hotel14 = new Hotel
             {
@@ -918,6 +1402,47 @@ namespace Project.Data
                 languages = "Английский, Французский, Испанский, Филиппинский, Немецкий, Итальянский, Японский, Португальский",
                 mainPhoto = photo40,
                 photos = new List<Photo> { photo41, photo42 },
+                roomEquipment = new List<RoomEquipment>
+                {
+                    roomEquipment1,
+                    roomEquipment4,
+                    roomEquipment5,
+                    roomEquipment8,
+                    roomEquipment9,
+                    roomEquipment11,
+                    roomEquipment16,
+                    roomEquipment17,
+                    roomEquipment18,
+                    roomEquipment19,
+                    roomEquipment21,
+                    roomEquipment22,
+                    roomEquipment23,
+                    roomEquipment24,
+                    roomEquipment25
+                },
+
+                roomType = new List<RoomType>
+                {
+                    roomType1,
+                    roomType2,
+                    roomType3,
+                    roomType5
+                },
+
+                services = new List<Services>
+                {
+                    services2,
+                    services4,
+                    services6,
+                    services7,
+                    services8,
+                    services13,
+                    services15,
+                    services16,
+                    services19,
+                    services25,
+                    services27
+                }
             };
             //4
             Hotel hotel15 = new Hotel
@@ -931,6 +1456,40 @@ namespace Project.Data
                 languages = "Английский",
                 mainPhoto = photo43,
                 photos = new List<Photo> { photo44, photo45 },
+                roomEquipment = new List<RoomEquipment>
+                {
+                    roomEquipment4,
+                    roomEquipment5,
+                    roomEquipment9,
+                    roomEquipment16,
+                    roomEquipment22,
+                    roomEquipment23,
+                    roomEquipment24
+                },
+
+                roomType = new List<RoomType>
+                {
+                    roomType2,
+                    roomType3
+                },
+
+                services = new List<Services>
+                {
+                    services1,
+                    services4,
+                    services6,
+                    services8,
+                    services9,
+                    services13,
+                    services15,
+                    services16,
+                    services17,
+                    services19,
+                    services22,
+                    services24,
+                    services25,
+                    services28
+                }
             };
             Hotel hotel16 = new Hotel
             {
@@ -945,6 +1504,41 @@ namespace Project.Data
                 languages = "Английский, Испанский",
                 mainPhoto = photo46,
                 photos = new List<Photo> { photo47, photo48 },
+                roomEquipment = new List<RoomEquipment>
+                {
+                    roomEquipment5,
+                    roomEquipment9,
+                    roomEquipment11,
+                    roomEquipment16,
+                    roomEquipment22,
+                    roomEquipment23,
+                    roomEquipment24
+                },
+
+                roomType = new List<RoomType>
+                {
+                    roomType2,
+                    roomType3,
+                    roomType5
+                },
+
+                services = new List<Services>
+                {
+                    services2,
+                    services4,
+                    services5,
+                    services6,
+                    services7,
+                    services8,
+                    services9,
+                    services14,
+                    services17,
+                    services18,
+                    services19,
+                    services23,
+                    services25,
+                    services28
+                }
             };
             Hotel hotel17 = new Hotel
             {
@@ -959,6 +1553,39 @@ namespace Project.Data
                 languages = "Английский",
                 mainPhoto = photo49,
                 photos = new List<Photo> { photo50, photo51 },
+                roomEquipment = new List<RoomEquipment>
+                {
+                    roomEquipment3,
+                    roomEquipment5,
+                    roomEquipment6,
+                    roomEquipment7,
+                    roomEquipment9,
+                    roomEquipment11,
+                    roomEquipment17,
+                    roomEquipment22,
+                    roomEquipment23,
+                    roomEquipment24
+                },
+
+                roomType = new List<RoomType>
+                {
+                    roomType2,
+                    roomType3,
+                    roomType5
+                },
+
+                services = new List<Services>
+                {
+                    services2,
+                    services4,
+                    services7,
+                    services14,
+                    services16,
+                    services17,
+                    services18,
+                    services25,
+                    services28
+                }
             };
             Hotel hotel18 = new Hotel
             {
@@ -970,6 +1597,37 @@ namespace Project.Data
                 languages = "Английский, Испанский, Голландский, Португальский",
                 mainPhoto = photo52,
                 photos = new List<Photo> { photo53, photo54 },
+                roomEquipment = new List<RoomEquipment>
+                {
+                    roomEquipment5,
+                    roomEquipment9,
+                    roomEquipment11,
+                    roomEquipment18,
+                    roomEquipment19,
+                    roomEquipment21,
+                    roomEquipment22,
+                    roomEquipment23,
+                    roomEquipment24
+                },
+
+                roomType = new List<RoomType>
+                {
+                    roomType2,
+                    roomType3,
+                    roomType5
+                },
+
+                services = new List<Services>
+                {
+                    services1,
+                    services4,
+                    services15,
+                    services16,
+                    services18,
+                    services21,
+                    services22,
+                    services25
+                }
             };
             //5
             Hotel hotel19 = new Hotel
@@ -985,6 +1643,33 @@ namespace Project.Data
                 languages = "Английский, Испанский",
                 mainPhoto = photo55,
                 photos = new List<Photo> { photo56, photo57 },
+                roomEquipment = new List<RoomEquipment>
+                {
+                    roomEquipment3,
+                    roomEquipment5,
+                    roomEquipment9,
+                    roomEquipment11,
+                    roomEquipment18,
+                    roomEquipment20,
+                    roomEquipment21,
+                    roomEquipment22,
+                    roomEquipment23,
+                    roomEquipment24
+                },
+
+                roomType = new List<RoomType>
+                {
+                    roomType2,
+                    roomType3,
+                    roomType5
+                },
+
+                services = new List<Services>
+                {
+                    services1,
+                    services14,
+                    services17
+                }
             };
             Hotel hotel20 = new Hotel
             {
@@ -999,6 +1684,35 @@ namespace Project.Data
                 languages = "Английский, Испанский",
                 mainPhoto = photo58,
                 photos = new List<Photo> { photo59, photo60 },
+                roomEquipment = new List<RoomEquipment>
+                {
+                    roomEquipment5,
+                    roomEquipment9,
+                    roomEquipment11,
+                    roomEquipment18,
+                    roomEquipment21,
+                    roomEquipment23,
+                    roomEquipment24
+                },
+
+                roomType = new List<RoomType>
+                {
+                    roomType2,
+                    roomType3,
+                    roomType5
+                },
+
+                services = new List<Services>
+                {
+                    services2,
+                    services4,
+                    services6,
+                    services14,
+                    services16,
+                    services17,
+                    services21,
+                    services28
+                }
             };
             Hotel hotel21 = new Hotel
             {
@@ -1013,6 +1727,40 @@ namespace Project.Data
                 languages = "Английский, Испанский",
                 mainPhoto = photo61,
                 photos = new List<Photo> { photo62, photo63 },
+                roomEquipment = new List<RoomEquipment>
+                {
+                    roomEquipment4,
+                    roomEquipment5,
+                    roomEquipment7,
+                    roomEquipment9,
+                    roomEquipment10,
+                    roomEquipment11,
+                    roomEquipment16,
+                    roomEquipment22,
+                    roomEquipment23,
+                    roomEquipment24,
+                    roomEquipment25
+                },
+
+                roomType = new List<RoomType>
+                {
+                    roomType2,
+                    roomType3,
+                    roomType5
+                },
+
+                services = new List<Services>
+                {
+                    services1,
+                    services2,
+                    services4,
+                    services6,
+                    services15,
+                    services17,
+                    services22,
+                    services25,
+                    services28
+                }
             };
             //7
             Hotel hotel22 = new Hotel
@@ -1028,6 +1776,33 @@ namespace Project.Data
                 languages = "Английский, Испанский",
                 mainPhoto = photo64,
                 photos = new List<Photo> { photo65, photo66 },
+                roomEquipment = new List<RoomEquipment>
+                {
+                    roomEquipment5,
+                    roomEquipment7,
+                    roomEquipment9,
+                    roomEquipment11,
+                    roomEquipment22,
+                    roomEquipment23
+                },
+
+                roomType = new List<RoomType>
+                {
+                    roomType2,
+                    roomType4,
+                    roomType5
+                },
+
+                services = new List<Services>
+                {
+                    services3,
+                    services6,
+                    services15,
+                    services21,
+                    services22,
+                    services25,
+                    services28
+                }
             };
             Hotel hotel23 = new Hotel
             {
@@ -1040,6 +1815,34 @@ namespace Project.Data
                 languages = "Английский",
                 mainPhoto = photo67,
                 photos = new List<Photo> { photo68, photo69 },
+                roomEquipment = new List<RoomEquipment>
+                {
+                    roomEquipment5,
+                    roomEquipment10,
+                    roomEquipment19,
+                    roomEquipment21,
+                    roomEquipment22,
+                    roomEquipment23
+                },
+
+                roomType = new List<RoomType>
+                {
+                    roomType2,
+                    roomType4
+                },
+
+                services = new List<Services>
+                {
+                    services3,
+                    services6,
+                    services14,
+                    services16,
+                    services19,
+                    services23,
+                    services24,
+                    services25,
+                    services28
+                }
             };
             Hotel hotel24 = new Hotel
             {
@@ -1052,11 +1855,41 @@ namespace Project.Data
                 languages = "Русский, Английский, Испанский, Голландский, Немецкий, Польский, Португальский, Шведский, Украинский",
                 mainPhoto = photo70,
                 photos = new List<Photo> { photo71, photo72 },
+                roomEquipment = new List<RoomEquipment>
+                {
+                    roomEquipment5,
+                    roomEquipment7,
+                    roomEquipment9,
+                    roomEquipment10,
+                    roomEquipment21,
+                    roomEquipment22,
+                    roomEquipment23,
+                    roomEquipment24,
+                    roomEquipment25
+                },
+
+                roomType = new List<RoomType>
+                {
+                    roomType2,
+                    roomType5
+                },
+
+                services = new List<Services>
+                {
+                    services3,
+                    services14,
+                    services17,
+                    services21,
+                    services22,
+                    services24,
+                    services25,
+                    services28
+                }
             };
             //8
             Hotel hotel25 = new Hotel
             {
-                //https://www.tripadvisor.ru/Hotel_Review-g45963-d91925-Reviews-ARIA_Resort_Casino-Las_Vegas_Nevada.html
+                //1
                 name = "ARIA Resort & Casino",
                 location = "3730 Las Vegas Boulevard South, Лас-Вегас, NV 89158-4300",
                 phoneNumber = "810 1 866-359-7757",
@@ -1067,6 +1900,43 @@ namespace Project.Data
                 languages = "Английский, Французский, Испанский, Китайский, Японский",
                 mainPhoto = photo73,
                 photos = new List<Photo> { photo74, photo75 },
+                roomEquipment = new List<RoomEquipment>
+                {
+                    roomEquipment1,
+                    roomEquipment5,
+                    roomEquipment7,
+                    roomEquipment9,
+                    roomEquipment10,
+                    roomEquipment11,
+                    roomEquipment18,
+                    roomEquipment19,
+                    roomEquipment21,
+                    roomEquipment22,
+                    roomEquipment23,
+                    roomEquipment24,
+                    roomEquipment25
+                },
+
+                roomType = new List<RoomType>
+                {
+                    roomType2,
+                    roomType4,
+                    roomType5
+                },
+
+                services = new List<Services>
+                {
+                    services1,
+                    services4,
+                    services6,
+                    services8,
+                    services14,
+                    services17,
+                    services21,
+                    services23,
+                    services25,
+                    services28
+                }
             };
             Hotel hotel26 = new Hotel
             {
@@ -1081,6 +1951,42 @@ namespace Project.Data
                 languages = "Английский, Французский, Испанский, Китайский, Японский",
                 mainPhoto = photo76,
                 photos = new List<Photo> { photo77, photo78 },
+                roomEquipment = new List<RoomEquipment>
+                {
+                    roomEquipment1,
+                    roomEquipment5,
+                    roomEquipment9,
+                    roomEquipment11,
+                    roomEquipment18,
+                    roomEquipment19,
+                    roomEquipment20,
+                    roomEquipment22,
+                    roomEquipment23,
+                    roomEquipment24,
+                    roomEquipment25
+                },
+
+                roomType = new List<RoomType>
+                {
+                    roomType2,
+                    roomType4,
+                    roomType5
+                },
+
+                services = new List<Services>
+                {
+                    services1,
+                    services4,
+                    services6,
+                    services7,
+                    services8,
+                    services14,
+                    services16,
+                    services22,
+                    services23,
+                    services25,
+                    services28
+                }
             };
             Hotel hotel27 = new Hotel
             {
@@ -1093,6 +1999,37 @@ namespace Project.Data
                 languages = "Английский, Испанский",
                 mainPhoto = photo79,
                 photos = new List<Photo> { photo80, photo81 },
+                roomEquipment = new List<RoomEquipment>
+                {
+                    roomEquipment4,
+                    roomEquipment5,
+                    roomEquipment7,
+                    roomEquipment9,
+                    roomEquipment11,
+                    roomEquipment13,
+                    roomEquipment16,
+                    roomEquipment22,
+                    roomEquipment24,
+                    roomEquipment25
+                },
+
+                roomType = new List<RoomType>
+                {
+                    roomType2,
+                    roomType5
+                },
+
+                services = new List<Services>
+                {
+                    services2,
+                    services4,
+                    services6,
+                    services8,
+                    services14,
+                    services17,
+                    services25,
+                    services28
+                }
             };
             Hotel hotel28 = new Hotel
             {
@@ -1107,6 +2044,38 @@ namespace Project.Data
                 languages = "Английский, Испанский, Китайский",
                 mainPhoto = photo82,
                 photos = new List<Photo> { photo83, photo84 },
+                roomEquipment = new List<RoomEquipment>
+                {
+                    roomEquipment5,
+                    roomEquipment7,
+                    roomEquipment9,
+                    roomEquipment11,
+                    roomEquipment16,
+                    roomEquipment22,
+                    roomEquipment24,
+                    roomEquipment25
+                },
+
+                roomType = new List<RoomType>
+                {
+                    roomType2,
+                    roomType3,
+                    roomType5
+                },
+
+                services = new List<Services>
+                {
+                    services1,
+                    services4,
+                    services6,
+                    services7,
+                    services8,
+                    services14,
+                    services16,
+                    services21,
+                    services25,
+                    services28
+                }
             };
             //9
             Hotel hotel29 = new Hotel
@@ -1121,6 +2090,34 @@ namespace Project.Data
                 languages = "Английский",
                 mainPhoto = photo85,
                 photos = new List<Photo> { photo86, photo87 },
+                roomEquipment = new List<RoomEquipment>
+                {
+                    roomEquipment5,
+                    roomEquipment7,
+                    roomEquipment9,
+                    roomEquipment22,
+                    roomEquipment23,
+                    roomEquipment24
+                },
+
+                roomType = new List<RoomType>
+                {
+                    roomType2,
+                    roomType5
+                },
+
+                services = new List<Services>
+                {
+                    services6,
+                    services8,
+                    services14,
+                    services15,
+                    services16,
+                    services21,
+                    services22,
+                    services24,
+                    services25
+                }
             };
             Hotel hotel30 = new Hotel
             {
@@ -1133,6 +2130,38 @@ namespace Project.Data
                 languages = "Английский, Итальянский",
                 mainPhoto = photo88,
                 photos = new List<Photo> { photo89, photo90 },
+                roomEquipment = new List<RoomEquipment>
+                {
+                    roomEquipment5,
+                    roomEquipment7,
+                    roomEquipment9,
+                    roomEquipment16,
+                    roomEquipment22,
+                    roomEquipment23,
+                    roomEquipment24,
+                    roomEquipment25
+                },
+
+                roomType = new List<RoomType>
+                {
+                    roomType2,
+                    roomType3,
+                    roomType5
+                },
+
+                services = new List<Services>
+                {
+                    services2,
+                    services4,
+                    services6,
+                    services7,
+                    services15,
+                    services17,
+                    services21,
+                    services24,
+                    services25,
+                    services28
+                }
             };
             
             dataBase.hotels.AddRange(hotel1, hotel2, hotel3, hotel4, hotel5, hotel6, hotel7, hotel8, hotel9, hotel10, hotel11, hotel12, hotel13, hotel14, hotel15, hotel16, hotel17, hotel18, hotel19, hotel20, hotel21, hotel22, hotel23, hotel24, hotel25, hotel26, hotel27, hotel28, hotel29, hotel30);
@@ -1286,7 +2315,7 @@ namespace Project.Data
             };
 
             //1
-             Restaurant restaurant1 = new Restaurant
+             /*Restaurant restaurant1 = new Restaurant
             {
                 //
                 name = "",
@@ -1297,7 +2326,7 @@ namespace Project.Data
                 specialMenu = "",
                 mainPhoto = photo1,
                 photos = new List<Photo> {photo2, photo3},
-            };
+            };*/
             dataBase.restaurants.AddRange(restaurant1, restaurant2, restaurant3, restaurant4);
             dataBase.SaveChanges();
         }

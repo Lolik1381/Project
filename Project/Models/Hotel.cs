@@ -40,5 +40,11 @@ namespace Project.Models
 
         [Required]
         public List<RoomEquipment> roomEquipment { get; set; }
+
+        [Required]
+        public List<RoomType> roomType { get; set; }
+
+        [Required]
+        public List<Services> services { get; set; }
     }
 }
