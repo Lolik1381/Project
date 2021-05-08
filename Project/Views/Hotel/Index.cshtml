@@ -1,0 +1,500 @@
+﻿@functions 
+{
+    public List<string> getStyles(string styleHotel)
+    {
+        return styleHotel.Split(";").ToList();
+    }
+}
+@model Project.ViewModels.FindModel 
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style-1.css">
+    <title>Tripadvisor: прочтите отзывы, сравните цены и забронируйте</title>
+</head>
+<body>
+    <div class="header header-account">
+
+        <div class="header-login">
+            <div class="wrapper">
+                <div class="conteiner">
+                    <a href="/" style="display: block; float: left; margin-top: 0; margin-left: 0; margin-top: -5px;">
+                        <img src="~/img/TRIP-2.png" alt="" class="logo">
+                    </a>
+
+                    @if (!User.Identity.IsAuthenticated)
+                    {
+                        <a asp-controller="Account" asp-action="Login" class="nav_1">Вход</a>
+                        <a asp-controller="Account" asp-action="Register" class="nav_1" style="width:110px;">Регистрация</a>
+                    }
+                    else
+                    {
+                        <a href=@ViewBag.hrefUserProfile class="nav_1 nav_1-1" style="display: block; margin-top: -0px;">
+                            <img src="data:image/jpeg;base64, @(Convert.ToBase64String(ViewBag.photoProfile.image))" alt="" class="img-enter">
+                        </a>
+                        <a href=@Url.Action("Index", "Review") class="nav_2">Написать отзыв</a>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+
+    <div class="content content-accaunt-2">
+        <div class="wrapper-accaunt-content">
+            <div class="title">
+                <span class="name-red">@ViewBag.hotel.name</span>
+            </div>
+            <div class="rating rating-2">
+                <div class="rating_value rating_value-hidden">@ViewBag.hotel.rating</div>
+                <div class="rating_body">
+                    <div class="rating_active"></div>
+                    <div class="rating_items">
+                        <input type="radio" class="rating_item" value="1" name="rating">
+                        <input type="radio" class="rating_item" value="2" name="rating">
+                        <input type="radio" class="rating_item" value="3" name="rating">
+                        <input type="radio" class="rating_item" value="4" name="rating">
+                        <input type="radio" class="rating_item" value="5" name="rating">
+                    </div>
+                </div>
+                <div style="font-size: 14px; width: 100px; font-weight: bold; margin-left: 5px;">@ViewBag.hotel.reviews.Count отзывов</div>
+            </div>
+            <p class="place-position position-static position-static-first">@ViewBag.hotel.location</p>
+            <p class="place-position position-static position-static-phone">@ViewBag.hotel.phoneNumber</p>
+            <div class="clearfix"></div>
+            <div class="information">
+                <p>Об этом месте</p>
+                <div class="time">
+                    @if (ViewBag.hotel.description != null)
+                    {
+                        <h4>Описание</h4>
+                        @ViewBag.hotel.description
+                    }
+
+                    <h4>Полезная информация</h4>
+                    <h5>КЛАСС ОТЕЛЯ</h5>
+                    <div class="rating rating-2" style="margin-top: 5px; margin-bottom: 10px;">
+                        <div class="rating_value rating_value-hidden">@ViewBag.hotel.countStars</div>
+                        <div class="rating_body">
+                            <div class="rating_active"></div>
+                            <div class="rating_items">
+                                <input type="radio" class="rating_item" value="1" name="rating">
+                                <input type="radio" class="rating_item" value="2" name="rating">
+                                <input type="radio" class="rating_item" value="3" name="rating">
+                                <input type="radio" class="rating_item" value="4" name="rating">
+                                <input type="radio" class="rating_item" value="5" name="rating">
+                            </div>
+                        </div>
+                    </div>
+
+                    @if (ViewBag.hotel.styleHotel != null)
+                    {
+                        <h5>СТИЛЬ ОТЕЛЯ</h5>
+                        @foreach (var style in getStyles(ViewBag.hotel.styleHotel))
+                        {
+                            <h5 style="color:#808080">@style</h5>
+                        }
+                    }
+
+                    <h5>ЯЗЫКИ, ИСПОЛЬЗУЕМЫЕ В ОБЩЕНИИ</h5>
+                    <h5 style="color: #808080;">@ViewBag.hotel.languages</h5>
+                </div>
+            </div>
+
+            <!--image slider start-->
+            <div class="sim-slider">
+                <ul class="sim-slider-list">
+                    <li><img src="data:image/jpeg;base64, @(Convert.ToBase64String(ViewBag.scenePhoto.image))" alt="screen" width="720"></li>    <!-- это экран -->
+                    <!--Загружать фото 1280*720-->
+                    @foreach (var hotelPhoto in ViewBag.hotelPhotos)
+                    {
+                        <li class="sim-slider-element">
+                            <img src="data:image/jpeg;base64, @(Convert.ToBase64String(hotelPhoto.image))" alt="N" width="720" height="405">
+                        </li>
+                    }
+                </ul>
+                <div class="sim-slider-arrow-left" style="background-image: url(data:image/jpeg;base64,@(Convert.ToBase64String(ViewBag.sliderArrowLeft.image)));"></div>
+                <div class="sim-slider-arrow-right" style="background-image: url(data:image/jpeg;base64,@(Convert.ToBase64String(ViewBag.sliderArrowRight.image)));"></div>
+                <div class="sim-slider-dots"></div>
+            </div>
+            <!--image slider end-->
+            <div class="clearfix"></div>
+            <div class="information information-about-hotel">
+                <div class="hotel-conveniences">
+                    <h4 class="hotel-header">Услуги и удобства в отеле</h4>
+                    <div class="hotel-conveniences-feachers">
+                        <div class="feachers-left-column">
+                            <span class="parking">Бесплатная парковка</span>
+                            <span class="swim">Бассейн</span>
+                            <span class="cocktail">Бар/лаунж</span>
+                            <span class="ticket">Игровая комната</span>
+                            <span><a href="#popup" style="font-weight: bold;">Показать еще</a></span>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="hotel-equipment">
+                    <h4 class="hotel-header">Оснащенность номера</h4>
+                    <div class="hotel-conveniences-feachers" style="margin-left: 30px;">
+                        <div class="feachers-left-column">
+                            <span class="for-bedroom">Шторы, блокирующие свет</span>
+                            <span class="kitchen">Обеденная зона</span>
+                            <span class="kitchen">Мини-кухня</span>
+                            <span class="for-bedroom">Диван-кровать</span>
+                            <span><a href="#popup3" style="font-weight: bold;">Показать еще</a></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="hotel-type">
+                    <h4 class="hotel-header">Типы номеров</h4>
+                    <div class="hotel-conveniences-feachers" style="margin-left: 70px;">
+                        <div class="feachers-left-column">
+                            <span class="river">С видом на океан</span>
+                            <span class="no-smoking">Номера для некурящих</span>
+                            <span class="for-bedroom">Семейные номера</span>
+                            <span><a href="#popup4" style="font-weight: bold;">Показать еще</a></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="clearfix"></div>
+            <div class="send-photo">
+                <a href=@Html.Raw(Url.Action("Review", "Review", new { type = "Hotel", id = ViewBag.hotel.id })) class="send-btn">Написать отзыв</a>
+                <a href="#popup0" class="send-btn send-btn-2">Загрузить фотографию</a>
+            </div>
+            <div class="clearfix"></div>
+
+            <!--rating-->
+            <form method="post" asp-controller="Hotel" asp-action="Index">
+                <div class="rating-conteiner">
+                    <div class="ratings-wrapper">
+                        <div class="rating">
+                            <div class="rating_value">@Math.Round(ViewBag.hotel.rating, 1)</div>
+                            <div class="rating_body">
+                                <div class="rating_active"></div>
+                                <div class="rating_items">
+                                    <input type="radio" class="rating_item" value="1" name="rating">
+                                    <input type="radio" class="rating_item" value="2" name="rating">
+                                    <input type="radio" class="rating_item" value="3" name="rating">
+                                    <input type="radio" class="rating_item" value="4" name="rating">
+                                    <input type="radio" class="rating_item" value="5" name="rating">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="rating rating-2">
+                            <input type="checkbox" asp-for="CheckboxrRating5">
+                            <div style="font-size: 14px; width: 100px; font-weight: bold; margin-left: 5px;">Отлично</div>
+                            <div class="rating_value rating_value-hidden">5</div>
+                            <div class="rating_body">
+                                <div class="rating_active"></div>
+                                <div class="rating_items">
+                                    <input type="radio" class="rating_item" value="1" name="rating">
+                                    <input type="radio" class="rating_item" value="2" name="rating">
+                                    <input type="radio" class="rating_item" value="3" name="rating">
+                                    <input type="radio" class="rating_item" value="4" name="rating">
+                                    <input type="radio" class="rating_item" value="5" name="rating">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="rating rating-2">
+                            <input type="checkbox" asp-for="CheckboxrRating4">
+                            <div style="font-size: 14px; width: 100px; font-weight: bold; margin-left: 5px;">Очень хорошо</div>
+                            <div class="rating_value rating_value-hidden">4</div>
+                            <div class="rating_body">
+                                <div class="rating_active"></div>
+                                <div class="rating_items">
+                                    <input type="radio" class="rating_item" value="1" name="rating">
+                                    <input type="radio" class="rating_item" value="2" name="rating">
+                                    <input type="radio" class="rating_item" value="3" name="rating">
+                                    <input type="radio" class="rating_item" value="4" name="rating">
+                                    <input type="radio" class="rating_item" value="5" name="rating">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="rating rating-2">
+                            <input type="checkbox" asp-for="CheckboxrRating3">
+                            <div style="font-size: 14px; width: 100px; font-weight: bold; margin-left: 5px;">Неплохо</div>
+                            <div class="rating_value rating_value-hidden">3</div>
+                            <div class="rating_body">
+                                <div class="rating_active"></div>
+                                <div class="rating_items">
+                                    <input type="radio" class="rating_item" value="1" name="rating">
+                                    <input type="radio" class="rating_item" value="2" name="rating">
+                                    <input tpye="radio" class="rating_item" value="3" name="rating" style="width:20px;">
+                                    <input type="radio" class="rating_item" value="4" name="rating">
+                                    <input type="radio" class="rating_item" value="5" name="rating">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="rating rating-2">
+                            <input type="checkbox" asp-for="CheckboxrRating2">
+                            <div style="font-size: 14px; width: 100px; font-weight: bold; margin-left: 5px;">Плохо</div>
+                            <div class="rating_value rating_value-hidden">2</div>
+                            <div class="rating_body">
+                                <div class="rating_active"></div>
+                                <div class="rating_items">
+                                    <input type="radio" class="rating_item" value="1" name="rating">
+                                    <input type="radio" class="rating_item" value="2" name="rating">
+                                    <input type="radio" class="rating_item" value="3" name="rating">
+                                    <input type="radio" class="rating_item" value="4" name="rating">
+                                    <input type="radio" class="rating_item" value="5" name="rating">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="rating rating-2">
+                            <input type="checkbox" asp-for="CheckboxrRating1">
+                            <div style="font-size: 14px; width: 100px; font-weight: bold; margin-left: 5px;">Ужасно</div>
+                            <div class="rating_value rating_value-hidden">1</div>
+                            <div class="rating_body">
+                                <div class="rating_active"></div>
+                                <div class="rating_items">
+                                    <input type="radio" class="rating_item" value="1" name="rating">
+                                    <input type="radio" class="rating_item" value="2" name="rating">
+                                    <input type="radio" class="rating_item" value="3" name="rating">
+                                    <input type="radio" class="rating_item" value="4" name="rating">
+                                    <input type="radio" class="rating_item" value="5" name="rating">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="type-visited">
+                        <p class="period-type">Период</p>
+                        <div>
+                            <label asp-for="CheckboxDate1" class="float-div"></label>
+                            <input asp-for="CheckboxDate1" />
+                            <span asp-validation-for="CheckboxDate1"></span>
+                        </div>
+                        <div>
+                            <label asp-for="CheckboxDate2" class="float-div"></label>
+                            <input asp-for="CheckboxDate2" />
+                            <span asp-validation-for="CheckboxDate2"></span>
+                        </div>
+                        <div>
+                            <label asp-for="CheckboxDate3" class="float-div"></label>
+                            <input asp-for="CheckboxDate3" />
+                            <span asp-validation-for="CheckboxDate3"></span>
+                        </div>
+                        <div>
+                            <label asp-for="CheckboxDate4" class="float-div"></label>
+                            <input asp-for="CheckboxDate4" />
+                            <span asp-validation-for="CheckboxDate4"></span>
+                        </div>
+                    </div>
+                    <input type="text" name="textField" class="text-search" placeholder="Поиск отзывов..">
+                    <input type="hidden" name="Id" value="@ViewBag.hotel.id" />
+                    <input type="submit" value="Готово" class="well-done-btn">
+                </div>
+            </form>
+            <!--end rating-->
+            <!--message-->
+            <div class="message-conteiner message-conteiner-margin">
+                @foreach (var review in ViewBag.reviews)
+                {
+                    <div class="message message-width">
+                        <a href=@Url.Action("Index", "Account", new { userId = review.user.Id })>
+                            <img src="data:image/jpeg;base64, @(Convert.ToBase64String(review.user.profile.mainPhoto.image))" alt="">
+                        </a>
+                        <span class="name">@review.user.profile.name @review.user.profile.lastName</span>
+                        <span class="write">написал(а) отзыв</span>
+                        <p class="date">@review.created</p>
+                        <div class="rating rating-2" style="clear: both; padding-top: 8px;">
+                            <div class="rating_value rating_value-hidden">@review.rating</div>
+                            <div class="rating_body">
+                                <div class="rating_active"></div>
+                                <div class="rating_items">
+                                    <input type="radio" class="rating_item" value="1" name="rating">
+                                    <input type="radio" class="rating_item" value="2" name="rating">
+                                    <input type="radio" class="rating_item" value="3" name="rating">
+                                    <input type="radio" class="rating_item" value="4" name="rating">
+                                    <input type="radio" class="rating_item" value="5" name="rating">
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#" class="message-place">@review.header</a>
+                        <p class="message-message">@review.description</p>
+
+                        @if (review.photos.Count > 0)
+                        {
+                            <div class="photo-adder">
+                                @foreach (var image in review.photos)
+                                {
+                                    <div class="img_preview">
+                                        <img src="data:image/jpeg;base64, @(Convert.ToBase64String(image.image))">
+                                    </div>
+                                }
+                            </div>
+                        }
+                    </div>
+                }
+            </div>
+            <!--end massage-->
+        </div>
+    </div>
+    <div class="footer"></div>
+
+    <div id="popup0" class="popup">
+        <a href="#" class="popup_area"></a>
+        <div class="popup_body">
+            <div class="popup_content">
+                <a href="#" class="popup_close">X</a>
+                <div class="popup_title popup_title-accaunt">Выберите фото на обложку</div>
+                <div class="popup_text">
+                    <form method="post" asp-controller="Hotel" asp-action="AddPhoto" enctype="multipart/form-data">
+                        <input type="file" name="photo" multiple>
+                        <input type="hidden" name="HotelId" value="@ViewBag.hotel.id" />
+                        <input type="submit" value="Подтвердить"></p>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div id="popup" class="popup">
+        <a href="#" class="popup_area"></a>
+        <div class="popup_body">
+            <div class="popup_content popup_content-for-information">
+                <a href="#" class="popup_close">X</a>
+                <form method="post" action="">
+                    <img src="img/Tripadvisor-logo-2.png" width="90">
+                    <h2 class="text-margin">Услуги</h2>
+                    <div class="header-links">
+                        <div class="hotel-conveniences"><a href="#popup" style="padding-left: 25px;">Удобства в отеле</a></div>
+                        <div class="hotel-equipment" style="padding-left: 10px;"><a href="#popup3">Оснащенность номера</a></div>
+                        <div class="hotel-type"><a href="#popup4" style="padding-left: 30px;">Типы номеров</a></div>
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="hotel-conveniences-feachers">
+                        <div class="feachers-left-column">
+                            <span class="parking">Бесплатная парковка</span>
+                            <span class="swim">Бассейн</span>
+                            <span class="cocktail">Бар/лаунж</span>
+                            <span class="ticket">Игровая комната</span>
+                            <span class="parking">Услуга парковки автомобиля сотрудником отеля</span>
+                            <span class="wifi">Wi-Fi</span>
+                            <span class="swim">Бассейн с подогревом</span>
+                            <span class="cup-of-tea">Возможен завтрак</span>
+                            <span class="kitchen">Буфет</span>
+                            <span class="ticket">Теннисный корт (не на территории отеля)</span>
+                            <span class="family">Подходит для детей / семьи</span>
+                            <span class="bag">Бизнес-центр с Wi-Fi</span>
+                            <span class="bag">Конференц-залы</span>
+                            <span class="no-smoking">Отель для некурящих</span>
+                            <span class="hanger">Услуги прачечной</span>
+                        </div>
+                        <div class="feachers-right-column">
+                            <span class="wifi">Бесплатный WiFi</span>
+                            <span class="swim">Фитнес-центр</span>
+                            <span class="sun">Пляж</span>
+                            <span class="family">Бесплатное размещение для детей</span>
+                            <span class="parking">Платная общественная парковка поблизости</span>
+                            <span class="swim">Джакузи</span>
+                            <span class="kitchen">Торговый автомат</span>
+                            <span class="ticket">Прокат снаряжения для водных видов спорта</span>
+                            <span class="ticket">Боулинг (не на территории отеля)</span>
+                            <span class="ticket">Настольный теннис</span>
+                            <span class="taxi">Услуги такси</span>
+                            <span class="bag">Помещения для проведения конференций</span>
+                            <span class="for-bedroom">Хранение багажа</span>
+                            <span class="hanger">Прачечная с самообслуживанием</span>
+                        </div>
+
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+    <div id="popup3" class="popup">
+        <a href="#" class="popup_area"></a>
+        <div class="popup_body">
+            <div class="popup_content popup_content-for-information">
+                <a href="#" class="popup_close">X</a>
+                <form method="post" action="">
+                    <img src="img/Tripadvisor-logo-2.png" width="90">
+                    <h2 class="text-margin">Услуги</h2>
+                    <div class="header-links">
+                        <div class="hotel-equipment"><a href="#popup" style="padding-left: 25px;">Удобства в отеле</a></div>
+                        <div class="hotel-conveniences" style="padding-left: 10px;"><a href="#">Оснащенность номера</a></div>
+                        <div class="hotel-type"><a href="#popup4" style="padding-left: 30px;">Типы номеров</a></div>
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="hotel-conveniences-feachers">
+                        <div class="feachers-left-column">
+                            <span class="for-bedroom">Шторы, блокирующие свет</span>
+                            <span class="for-bedroom">Обеденная зона</span>
+                            <span class="cup-of-tea">Мини-кухня</span>
+                            <span class="for-bedroom">Диван-кровать</span>
+                            <span class="for-bedroom">Отдельный балкон</span>
+                            <span class="for-bedroom">Сейф</span>
+                            <span class="for-bedroom">Диван</span>
+                            <span class="for-bedroom">VIP-номера</span>
+                            <span class="for-bedroom">Кафельный/мраморный пол</span>
+                            <span class="kitchen">Микроволновая печь</span>
+                            <span class="kitchen">Кухонная плита</span>
+                            <span class="kitchen">Кухонная утварь</span>
+                            <span class="bathroom">Бесплатные туалетные принадлежности</span>
+                        </div>
+                        <div class="feachers-right-column">
+                            <span class="snow">Кондиционер</span>
+                            <span class="for-bedroom">Уборка номеров</span>
+                            <span class="play">ТВ с плоским экраном</span>
+                            <span class="bathroom">Душевая кабина без поддона на полу</span>
+                            <span class="call">Обслуживание номеров</span>
+                            <span class="for-bedroom">Телефон</span>
+                            <span class="for-bedroom">Утюг</span>
+                            <span class="kitchen">Холодильник</span>
+                            <span class="kitchen">Электрический чайник</span>
+                            <span class="bathroom">Ванна/душ</span>
+                            <span class="bathroom">Фен</span>
+                        </div>
+
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+    <div id="popup4" class="popup">
+        <a href="#" class="popup_area"></a>
+        <div class="popup_body">
+            <div class="popup_content popup_content-for-information">
+                <a href="#" class="popup_close">X</a>
+                <form method="post" action="">
+                    <img src="img/Tripadvisor-logo-2.png" width="90">
+                    <h2 class="text-margin">Услуги</h2>
+                    <div class="header-links">
+                        <div class="hotel-equipment"><a href="#popup" style="padding-left: 25px;">Удобства в отеле</a></div>
+                        <div class="hotel-type" style="padding-left: 10px; border-right: none;"><a href="#popup3">Оснащенность номера</a></div>
+                        <div class="hotel-conveniences"><a href="#" style="padding-left: 30px;">Типы номеров</a></div>
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="hotel-conveniences-feachers">
+                        <div class="feachers-left-column">
+                            <span class="river">С видом на океан</span>
+                            <span class="no-smoking">Номера для некурящих</span>
+                            <span class="for-bedroom">Семейные номера</span>
+                        </div>
+                        <div class="feachers-right-column">
+                            <span class="river">С видом на город</span>
+                            <span class="for-bedroom">Номера-люксы</span>
+                        </div>
+
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="~/js/script.js"></script>
+    <script>new Sim()</script>
+    <script src="~/js/script2.js"></script>
+</body>
+</html>

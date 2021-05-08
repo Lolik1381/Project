@@ -185,7 +185,14 @@ namespace Project.Service.Impl
         {
             Hotel hotel = await applicationContext.hotels
                  .Include(hotel => hotel.mainPhoto)
+
                  .Include(hotel => hotel.reviews)
+                    .ThenInclude(review => review.user)
+                        .ThenInclude(user => user.profile)
+                            .ThenInclude(profile => profile.mainPhoto)
+                 .Include(landmark => landmark.reviews)
+                    .ThenInclude(review => review.photos)
+
                  .Include(hotel => hotel.photos)
                  .Where(hotel => hotel.id == id)
                  .FirstOrDefaultAsync();
@@ -230,7 +237,14 @@ namespace Project.Service.Impl
         {
             Restaurant restaurant = await applicationContext.restaurants
                  .Include(restaurant => restaurant.mainPhoto)
-                 .Include(restaurant => restaurant.reviews)
+
+                 .Include(hotel => hotel.reviews)
+                    .ThenInclude(review => review.user)
+                        .ThenInclude(user => user.profile)
+                            .ThenInclude(profile => profile.mainPhoto)
+                 .Include(landmark => landmark.reviews)
+                    .ThenInclude(review => review.photos)
+
                  .Include(restaurant => restaurant.photos)
                  .Where(restaurant => restaurant.id == id)
                  .FirstOrDefaultAsync();
