@@ -476,6 +476,12 @@ namespace Project.Data
                     dataBase.hotels.Where(l => l.name.Equals("Roosevelt Lodge Cabins")).Single(),
                     dataBase.hotels.Where(l => l.name.Equals("Madison Campground")).Single()
                 },
+                restaurants = new List<Restaurant>
+                {
+                dataBase.restaurants.Where(r => r.name.Equals("Roosevelt Lodge Dining Room")).Single(),
+                dataBase.restaurants.Where(r => r.name.Equals("Lake Yellowstone Hotel Dining Room")).Single(),
+                dataBase.restaurants.Where(r => r.name.Equals("Fishing Bridge General Store")).Single()
+                },
                 photos = new List<Photo> { photo11 },
                 mainPhoto = photo1, 
                 name = "Йеллоустонский национальный парк, Вайоминг",
@@ -499,7 +505,14 @@ namespace Project.Data
                     dataBase.hotels.Where(l => l.name.Equals("Zoetry Agua Punta Cana")).Single(),
                     dataBase.hotels.Where(l => l.name.Equals("Excellence Punta Cana")).Single(),
                     dataBase.hotels.Where(l => l.name.Equals("Royalton Punta Cana Resort & Casino")).Single()
+                },
+                restaurants = new List<Restaurant>
+                {
+                dataBase.restaurants.Where(r => r.name.Equals("Chic Cabaret & Restaurant Punta Cana")).Single(),
+                dataBase.restaurants.Where(r => r.name.Equals("La Yola Restaurant")).Single(),
+                dataBase.restaurants.Where(r => r.name.Equals("Pranama")).Single()
                 }
+
             };
             Direction direction3 = new Direction {
                 landmarks = new List<Landmark>
@@ -511,6 +524,12 @@ namespace Project.Data
                     dataBase.hotels.Where(l => l.name.Equals("Hotel Wailea")).Single(),
                     dataBase.hotels.Where(l => l.name.Equals("Hana-Maui Resort")).Single(),
                     dataBase.hotels.Where(l => l.name.Equals("Andaz Maui At Wailea Resort")).Single()
+                },
+                restaurants = new List<Restaurant>
+                {
+                dataBase.restaurants.Where(r => r.name.Equals("Ululani's Hawaiian Shave Ice")).Single(),
+                dataBase.restaurants.Where(r => r.name.Equals("Maui Thai Bistro")).Single(),
+                dataBase.restaurants.Where(r => r.name.Equals("Mama's Fish House")).Single()
                 },
                 photos = new List<Photo> { photo13 },
                 mainPhoto = photo3,
@@ -531,6 +550,13 @@ namespace Project.Data
                     dataBase.hotels.Where(l => l.name.Equals("The Alfond Inn")).Single(),
                     dataBase.hotels.Where(l => l.name.Equals("Four Seasons Resort Orlando at Walt Disney World Resort")).Single()
                 },
+                restaurants = new List<Restaurant>
+                {
+                dataBase.restaurants.Where(r => r.name.Equals("Bosphorous Turkish Cuisine")).Single(),
+                dataBase.restaurants.Where(r => r.name.Equals("La Luce")).Single(),
+                dataBase.restaurants.Where(r => r.name.Equals("4 Rivers Smokehouse")).Single(),
+                dataBase.restaurants.Where(r => r.name.Equals("Keke's Breakfast Cafe")).Single()
+                },
                 photos = new List<Photo> { photo14 },
                 mainPhoto = photo4, 
                 name = "Орландо, Флорида",
@@ -547,7 +573,14 @@ namespace Project.Data
                 {
                     dataBase.hotels.Where(l => l.name.Equals("El Portal Sedona Hotel")).Single(),
                     dataBase.hotels.Where(l => l.name.Equals("L'Auberge de Sedona")).Single(),
-                    dataBase.hotels.Where(l => l.name.Equals("Enchantment Resort")).Single()                },
+                    dataBase.hotels.Where(l => l.name.Equals("Enchantment Resort")).Single()                
+                },
+                restaurants = new List<Restaurant>
+                {
+                dataBase.restaurants.Where(r => r.name.Equals("Golden Goose American Grill")).Single(),
+                dataBase.restaurants.Where(r => r.name.Equals("Bella Vita Ristorante")).Single(),
+                dataBase.restaurants.Where(r => r.name.Equals("Elote Cafe")).Single()
+                },
                 photos = new List<Photo> { photo15 },
                 mainPhoto = photo5, 
                 name = "Седона, Аризона",
@@ -570,7 +603,10 @@ namespace Project.Data
                 },
                 restaurants = new List<Restaurant>
                 {
-                    dataBase.restaurants.Where(r => r.name.Equals("Lorenzillo's")).Single()
+                    dataBase.restaurants.Where(r => r.name.Equals("Lorenzillo's")).Single(),
+                    dataBase.restaurants.Where(r => r.name.Equals("Porfirio's Cancún")).Single(),
+                    dataBase.restaurants.Where(r => r.name.Equals("Taqueria Coapenitos")).Single(),
+                    dataBase.restaurants.Where(r => r.name.Equals("Les Cepages Restaurant")).Single()
                 },
                 photos = new List<Photo> { photo16 },
                 mainPhoto = photo6, 
@@ -591,6 +627,12 @@ namespace Project.Data
                     dataBase.hotels.Where(l => l.name.Equals("Moxy NYC Chelsea")).Single(),
                     dataBase.hotels.Where(l => l.name.Equals("The Standard, East Village")).Single()
                 },
+                restaurants = new List<Restaurant>
+                {
+                dataBase.restaurants.Where(r => r.name.Equals("5 Napkin Burger Hell's Kitchen")).Single(),
+                dataBase.restaurants.Where(r => r.name.Equals("Obao")).Single(),
+                dataBase.restaurants.Where(r => r.name.Equals("Bleecker Street Pizza")).Single()
+                },
                 photos = new List<Photo> { photo17 },
                 mainPhoto = photo7, 
                 name = "Нью-Йорк, Нью-Йорк",
@@ -610,6 +652,12 @@ namespace Project.Data
                     dataBase.hotels.Where(l => l.name.Equals("The Cosmopolitan of Las Vegas, Autograph Collection")).Single(),
                     dataBase.hotels.Where(l => l.name.Equals("The Venetian Resort")).Single()
                 },
+                restaurants = new List<Restaurant>
+                {
+                dataBase.restaurants.Where(r => r.name.Equals("Senor Frog's Las Vegas")).Single(),
+                dataBase.restaurants.Where(r => r.name.Equals("Le Cirque")).Single(),
+                dataBase.restaurants.Where(r => r.name.Equals("Triple George Grill")).Single()
+                },
                 photos = new List<Photo> { photo18 },
                 mainPhoto = photo8, 
                 name = "Лас-Вегас, Невада",
@@ -626,6 +674,13 @@ namespace Project.Data
                 {
                     dataBase.hotels.Where(l => l.name.Equals("Vintry & Mercer")).Single(),
                     dataBase.hotels.Where(l => l.name.Equals("The Landmark London")).Single()
+                },
+                restaurants = new List<Restaurant>
+                {
+                dataBase.restaurants.Where(r => r.name.Equals("Figo Stratford")).Single(),
+                dataBase.restaurants.Where(r => r.name.Equals("The Golden Chippy")).Single(),
+                dataBase.restaurants.Where(r => r.name.Equals("BaoziInn Soho")).Single(),
+                dataBase.restaurants.Where(r => r.name.Equals("Jhenn of the Vegan Ronin")).Single()
                 },
                 photos = new List<Photo> { photo19 },
                 mainPhoto = photo9, 
@@ -2182,88 +2237,87 @@ namespace Project.Data
             Photo photo10 = new Photo {image = Util.getByteImage(@"wwwroot\img\Porfirio1.jpg"), name = @"img\Porfirio's-Cancún.jpg"};
             Photo photo11 = new Photo {image = Util.getByteImage(@"wwwroot\img\Porfirio3.jpg"), name = @"img\Porfirio's-Cancún1.jpg"};
             Photo photo12 = new Photo {image = Util.getByteImage(@"wwwroot\img\Porfirio2.jpg"), name = @"img\Porfirio's-Cancún2.jpg"};
-
-            Photo photo13 = new Photo {image = Util.getByteImage(@"wwwroot\img\old-faithful-inn.jpg"), name = @"img\old-faithful-inn.jpg"};
-            Photo photo14 = new Photo {image = Util.getByteImage(@"wwwroot\img\old-faithful-inn1.jpg"), name = @"img\old-faithful-inn1.jpg"};
-            Photo photo15 = new Photo {image = Util.getByteImage(@"wwwroot\img\old-faithful-inn2.jpg"), name = @"img\old-faithful-inn2.jpg"};
-            Photo photo16 = new Photo {image = Util.getByteImage(@"wwwroot\img\Roosevelt-Lodge-Cabins.jpg"), name = @"img\Roosevelt-Lodge-Cabins.jpg"};
-            Photo photo17 = new Photo {image = Util.getByteImage(@"wwwroot\img\Roosevelt-Lodge-Cabins1.jpg"), name = @"img\Roosevelt-Lodge-Cabins1.jpg"};
-            Photo photo18 = new Photo {image = Util.getByteImage(@"wwwroot\img\roosevelt-lodge-cabins2.jpg"), name = @"img\roosevelt-lodge-cabins2.jpg"};
-            Photo photo19 = new Photo {image = Util.getByteImage(@"wwwroot\img\madison-campground.jpg"), name = @"img\madison-campground.jpg"};
-            Photo photo20 = new Photo {image = Util.getByteImage(@"wwwroot\img\madison-campground1.jpg"), name = @"img\madison-campground1.jpg"};
-            Photo photo21 = new Photo {image = Util.getByteImage(@"wwwroot\img\madison-campground2.jpg"), name = @"img\madison-campground2.jpg"};
-            Photo photo22 = new Photo {image = Util.getByteImage(@"wwwroot\img\sanctuary-cap-cana-aerial.jpg"), name = @"img\sanctuary-cap-cana-aerial.jpg"};
-            Photo photo23 = new Photo {image = Util.getByteImage(@"wwwroot\img\sanctuary-cap-cana-aerial1.jpg"), name = @"img\sanctuary-cap-cana-aerial1.jpg"};
-            Photo photo24 = new Photo {image = Util.getByteImage(@"wwwroot\img\sanctuary-cap-cana-aerial2.jpg"), name = @"img\sanctuary-cap-cana-aerial2.jpg"};
-            Photo photo25 = new Photo {image = Util.getByteImage(@"wwwroot\img\Zoetry-Agua-Punta-Cana.jpg"), name = @"img\Zoetry-Agua-Punta-Cana.jpg" };
-            Photo photo26 = new Photo {image = Util.getByteImage(@"wwwroot\img\Zoetry-Agua-Punta-Cana1.jpg"), name = @"img\Zoetry-Agua-Punta-Cana1.jpg" };
-            Photo photo27 = new Photo {image = Util.getByteImage(@"wwwroot\img\Zoetry-Agua-Punta-Cana2.jpg"), name = @"img\Zoetry-Agua-Punta-Cana2.jpg" };
-            Photo photo28 = new Photo {image = Util.getByteImage(@"wwwroot\img\Excellence-Punta-Cana.jpg"), name = @"img\Excellence-Punta-Cana.jpg" };
-            Photo photo29 = new Photo {image = Util.getByteImage(@"wwwroot\img\Excellence-Punta-Cana1.jpg"), name = @"img\Excellence-Punta-Cana1.jpg" };
-            Photo photo30 = new Photo {image = Util.getByteImage(@"wwwroot\img\Excellence-Punta-Cana2.jpg"), name = @"img\Excellence-Punta-Cana2.jpg" };
-            Photo photo31 = new Photo { image = Util.getByteImage(@"wwwroot\img\Royalton-Punta-Cana-Resort.jpg"), name = @"img\Royalton-Punta-Cana-Resort.jpg" };
-            Photo photo32 = new Photo { image = Util.getByteImage(@"wwwroot\img\Royalton-Punta-Cana-Resort1.jpg"), name = @"img\Royalton-Punta-Cana-Resort1.jpg" };
-            Photo photo33 = new Photo { image = Util.getByteImage(@"wwwroot\img\Royalton-Punta-Cana-Resort2.jpg"), name = @"img\Royalton-Punta-Cana-Resort2.jpg" };
-            Photo photo34 = new Photo { image = Util.getByteImage(@"wwwroot\img\Hotel-Wailea.jpg"), name = @"img\Hotel-Wailea.jpg" };
-            Photo photo35 = new Photo { image = Util.getByteImage(@"wwwroot\img\Hotel-Wailea1.jpg"), name = @"img\Hotel-Wailea1.jpg" };
-            Photo photo36 = new Photo { image = Util.getByteImage(@"wwwroot\img\Hotel-Wailea2.jpg"), name = @"img\Hotel-Wailea2.jpg" };
-            Photo photo37 = new Photo { image = Util.getByteImage(@"wwwroot\img\hana-maui-resort.jpg"), name = @"img\hana-maui-resort.jpg" };
-            Photo photo38 = new Photo { image = Util.getByteImage(@"wwwroot\img\hana-maui-resort1.jpg"), name = @"img\hana-maui-resort1.jpg" };
-            Photo photo39 = new Photo { image = Util.getByteImage(@"wwwroot\img\hana-maui-resort2.jpg"), name = @"img\hana-maui-resort2.jpg" };
-            Photo photo40 = new Photo { image = Util.getByteImage(@"wwwroot\img\andaz-maui-at-wailea.jpg"), name = @"img\andaz-maui-at-wailea.jpg" };
-            Photo photo41 = new Photo { image = Util.getByteImage(@"wwwroot\img\andaz-maui-at-wailea1.jpg"), name = @"img\andaz-maui-at-wailea1.jpg" };
-            Photo photo42 = new Photo { image = Util.getByteImage(@"wwwroot\img\andaz-maui-at-wailea2.jpg"), name = @"img\andaz-maui-at-wailea2.jpg" };
-            Photo photo43 = new Photo { image = Util.getByteImage(@"wwwroot\img\disney-s-animal-kingdom.jpg"), name = @"img\disney-s-animal-kingdom.jpg" };
-            Photo photo44 = new Photo { image = Util.getByteImage(@"wwwroot\img\disney-s-animal-kingdom1.jpg"), name = @"img\disney-s-animal-kingdom1.jpg" };
-            Photo photo45 = new Photo { image = Util.getByteImage(@"wwwroot\img\disney-s-animal-kingdom2.jpg"), name = @"img\disney-s-animal-kingdom2.jpg" };
-            Photo photo46 = new Photo { image = Util.getByteImage(@"wwwroot\img\hilton-orlando-bonnet.jpg"), name = @"img\hilton-orlando-bonnet.jpg" };
-            Photo photo47 = new Photo { image = Util.getByteImage(@"wwwroot\img\hilton-orlando-bonnet1.jpg"), name = @"img\hilton-orlando-bonnet1.jpg" };
-            Photo photo48 = new Photo { image = Util.getByteImage(@"wwwroot\img\hilton-orlando-bonnet2.jpg"), name = @"img\hilton-orlando-bonnet2.jpg" };
-            Photo photo49 = new Photo { image = Util.getByteImage(@"wwwroot\img\four-seasons-resort-orlando.jpg"), name = @"img\four-seasons-resort-orlando.jpg" };
-            Photo photo50 = new Photo { image = Util.getByteImage(@"wwwroot\img\four-seasons-resort-orlando1.jpg"), name = @"img\four-seasons-resort-orlando1.jpg" };
-            Photo photo51 = new Photo { image = Util.getByteImage(@"wwwroot\img\four-seasons-resort-orlando2.jpg"), name = @"img\four-seasons-resort-orlando2.jpg" };
-            Photo photo52 = new Photo { image = Util.getByteImage(@"wwwroot\img\the-alfond-inn.jpg"), name = @"img\the-alfond-inn.jpg" };
-            Photo photo53 = new Photo { image = Util.getByteImage(@"wwwroot\img\the-alfond-inn1.jpg"), name = @"img\the-alfond-inn1.jpg" };
-            Photo photo54 = new Photo { image = Util.getByteImage(@"wwwroot\img\the-alfond-inn2.jpg"), name = @"img\the-alfond-inn2.jpg" };
-            Photo photo55 = new Photo { image = Util.getByteImage(@"wwwroot\img\el-portal-sedona-hotel.jpg"), name = @"img\el-portal-sedona-hotel.jpg" };
-            Photo photo56 = new Photo { image = Util.getByteImage(@"wwwroot\img\el-portal-sedona-hotel1.jpg"), name = @"img\el-portal-sedona-hotel1.jpg" };
-            Photo photo57 = new Photo { image = Util.getByteImage(@"wwwroot\img\el-portal-sedona-hotel2.jpg"), name = @"img\el-portal-sedona-hotel2.jpg" };
-            Photo photo58 = new Photo { image = Util.getByteImage(@"wwwroot\img\Auberge-de-Sedona.jpg"), name = @"img\Auberge-de-Sedona.jpg" };
-            Photo photo59 = new Photo { image = Util.getByteImage(@"wwwroot\img\Auberge-de-Sedona1.jpg"), name = @"img\Auberge-de-Sedona1.jpg" };
-            Photo photo60 = new Photo { image = Util.getByteImage(@"wwwroot\img\Auberge-de-Sedona2.jpg"), name = @"img\Auberge-de-Sedona2.jpg" };
-            Photo photo61 = new Photo { image = Util.getByteImage(@"wwwroot\img\enchantment-resort.jpg"), name = @"img\enchantment-resort.jpg" };
-            Photo photo62 = new Photo { image = Util.getByteImage(@"wwwroot\img\enchantment-resort1.jpg"), name = @"img\enchantment-resort1.jpg" };
-            Photo photo63 = new Photo { image = Util.getByteImage(@"wwwroot\img\enchantment-resort2.jpg"), name = @"img\enchantment-resort2.jpg" };
-            Photo photo64 = new Photo { image = Util.getByteImage(@"wwwroot\img\park-central.jpg"), name = @"img\park-central.jpg" };
-            Photo photo65 = new Photo { image = Util.getByteImage(@"wwwroot\img\park-central1.jpg"), name = @"img\park-central1.jpg" };
-            Photo photo66 = new Photo { image = Util.getByteImage(@"wwwroot\img\park-central2.jpg"), name = @"img\park-central2.jpg" };
-            Photo photo67 = new Photo { image = Util.getByteImage(@"wwwroot\img\Moxy-NYC-Chelsea.jpg"), name = @"img\Moxy-NYC-Chelsea.jpg" };
-            Photo photo68 = new Photo { image = Util.getByteImage(@"wwwroot\img\Moxy-NYC-Chelsea1.jpg"), name = @"img\Moxy-NYC-Chelsea1.jpg" };
-            Photo photo69 = new Photo { image = Util.getByteImage(@"wwwroot\img\Moxy-NYC-Chelsea2.jpg"), name = @"img\Moxy-NYC-Chelsea2.jpg" };
-            Photo photo70 = new Photo { image = Util.getByteImage(@"wwwroot\img\The-Standard.jpg"), name = @"img\The-Standard.jpg" };
-            Photo photo71 = new Photo { image = Util.getByteImage(@"wwwroot\img\The-Standard1.jpg"), name = @"img\The-Standard1.jpg" };
-            Photo photo72 = new Photo { image = Util.getByteImage(@"wwwroot\img\The-Standard2.jpg"), name = @"img\The-Standard2.jpg" };
-            Photo photo73 = new Photo { image = Util.getByteImage(@"wwwroot\img\aria.jpg"), name = @"img\aria.jpg" };
-            Photo photo74 = new Photo { image = Util.getByteImage(@"wwwroot\img\aria1.jpg"), name = @"img\aria1.jpg" };
-            Photo photo75 = new Photo { image = Util.getByteImage(@"wwwroot\img\aria2.jpg"), name = @"img\aria2.jpg" };
-            Photo photo76 = new Photo { image = Util.getByteImage(@"wwwroot\img\bellagio-las-vegas.jpg"), name = @"img\bellagio-las-vegas.jpg" };
-            Photo photo77 = new Photo { image = Util.getByteImage(@"wwwroot\img\bellagio-las-vegas1.jpg"), name = @"img\bellagio-las-vegas1.jpg" };
-            Photo photo78 = new Photo { image = Util.getByteImage(@"wwwroot\img\bellagio-las-vegas2.jpg"), name = @"img\bellagio-las-vegas2.jpg" };
-            Photo photo79 = new Photo { image = Util.getByteImage(@"wwwroot\img\Cosmopolitan.jpg"), name = @"img\Cosmopolitan.jpg" };
-            Photo photo80 = new Photo { image = Util.getByteImage(@"wwwroot\img\Cosmopolitan1.jpg"), name = @"img\Cosmopolitan1.jpg" };
-            Photo photo81 = new Photo { image = Util.getByteImage(@"wwwroot\img\Cosmopolitan2.jpg"), name = @"img\Cosmopolitan2.jpg" };
-            Photo photo82 = new Photo { image = Util.getByteImage(@"wwwroot\img\the-venetian-las-vegas.jpg"), name = @"img\the-venetian-las-vegas.jpg" };
-            Photo photo83 = new Photo { image = Util.getByteImage(@"wwwroot\img\the-venetian-las-vegas1.jpg"), name = @"img\the-venetian-las-vegas1.jpg" };
-            Photo photo84 = new Photo { image = Util.getByteImage(@"wwwroot\img\the-venetian-las-vegas2.jpg"), name = @"img\the-venetian-las-vegas2.jpg" };
-            Photo photo85 = new Photo { image = Util.getByteImage(@"wwwroot\img\Vintry-&-Mercer.jpg"), name = @"img\Vintry-&-Mercer.jpg" };
-            Photo photo86 = new Photo { image = Util.getByteImage(@"wwwroot\img\Vintry-&-Mercer1.jpg"), name = @"img\Vintry-&-Mercer1.jpg" };
-            Photo photo87 = new Photo { image = Util.getByteImage(@"wwwroot\img\Vintry-&-Mercer2.jpg"), name = @"img\Vintry-&-Mercer2.jpg" };
-            Photo photo88 = new Photo { image = Util.getByteImage(@"wwwroot\img\The-Landmark-London.jpg"), name = @"img\The-Landmark-London.jpg" };
-            Photo photo89 = new Photo { image = Util.getByteImage(@"wwwroot\img\The-Landmark-London1.jpg"), name = @"img\The-Landmark-London1.jpg" };
-            Photo photo90 = new Photo { image = Util.getByteImage(@"wwwroot\img\The-Landmark-London2.jpg"), name = @"img\The-Landmark-London2.jpg" };
+            Photo photo13 = new Photo {image = Util.getByteImage(@"wwwroot\img\Roosevelt-Lodge.jpg"), name = @"img\Roosevelt-Lodge.jpg" };
+            Photo photo14 = new Photo {image = Util.getByteImage(@"wwwroot\img\Roosevelt-Lodge1.jpg"), name = @"img\Roosevelt-Lodge1.jpg" };
+            Photo photo15 = new Photo {image = Util.getByteImage(@"wwwroot\img\Roosevelt-Lodge2.jpg"), name = @"img\Roosevelt-Lodge2.jpg" };
+            Photo photo16 = new Photo {image = Util.getByteImage(@"wwwroot\img\Lake-Yellowstone-dining.jpg"), name = @"img\Lake-Yellowstone-dining.jpg" };
+            Photo photo17 = new Photo {image = Util.getByteImage(@"wwwroot\img\Lake-Yellowstone-dining1.jpg"), name = @"img\Lake-Yellowstone-dining1.jpg" };
+            Photo photo18 = new Photo {image = Util.getByteImage(@"wwwroot\img\Lake-Yellowstone-dining2.jpg"), name = @"img\Lake-Yellowstone-dining2.jpg" };
+            Photo photo19 = new Photo {image = Util.getByteImage(@"wwwroot\img\fishing-bridge-general.jpg"), name = @"img\fishing-bridge-general.jpg" };
+            Photo photo20 = new Photo {image = Util.getByteImage(@"wwwroot\img\fishing-bridge-general1.jpg"), name = @"img\fishing-bridge-general1.jpg" };
+            Photo photo21 = new Photo {image = Util.getByteImage(@"wwwroot\img\fishing-bridge-general2.jpg"), name = @"img\fishing-bridge-general2.jpg" };
+            Photo photo22 = new Photo {image = Util.getByteImage(@"wwwroot\img\Chic-Cabaret.jpg"), name = @"img\Chic-Cabaret.jpg" };
+            Photo photo23 = new Photo {image = Util.getByteImage(@"wwwroot\img\Chic-Cabaret1.jpg"), name = @"img\Chic-Cabaret1.jpg" };
+            Photo photo24 = new Photo {image = Util.getByteImage(@"wwwroot\img\Chic-Cabaret2.jpg"), name = @"img\Chic-Cabaret2.jpg" };
+            Photo photo25 = new Photo {image = Util.getByteImage(@"wwwroot\img\La-Yola-Restaurant.jpg"), name = @"img\La-Yola-Restaurant.jpg" };
+            Photo photo26 = new Photo {image = Util.getByteImage(@"wwwroot\img\La-Yola-Restaurant1.jpg"), name = @"img\La-Yola-Restaurant1.jpg" };
+            Photo photo27 = new Photo {image = Util.getByteImage(@"wwwroot\img\La-Yola-Restaurant2.jpg"), name = @"img\La-Yola-Restaurant2.jpg" };
+            Photo photo28 = new Photo {image = Util.getByteImage(@"wwwroot\img\Pranama.jpg"), name = @"img\Pranama.jpg" };
+            Photo photo29 = new Photo {image = Util.getByteImage(@"wwwroot\img\Pranama1.jpg"), name = @"img\Pranama1.jpg" };
+            Photo photo30 = new Photo {image = Util.getByteImage(@"wwwroot\img\Pranama2.jpg"), name = @"img\Pranama2.jpg" };
+            Photo photo31 = new Photo { image = Util.getByteImage(@"wwwroot\img\Shave-Ice.jpg"), name = @"img\Shave-Ice.jpg" };
+            Photo photo32 = new Photo { image = Util.getByteImage(@"wwwroot\img\Shave-Ice1.jpg"), name = @"img\Shave-Ice1.jpg" };
+            Photo photo33 = new Photo { image = Util.getByteImage(@"wwwroot\img\Shave-Ice2.jpg"), name = @"img\Shave-Ice2.jpg" };
+            Photo photo34 = new Photo { image = Util.getByteImage(@"wwwroot\img\Maui-Thai-Bistro.jpg"), name = @"img\Maui-Thai-Bistro.jpg" };
+            Photo photo35 = new Photo { image = Util.getByteImage(@"wwwroot\img\Maui-Thai-Bistro1.jpg"), name = @"img\Maui-Thai-Bistro1.jpg" };
+            Photo photo36 = new Photo { image = Util.getByteImage(@"wwwroot\img\Maui-Thai-Bistro2.jpg"), name = @"img\Maui-Thai-Bistro2.jpg" };
+            Photo photo37 = new Photo { image = Util.getByteImage(@"wwwroot\img\mamas-fish-house.jpg"), name = @"img\mamas-fish-house.jpg" };
+            Photo photo38 = new Photo { image = Util.getByteImage(@"wwwroot\img\mamas-fish-house1.jpg"), name = @"img\mamas-fish-house1.jpg" };
+            Photo photo39 = new Photo { image = Util.getByteImage(@"wwwroot\img\mamas-fish-house2.jpg"), name = @"img\mamas-fish-house2.jpg" };
+            Photo photo40 = new Photo { image = Util.getByteImage(@"wwwroot\img\Bosphorous.jpg"), name = @"img\Bosphorous.jpg" };
+            Photo photo41 = new Photo { image = Util.getByteImage(@"wwwroot\img\Bosphorous1.jpg"), name = @"img\Bosphorous1.jpg" };
+            Photo photo42 = new Photo { image = Util.getByteImage(@"wwwroot\img\Bosphorous2.jpg"), name = @"img\Bosphorous2.jpg" };
+            Photo photo43 = new Photo { image = Util.getByteImage(@"wwwroot\img\La-Luce.jpg"), name = @"img\La-Luce.jpg" };
+            Photo photo44 = new Photo { image = Util.getByteImage(@"wwwroot\img\La-Luce1.jpg"), name = @"img\La-Luce1.jpg" };
+            Photo photo45 = new Photo { image = Util.getByteImage(@"wwwroot\img\La-Luce2.jpg"), name = @"img\La-Luce2.jpg" };
+            Photo photo46 = new Photo { image = Util.getByteImage(@"wwwroot\img\4-Smokehouse.jpg"), name = @"img\4-Smokehouse.jpg" };
+            Photo photo47 = new Photo { image = Util.getByteImage(@"wwwroot\img\4-Smokehouse1.jpg"), name = @"img\4-Smokehouse1.jpg" };
+            Photo photo48 = new Photo { image = Util.getByteImage(@"wwwroot\img\4-Smokehouse2.jpg"), name = @"img\4-Smokehouse2.jpg" };
+            Photo photo49 = new Photo { image = Util.getByteImage(@"wwwroot\img\kekes.jpg"), name = @"img\kekes.jpg" };
+            Photo photo50 = new Photo { image = Util.getByteImage(@"wwwroot\img\kekes1.jpg"), name = @"img\kekes1.jpg" };
+            Photo photo51 = new Photo { image = Util.getByteImage(@"wwwroot\img\kekes2.jpg"), name = @"img\kekes2.jpg" };
+            Photo photo52 = new Photo { image = Util.getByteImage(@"wwwroot\img\Golden-Goose.jpg"), name = @"img\Golden-Goose.jpg" };
+            Photo photo53 = new Photo { image = Util.getByteImage(@"wwwroot\img\Golden-Goose1.jpg"), name = @"img\Golden-Goose1.jpg" };
+            Photo photo54 = new Photo { image = Util.getByteImage(@"wwwroot\img\Golden-Goose2.jpg"), name = @"img\Golden-Goose2.jpg" };
+            Photo photo55 = new Photo { image = Util.getByteImage(@"wwwroot\img\bella-vita-ristorante.jpg"), name = @"img\bella-vita-ristorante.jpg" };
+            Photo photo56 = new Photo { image = Util.getByteImage(@"wwwroot\img\bella-vita-ristorante1.jpg"), name = @"img\bella-vita-ristorante1.jpg" };
+            Photo photo57 = new Photo { image = Util.getByteImage(@"wwwroot\img\bella-vita-ristorante2.jpg"), name = @"img\bella-vita-ristorante2.jpg" };
+            Photo photo58 = new Photo { image = Util.getByteImage(@"wwwroot\img\Elote-Cafe.jpg"), name = @"img\Elote-Cafe.jpg" };
+            Photo photo59 = new Photo { image = Util.getByteImage(@"wwwroot\img\Elote-Cafe1.jpg"), name = @"img\Elote-Cafe1.jpg" };
+            Photo photo60 = new Photo { image = Util.getByteImage(@"wwwroot\img\Elote-Cafe2.jpg"), name = @"img\Elote-Cafe2.jpg" };
+            Photo photo61 = new Photo { image = Util.getByteImage(@"wwwroot\img\5-Napkin-Burger.jpg"), name = @"img\5-Napkin-Burger.jpg" };
+            Photo photo62 = new Photo { image = Util.getByteImage(@"wwwroot\img\5-Napkin-Burger1.jpg"), name = @"img\5-Napkin-Burger1.jpg" };
+            Photo photo63 = new Photo { image = Util.getByteImage(@"wwwroot\img\5-Napkin-Burger2.jpg"), name = @"img\5-Napkin-Burger2.jpg" };
+            Photo photo64 = new Photo { image = Util.getByteImage(@"wwwroot\img\Obao.jpg"), name = @"img\Obao.jpg" };
+            Photo photo65 = new Photo { image = Util.getByteImage(@"wwwroot\img\Obao1.jpg"), name = @"img\Obao1.jpg" };
+            Photo photo66 = new Photo { image = Util.getByteImage(@"wwwroot\img\Obao2.jpg"), name = @"img\Obao2.jpg" };
+            Photo photo67 = new Photo { image = Util.getByteImage(@"wwwroot\img\Bleecker-Street-Pizza.jpg"), name = @"img\Bleecker-Street-Pizza.jpg" };
+            Photo photo68 = new Photo { image = Util.getByteImage(@"wwwroot\img\Bleecker-Street-Pizza1.jpg"), name = @"img\Bleecker-Street-Pizza1.jpg" };
+            Photo photo69 = new Photo { image = Util.getByteImage(@"wwwroot\img\Bleecker-Street-Pizza2.jpg"), name = @"img\Bleecker-Street-Pizza2.jpg" };
+            Photo photo70 = new Photo { image = Util.getByteImage(@"wwwroot\img\hello-froggies.jpg"), name = @"img\hello-froggies.jpg" };
+            Photo photo71 = new Photo { image = Util.getByteImage(@"wwwroot\img\hello-froggies1.jpg"), name = @"img\hello-froggies1.jpg" };
+            Photo photo72 = new Photo { image = Util.getByteImage(@"wwwroot\img\hello-froggies2.jpg"), name = @"img\hello-froggies2.jpg" };
+            Photo photo73 = new Photo { image = Util.getByteImage(@"wwwroot\img\Cirque.jpg"), name = @"img\Cirque.jpg" };
+            Photo photo74 = new Photo { image = Util.getByteImage(@"wwwroot\img\Cirque1.jpg"), name = @"img\Cirque1.jpg" };
+            Photo photo75 = new Photo { image = Util.getByteImage(@"wwwroot\img\Cirque2.jpg"), name = @"img\Cirque2.jpg" };
+            Photo photo76 = new Photo { image = Util.getByteImage(@"wwwroot\img\Triple-George-Grill.jpg"), name = @"img\Triple-George-Grill.jpg" };
+            Photo photo77 = new Photo { image = Util.getByteImage(@"wwwroot\img\Triple-George-Grill1.jpg"), name = @"img\Triple-George-Grill1.jpg" };
+            Photo photo78 = new Photo { image = Util.getByteImage(@"wwwroot\img\Triple-George-Grill2.jpg"), name = @"img\Triple-George-Grill2.jpg" };
+            Photo photo79 = new Photo { image = Util.getByteImage(@"wwwroot\img\figo.jpg"), name = @"img\figo.jpg" };
+            Photo photo80 = new Photo { image = Util.getByteImage(@"wwwroot\img\figo1.jpg"), name = @"img\figo1.jpg" };
+            Photo photo81 = new Photo { image = Util.getByteImage(@"wwwroot\img\figo2.jpg"), name = @"img\figo2.jpg" };
+            Photo photo82 = new Photo { image = Util.getByteImage(@"wwwroot\img\thegoldenchippy.jpg"), name = @"img\thegoldenchippy.jpg" };
+            Photo photo83 = new Photo { image = Util.getByteImage(@"wwwroot\img\thegoldenchippy1.jpg"), name = @"img\thegoldenchippy1.jpg" };
+            Photo photo84 = new Photo { image = Util.getByteImage(@"wwwroot\img\thegoldenchippy2.jpg"), name = @"img\thegoldenchippy2.jpg" };
+            Photo photo85 = new Photo { image = Util.getByteImage(@"wwwroot\img\BaoziInn-Soho.jpg"), name = @"img\BaoziInn-Soho.jpg" };
+            Photo photo86 = new Photo { image = Util.getByteImage(@"wwwroot\img\BaoziInn-Soho1.jpg"), name = @"img\BaoziInn-Soho1.jpg" };
+            Photo photo87 = new Photo { image = Util.getByteImage(@"wwwroot\img\BaoziInn-Soho2.jpg"), name = @"img\BaoziInn-Soho2.jpg" };
+            Photo photo88 = new Photo { image = Util.getByteImage(@"wwwroot\img\Vegan-Ronin.jpg"), name = @"img\Vegan-Ronin.jpg" };
+            Photo photo89 = new Photo { image = Util.getByteImage(@"wwwroot\img\Vegan-Ronin1.jpg"), name = @"img\Vegan-Ronin1.jpg" };
+            Photo photo90 = new Photo { image = Util.getByteImage(@"wwwroot\img\Vegan-Ronin2.jpg"), name = @"img\Vegan-Ronin2.jpg" };
             
             dataBase.photos.AddRange(photo1, photo2, photo3, photo4, photo5, photo6, photo7, photo8, photo9, photo10, photo11, photo12, photo13, photo14, photo15, photo16, photo17, photo18, photo19, photo20, photo21, photo22, photo23, photo24, photo25, photo26, photo27, photo28, photo29, photo30, photo31, photo32, photo33, photo34, photo35, photo36, photo37, photo38, photo39, photo40, photo41, photo42, photo43, photo44, photo45, photo46, photo47, photo48, photo49, photo50, photo51, photo52, photo53, photo54, photo55, photo56, photo57, photo58, photo59, photo60, photo61, photo62, photo63, photo64, photo65, photo66, photo67, photo68, photo69, photo70, photo71, photo72, photo73, photo74, photo75, photo76, photo77, photo78, photo79, photo80, photo81, photo82, photo83, photo84, photo85, photo86, photo87, photo88, photo89, photo90);
-            
+
 
             //direction 6 Канкун, Мексика
             Restaurant restaurant1 = new Restaurant
@@ -2275,6 +2329,8 @@ namespace Project.Data
                 webSite = "http://www.lorenzillos.com.mx/",
                 typeCuisine = "Карибская, Морепродукты, Супы",
                 specialMenu = "Подходит для вегетарианцев, Для веганов, Безглютеновые блюда",
+                timeEating = "Обед, Ужин, Открыто допоздна",
+                services = "Бронирование, Столики на открытом воздухе, Банкет, Места для сидения, Имеется парковка, Утвержденная парковка, Услуги парковщика, Детские стульчики для кормления, Доступ для кресел-каталок, Подают алкоголь, Бар, Бесплатный Wi-Fi, Принимаются кредитные карты, Обслуживание посетителей за столиками, На воде",
                 mainPhoto = photo1,
                 photos = new List<Photo> {photo2, photo3},
             };
@@ -2286,6 +2342,8 @@ namespace Project.Data
                 phone = "+52 998 415 4227",
                 typeCuisine = "Мексиканская, Латиноамериканская, Бар",
                 specialMenu = "Подходит для вегетарианцев",
+                timeEating = "Обед, Ужин, Открыто допоздна, Напитки",
+                services = "Еда на вынос, Столики на открытом воздухе, Места для сидения, Парковка на улице, Телевизор, Подают алкоголь, Бар, Принимаются карты Mastercard, Принимаются карты Visa, Принимаются только наличные, Бесплатный Wi-Fi, Принимаются кредитные карты, Обслуживание посетителей за столиками",
                 mainPhoto = photo4,
                 photos = new List<Photo> {photo5, photo6},
             };
@@ -2310,24 +2368,377 @@ namespace Project.Data
                 webSite = "https://porfirios.com.mx/restaurante-mexicano-en-cancun",
                 typeCuisine = "Мексиканская, Латиноамериканская, Современная",
                 specialMenu = "Подходит для вегетарианцев, Для веганов, Безглютеновые блюда",
+                timeEating = "Обед, Ужин",
+                services = "Места для сидения, Имеется парковка, Парковка на улице, Подают алкоголь, Вино и пиво, Принимаются карты American Express, Принимаются карты Mastercard, Принимаются карты Visa, Бесплатный Wi-Fi, Бронирование, Столики на открытом воздухе, Доступ для кресел-каталок, Бар, Принимаются кредитные карты, Обслуживание посетителей за столиками",
                 mainPhoto = photo10,
                 photos = new List<Photo> {photo11, photo12},
             };
-
-            //1
-             /*Restaurant restaurant1 = new Restaurant
+            //1 Йеллоустонский национальный парк, Вайоминг
+            Restaurant restaurant5 = new Restaurant
             {
-                //
-                name = "",
-                location = "",
-                phone = "",
-                webSite = "",
-                typeCuisine = "",
-                specialMenu = "",
-                mainPhoto = photo1,
-                photos = new List<Photo> {photo2, photo3},
-            };*/
-            dataBase.restaurants.AddRange(restaurant1, restaurant2, restaurant3, restaurant4);
+                //https://www.tripadvisor.ru/Restaurant_Review-g60999-d517927-Reviews-Roosevelt_Lodge_Dining_Room-Yellowstone_National_Park_Wyoming.html
+                name = "Roosevelt Lodge Dining Room",
+                location = "Tower-Roosevelt, Йеллоустонский национальный парк, WY 82190",
+                phone = "+1 307-344-7311",
+                webSite = "https://www.yellowstonenationalparklodges.com/restaurants/roosevelt-lodge-dining-room/",
+                typeCuisine = "Американская",
+                specialMenu = "Безглютеновые блюда",
+                timeEating = "Завтрак, Обед, Ужин",
+                services = "Места для сидения, Имеется парковка, Детские стульчики для кормления, Доступ для кресел-каталок, Подают алкоголь, Бар, Принимаются кредитные карты, Обслуживание посетителей за столиками",
+                mainPhoto = photo13,
+                photos = new List<Photo> {photo14, photo15},
+            };
+            Restaurant restaurant6 = new Restaurant
+            {
+                //https://www.tripadvisor.ru/Restaurant_Review-g60999-d519501-Reviews-Lake_Yellowstone_Hotel_Dining_Room-Yellowstone_National_Park_Wyoming.html
+                name = "Lake Yellowstone Hotel Dining Room",
+                location = "235 Yellowstone Lake Rd, Йеллоустонский национальный парк, WY 82190",
+                phone = "+1 307-344-7311",
+                webSite = "https://www.yellowstonenationalparklodges.com/restaurant/lake-hotel-dining-room/",
+                typeCuisine = "Американская",
+                specialMenu = "Подходит для вегетарианцев, Для веганов, Безглютеновые блюда",
+                timeEating = "Завтрак, Обед, Ужин, Бранч, Открыто допоздна",
+                services = "Бронирование, Места для сидения, Имеется парковка, Детские стульчики для кормления, Доступ для кресел-каталок, Подают алкоголь, Бар, Принимаются кредитные карты, Обслуживание посетителей за столиками, Живая музыка, На воде",
+                mainPhoto = photo16,
+                photos = new List<Photo> { photo17, photo18 },
+            };
+            Restaurant restaurant7 = new Restaurant
+            {
+                //https://www.tripadvisor.ru/Restaurant_Review-g60999-d6979718-Reviews-Fishing_Bridge_General_Store-Yellowstone_National_Park_Wyoming.html
+                name = "Fishing Bridge General Store",
+                location = "1 East Entrance Road, Йеллоустонский национальный парк, WY",
+                phone = "+1 406-586-7593",
+                webSite = "https://www.yellowstonevacations.com/dining-shopping/in-park-dining",
+                typeCuisine = "Американская, Закусочная",
+                timeEating = "Ужин",
+                services = "Места для сидения, Имеется парковка, Доступ для кресел-каталок, Еда на выно",
+                mainPhoto = photo19,
+                photos = new List<Photo> { photo20, photo21 },
+            };
+            //2 Пунта-Кана, Доминикана
+            Restaurant restaurant8 = new Restaurant
+            {
+                //https://www.tripadvisor.ru/Restaurant_Review-g147293-d19590095-Reviews-Chic_Cabaret_Restaurant_Punta_Cana-Punta_Cana_La_Altagracia_Province_Dominican_R.html
+                name = "Chic Cabaret & Restaurant Punta Cana",
+                location = "Avenida. Francia TRS Turquesa Hotel, Пунта-Кана Доминикана",
+                phone = "+1 809-221-8149",
+                webSite = "https://www.palladiumhotelgroup.com/es/chic-cabaret/trs-turquesa-hotel",
+                typeCuisine = "Международная, Фьюжн",
+                timeEating = "Ужин",
+                services = "Бронирование, Подают алкоголь, Места для сидения, Обслуживание посетителей за столиками",
+                mainPhoto = photo22,
+                photos = new List<Photo> { photo23, photo24 },
+            };
+            Restaurant restaurant9 = new Restaurant
+            {
+                //https://www.tripadvisor.ru/Restaurant_Review-g147293-d1050063-Reviews-La_Yola_Restaurant-Punta_Cana_La_Altagracia_Province_Dominican_Republic.html
+                name = "La Yola Restaurant",
+                location = "Punta Cana Marina Puntacana Resort & Club, Пунта-Кана 23000 Доминикана",
+                phone = "+1 809-959-2262",
+                webSite = "https://www.puntacana.com/",
+                typeCuisine = "Карибская, Латиноамериканская, Морепродукты",
+                specialMenu = "Подходит для вегетарианцев, Для веганов, Безглютеновые блюда",
+                timeEating = "Обед, Ужин, Открыто допоздна",
+                services = "Бронирование, Столики на открытом воздухе, Места для сидения, Имеется парковка, Детские стульчики для кормления, Доступ для кресел-каталок, Подают алкоголь, Бар, Бесплатный Wi-Fi, Принимаются кредитные карты, Обслуживание посетителей за столиками, Живая музыка, На воде",
+                mainPhoto = photo25,
+                photos = new List<Photo> { photo26, photo27 },
+            };
+            Restaurant restaurant10 = new Restaurant
+            {
+                //https://www.tripadvisor.ru/Restaurant_Review-g147293-d8374536-Reviews-Pranama-Punta_Cana_La_Altagracia_Province_Dominican_Republic.html
+                name = "Pranama",
+                location = "Plaza El Dorado Local 103 a Bavaro., Пунта-Кана 23000 Доминикана",
+                phone = "+1 829-768-6262",
+                typeCuisine = "Индийская",
+                specialMenu = "Подходит для вегетарианцев, Для веганов, Безглютеновые блюда",
+                timeEating = "Ужин, Напитки, Открыто допоздна",
+                services = "Еда на вынос, Бронирование, Столики на открытом воздухе, Места для сидения, Имеется парковка, Парковка на улице, Детские стульчики для кормления, Доступ для кресел-каталок, Подают алкоголь, Бар, Вино и пиво, Принимаются карты Mastercard, Принимаются карты Visa, Бесплатная внеуличная стоянка, Принимаются карты American Express, Принимаются карты Discover, Принимаются кредитные карты, Обслуживание посетителей за столиками",
+                mainPhoto = photo28,
+                photos = new List<Photo> { photo29, photo30 },
+            };
+            //3 Остров Мауи, Гавайи
+            Restaurant restaurant11 = new Restaurant
+            {
+                //https://www.tripadvisor.ru/Restaurant_Review-g60634-d1309100-Reviews-Ululani_s_Hawaiian_Shave_Ice-Lahaina_Maui_Hawaii.html
+                name = "Ululani's Hawaiian Shave Ice",
+                location = "790 Front St, Лахайна, Остров Мауи, HI 96761-2358",
+                phone = "+1 808-877-3700",
+                webSite = "https://www.ululanishawaiianshaveice.com/",
+                typeCuisine = "Фастфуд, Гавайская",
+                specialMenu = "Подходит для вегетарианцев, Безглютеновые блюда",
+                timeEating = "Напитки",
+                services = "Доступ для кресел-каталок, Принимаются карты American Express, Принимаются карты Mastercard, Принимаются карты Visa, Принимаются карты Discover, Еда на вынос, Столики на открытом воздухе, Принимаются кредитные карты",
+                mainPhoto = photo31,
+                photos = new List<Photo> { photo32, photo33 },
+            };
+            Restaurant restaurant12 = new Restaurant
+            {
+                //https://www.tripadvisor.ru/Restaurant_Review-g60632-d404430-Reviews-Maui_Thai_Bistro-Kihei_Maui_Hawaii.html
+                name = "Maui Thai Bistro",
+                location = "2439 S Kihei Rd #103b, Кихеи, Остров Мауи, HI 96753-7283",
+                phone = "+1 808-874-5605",
+                webSite = "https://www.mauithaibistro.com/",
+                typeCuisine = "Современная, Азиатская, Тайская, Фьюжн",
+                specialMenu = "Подходит для вегетарианцев, Для веганов, Безглютеновые блюда",
+                timeEating = "Напитки, Обед, Ужин",
+                services = "Места для сидения, Имеется парковка, Детские стульчики для кормления, Доступ для кресел-каталок, Подают алкоголь, Принимаются карты American Express, Принимаются карты Mastercard, Принимаются карты Visa, Принимаются карты Discover, Доставка, Еда на вынос, Бронирование, Бар, Принимаются кредитные карты, Обслуживание посетителей за столиками, Алкоголь приносить с собой",
+                mainPhoto = photo34,
+                photos = new List<Photo> { photo35, photo36 },
+            };
+            Restaurant restaurant13 = new Restaurant
+            {
+                //https://www.tripadvisor.ru/Restaurant_Review-g60636-d479164-Reviews-Mama_s_Fish_House-Paia_Maui_Hawaii.html
+                name = "Mama's Fish House",
+                location = "799 Poho Pl, Пайя, Остров Мауи, HI 96779-9708",
+                phone = "+1 808-579-8488",
+                webSite = "https://www.mamasfishhouse.com/",
+                typeCuisine = "Американская, Гавайская",
+                specialMenu = "Подходит для вегетарианцев, Для веганов, Безглютеновые блюда",
+                timeEating = "Обед, Ужин",
+                services = "Детские стульчики для кормления, Доступ для кресел-каталок, Подают алкоголь, Бар, Принимаются карты American Express, Принимаются карты Mastercard, Принимаются карты Visa, Принимаются карты Discover, Бронирование, Места для сидения, Имеется парковка, Услуги парковщика, Принимаются кредитные карты, Обслуживание посетителей за столиками, Живая музыка, На воде, Пляж",
+                mainPhoto = photo37,
+                photos = new List<Photo> { photo38, photo39 },
+            };
+            //4 Орландо, Флорида
+            Restaurant restaurant14 = new Restaurant
+            {
+                //https://www.tripadvisor.ru/Restaurant_Review-g34515-d12268188-Reviews-Bosphorous_Turkish_Cuisine-Orlando_Florida.html
+                name = "Bosphorous Turkish Cuisine",
+                location = "6900 Tavistock Lakes Blvd Suite 100, Орландо, FL 32827-7589",
+                phone = "+1 407-313-2506",
+                webSite = "https://www.bosphorousrestaurant.com/",
+                typeCuisine = "Средиземноморская, Турецкая, Ближневосточная",
+                specialMenu = "Подходит для вегетарианцев, Для веганов, Халяль, Безглютеновые блюда",
+                timeEating = "Обед, Ужин, Открыто допоздна, Напитки",
+                services = "Еда на вынос, Бронирование, Столики на открытом воздухе, Банкет, Места для сидения, Имеется парковка, Бесплатная внеуличная стоянка, Телевизор, Детские стульчики для кормления, Доступ для кресел-каталок, Подают алкоголь, Бар, Принимаются карты American Express, Принимаются карты Mastercard, Принимаются карты Visa, Бесплатный Wi-Fi, Принимаются карты Discover, Обслуживание посетителей за столиками, Подарочные карты",
+                mainPhoto = photo40,
+                photos = new List<Photo> { photo41, photo42 },
+            };
+            Restaurant restaurant15 = new Restaurant
+            {
+                //https://www.tripadvisor.ru/Restaurant_Review-g34515-d1594156-Reviews-La_Luce-Orlando_Florida.html
+                name = "La Luce",
+                location = "14100 Bonnet Creek Resort Lane at Hilton Orlando Bonnet Creek, Орландо, FL 32821",
+                phone = "+1 407-597-3676",
+                webSite = "https://www.laluceorlando.com/?y_source=1_MTU0MDUzOTAtNzY5LWxvY2F0aW9uLndlYnNpdGU%3D",
+                typeCuisine = "Итальянская, Пицца, Тосканская, Центрально-итальянская",
+                specialMenu = "Подходит для вегетарианцев, Для веганов, Безглютеновые блюда",
+                timeEating = "Ужин",
+                services = "Столики на открытом воздухе, Места для сидения, Имеется парковка, Утвержденная парковка, Услуги парковщика, Детские стульчики для кормления, Доступ для кресел-каталок, Подают алкоголь, Бар, Принимаются карты American Express, Принимаются карты Mastercard, Принимаются карты Visa, Бесплатный Wi-Fi, Принимаются карты Discover, Бронирование, Банкет, Принимаются кредитные карты, Обслуживание посетителей за столиками",
+                mainPhoto = photo43,
+                photos = new List<Photo> { photo44, photo45 },
+            };
+            Restaurant restaurant16 = new Restaurant
+            {
+                //https://www.tripadvisor.ru/Restaurant_Review-g34515-d6534372-Reviews-4_Rivers_Smokehouse-Orlando_Florida.html
+                name = "4 Rivers Smokehouse",
+                location = "11764 University Blvd, Орландо, FL 32817-2123",
+                phone = "+1 844-474-8377",
+                webSite = "https://www.4rsmokehouse.com/ucf-east-orlando/",
+                typeCuisine = "Американская, Барбекю",
+                timeEating = "Обед, Ужин",
+                services = "Еда на вынос, Столики на открытом воздухе, Места для сидения, Имеется парковка, Детские стульчики для кормления, Доступ для кресел-каталок, Подают алкоголь, Принимаются кредитные карты",
+                mainPhoto = photo46,
+                photos = new List<Photo> { photo47, photo48 },
+            };
+            Restaurant restaurant17 = new Restaurant
+            {
+                //https://www.tripadvisor.ru/Restaurant_Review-g34515-d1507583-Reviews-Keke_s_Breakfast_Cafe-Orlando_Florida.html
+                name = "Keke's Breakfast Cafe",
+                location = "4192 Conroy Rd, Орландо, FL 32839-6416",
+                phone = "+1 407-226-1400",
+                webSite = "https://www.kekes.com/",
+                typeCuisine = "Американская, Кафе",
+                specialMenu = "Подходит для вегетарианцев, Для веганов, Безглютеновые блюда",
+                timeEating = "Завтрак, Обед, Бранч",
+                services = "Еда на вынос, Места для сидения, Имеется парковка, Детские стульчики для кормления, Доступ для кресел-каталок, Принимаются кредитные карты, Обслуживание посетителей за столиками",
+                mainPhoto = photo49,
+                photos = new List<Photo> { photo50, photo51 },
+            };
+            //5 Седона, Аризона
+            Restaurant restaurant18 = new Restaurant
+            {
+                //https://www.tripadvisor.ru/Restaurant_Review-g31352-d1918647-Reviews-Golden_Goose_American_Grill-Sedona_Arizona.html
+                name = "Golden Goose American Grill",
+                location = "2545 W State Route 89a, Седона, AZ 86336-5255",
+                phone = "+1 928-282-1447",
+                webSite = "http://goldengoosegrill.com/",
+                typeCuisine = "Стейк-хаус, Морепродукты, Американская, Бар, Гриль",
+                specialMenu = "Подходит для вегетарианцев, Для веганов, Безглютеновые блюда",
+                timeEating = "Обед, Ужин, Бранч",
+                services = "Столики на открытом воздухе, Места для сидения, Имеется парковка, Детские стульчики для кормления, Доступ для кресел-каталок, Подают алкоголь, Бар, Принимаются карты Mastercard, Принимаются карты Visa, Принимаются карты Discover, Еда на вынос, Бронирование, Принимаются карты American Express, Принимаются кредитные карты, Обслуживание посетителей за столиками, Подарочные карты",
+                mainPhoto = photo52,
+                photos = new List<Photo> { photo53, photo54 },
+            };
+            Restaurant restaurant19 = new Restaurant
+            {
+                //https://www.tripadvisor.ru/Restaurant_Review-g31352-d7891345-Reviews-Bella_Vita_Ristorante-Sedona_Arizona.html
+                name = "Bella Vita Ristorante",
+                location = "6701 W State Route 89a Sedona Pines Resort, Седона, AZ 86336-9757",
+                phone = "+1 928-282-4540",
+                webSite = "http://www.bellavitasedona.com/",
+                typeCuisine = "Итальянская",
+                specialMenu = "Для веганов, Безглютеновые блюда",
+                timeEating = "Ужин",
+                services = "Еда на вынос, Бронирование, Места для сидения, Имеется парковка, Бесплатная внеуличная стоянка, Доступ для кресел-каталок, Подают алкоголь, Бар, Вино и пиво, Принимаются карты American Express, Принимаются карты Mastercard, Принимаются карты Visa, Принимаются карты Discover, Детские стульчики для кормления, Принимаются кредитные карты, Обслуживание посетителей за столиками, Живая музыка",
+                mainPhoto = photo55,
+                photos = new List<Photo> { photo56, photo57 },
+            };
+            Restaurant restaurant20 = new Restaurant
+            {
+                //https://www.tripadvisor.ru/Restaurant_Review-g31352-d670560-Reviews-Elote_Cafe-Sedona_Arizona.html
+                name = "Elote Cafe",
+                location = "350 Jordan Road Sedona, Седона, AZ 86336-4830",
+                phone = "+1 928-203-0105",
+                webSite = "https://www.elotecafe.com/home",
+                typeCuisine = "Мексиканская, Юговосточная",
+                specialMenu = "Подходит для вегетарианцев, Для веганов, Безглютеновые блюда",
+                timeEating = "Ужин",
+                services = "Имеется парковка, Детские стульчики для кормления, Доступ для кресел-каталок, Подают алкоголь, Принимаются карты American Express, Принимаются карты Mastercard, Принимаются карты Visa, Принимаются карты Discover, Еда на вынос, Столики на открытом воздухе, Места для сидения, Бар, Принимаются кредитные карты, Обслуживание посетителей за столиками, Подарочные карты",
+                mainPhoto = photo58,
+                photos = new List<Photo> { photo59, photo60 },
+            };
+            //7 Нью-Йорк, Нью-Йорк
+            Restaurant restaurant21 = new Restaurant
+            {
+                //https://www.tripadvisor.ru/Restaurant_Review-g60763-d4737024-Reviews-5_Napkin_Burger_Hell_s_Kitchen-New_York_City_New_York.html
+                name = "5 Napkin Burger Hell's Kitchen",
+                location = "630 9th Ave, Нью-Йорк, NY 10036",
+                phone = "+1 212-757-2277",
+                webSite = "https://5napkinburger.com/",
+                typeCuisine = "Американская",
+                specialMenu = "Подходит для вегетарианцев, Для веганов, Безглютеновые блюда",
+                timeEating = "Обед, Ужин, Бранч, Открыто допоздна",
+                services = "Еда на вынос, Бронирование, Места для сидения, Телевизор, Детские стульчики для кормления, Доступ для кресел-каталок, Подают алкоголь, Бар, Принимаются кредитные карты, Обслуживание посетителей за столиками",
+                mainPhoto = photo61,
+                photos = new List<Photo> { photo62, photo63 },
+            };
+            Restaurant restaurant22 = new Restaurant
+            {
+                //https://www.tripadvisor.ru/Restaurant_Review-g60763-d5937621-Reviews-Obao-New_York_City_New_York.html
+                name = "Obao",
+                location = "647 9th Ave, Нью-Йорк, NY 10036-3661",
+                phone = "+1 212-245-8880",
+                webSite = "https://www.obaony.com/",
+                typeCuisine = "Азиатская, Тайская, Вьетнамская, Здоровая",
+                specialMenu = "Подходит для вегетарианцев, Для веганов, Безглютеновые блюда",
+                timeEating = "Обед, Ужин, Открыто допоздна",
+                services = "Доставка, Еда на вынос, Бронирование, Места для сидения, Доступ для кресел-каталок, Подают алкоголь, Бар, Принимаются кредитные карты, Обслуживание посетителей за столиками, Подарочные карты",
+                mainPhoto = photo64,
+                photos = new List<Photo> { photo65, photo66 },
+            };
+            Restaurant restaurant23 = new Restaurant
+            {
+                //https://www.tripadvisor.ru/Restaurant_Review-g60763-d479337-Reviews-Bleecker_Street_Pizza-New_York_City_New_York.html
+                name = "Bleecker Street Pizza",
+                location = "69 7th Ave S at Bleecker Street Pizza, Нью-Йорк, NY 10014-4043",
+                phone = "+1 212-924-4466",
+                webSite = "https://www.bleeckerstreetpizza.com/",
+                typeCuisine = "Итальянская, Пицца, Фастфуд",
+                specialMenu = "Подходит для вегетарианцев, Для веганов, Безглютеновые блюда",
+                timeEating = "Обед, Ужин, Открыто допоздна",
+                services = "Столики на открытом воздухе, Доставка, Еда на вынос, Места для сидения, Подают алкоголь, Вино и пиво, Принимаются карты American Express, Принимаются карты Mastercard, Принимаются карты Visa, Принимаются карты Discover, Принимаются кредитные карты",
+                mainPhoto = photo67,
+                photos = new List<Photo> { photo68, photo69 },
+            };
+            //8 Лас-Вегас, Невада
+            Restaurant restaurant24 = new Restaurant
+            {
+                //https://www.tripadvisor.ru/Restaurant_Review-g45963-d3293526-Reviews-Senor_Frog_s_Las_Vegas-Las_Vegas_Nevada.html
+                name = "Senor Frog's Las Vegas",
+                location = "3300 Las Vegas Blvd S, Лас-Вегас, NV 89109-8916",
+                phone = "+1 702-912-9525",
+                webSite = "https://senorfrogs.com/lasvegas",
+                typeCuisine = "Мексиканская",
+                specialMenu = "Подходит для вегетарианцев, Для веганов, Безглютеновые блюда",
+                timeEating = "Обед, Ужин, Открыто допоздна, Напитки",
+                services = "Еда на вынос, Бронирование, Столики на открытом воздухе, Места для сидения, Телевизор, Детские стульчики для кормления, Доступ для кресел-каталок, Подают алкоголь, Бар, Принимаются кредитные карты, Обслуживание посетителей за столиками, Живая музыка",
+                mainPhoto = photo70,
+                photos = new List<Photo> { photo71, photo72 },
+            };
+            Restaurant restaurant25 = new Restaurant
+            {
+                //https://www.tripadvisor.ru/Restaurant_Review-g45963-d422749-Reviews-Le_Cirque-Las_Vegas_Nevada.html
+                name = "Le Cirque",
+                location = "3600 Las Vegas Blvd S, Лас-Вегас, NV 89109-4303",
+                phone = "+1 702-693-8100",
+                webSite = "https://bellagio.mgmresorts.com/en/restaurants/le-cirque.html",
+                typeCuisine = "Французская",
+                specialMenu = "Подходит для вегетарианцев, Для веганов, Безглютеновые блюда",
+                timeEating = "Ужин",
+                services = "Бесплатный Wi-Fi, Бронирование, Места для сидения, Имеется парковка, Услуги парковщика, Доступ для кресел-каталок, Подают алкоголь, Бар, Принимаются карты American Express, Принимаются карты Mastercard, Принимаются карты Visa, Принимаются карты Discover, Принимаются кредитные карты, Обслуживание посетителей за столиками, На воде",
+                mainPhoto = photo73,
+                photos = new List<Photo> { photo74, photo75 },
+            };
+            Restaurant restaurant26 = new Restaurant
+            {
+                //https://www.tripadvisor.ru/Restaurant_Review-g45963-d618871-Reviews-Triple_George_Grill-Las_Vegas_Nevada.html
+                name = "Triple George Grill",
+                location = "201 N 3rd St, Лас-Вегас, NV 89101-2901",
+                phone = "+1 702-384-2761",
+                webSite = "https://www.triplegeorgegrill.com/",
+                typeCuisine = "Американская, Бар",
+                specialMenu = "Подходит для вегетарианцев, Для веганов, Безглютеновые блюда",
+                timeEating = "Обед, Ужин, Открыто допоздна, Напитки",
+                services = "Еда на вынос, Столики на открытом воздухе, Места для сидения, Парковка на улице, Утвержденная парковка, Бесплатная внеуличная стоянка, Телевизор, Детские стульчики для кормления, Доступ для кресел-каталок, Подают алкоголь, Бар, Принимаются карты American Express, Принимаются карты Mastercard, Принимаются карты Visa, Бесплатный Wi-Fi, Принимаются карты Discover, Бронирование, Банкет, Принимаются кредитные карты, Обслуживание посетителей за столиками",
+                mainPhoto = photo76,
+                photos = new List<Photo> { photo77, photo78 },
+            };
+            //9 Лондон, UK
+            Restaurant restaurant27 = new Restaurant
+            {
+                //https://www.tripadvisor.ru/Restaurant_Review-g186338-d19727306-Reviews-Figo_Stratford-London_England.html
+                name = "Figo Stratford",
+                location = "Stratford 17 Endeavour Square, Лондон E20 1JN Англия",
+                phone = "+44 20 8075 9899",
+                webSite = "http://figorestaurant.co.uk/",
+                typeCuisine = "Итальянская, Пицца, Средиземноморская, Неаполитанская, Кухня Кампании, Тосканская, Сицилийская, Центрально-итальянская, Южно-итальянская",
+                specialMenu = "Подходит для вегетарианцев, Для веганов, Безглютеновые блюда",
+                timeEating = "Обед, Ужин, Напитки",
+                services = "Бронирование, Места для сидения, Детские стульчики для кормления, Подают алкоголь, Бар, Обслуживание посетителей за столиками",
+                mainPhoto = photo79,
+                photos = new List<Photo> { photo80, photo81 },
+            };
+            Restaurant restaurant28 = new Restaurant
+            {
+                //https://www.tripadvisor.ru/Restaurant_Review-g186338-d5244301-Reviews-The_Golden_Chippy-London_England.html
+                name = "The Golden Chippy",
+                location = "62 Greenwich High Road, Лондон SE10 8LF Англия",
+                phone = "+44 20 8692 4333",
+                webSite = "https://www.thegoldenchippy.co.uk/",
+                typeCuisine = "Морепродукты, Британская",
+                timeEating = "Обед, Ужин",
+                services = "Еда на вынос, Столики на открытом воздухе, Места для сидения, Доступ для кресел-каталок, Подают алкоголь, Принимаются кредитные карты, Обслуживание посетителей за столиками",
+                mainPhoto = photo82,
+                photos = new List<Photo> { photo83, photo84 },
+            };
+            Restaurant restaurant29 = new Restaurant
+            {
+                //https://www.tripadvisor.ru/Restaurant_Review-g186338-d13597755-Reviews-BaoziInn_Soho-London_England.html
+                name = "BaoziInn Soho",
+                location = "24 Romilly Street, Лондон W1D 5AH Англия",
+                phone = "+44 20 7287 3266",
+                webSite = "https://baoziinn.com/",
+                typeCuisine = "Китайская, Азиатская, Гриль, Уличная еда",
+                specialMenu = "Подходит для вегетарианцев",
+                timeEating = "Обед, Ужин, Открыто допоздна, Напитки",
+                services = "Бронирование, Места для сидения, Подают алкоголь, Бесплатный Wi-Fi, Принимаются кредитные карты, Обслуживание посетителей за столиками",
+                mainPhoto = photo85,
+                photos = new List<Photo> { photo86, photo87 },
+            };
+            Restaurant restaurant30 = new Restaurant
+            {
+                //https://www.tripadvisor.ru/Restaurant_Review-g186338-d11752084-Reviews-Jhenn_of_the_Vegan_Ronin-London_England.html
+                name = "Jhenn of the Vegan Ronin",
+                location = "Лондон Англия",
+                webSite = "https://www.eatwith.com/events/52551?affid=en-tripadvisor-partnership-london-h-445272&utm_campaign=en-tripadvisor-partnership-london-h-445272&utm_medium=partnership&utm_source=tripadvisor",
+                typeCuisine = "Японская, Американская, Фьюжн",
+                timeEating = "Обед, Ужин",
+                services = "Бронирование, Банкет, Имеется парковка, Парковка на улице, Бесплатный Wi-Fi",
+                mainPhoto = photo88,
+                photos = new List<Photo> { photo89, photo90 },
+            };
+            dataBase.restaurants.AddRange(restaurant1, restaurant2, restaurant3, restaurant4, restaurant5, restaurant6, restaurant7, restaurant8, restaurant9, restaurant10, restaurant11, restaurant12, restaurant13, restaurant14, restaurant15, restaurant16, restaurant17, restaurant18, restaurant19, restaurant20, restaurant21, restaurant22, restaurant23, restaurant24, restaurant25, restaurant26, restaurant27, restaurant28, restaurant29, restaurant30);
             dataBase.SaveChanges();
         }
     }
