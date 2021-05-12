@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using Project.Context;
@@ -9,60 +10,16 @@ using Project.Context;
 namespace Project.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    partial class ApplicationContextModelSnapshot : ModelSnapshot
+    [Migration("20210508154838_Migration-11")]
+    partial class Migration11
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("Relational:MaxIdentifierLength", 63)
                 .HasAnnotation("ProductVersion", "5.0.5")
                 .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
-
-            modelBuilder.Entity("HotelRoomEquipment", b =>
-                {
-                    b.Property<int>("hotelRoomEquimentid")
-                        .HasColumnType("integer");
-
-                    b.Property<int>("roomEquipmentid")
-                        .HasColumnType("integer");
-
-                    b.HasKey("hotelRoomEquimentid", "roomEquipmentid");
-
-                    b.HasIndex("roomEquipmentid");
-
-                    b.ToTable("HotelRoomEquipment");
-                });
-
-            modelBuilder.Entity("HotelRoomType", b =>
-                {
-                    b.Property<int>("hotelRoomTypeid")
-                        .HasColumnType("integer");
-
-                    b.Property<int>("roomTypeid")
-                        .HasColumnType("integer");
-
-                    b.HasKey("hotelRoomTypeid", "roomTypeid");
-
-                    b.HasIndex("roomTypeid");
-
-                    b.ToTable("HotelRoomType");
-                });
-
-            modelBuilder.Entity("HotelServices", b =>
-                {
-                    b.Property<int>("hotelPhotoid")
-                        .HasColumnType("integer");
-
-                    b.Property<int>("servicesid")
-                        .HasColumnType("integer");
-
-                    b.HasKey("hotelPhotoid", "servicesid");
-
-                    b.HasIndex("servicesid");
-
-                    b.ToTable("HotelServices");
-                });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
                 {
@@ -492,6 +449,9 @@ namespace Project.Migrations
                         .HasColumnType("integer")
                         .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
+                    b.Property<int?>("Hotelid")
+                        .HasColumnType("integer");
+
                     b.Property<string>("name")
                         .IsRequired()
                         .HasColumnType("text");
@@ -500,6 +460,8 @@ namespace Project.Migrations
                         .HasColumnType("integer");
 
                     b.HasKey("id");
+
+                    b.HasIndex("Hotelid");
 
                     b.HasIndex("photoid");
 
@@ -513,6 +475,9 @@ namespace Project.Migrations
                         .HasColumnType("integer")
                         .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
+                    b.Property<int?>("Hotelid")
+                        .HasColumnType("integer");
+
                     b.Property<string>("name")
                         .IsRequired()
                         .HasColumnType("text");
@@ -521,6 +486,8 @@ namespace Project.Migrations
                         .HasColumnType("integer");
 
                     b.HasKey("id");
+
+                    b.HasIndex("Hotelid");
 
                     b.HasIndex("photoid");
 
@@ -534,6 +501,9 @@ namespace Project.Migrations
                         .HasColumnType("integer")
                         .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
+                    b.Property<int?>("Hotelid")
+                        .HasColumnType("integer");
+
                     b.Property<string>("name")
                         .IsRequired()
                         .HasColumnType("text");
@@ -542,6 +512,8 @@ namespace Project.Migrations
                         .HasColumnType("integer");
 
                     b.HasKey("id");
+
+                    b.HasIndex("Hotelid");
 
                     b.HasIndex("photoid");
 
@@ -640,51 +612,6 @@ namespace Project.Migrations
                     b.HasKey("id");
 
                     b.ToTable("userInfos");
-                });
-
-            modelBuilder.Entity("HotelRoomEquipment", b =>
-                {
-                    b.HasOne("Project.Models.Hotel", null)
-                        .WithMany()
-                        .HasForeignKey("hotelRoomEquimentid")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Project.Models.RoomEquipment", null)
-                        .WithMany()
-                        .HasForeignKey("roomEquipmentid")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("HotelRoomType", b =>
-                {
-                    b.HasOne("Project.Models.Hotel", null)
-                        .WithMany()
-                        .HasForeignKey("hotelRoomTypeid")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Project.Models.RoomType", null)
-                        .WithMany()
-                        .HasForeignKey("roomTypeid")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("HotelServices", b =>
-                {
-                    b.HasOne("Project.Models.Hotel", null)
-                        .WithMany()
-                        .HasForeignKey("hotelPhotoid")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Project.Models.Services", null)
-                        .WithMany()
-                        .HasForeignKey("servicesid")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -853,6 +780,10 @@ namespace Project.Migrations
 
             modelBuilder.Entity("Project.Models.RoomEquipment", b =>
                 {
+                    b.HasOne("Project.Models.Hotel", null)
+                        .WithMany("roomEquipment")
+                        .HasForeignKey("Hotelid");
+
                     b.HasOne("Project.Models.Photo", "photo")
                         .WithMany()
                         .HasForeignKey("photoid");
@@ -862,6 +793,10 @@ namespace Project.Migrations
 
             modelBuilder.Entity("Project.Models.RoomType", b =>
                 {
+                    b.HasOne("Project.Models.Hotel", null)
+                        .WithMany("roomType")
+                        .HasForeignKey("Hotelid");
+
                     b.HasOne("Project.Models.Photo", "photo")
                         .WithMany()
                         .HasForeignKey("photoid");
@@ -871,6 +806,10 @@ namespace Project.Migrations
 
             modelBuilder.Entity("Project.Models.Services", b =>
                 {
+                    b.HasOne("Project.Models.Hotel", null)
+                        .WithMany("services")
+                        .HasForeignKey("Hotelid");
+
                     b.HasOne("Project.Models.Photo", "photo")
                         .WithMany()
                         .HasForeignKey("photoid");
@@ -903,6 +842,12 @@ namespace Project.Migrations
                     b.Navigation("photos");
 
                     b.Navigation("reviews");
+
+                    b.Navigation("roomEquipment");
+
+                    b.Navigation("roomType");
+
+                    b.Navigation("services");
                 });
 
             modelBuilder.Entity("Project.Models.Landmark", b =>
