@@ -1801,10 +1801,10 @@ span.sim-dot {
 }
 
 /*Иконки*/
-.hotel-conveniences-feachers .for-bedroom:before {
-    background-image: url(img/for-bedroom.png);
+.hotel-conveniences-feachers .icon:before {
+    background-image: var(--backgroud-image, ../img/cup-of-tea.png);
 }
-.hotel-conveniences-feachers .cup-of-tea:before {
+/*.hotel-conveniences-feachers .cup-of-tea:before {
     background-image: url(img/cup-of-tea.png);
 }
 .hotel-conveniences-feachers .kitchen:before {
@@ -1860,4 +1860,4 @@ span.sim-dot {
 }
 .position-static-web:before {
     background-image: url(img/web.png);
-}
+}*/

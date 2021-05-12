@@ -128,11 +128,21 @@
                     <h4 class="hotel-header">Услуги и удобства в отеле</h4>
                     <div class="hotel-conveniences-feachers">
                         <div class="feachers-left-column">
-                            <span class="parking">Бесплатная парковка</span>
-                            <span class="swim">Бассейн</span>
-                            <span class="cocktail">Бар/лаунж</span>
-                            <span class="ticket">Игровая комната</span>
-                            <span><a href="#popup" style="font-weight: bold;">Показать еще</a></span>
+                            @if (ViewBag.hotel.roomEquipment.Count >= 4)
+                            {
+                                for (int i = 0; i < 4; i++)
+                                {
+                                    <span class="icon" style="--backgroud-image: url(data:image/jpeg;base64,@(Convert.ToBase64String(ViewBag.hotel.roomEquipment[i].photo.image)));">@ViewBag.hotel.roomEquipment[i].name</span>
+                                }
+                                <span><a href="#popup" style="font-weight: bold;">Показать еще</a></span>
+                            }
+                            else
+                            {
+                                foreach (var roomEquipment in ViewBag.hotel.roomEquipment)
+                                {
+                                    <span class="icon" style="--backgroud-image: url(data:image/jpeg;base64,@(Convert.ToBase64String(roomEquipment.photo.image)));">@roomEquipment.name</span>
+                                }
+                            }
                         </div>
                     </div>
 
@@ -141,11 +151,21 @@
                     <h4 class="hotel-header">Оснащенность номера</h4>
                     <div class="hotel-conveniences-feachers" style="margin-left: 30px;">
                         <div class="feachers-left-column">
-                            <span class="for-bedroom">Шторы, блокирующие свет</span>
-                            <span class="kitchen">Обеденная зона</span>
-                            <span class="kitchen">Мини-кухня</span>
-                            <span class="for-bedroom">Диван-кровать</span>
-                            <span><a href="#popup3" style="font-weight: bold;">Показать еще</a></span>
+                            @if (ViewBag.hotel.services.Count >= 4)
+                            {
+                                for (int i = 0; i < 4; i++)
+                                {
+                                    <span class="icon" style="--backgroud-image: url(data:image/jpeg;base64,@(Convert.ToBase64String(ViewBag.hotel.services[i].photo.image)));">@ViewBag.hotel.services[i].name</span>
+                                }
+                                <span><a href="#popup" style="font-weight: bold;">Показать еще</a></span>
+                            }
+                            else
+                            {
+                                foreach (var services in ViewBag.hotel.services)
+                                {
+                                    <span class="icon" style="--backgroud-image: url(data:image/jpeg;base64,@(Convert.ToBase64String(services.photo.image)));">@services.name</span>
+                                }
+                            }
                         </div>
                     </div>
                 </div>
@@ -153,10 +173,21 @@
                     <h4 class="hotel-header">Типы номеров</h4>
                     <div class="hotel-conveniences-feachers" style="margin-left: 70px;">
                         <div class="feachers-left-column">
-                            <span class="river">С видом на океан</span>
-                            <span class="no-smoking">Номера для некурящих</span>
-                            <span class="for-bedroom">Семейные номера</span>
-                            <span><a href="#popup4" style="font-weight: bold;">Показать еще</a></span>
+                            @if (ViewBag.hotel.roomType.Count >= 4)
+                            {
+                                for (int i = 0; i < 4; i++)
+                                {
+                                    <span class="icon" style="--backgroud-image: url(data:image/jpeg;base64,@(Convert.ToBase64String(ViewBag.hotel.roomType[i].photo.image)));">@ViewBag.hotel.roomType[i].name</span>
+                                }
+                                <span><a href="#popup" style="font-weight: bold;">Показать еще</a></span>
+                            }
+                            else
+                            {
+                                foreach (var roomType in ViewBag.hotel.roomType)
+                                {
+                                    <span class="icon" style="--backgroud-image: url(data:image/jpeg;base64,@(Convert.ToBase64String(roomType.photo.image)));">@roomType.name</span>
+                                }
+                            }
                         </div>
                     </div>
                 </div>
@@ -337,7 +368,6 @@
         </div>
     </div>
     <div class="footer"></div>
-
     <div id="popup0" class="popup">
         <a href="#" class="popup_area"></a>
         <div class="popup_body">
@@ -362,7 +392,7 @@
             <div class="popup_content popup_content-for-information">
                 <a href="#" class="popup_close">X</a>
                 <form method="post" action="">
-                    <img src="img/Tripadvisor-logo-2.png" width="90">
+                    <img src="~/img/Tripadvisor-logo-2.png" width="90">
                     <h2 class="text-margin">Услуги</h2>
                     <div class="header-links">
                         <div class="hotel-conveniences"><a href="#popup" style="padding-left: 25px;">Удобства в отеле</a></div>
@@ -372,39 +402,31 @@
                     <div class="clearfix"></div>
                     <div class="hotel-conveniences-feachers">
                         <div class="feachers-left-column">
-                            <span class="parking">Бесплатная парковка</span>
-                            <span class="swim">Бассейн</span>
-                            <span class="cocktail">Бар/лаунж</span>
-                            <span class="ticket">Игровая комната</span>
-                            <span class="parking">Услуга парковки автомобиля сотрудником отеля</span>
-                            <span class="wifi">Wi-Fi</span>
-                            <span class="swim">Бассейн с подогревом</span>
-                            <span class="cup-of-tea">Возможен завтрак</span>
-                            <span class="kitchen">Буфет</span>
-                            <span class="ticket">Теннисный корт (не на территории отеля)</span>
-                            <span class="family">Подходит для детей / семьи</span>
-                            <span class="bag">Бизнес-центр с Wi-Fi</span>
-                            <span class="bag">Конференц-залы</span>
-                            <span class="no-smoking">Отель для некурящих</span>
-                            <span class="hanger">Услуги прачечной</span>
-                        </div>
-                        <div class="feachers-right-column">
-                            <span class="wifi">Бесплатный WiFi</span>
-                            <span class="swim">Фитнес-центр</span>
-                            <span class="sun">Пляж</span>
-                            <span class="family">Бесплатное размещение для детей</span>
-                            <span class="parking">Платная общественная парковка поблизости</span>
-                            <span class="swim">Джакузи</span>
-                            <span class="kitchen">Торговый автомат</span>
-                            <span class="ticket">Прокат снаряжения для водных видов спорта</span>
-                            <span class="ticket">Боулинг (не на территории отеля)</span>
-                            <span class="ticket">Настольный теннис</span>
-                            <span class="taxi">Услуги такси</span>
-                            <span class="bag">Помещения для проведения конференций</span>
-                            <span class="for-bedroom">Хранение багажа</span>
-                            <span class="hanger">Прачечная с самообслуживанием</span>
+                            @if (ViewBag.hotel.roomEquipment.Count > 15)
+                            {
+                                for (int i = 0; i < 15; i++)
+                                {
+                                    <span class="icon" style="--backgroud-image: url(data:image/jpeg;base64,@(Convert.ToBase64String(ViewBag.hotel.roomEquipment[i].photo.image)));">@ViewBag.hotel.roomEquipment[i].name</span>
+                                }
+                            }
+                            else
+                            {
+                                foreach (var roomEquipment in ViewBag.hotel.roomEquipment)
+                                {
+                                    <span class="icon" style="--backgroud-image: url(data:image/jpeg;base64,@(Convert.ToBase64String(roomEquipment.photo.image)));">@roomEquipment.name</span>
+                                }
+                            }
                         </div>
 
+                        @if (ViewBag.hotel.roomEquipment.Count > 15)
+                        {
+                            <div class="feachers-right-column">
+                                @for (int i = 15; i < ViewBag.hotel.roomEquipment.Count; i++)
+                                {
+                                    <span class="icon" style="--backgroud-image: url(data:image/jpeg;base64,@(Convert.ToBase64String(ViewBag.hotel.roomEquipment[i].photo.image)));">@ViewBag.hotel.roomEquipment[i].name</span>
+                                }
+                            </div>
+                        }
                     </div>
                 </form>
 
@@ -417,7 +439,7 @@
             <div class="popup_content popup_content-for-information">
                 <a href="#" class="popup_close">X</a>
                 <form method="post" action="">
-                    <img src="img/Tripadvisor-logo-2.png" width="90">
+                    <img src="~/img/Tripadvisor-logo-2.png" width="90">
                     <h2 class="text-margin">Услуги</h2>
                     <div class="header-links">
                         <div class="hotel-equipment"><a href="#popup" style="padding-left: 25px;">Удобства в отеле</a></div>
@@ -427,34 +449,31 @@
                     <div class="clearfix"></div>
                     <div class="hotel-conveniences-feachers">
                         <div class="feachers-left-column">
-                            <span class="for-bedroom">Шторы, блокирующие свет</span>
-                            <span class="for-bedroom">Обеденная зона</span>
-                            <span class="cup-of-tea">Мини-кухня</span>
-                            <span class="for-bedroom">Диван-кровать</span>
-                            <span class="for-bedroom">Отдельный балкон</span>
-                            <span class="for-bedroom">Сейф</span>
-                            <span class="for-bedroom">Диван</span>
-                            <span class="for-bedroom">VIP-номера</span>
-                            <span class="for-bedroom">Кафельный/мраморный пол</span>
-                            <span class="kitchen">Микроволновая печь</span>
-                            <span class="kitchen">Кухонная плита</span>
-                            <span class="kitchen">Кухонная утварь</span>
-                            <span class="bathroom">Бесплатные туалетные принадлежности</span>
-                        </div>
-                        <div class="feachers-right-column">
-                            <span class="snow">Кондиционер</span>
-                            <span class="for-bedroom">Уборка номеров</span>
-                            <span class="play">ТВ с плоским экраном</span>
-                            <span class="bathroom">Душевая кабина без поддона на полу</span>
-                            <span class="call">Обслуживание номеров</span>
-                            <span class="for-bedroom">Телефон</span>
-                            <span class="for-bedroom">Утюг</span>
-                            <span class="kitchen">Холодильник</span>
-                            <span class="kitchen">Электрический чайник</span>
-                            <span class="bathroom">Ванна/душ</span>
-                            <span class="bathroom">Фен</span>
+                            @if (ViewBag.hotel.services.Count > 15)
+                            {
+                                for (int i = 0; i < 15; i++)
+                                {
+                                    <span class="icon" style="--backgroud-image: url(data:image/jpeg;base64,@(Convert.ToBase64String(ViewBag.hotel.services[i].photo.image)));">@ViewBag.hotel.services[i].name</span>
+                                }
+                            }
+                            else
+                            {
+                                foreach (var services in ViewBag.hotel.services)
+                                {
+                                    <span class="icon" style="--backgroud-image: url(data:image/jpeg;base64,@(Convert.ToBase64String(services.photo.image)));">@services.name</span>
+                                }
+                            }
                         </div>
 
+                        @if (ViewBag.hotel.services.Count > 15)
+                        {
+                            <div class="feachers-right-column">
+                                @for (int i = 15; i < ViewBag.hotel.services.Count; i++)
+                                {
+                                    <span class="icon" style="--backgroud-image: url(data:image/jpeg;base64,@(Convert.ToBase64String(ViewBag.hotel.services[i].photo.image)));">@ViewBag.hotel.services[i].name</span>
+                                }
+                            </div>
+                        }
                     </div>
                 </form>
 
@@ -477,15 +496,31 @@
                     <div class="clearfix"></div>
                     <div class="hotel-conveniences-feachers">
                         <div class="feachers-left-column">
-                            <span class="river">С видом на океан</span>
-                            <span class="no-smoking">Номера для некурящих</span>
-                            <span class="for-bedroom">Семейные номера</span>
-                        </div>
-                        <div class="feachers-right-column">
-                            <span class="river">С видом на город</span>
-                            <span class="for-bedroom">Номера-люксы</span>
+                            @if (ViewBag.hotel.roomType.Count > 15)
+                            {
+                                for (int i = 0; i < 15; i++)
+                                {
+                                    <span class="icon" style="--backgroud-image: url(data:image/jpeg;base64,@(Convert.ToBase64String(ViewBag.hotel.roomType[i].photo.image)));">@ViewBag.hotel.roomType[i].name</span>
+                                }
+                            }
+                            else
+                            {
+                                foreach (var roomType in ViewBag.hotel.roomType)
+                                {
+                                    <span class="icon" style="--backgroud-image: url(data:image/jpeg;base64,@(Convert.ToBase64String(roomType.photo.image)));">@roomType.name</span>
+                                }
+                            }
                         </div>
 
+                        @if (ViewBag.hotel.roomType.Count > 15)
+                        {
+                            <div class="feachers-right-column">
+                                @for (int i = 15; i < ViewBag.hotel.roomType.Count; i++)
+                                {
+                                    <span class="icon" style="--backgroud-image: url(data:image/jpeg;base64,@(Convert.ToBase64String(ViewBag.hotel.roomType[i].photo.image)));">@ViewBag.hotel.roomType[i].name</span>
+                                }
+                            </div>
+                        }
                     </div>
                 </form>
 

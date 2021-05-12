@@ -190,8 +190,15 @@ namespace Project.Service.Impl
                     .ThenInclude(review => review.user)
                         .ThenInclude(user => user.profile)
                             .ThenInclude(profile => profile.mainPhoto)
-                 .Include(landmark => landmark.reviews)
+                 .Include(hotel => hotel.reviews)
                     .ThenInclude(review => review.photos)
+
+                 .Include(hotel => hotel.roomEquipment)
+                    .ThenInclude(roomEquipment => roomEquipment.photo)
+                 .Include(hotel => hotel.roomType)
+                    .ThenInclude(roomType => roomType.photo)
+                 .Include(hotel => hotel.services)
+                    .ThenInclude(services => services.photo)
 
                  .Include(hotel => hotel.photos)
                  .Where(hotel => hotel.id == id)
