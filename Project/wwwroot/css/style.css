@@ -20,6 +20,10 @@
     margin-right: 160px;
     margin-top: 10px;
 }
+.wrapper-enter {
+    margin-left: 270px;
+    margin-right: 270px;
+}
 
 .wrapper-accaunt-content {
     margin-left: 120px;
@@ -1631,16 +1635,29 @@ span.sim-dot {
 
 .send-publish {
     display: block;
-    width: 100px;
+    width: 100px !important;
     height: 35px;
     background-color: black;
     color: white;
     border: none;
     font-weight: bold;
-    border-radius: 4px;
-    font-size: 14px;
+    border-radius: 4px !important;
+    font-size: 14px !important;
     margin-top: 30px;
     clear: both;
+}
+.send-publish-a {
+    padding-top: 8px !important;
+    vertical-align: middle;
+    height: 25px;
+    padding-left: 13px;
+    position: relative;
+    bottom:40px;
+    right: 150px;
+    border: none;
+}
+.send-publish-a:hover {
+    color: white !important;
 }
 
 .form-publish h4 {
@@ -1862,4 +1879,12 @@ span.sim-dot {
 }
 .position-static-web:before {
     background-image: url(img/web.png);
+}
+
+
+.foto_preview-enter:active {
+    margin-top: 10px;
+    transition: 0.2s;
+    box-shadow: 0 10px 15px 2px gray;
+    transition: 0.2s;
 }
