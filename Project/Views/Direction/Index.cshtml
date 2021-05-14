@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Tripadvisor: прочтите отзывы, сравните цены и забронируйте</title>
     <script src="~/js/site2.js"></script>
 </head>
 <body>
@@ -35,7 +34,7 @@
 
     <div class="content">
         <div class="wrapper">
-            <div class="title">
+            <div class="title" style="width: 1040px;">
                 <h1>Откройте для себя направление</h1>
                 <h1><span>@ViewBag.name</span></h1>
             </div>
@@ -61,7 +60,7 @@
                 <h1>@ViewBag.name: самое интересное</h1>
                 <div class="conteiner-p">
                     <p>
-                        <span>Увидеть интересное</span><br>
+                        <span>Развлечения</span><br>
                         @ViewBag.name: места, которые необходимо увидеть, маршруты, которыми стоит пройти, и фирменные развлечения.
                     </p>
                 </div>
@@ -101,11 +100,10 @@
                     }
                 </div>
             </div>
-            <div class="most-interesting">
-                <h1>Отдохнуть</h1>
+            <div class="most-interesting" style="height: 260px;">
                 <div class="conteiner-p">
                     <p>
-                        <span>Увидеть интересное</span><br>
+                        <span>Проживание</span><br>
                         Сочетание очаровательного, легендарного и современного.
                     </p>
                 </div>
@@ -146,10 +144,9 @@
                 </div>
             </div>
             <div class="most-interesting">
-                <h1>Поесть</h1>
                 <div class="conteiner-p">
                     <p>
-                        <span>Увидеть интересное</span><br>
+                        <span>Еда</span><br>
                         @ViewBag.name: лучшие рестораны, бары и многое другое.
                     </p>
                 </div>

@@ -13,18 +13,20 @@ namespace Project.Service.Impl
     {
         private ApplicationContext applicationContext;
         private UserManager<User> userManager;
+        private RoleManager<IdentityRole> roleManager;
 
-        public HomeService(ApplicationContext applicationContext, UserManager<User> userManager)
+        public HomeService(ApplicationContext applicationContext, UserManager<User> userManager, RoleManager<IdentityRole> roleManager)
         {
             this.applicationContext = applicationContext;
             this.userManager = userManager;
+            this.roleManager = roleManager;
         }
 
         public void startMigrationData()
         {
             if (DefaultSettings.isFirstData)
             {
-                new DefaultData(applicationContext, userManager).createDefaultData();
+                new DefaultData(applicationContext, userManager, roleManager).createDefaultData();
             }
         }
 
@@ -338,6 +340,99 @@ namespace Project.Service.Impl
         {
             restaurant.photos.AddRange(photos);
             await applicationContext.SaveChangesAsync();
+        }
+
+        public async Task saveHotel(Hotel hotel)
+        {
+            await applicationContext.hotels.AddAsync(hotel);
+            await applicationContext.SaveChangesAsync();
+        }
+
+        public async Task saveRestaurant(Restaurant restaurant)
+        {
+            await applicationContext.restaurants.AddAsync(restaurant);
+            await applicationContext.SaveChangesAsync();
+        }
+
+        public async Task saveLandmark(Landmark landmark)
+        {
+            await applicationContext.landmarks.AddAsync(landmark);
+            await applicationContext.SaveChangesAsync();
+        }
+
+        public async Task saveDirection(Direction direction)
+        {
+            await applicationContext.directions.AddAsync(direction);
+            await applicationContext.SaveChangesAsync();
+        }
+
+        public async Task changeDirectionLandmark(Direction direction, Landmark landmark)
+        {
+            direction.landmarks.Add(landmark);
+            await applicationContext.SaveChangesAsync();
+        }
+
+        public async Task changeDirectionHotel(Direction direction, Hotel hotel)
+        {
+            direction.hotels.Add(hotel);
+            await applicationContext.SaveChangesAsync();
+        }
+
+        public async Task changeDirectionRestaurant(Direction direction, Restaurant restaurant)
+        {
+            direction.restaurants.Add(restaurant);
+            await applicationContext.SaveChangesAsync();
+        }
+
+        public async Task<List<RoomEquipment>> getRoomEquipments()
+        {
+            return await applicationContext.roomEquipment
+                .Include(r => r.photo)
+                .Include(r => r.hotelRoomEquiment)
+                .ToListAsync();
+        }
+
+        public async Task<List<RoomType>> getRoomType()
+        {
+            return await applicationContext.roomTypes
+                .Include(r => r.photo)
+                .Include(r => r.hotelRoomType)
+                .ToListAsync();
+        }
+
+        public async Task<List<Services>> getServices()
+        {
+            return await applicationContext.services
+                .Include(r => r.photo)
+                .Include(r => r.hotelPhoto)
+                .ToListAsync();
+        }
+
+        public async Task<RoomEquipment> getRoomEquipmentById(int id)
+        {
+            return await applicationContext.roomEquipment
+                .Include(r => r.photo)
+                .Include(r => r.hotelRoomEquiment)
+                .Where(r => r.id == id)
+                .FirstOrDefaultAsync();
+        }
+
+        public async Task<RoomType> getRoomTypeById(int id)
+        {
+            return await applicationContext.roomTypes
+                .Include(r => r.photo)
+                .Include(r => r.hotelRoomType)
+                .Where(r => r.id == id)
+                .FirstOrDefaultAsync();
+        }
+
+        public async Task<Services> getServicesById(int id)
+        {
+            return await applicationContext.services
+                .Include(r => r.photo)
+                .Include(r => r.hotelPhoto)
+                .Where(r => r.id == id)
+                .FirstOrDefaultAsync();
         }
     }
 }

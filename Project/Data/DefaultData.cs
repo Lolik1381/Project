@@ -5,6 +5,7 @@ using Project.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 
 namespace Project.Data
 {
@@ -12,17 +13,20 @@ namespace Project.Data
     {
         ApplicationContext dataBase;
         UserManager<User> userManager;
+        RoleManager<IdentityRole> roleManager;
 
-        public DefaultData(ApplicationContext applicationContext, UserManager<User> userManager)
+        public DefaultData(ApplicationContext applicationContext, UserManager<User> userManager, RoleManager<IdentityRole> roleManager)
         {
             this.dataBase = applicationContext;
             this.userManager = userManager;
+            this.roleManager = roleManager;
         }
 
         public void createDefaultData()
         {
             createPhoto();
             createUser();
+            Thread.Sleep(5000);
             createReview();
             createLandmark();
             createHotel();
@@ -49,8 +53,13 @@ namespace Project.Data
             dataBase.SaveChanges();
         }
 
-        public void createUser()
+        public async void createUser()
         {
+            #region role
+            await roleManager.CreateAsync(new IdentityRole("admin"));
+            await roleManager.CreateAsync(new IdentityRole("user"));
+            #endregion
+
             #region userinfo
             UserInfo userInfo1 = new UserInfo { placeResidence = "Москва, Россия", create = DateTime.Today };
             UserInfo userInfo2 = new UserInfo { placeResidence = "Пенза, Россия", create = DateTime.Today };
@@ -157,12 +166,12 @@ namespace Project.Data
             };
 
             List<IdentityResult> result = new List<IdentityResult>();
-            result.Add(userManager.CreateAsync(user1, "flluMv%40Q3V").Result);
-            result.Add(userManager.CreateAsync(user2, "flluMv%40Q3V").Result);
-            result.Add(userManager.CreateAsync(user3, "flluMv%40Q3V").Result);
-            result.Add(userManager.CreateAsync(user4, "flluMv%40Q3V").Result);
-            result.Add(userManager.CreateAsync(user5, "flluMv%40Q3V").Result);
-            result.Add(userManager.CreateAsync(user6, "flluMv%40Q3V").Result);
+            result.Add(await userManager.CreateAsync(user1, "flluMv%40Q3V"));
+            result.Add(await userManager.CreateAsync(user2, "flluMv%40Q3V"));
+            result.Add(await userManager.CreateAsync(user3, "flluMv%40Q3V"));
+            result.Add(await userManager.CreateAsync(user4, "flluMv%40Q3V"));
+            result.Add(await userManager.CreateAsync(user5, "flluMv%40Q3V"));
+            result.Add(await userManager.CreateAsync(user6, "flluMv%40Q3V"));
             result.ForEach(error =>
             {
                 if (!error.Succeeded)
@@ -171,6 +180,9 @@ namespace Project.Data
                 }
             });
 
+            await userManager.AddToRoleAsync(user1, "admin");
+            await userManager.AddToRoleAsync(user2, "admin");
+            await userManager.AddToRoleAsync(user3, "admin");            
             #endregion
         }
 

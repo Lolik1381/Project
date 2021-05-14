@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,400&display=swap');
 * {
     padding: 0;
-    margin: 0;
+    margin: auto;
     font-family: 'Roboto', sans-serif;
 }
 
@@ -98,7 +98,7 @@ a:hover {
 .header-login .nav_2 {
     background: url(../img/nav_plus.png) 4% 48% no-repeat;
     background-size: 24px 24px;
-    width: 115px;
+    width: 120px;
     padding-left: 30px;
 }
 
@@ -137,8 +137,6 @@ a:hover {
 }
 
 .header-login a:hover:not(:first-child)
-/*!!!!!!!!!!!!*/
-
 {
     color: black;
     transition: 0.2s;
@@ -227,7 +225,7 @@ input[name="r"] {
 }
 
 .slides {
-    width: 400%;
+    width: 1050px;
     height: 250px;
     display: flex;
 }
@@ -236,12 +234,11 @@ input[name="r"] {
     width: 292px;
     display: block;
     transition: all .6s;
-    margin-right: -33px;
 }
 
 .slide .img-slide {
-    width: 83%;
-    height: 100%;
+    width: 242px;
+    height: 250px;
     border-radius: 15px;
     margin: 5px;
 }
@@ -499,7 +496,6 @@ input[name="r"] {
 
 .content .text-add {
     width: 250px;
-    margin-left: 475px;
     margin-top: 105px;
 }
 
@@ -528,7 +524,7 @@ input[name="r"] {
 }
 
 .header-profile {
-    min-width: 1000px;
+    width: 1040px;
     height: 110px;
     background-color: #ffffff;
     padding: 15px;
@@ -610,7 +606,7 @@ input[name="r"] {
 }
 
 .repost {
-    width: 780px;
+    width: 540px;
     min-height: 10px;
     background-color: #fff;
     margin-top: 20px;
@@ -945,6 +941,8 @@ input[name="r"] {
     display: block;
     margin-top: 5px;
     width: 250px;
+    margin: unset;
+    height: 45px;
 }
 
 .conteiner-p span {
@@ -1065,7 +1063,7 @@ input[name="r"] {
     padding: 20px;
     margin-top: 20px;
     margin-right: 20px;
-    width: 300px;
+    width: 260px;
     box-shadow: 0 1px 1px 2px #e6e6e6;
     float: left;
     background-color: #f7f7f7;
@@ -1073,6 +1071,7 @@ input[name="r"] {
     overflow-y: auto !important;
     overflow-x: hidden;
     margin-bottom: 20px;
+    height: 400px;
 }
 .information::-webkit-scrollbar {
   width: 0;
@@ -1121,6 +1120,7 @@ input[name="r"] {
   float: left;
   margin-top: 20px;
   overflow: hidden;
+  z-index: 0;
 }
 
 .sim-slider-list {
@@ -1139,6 +1139,7 @@ input[name="r"] {
   left: 0;
   top: 0;
   display: block;
+  z-index: 0;
 }
 
 /* Navigation item styles */
@@ -1238,7 +1239,7 @@ span.sim-dot {
 {
     display: block;
     float: left;
-    width: 500px;
+    width: 465px;
     border-radius: 30px;
     font-size: 16px;
     padding: 12px 0px 11px 15px;
@@ -1284,6 +1285,7 @@ span.sim-dot {
 .rating_body
 {
     position: relative;
+    margin: unset;
 }
 .rating_body:before
 {
@@ -1382,7 +1384,7 @@ span.sim-dot {
 }
 .message-width
 {
-    width: 615px;
+    width: 580px;
 }
 
 .well-done-btn
@@ -1392,7 +1394,7 @@ span.sim-dot {
     background-color: black;
     border: none;
     position: absolute;
-    left: 960px;
+    left: 920px;
     top: -47px;
     padding: 9px 0;
     border-radius: 20px;
@@ -1648,6 +1650,7 @@ span.sim-dot {
     font-size: 14px !important;
     margin-top: 30px;
     clear: both;
+    float: left;
 }
 .send-publish-a {
     padding-top: 8px !important;
@@ -1730,8 +1733,9 @@ span.sim-dot {
 }
 
 .information-about-hotel {
-    width: 1036px;
+    width: 1000px;
     min-height: 50px;
+    height: auto;
 }
 
 .hotel-conveniences,
@@ -1831,9 +1835,32 @@ span.sim-dot {
     font-weight: bold;
 }
 
+.send-publish-b {
+    display: block;
+    height: 35px;
+    background-color: black;
+    color: white;
+    border: none;
+    font-weight: bold;
+    border-radius: 4px !important;
+    font-size: 14px !important;
+    margin-top: 30px;
+    clear: both;
+    float: left;
+}
+
+.select-style-class {
+    width: 500px !important;
+    height: 200px;
+}
+
 /*Иконки*/
 .hotel-conveniences-feachers .icon:before {
     background-image: var(--backgroud-image, ../img/cup-of-tea.png);
+}
+
+.position-static-web:before {
+    background-image: url(../img/web.png);
 }
 /*.hotel-conveniences-feachers .cup-of-tea:before {
     background-image: url(img/cup-of-tea.png);
@@ -1899,4 +1926,4 @@ span.sim-dot {
     transition: 0.2s;
     box-shadow: 0 10px 15px 2px gray;
     transition: 0.2s;
-}
+} */

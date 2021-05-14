@@ -38,10 +38,10 @@
 
     <div class="content content-accaunt-2">
         <div class="wrapper-accaunt-content">
-            <div class="title">
+            <div class="title" style="width:1040px;">
                 <span class="name-red" style="color: #ff5d5d !important;">@ViewBag.restaurant.name</span>
             </div>
-            <div class="rating rating-2">
+            <div class="rating rating-2" style="width:1040px;">
                 <div class="rating_value rating_value-hidden">@ViewBag.restaurant.rating</div>
                 <div class="rating_body">
                     <div class="rating_active"></div>
@@ -55,51 +55,60 @@
                 </div>
                 <div style="font-size: 14px; width: 100px; font-weight: bold; margin-left: 5px;">@ViewBag.restaurant.reviews.Count отзывов</div>
             </div>
-            <p class="place-position position-static position-static-first">@ViewBag.restaurant.location</p>
-            <p class="place-position position-static position-static-phone">@ViewBag.restaurant.phone</p>
-            <p class="place-position position-static position-static-phone position-static-web"><a href=@ViewBag.restaurant.webSite style="color: #545454;">Веб-сайт</a></p>
-            <div class="clearfix"></div>
-            <div class="information">
-                <p>Подробнее</p>
-                <div class="text-info" style="font-weight: normal;">ТИП КУХНИ</div>
-                <div class="time">@ViewBag.restaurant.typeCuisine</div>
-                <div class="text-info" style="font-weight: normal;">СПЕЦИАЛИЗИРОВАННОЕ МЕНЮ</div>
-                <div class="time">@ViewBag.restaurant.specialMenu</div>
-                <div class="text-info" style="font-weight: normal;">ВРЕМЯ ПРИЕМА ПИЩИ</div>
-                <div class="time">Обед, Ужин</div><br>
-                <a href="#popup2" class="edit-ref" style="padding-left: 0px;">Показать все сведения</a>
-            </div>
+            <div style="width: 1040px;">
+                <p class="place-position position-static position-static-first">@ViewBag.restaurant.location</p>
+                @if (ViewBag.restaurant.phone != null)
+                {
+                    <p class="place-position position-static position-static-phone">@ViewBag.restaurant.phone</p>
+                }
+                @if (ViewBag.restaurant.webSite != null)
+                {
+                    <p class="place-position position-static position-static-web"><a href=@ViewBag.restaurant.webSite style="color: #545454;">Веб-сайт</a></p>
+                }
+
+                <div class="clearfix"></div>
+                <div class="information">
+                    <p>Подробнее</p>
+                    <div class="text-info" style="font-weight: normal;">ТИП КУХНИ</div>
+                    <div class="time">@ViewBag.restaurant.typeCuisine</div>
+                    <div class="text-info" style="font-weight: normal;">СПЕЦИАЛИЗИРОВАННОЕ МЕНЮ</div>
+                    <div class="time">@ViewBag.restaurant.specialMenu</div>
+                    <div class="text-info" style="font-weight: normal;">ВРЕМЯ ПРИЕМА ПИЩИ</div>
+                    <div class="time">Обед, Ужин</div><br>
+                    <a href="#popup2" class="edit-ref" style="padding-left: 0px;">Показать все сведения</a>
+                </div>
 
 
-            <!--image slider start-->
-            <div class="sim-slider">
-                <ul class="sim-slider-list">
-                    <li><img src="data:image/jpeg;base64, @(Convert.ToBase64String(ViewBag.scenePhoto.image))" alt="screen" width="720"></li>    <!-- это экран -->
-                    <!--Загружать фото 1280*720-->
-                    @foreach (var restaurantPhoto in ViewBag.restaurantPhotos)
-                    {
-                        <li class="sim-slider-element">
-                            <img src="data:image/jpeg;base64, @(Convert.ToBase64String(restaurantPhoto.image))" alt="N" width="720" height="405">
-                        </li>
-                    }
-                </ul>
-                <div class="sim-slider-arrow-left" style="background-image: url(data:image/jpeg;base64,@(Convert.ToBase64String(ViewBag.sliderArrowLeft.image)));"></div>
-                <div class="sim-slider-arrow-right" style="background-image: url(data:image/jpeg;base64,@(Convert.ToBase64String(ViewBag.sliderArrowRight.image)));"></div>
-                <div class="sim-slider-dots"></div>
+                <!--image slider start-->
+                <div class="sim-slider">
+                    <ul class="sim-slider-list">
+                        <li><img src="data:image/jpeg;base64, @(Convert.ToBase64String(ViewBag.scenePhoto.image))" alt="screen" width="720"></li>    <!-- это экран -->
+                        <!--Загружать фото 1280*720-->
+                        @foreach (var restaurantPhoto in ViewBag.restaurantPhotos)
+                        {
+                            <li class="sim-slider-element">
+                                <img src="data:image/jpeg;base64, @(Convert.ToBase64String(restaurantPhoto.image))" alt="N" width="720" height="405">
+                            </li>
+                        }
+                    </ul>
+                    <div class="sim-slider-arrow-left" style="background-image: url(data:image/jpeg;base64,@(Convert.ToBase64String(ViewBag.sliderArrowLeft.image)));"></div>
+                    <div class="sim-slider-arrow-right" style="background-image: url(data:image/jpeg;base64,@(Convert.ToBase64String(ViewBag.sliderArrowRight.image)));"></div>
+                    <div class="sim-slider-dots"></div>
+                </div>
             </div>
+
             <!--image slider end-->
             <div class="clearfix"></div>
 
             <div class="clearfix"></div>
-            <div class="send-photo">
-                <p>Отправить</p>
+            <div class="send-photo" style="width: 1040px; margin-top: 10px;">
                 <a href=@Html.Raw(Url.Action("Review", "Review", new { type = "Restaurant", id = ViewBag.restaurant.id })) class="send-btn">Написать отзыв</a>
                 <a href="#popup0" class="send-btn send-btn-2">Загрузить фотографию</a>
             </div>
             <div class="clearfix"></div>
 
             <!--rating-->
-            <form method="post" asp-controller="Restaurant" asp-action="Index">
+            <form method="post" asp-controller="Restaurant" asp-action="Index" style="width: 1040px;">
                 <div class="rating-conteiner">
                     <div class="ratings-wrapper">
                         <div class="rating">
