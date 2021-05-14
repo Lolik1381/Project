@@ -97,8 +97,8 @@ namespace Project.Data
             };
             Profile profileForUser3 = new Profile
             {
-                name = "Русаков",
-                lastName = "Никита",
+                name = "Никита",
+                lastName = "Русаков",
                 mainPhoto = photo3,
                 userInfo = userInfo3,
             };
@@ -188,11 +188,6 @@ namespace Project.Data
 
         public void createReview()
         {
-            #region reviewForLandmark1
-            #endregion
-
-            #region reviewForLandmark2
-            #endregion
 
             #region reviewForLandmark3
             Review review3 = new Review
@@ -224,27 +219,6 @@ namespace Project.Data
             };
             #endregion
 
-            #region reviewForLandmark5
-            #endregion
-
-            #region reviewForLandmark6
-            #endregion
-
-            #region reviewForLandmark7
-            #endregion
-
-            #region reviewForLandmark8
-            #endregion
-
-            #region reviewForLandmark9
-            #endregion
-
-            #region reviewForLandmark10
-            #endregion
-
-            #region reviewForLandmark11
-            #endregion
-
             #region reviewForLandmark12
             Review review2 = new Review
             {
@@ -259,9 +233,250 @@ namespace Project.Data
                 description = "Взял билет на 86 (открытый балкон) и на 102 (закрытый) за $80. На 102 делать особо нечего, кроме фото без ограждений сзади. Потом вечером взял только на открытый на 86 этаже за $47. Лучше брать сразу билет am/pm. Для двух посещений."
             };
             #endregion
-
-            dataBase.reviews.AddRange(review1, review2, review3);
+            #region Las Vegas
+            //direction8 Las Vegas
+            //landmark 16 Bellagio Conservatory & Botanical Garden
+            Review review4 = new Review
+            {
+                user = dataBase.users
+                    .Include(user => user.profile)
+                    .Where(user => user.profile.name.Equals("Юлия"))
+                    .Single(),
+                created = DateTime.Now,
+                dateTravel = DateTime.Now,
+                header = "Ночная экскурсия по отелям Вегаса",
+                rating = 5,
+                description = "Каждый отель на Strip имеет свою фишку. В Белладжио это зоосад огромной высоты с гигантскими моделями животных, а также самый большой в мире шоколадный водопад."
+            };
+            Review review5 = new Review
+            {
+                user = dataBase.users
+                    .Include(user => user.profile)
+                    .Where(user => user.profile.name.Equals("Никита"))
+                    .Single(),
+                created = DateTime.Now,
+                dateTravel = DateTime.Now,
+                header = "Красота да и только",
+                rating = 5,
+                description = "Останавливался в отеле Bellagio Las Vegas в июне 2019 года на 5 ночей. Эту экспозицию строили, что называется , на моих глазах и за это время она полностью была построена-круто!"
+            };
+            //landmark15 The Strip
+            Review review6 = new Review
+            {
+                user = dataBase.users
+                   .Include(user => user.profile)
+                   .Where(user => user.profile.name.Equals("Михаил"))
+                   .Single(),
+                created = DateTime.Now,
+                dateTravel = DateTime.Now,
+                header = "Впечатляет",
+                rating = 5,
+                description = "Самая центральная улица Лас-Вегаса, надо жить и гулять по ней. Здесь находятся отели, повторяющие достопримечательности основных городов мира. Много ресторанов, кафе, есть торговые центры. Удобней проехать ее всю на автобусе."
+            };
+            Review review7 = new Review
+            {
+                user = dataBase.users
+                   .Include(user => user.profile)
+                   .Where(user => user.profile.name.Equals("Anastasia"))
+                   .Single(),
+                created = DateTime.Now,
+                dateTravel = DateTime.Now,
+                header = "Fun but expensive",
+                rating = 3,
+                description = "The tickets and room were decently priced, bit then getting there......Room fees and taxes add up, alcoholic drinks doubled in price in the last 2 years, food was more expensive too.. The cabanas at the pools were $400 a day, and water and ice were not even free. If you think you can go for a decently cheap trip to Vegas anymore, you cannot."
+            };
+            //landmark24 The Neon Museum
+            Review review8 = new Review
+            {
+                user = dataBase.users
+                   .Include(user => user.profile)
+                   .Where(user => user.profile.name.Equals("Юлия"))
+                   .Single(),
+                created = DateTime.Now,
+                dateTravel = DateTime.Now,
+                header = "Разочаровательно",
+                rating = 3,
+                description = "Очень хотели попасть в музей неона и фотографировать тысячи светящихся старых вывесок. Представляли классные колоритные огненные фотки. И вот мы залетаем на территорию, а там... тьма. В музее неона светятся 3 крошечные вывески из тысячи! Это настолько не логично, что даже разочаровательно. Так что, если что вдруг, приезжайте днём - тут хотя бы цвета красивые, наверное. А ночью просто свалка. И лучше бронируйте заранее, на официальном сайте, потому что билеты раскуплены на неделю вперёд"
+            };
+            Review review9 = new Review
+            {
+                user = dataBase.users
+                   .Include(user => user.profile)
+                   .Where(user => user.profile.name.Equals("Никита"))
+                   .Single(),
+                created = DateTime.Now,
+                dateTravel = DateTime.Now,
+                header = "Очень атмосферно!",
+                rating = 5,
+                description = "Очень атмосферный отель - можно отлично проследить историю Вегаса по всем этим старым неоновым вывескам. Есть какая-то магия в них.Нам очень понравилось !"
+            };
+            
+            //ARIA Resort & Casino
+            Review review10 = new Review
+            {
+                user = dataBase.users
+                   .Include(user => user.profile)
+                   .Where(user => user.profile.name.Equals("Юлия"))
+                   .Single(),
+                created = DateTime.Now,
+                dateTravel = DateTime.Now,
+                header = "Отличный отель",
+                rating = 5,
+                description = "Все условия для комфортного отдыха. Отличные номера, отличная инфраструктура, отличное казино, неплохой бассейн, великолепный тренажерный зал. Непонятно, почему парковка платная, в остальном супер. Очень вкусный ресторан итальянский Корбома, рекомендуем"
+            };
+            Review review11 = new Review
+            {
+                user = dataBase.users
+                   .Include(user => user.profile)
+                   .Where(user => user.profile.name.Equals("Михаил"))
+                   .Single(),
+                created = DateTime.Now,
+                dateTravel = DateTime.Now,
+                header = "Превосходный отель",
+                rating = 5,
+                description = "Начиная с 1994 года отели выбирали по ходу движения по стрипу с юга на север. Exalubur, New York, Monte Carlo (сейчас MGM Park) и наконец современнейший Aria. Все очень достойно, удобно, красиво, автоматизировано в номерах, но немного дороговато. Вода Fiji в номере за $35 это просто смешно. Надо быть аккуратнее с минибаром. Вытащив оттуда бутылку и рассматривая этикетку более 60 секунд, вы автоматически становитесь ее покупателем независимо от того открывали вы ее или нет. Через два дня после выезда из отеля с меня списали $38 за пользование минибаром. Пришлось разбираться через обратную связь с отелем."
+            };
+            //Bellagio Las Vegas
+            Review review12 = new Review
+            {
+                user = dataBase.users
+                   .Include(user => user.profile)
+                   .Where(user => user.profile.name.Equals("Михаил"))
+                   .Single(),
+                created = DateTime.Now,
+                dateTravel = DateTime.Now,
+                header = "Bellagio - вегасовская классика",
+                rating = 4,
+                description = "Номера довольно старые, несмотря на вcю крутизну и пафос, витающий в Bellagio. В номере, который нам достался, было просто невозможно отыскать место где можно было бы зарядить телефон и при этом находится в сидячем/лежачем положении, розетки расположены очень неудобно. Также в номере была дверь в смежную комнату, что лично меня всегда сильно напрягает, так как от шума из соседнего номера никак не избавится, особенно когда там включают телевизор. А это не совсем то, чего ожидаешь от номера за такие деньги"
+            };
+            //The Cosmopolitan of Las Vegas, Autograph Collection
+            Review review13 = new Review
+            {
+                user = dataBase.users
+                   .Include(user => user.profile)
+                   .Where(user => user.profile.name.Equals("Юлия"))
+                   .Single(),
+                created = DateTime.Now,
+                dateTravel = DateTime.Now,
+                header = "Крепкая 4-ка",
+                rating = 4,
+                description = "Отель недавно отремонтирован. У нас был Терасса Сьют на 61 этаже, просторный и уютный, с балконом. К номеру почти претензий нет, кроме двух - постоянно включающая самовольно джакузи посредине ночи, и аналогичная ситуация происходила со светом в гардеробной. Будьте готовы к отсутствию чайника и сейфа... Отсутствует отдельная очередь на чек-аут, мы выезжали в пятницу, когда был наплыв на чек-ин и пришлось простоять всю эту очередь. Неоправданно большой депозит за 3 ночи - 40к рублей, если учесть что у нас была оплаченная полностью бронь"
+            };
+            Review review14 = new Review
+            {
+                user = dataBase.users
+                   .Include(user => user.profile)
+                   .Where(user => user.profile.name.Equals("Станислав"))
+                   .Single(),
+                created = DateTime.Now,
+                dateTravel = DateTime.Now,
+                header = "Неплохо",
+                rating = 3,
+                description = "Останавливались в этом отеле в 3 раз,но предидущие разы было лучше.В этот раз,наш номер оказался без вида на фонтаны.Это было неожиданно.Плохо работал кондиционер и уборка была сделана не вполне качественно - волосы и резинка для волос на полке так и остались лежать от прошлых гостей.Но главный кошмар - это завтрак.Вроде всего много,а есть нечего и все без вкуса.Один человек только не ресепшн и оплату берут до поэтому очереди. За кофе надо ещё отдельно платить"
+            };
+            //The Venetian Resort
+            Review review15 = new Review
+            {
+                user = dataBase.users
+                   .Include(user => user.profile)
+                   .Where(user => user.profile.name.Equals("Никита"))
+                   .Single(),
+                created = DateTime.Now,
+                dateTravel = DateTime.Now,
+                header = "Отличный пафосный отель",
+                rating = 5,
+                description = "В отель приехали на автомобиле из Лос-Анджелеса 31.12.2019, спокойно нашли свободное место на подземной парковке отеля. Для создания прекрасного новогоднего настроения был забронирован Сьюит на высоком этаже. Вид из номера позволял смотреть новогодний салют! Номер огромный - с двумя двуспальными кроватями, полноценным диваном, большой ванной. Новогодний праздничный стол заказали в их ресторане прямо в номер. Официант был очень внимателен, а ужин оказался очень вкусным! Отель огромный, людей - очень много, но так как для каждого уровня этажей сделаны свои лифты, то очереди в них нет. Удобно, что недалеко от лифта кафетерий Starbucks, можно выпить кофе прямо в домашней одежде и тапочках. Красивые каналы, напоминающие Венецию, можно покататься на гондоле. Вдоль каналов много магазинов, и кафе, приятно погулять по такой красоте. Сам отель был очень красиво украшен к Новому Году. В холле отеля огромное казино. Обслуживание на ресепшене было отличным, хоть и были очереди на регистрацию и возврат номера, но они очень быстро шли - персонал грамотный и быстрый. С удовольствием еще бы вернулись к ним."
+            };
+            Review review16 = new Review
+            {
+                user = dataBase.users
+                   .Include(user => user.profile)
+                   .Where(user => user.profile.name.Equals("Юлия"))
+                   .Single(),
+                created = DateTime.Now,
+                dateTravel = DateTime.Now,
+                header = "Manuel worse manager in USA",
+                rating = 1,
+                description = "Я была в отеле на 2 ночи , с первой минуты моего заселения работница отеля в лобби начала мне делать проблемы с оплатой , она отправила меня сразу к мэнэджеру Мануэль , он был грубый и резкий , мне сразу это не понравилось , но я решила остаться потому что были уставшие с дороги , на второй день у меня не сработали ключи и я пошла в лобби за ключами и Главный менеджер Мануель сказал что у нас только одна ночь , хотя деньги за вторую ночь сняли с банка . Он не умеет решать проблемы и он не справляется со своей работой . Manuel you can’t handle simple problems . Change your job for easier one"
+            };
+            //Senor Frog's Las Vegas
+            Review review17 = new Review
+            {
+                user = dataBase.users
+                  .Include(user => user.profile)
+                  .Where(user => user.profile.name.Equals("Михаил"))
+                  .Single(),
+                created = DateTime.Now,
+                dateTravel = DateTime.Now,
+                header = "Вкусно!",
+                rating = 4,
+                description = "Интересный интерьер, вкусное мясо, и овощи. Доброжелательный персонал.Удачное расположение рядом с кораблем"
+            };
+            Review review18 = new Review
+            {
+                user = dataBase.users
+                   .Include(user => user.profile)
+                   .Where(user => user.profile.name.Equals("Никита"))
+                   .Single(),
+                created = DateTime.Now,
+                dateTravel = DateTime.Now,
+                header = "Странный диско-барчик )",
+                rating = 3,
+                description = "Забавный бар, но ценник показался завышенным. Мебель и все вокруг убито вечной дискотекой, на потолке смешные попы пластиковых людей )))"
+            };
+            //Le Cirque
+            Review review19 = new Review
+            {
+                user = dataBase.users
+                   .Include(user => user.profile)
+                   .Where(user => user.profile.name.Equals("Юлия"))
+                   .Single(),
+                created = DateTime.Now,
+                dateTravel = DateTime.Now,
+                header = "Незабываемый вечер",
+                rating = 5,
+                description = "Посещали с мужем перед представлением «Cirque du Soleil», столик бронировали заранее. Шикарное место! Дизайн, атмосфера, кухня, обслуживание! Все на высшем уровне, только цены кусаются, но оно того стоит)Отличные коктейли, еда как произведение искусства. Подарок в конце ужина. Только положительные эмоции)) Отличное место для романтического ужина."
+            };
+            Review review20 = new Review
+            {
+                user = dataBase.users
+                   .Include(user => user.profile)
+                   .Where(user => user.profile.name.Equals("Станислав"))
+                   .Single(),
+                created = DateTime.Now,
+                dateTravel = DateTime.Now,
+                header = "спокойно! цирк не уехал",
+                rating = 5,
+                description = "отличная задумка по дизайну, от атмосферы загораются глаза и становиться как то теплее и веселее. отличная кухня, порции сытные. замечательное место!"
+            };
+            //Triple George Grill
+            Review review21 = new Review
+            {
+                user = dataBase.users
+                   .Include(user => user.profile)
+                   .Where(user => user.profile.name.Equals("Михаил"))
+                   .Single(),
+                created = DateTime.Now,
+                dateTravel = DateTime.Now,
+                header = "Неистово рекомендую!",
+                rating = 5,
+                description = "Стейки просто божественны. Филе миньон – 9 унций сплошного наслаждения и нектар красного калифорнийского. После ужина непременно, прямиком на Fremont Street, в его безудержное веселье."
+            };
+            Review review22 = new Review
+            {
+                user = dataBase.users
+                  .Include(user => user.profile)
+                  .Where(user => user.profile.name.Equals("Юлия"))
+                  .Single(),
+                created = DateTime.Now,
+                dateTravel = DateTime.Now,
+                header = "Превосходные стейки",
+                rating = 5,
+                description = "Этот ресторан нам посоветовали знакомые. Тут действительно подают превосходные рибаи. Могу рекомендовать"
+            };
+            dataBase.reviews.AddRange(review1, review2, review3, review4, review5, review6, review7, review8, review9, review10, review11, review12, review13, review14, review15, review16, review17, review18, review19, review20, review21, review22);
             dataBase.SaveChanges();
+            #endregion
         }
 
         public void createLandmark()
@@ -291,9 +506,28 @@ namespace Project.Data
             Photo photo22 = new Photo { image = Util.getByteImage(@"wwwroot\img\tower-of-London.jpg"), name = @"img\tower-of-London.jpg" };
             Photo photo23 = new Photo { image = Util.getByteImage(@"wwwroot\img\tower-of-London_1.jpg"), name = @"img\tower-of-London_1.jpg" };
             Photo photo24 = new Photo { image = Util.getByteImage(@"wwwroot\img\British-museum.jpg"), name = @"img\British-museum.jpg" };
-            dataBase.photos.AddRange(photo1, photo2, photo3, photo4, photo5, photo6, photo7, photo8, photo9, photo10, photo11, photo12, photo13, photo14, photo15, photo16, photo17, photo18, photo19, photo20, photo21, photo22, photo23, photo24);
+            Photo photo25 = new Photo { image = Util.getByteImage(@"wwwroot\img\dolphinIsland.jpg"), name = @"img\dolphinIsland.jpg" };
+            Photo photo26 = new Photo { image = Util.getByteImage(@"wwwroot\img\dolphinIsland1.jpg"), name = @"img\dolphinIsland1.jpg" };
+            Photo photo27 = new Photo { image = Util.getByteImage(@"wwwroot\img\dolphinIsland2.jpg"), name = @"img\dolphinIsland2.jpg" };
+            Photo photo28 = new Photo { image = Util.getByteImage(@"wwwroot\img\Eyes.jpg"), name = @"img\Eyes.jpg" };
+            Photo photo29 = new Photo { image = Util.getByteImage(@"wwwroot\img\Eyes1.jpg"), name = @"img\Eyes1.jpg" };
+            Photo photo30 = new Photo { image = Util.getByteImage(@"wwwroot\img\crater.jpg"), name = @"img\crater.jpg" };
+            Photo photo31 = new Photo { image = Util.getByteImage(@"wwwroot\img\crater1.jpg"), name = @"img\crater1.jpg" };
+            Photo photo32 = new Photo { image = Util.getByteImage(@"wwwroot\img\Legoland.jpg"), name = @"img\Legoland.jpg" };
+            Photo photo33 = new Photo { image = Util.getByteImage(@"wwwroot\img\Legoland1.jpg"), name = @"img\Legoland1.jpg" };
+            Photo photo34 = new Photo { image = Util.getByteImage(@"wwwroot\img\Cathedral-Rock.jpg"), name = @"img\Cathedral-Rock.jpg" };
+            Photo photo35 = new Photo { image = Util.getByteImage(@"wwwroot\img\Cathedral-Rock1.jpg"), name = @"img\Cathedral-Rock1.jpg" };
+            Photo photo36 = new Photo { image = Util.getByteImage(@"wwwroot\img\neon-museum.jpg"), name = @"img\neon-museum.jpg" };
+            Photo photo37 = new Photo { image = Util.getByteImage(@"wwwroot\img\neon-museum1.jpg"), name = @"img\neon-museum1.jpg" };
+            Photo photo38 = new Photo { image = Util.getByteImage(@"wwwroot\img\Natural_History_Museum.jpg"), name = @"img\Natural_History_Museum.jpg" };
+            Photo photo39 = new Photo { image = Util.getByteImage(@"wwwroot\img\Natural_History_Museum1.jpg"), name = @"img\Natural_History_Museum1.jpg" };
+            Photo photo40 = new Photo { image = Util.getByteImage(@"wwwroot\img\Old-Faithful.jpg"), name = @"img\Old-Faithful.jpg" };
+            Photo photo41 = new Photo { image = Util.getByteImage(@"wwwroot\img\Old-Faithful1.jpg"), name = @"img\Old-Faithful1.jpg" };
+            Photo photo42 = new Photo { image = Util.getByteImage(@"wwwroot\img\Rappel-Maui.jpg"), name = @"img\Rappel-Maui.jpg" };
+            Photo photo43 = new Photo { image = Util.getByteImage(@"wwwroot\img\Rappel-Maui1.jpg"), name = @"img\Rappel-Maui1.jpg" };
+            dataBase.photos.AddRange(photo1, photo2, photo3, photo4, photo5, photo6, photo7, photo8, photo9, photo10, photo11, photo12, photo13, photo14, photo15, photo16, photo17, photo18, photo19, photo20, photo21, photo22, photo23, photo24, photo25, photo26, photo27, photo28, photo29, photo30, photo31, photo32, photo33, photo34, photo35, photo36, photo37, photo38, photo39, photo40, photo41, photo42, photo43);
             #endregion
-
+            #region Landmarks
             #region landmarkForDirection1
             Landmark landmark1 = new Landmark
             {
@@ -301,12 +535,31 @@ namespace Project.Data
                 rating = 5,
                 mainPhoto = photo1,
                 photos = new List<Photo> { photo2 },
+                location = "Center Loop Road, Йеллоустонский национальный парк, WY 82190",
+                phoneNumber = "+ 1 307 - 344 - 7381",
+                description = "Расположенный между районом Олд Фэйтфул и дорогой Бисквит-Бейсин-роуд, Верхний бассейн Гейзера занимает площадь всего около 1 квадратной мили. На этой небольшой территории самая большая концентрация гейзеров и геотермальных источников в мире! Кроме того, гейзеры здесь также являются одними из самых больших и мощных в мире.",
+                webSite = "http://www.yellowstonenationalpark.com/uppergeyser.htm"
             };
             Landmark landmark2 = new Landmark
             {
                 name = "Большой призматический источник",
                 rating = 4.9M,
-                mainPhoto = photo3
+                mainPhoto = photo3,
+                location = "Midway Geyser Basin, Йеллоустонский национальный парк, WY",
+                phoneNumber = "+1 307-344-7381",
+                description = "Большой призматический источник (Grand Prismatic spring) – это один из символов национального парка Йеллоустоун в США, похожий на огромное око, или как его называют на картах – Гранд призматик спринг. Такое красивое название этому геотермальному источнику дали за красочное сочетание цветов и великолепное оформление. Сверху этот термальный бассейн действительно смотрится как глаз с длинными ресничками. Это самый большой геотермальный источник в США, а в мире он занимает третье место после озера Сковорода (Фрайинг пэн ейн) в Новой Зеландии и Кипящее озеро (Бойлинг Лейк) в Доминике. Глубина этого геотермального источника – 49 метров. ",
+                webSite = "https://www.nps.gov/features/yell/ofvec/exhibits/treasures/thermals/hotspring/grandprismatic.htm"
+            };
+            Landmark landmark21 = new Landmark
+            {
+                name = "Old Faithful",
+                rating = 4.5M,
+                mainPhoto = photo40,
+                photos = new List<Photo> { photo41 },
+                location = "Center Loop Road, Йеллоустонский национальный парк, WY 82190",
+                phoneNumber = "+1 307-547-2750",
+                description = "Олд-Фе́йтфул (англ. Old Faithful — «старый служака») — один из самых знаменитых гейзеров на Земле. Во время одного извержения гейзера выбрасывается от 14 до 32 тыс. литров кипящей воды на высоту от 32 до 56 м продолжительностью от 1,5 до 5 минут[2]. Это один из самых предсказуемых гейзеров на планете, он извергается каждые 35—120 минут, и поэтому считается, что это наиболее часто фотографируемое из чудес природы. Время между извержениями имеет бимодальное распределение[en] со средним интервалом либо 65, либо 91 минута.",
+                webSite = "https://www.nps.gov/yell/planyourvisit/exploreoldfaithful.htm"
             };
             #endregion
 
@@ -320,7 +573,30 @@ namespace Project.Data
                 reviews = new List<Review>
                 {
                     dataBase.reviews.Where(review => review.header.Equals("После Оаху и карибов дорога не впечатлила.")).Single()
-                }
+                },
+                location = "Scape Park, Cap Cana, Пунта-Кана 23000, Доминикана",
+                description = "Лагуна Азул одно из самых красивейших достопримечательностей в Доминиканской республике. Озеро образовавшееся внутри скалы, за счёт скопления за многия тысячи лет дождевой воды, прошедшей через все слои почвы. Идеально чистейшее озеро."
+            };
+            Landmark landmark19 = new Landmark
+            {
+                name = "Остров дельфинов",
+                rating = 5,
+                mainPhoto = photo25,
+                photos = new List<Photo> { photo26, photo27 },
+                location = "Пунта-Кана, Доминикана",
+                phoneNumber = "+1 809-221-9444",
+                description = "стров Дельфинов располагается на восточном побережье Доминиканской Республики, недалеко от Пунта-Кана. Это своего рода дельфинарий в открытом море. Достопримечательность представляет собой плавучую платформу, расположенную в некотором удалении от берега. Здесь находится пять бассейнов, в которых живут несколько видов морских обитателей. Созданы все необходимые условия для содержания животных. Дельфины хорошо идут на контакт с людьми, их можно гладить, кормить или даже купаться с ними в течении 25-30 минут. Для посетителей устраивается небольшое шоу, в ходе которого животные демонстрирует свои умения. Помимо дельфинов в бассейнах можно встретить морских львов и котиков. С ними также разрешено плавать за дополнительную оплату. Для любителей экстремального отдыха, есть возможность искупаться в отсеке с акулами и скатами.",
+                webSite = "https://www.dolphinislandpark.com/?utm_source=TripAdvisor.com&utm_medium=referral&utm_campaign=ficha-empresa"
+            };
+            Landmark landmark20 = new Landmark
+            {
+                name = "Экологический парк Indigenous Eyes Reserva Ecológica Ojos Indígenas",
+                rating = 5,
+                mainPhoto = photo28,
+                photos = new List<Photo> { photo29 },
+                location = "Ave. Abraham Lincoln No. 960, Пунта-Кана 23000 Доминикана",
+                phoneNumber = "+1 809-959-9221",
+                description = "Indigenous Eyes (что можно перевести как «Природные глаза») - экологический заповедник, расположенный на территории в 1500 га, где в первозданном виде сохранились флора и фауна тропических влажных лесов. Сюда приезжают путешественники, которые хотят увидеть столетние деревья причудливой формы, субтропические цветы невероятных размеров и окраски, замысловатые переплетения лиан. Надо отметить, что в этом парке произрастает 500 видов редких, исчезающих растений и обитает почти 100 видов птиц. Indigenous Eyes - это одиннадцать укромных лагун с прохладной прозрачной водой, действительно, напоминающих по форме человеческий глаз, в которых можно искупаться. Кристально чистые пресноводные лагуны питаются подземными реками. Древние индейцы считали, что эти воды обладают целебными свойствами. Песчаный пляж тоже никого не оставит равнодушным, поскольку там можно увидеть морских черепах, которые облюбовали это место для выкладки своих яиц в теплый белый песок."
             };
             #endregion
 
@@ -333,7 +609,33 @@ namespace Project.Data
                 reviews = new List<Review>
                 {
                     dataBase.reviews.Where(review => review.header.Equals("Красивое место")).Single()
-                }
+                },
+                location = "Route 36, Остров Мауи, HI",
+                phoneNumber = "+1 808-661-8687",
+                description = "Те, кто не знаком с шоссе Хана, также известным как «Дорога в Хану», посмотрят на свою карту и скажут: «О, это всего лишь 52 мили. Мы сможем добраться до Ханы примерно за час ». Ну, если только вы не летите… в буквальном смысле. Удачно названная «Шоссе развода», Дорога в Хану имеет изнурительные и много раз мучительные 617 крутых поворотов и 59 неумолимых однополосных мостов, не говоря уже о невероятном количестве слепых зон на этом пути. А поскольку ограничение скорости на всем пути составляет 25 миль в час или менее, это означает, что время в пути (с несколькими остановками или без остановок) в среднем составляет около 2,5 часов - и это без каких-либо пробок или других отклонений. О, и есть еще много препятствий, чтобы добраться туда «вовремя», например, вы будете очарованы всеми невероятно красивыми водопадами, местными украшениями ручной работы, ароматными цветами и леями, свежим ананасом, банановым хлебом и множеством других гавайских кулинарных изысков. быть обнаруженным на придорожных стендах. Вы сами решаете, на чем хотите сосредоточиться, а все остальное мы берем на себя.",
+                webSite = "https://www.tourmaui.com/road-to-hana/"
+            };
+            Landmark landmark26 = new Landmark
+            {
+                name = "Кратер Халеакала",
+                rating = 4.5M,
+                mainPhoto = photo30,
+                photos = new List<Photo> { photo31 },
+                location = "Национальный парк Халеакала, Остров Мауи, HI 96768",
+                phoneNumber = "+1 808-572-4400",
+                description = "Склоны вулкана возвышающегося более чем на 3000 метров над уровнем моря, видны практически из любой точки острова Гавайи. Название вулкана переводится как «дом солнца». Легенда утверждает, что Maui, получеловек-полубог, поймал солнце своим лассо с вершины этой горы, чтобы замедлить его ход. Если подняться на вершину кратера, то можно погулять над облаками. Разноцветные долины, бесплодные пустыни и дикая природа дождевых лесов - ландшафты парка поражают разнообразием.",
+                webSite = "https://www.nps.gov/hale/index.htm"
+            };
+            Landmark landmark27 = new Landmark
+            {
+                name = "Rappel Maui Waterfalls and Rainforest Cliffs",
+                rating = 4.5M,
+                mainPhoto = photo42,
+                photos = new List<Photo> { photo43 },
+                location = "10600 Hana Hwy, Haiku, HI 96708, USA",
+                phoneNumber = "808-270-1500",
+                description = "Ваше приключение на природе происходит в частной уединенной долине водопадов, одном из немногих туристических направлений в своем роде. Отойдите от всего: толпы, движения, скорости. Погрузитесь в природу: исследуйте остров Долины в более интимном, личном раю тропических лесов, водопадов, бассейнов и ручьев. Все, что вам нужно, включено; опыт не обязателен. Приглашаются новички и новички. Ваша безопасность - главный приоритет для ваших гидов, когда они проводят то, что посетители называют лучшим днем ​​своего визита на Мауи и Гавайские острова.",
+                webSite = "https://www.rappelmaui.com/"
             };
             #endregion
 
@@ -342,7 +644,11 @@ namespace Project.Data
             {
                 name = "Magic Kingdom",
                 rating = 4.3M,
-                mainPhoto = photo7
+                mainPhoto = photo7,
+                location = "1180 Seven Seas Dr Walt Disney World, Орландо, FL 32830",
+                phoneNumber = "+1 407-939-5277",
+                description = "Главный и самый известный парк на территории Walt Disney World Resord. Самый посещаемый парк в мире - страна сказок, мультфильмов и фантазий. Парады любимых героев Диснея, множество захватывающих аттракционов. Весной в парке проходит уникальное зрелищное шоу - международный Фестиваль садов и цветов. Все деревья, цветы и целые сады предстают перед посетителями в виде известных диснеевских персонажей. Незабываемое зрелище - традиционный фейерверк, который раскрашивает небо тысячами красок, останется в памяти навсегда!",
+                webSite = "https://disneyworld.disney.go.com/destinations/magic-kingdom/?CMP=OKC-wdw_TA_189/"
             };
             Landmark landmark6 = new Landmark
             {
@@ -350,6 +656,21 @@ namespace Project.Data
                 rating = 4.4M,
                 mainPhoto = photo8,
                 photos = new List<Photo> { photo9 },
+                location = "6000 Universal Boulevard, Орландо, FL 32819-7640",
+                phoneNumber = "407 363 8000",
+                description = "Среди самых захватывающих парков развлечений стоит отметить Развлекательный парк киностудии Universal в американском городе Орландо. Разнообразие современных аттракционов удивит даже самых искушенных любителей развлечений. Собственно парк объединяет в себе два тематических парка: Universal Studios Florida, Universal’s Islands of Adventure и развлекательный центр CityWalk. Парк Universal Studios был открыт в 1990 году. Местные аттракционы посвящены сюжетам известных фильмов и мультфильмов. В зоне Hollywood можно встретить Терминатора и повеселиться на аттракционе Universal Horrow Make-up Show, в зоне New York надо непременно заглянуть на аттракционы-катастрофы Revenge of the Mummy и Twister, Ride it out. В зоне Production Central малыши смогут развлечься в компании Шрека и Ослика, а в зоне Jimmy Neutron’s Nictoon Blast можно встретить пришельцев и побывать на далеких планетах. В парке есть веселое кладбище Beetlejuice’s Graveyrd Revue и Woody Woodpecker’s Kidzone, предназначенная для малышей, — в компании знаменитого дятла, можно веселиться на интерактивных площадках.",
+                webSite = "https://www.universalorlando.com/web/en/us/theme-parks/universal-studios-florida"
+            };
+            Landmark landmark22 = new Landmark
+            {
+                name = "Legoland Florida Resort",
+                rating = 4.5M,
+                mainPhoto = photo32,
+                photos = new List<Photo> { photo33 },
+                location = "1 Legoland Way, Винтер-Хейвен, FL 33884-4139",
+                phoneNumber = "+ 1 877 - 350 - 5346",
+                description = "Леголенд во Флориде открыт в 2011 году. Сегодня парк занимает площадь почти 59 гектар и является вторым по площади послед Legoland в Великобритании. Всего в мире открыто для своих маленьких почитателей 6 парков Леголенд, и первый парк был открыт конечно же в Дании, где был изобретен, ныне имеющий мировую известность, конструктор Lego. Все в Леголенд крутится вокруг темы Лего и в большинстве собрано из миллионов деталек конструктора.",
+                webSite = "https://www.legoland.com/florida/"
             };
             #endregion
 
@@ -358,13 +679,30 @@ namespace Project.Data
             {
                 name = "Soldier Pass",
                 rating = 4.4M,
-                mainPhoto = photo10
+                mainPhoto = photo10,
+                location = "Седона, AZ",
+                description = "К началу тропы нужно свернуть на Soldier Pass Road с шоссе 89A к западу от центра города Седона. Дорога Soldier Pass приближается к Coffee Pot Rock, и направо следует на Rim Shadows Rd. Следуйте указателям на Soldier Pass Rd. Подъем на перевал Солдат ведет на север и составляет примерно две мили. Тропа умеренная, но легкая при спуске с общей высотой спуска 450 футов. Можно увидеть множество достопримечательностей, включая две естественные арки, Семь священных бассейнов и самую большую воронку в Седоне, кухню дьявола.",
+                webSite = "http://www.sedonahikingtrails.com/soldier-pass-north.htm"
             };
             Landmark landmark8 = new Landmark
             {
                 name = "Devil's Bridge Trail",
                 rating = 4,
-                mainPhoto = photo11
+                mainPhoto = photo11,
+                location = "Седона, AZ 86336",
+                description = "Мост Дьявола - самая большая арка из природного песчаника в районе Седоны. Не позволяйте его названию вводить вас в заблуждение: это одна из самых райских достопримечательностей в районе, который славится ими. С высоты 4600 футов, во время этого умеренно сложного 1,8-мильного маршрута туда и обратно нужно всего лишь 400 футов набора высоты. Путешествие к вершине не заставит вас затаить дыхание - но мы никогда не скажем того же о видах, которые вы увидите, когда наконец доберетесь туда. Этот популярный поход привлекает как случайных туристов, которым не хватает желания или выносливости, чтобы уйти слишком далеко от цивилизации, так и любителей приключений на свежем воздухе. Начиная с парковки, следуйте по маркеру, указывающей путь к Дьявольскому мосту. Вы обнаружите, что ранний выход не требует усилий; Тропа, изначально построенная для путешествий на джипах, гладкая и чистая, и ведет через промоины, заполненные можжевельником и кактусом опунции.",
+                webSite = "https://www.fs.usda.gov/recarea/coconino/recreation/ohv/recarea/?recid=55292&actid=50"
+            };
+            Landmark landmark23 = new Landmark
+            {
+                name = "Cathedral Rock",
+                rating = 4.5M,
+                mainPhoto = photo34,
+                photos = new List<Photo> { photo35 },
+                location = "Yavapai County, Седона, AZ 86351",
+                phoneNumber = "+1 928-203-7500",
+                description = "Кафедральный собор - это очаровательная скала, с которой открывается панорама во все стороны, как только вы доберетесь до вершины. Поход на Соборную скалу предлагает достаточно проблем, чтобы оставаться интересным, и вам понадобится много времени, чтобы полюбоваться марсианским пейзажем сверху. Этот поход в Седону не зря является одним из самых любимых маршрутов. Расстояние: 1,2 мили туда и обратно. Набор высоты 650 футов. Сложность: Поход на Соборную Скалу начинается красиво и легко, но быстро становится довольно крутым с коротким переходом из рук в руки к концу.Не позволяйте расстоянию вводить вас в заблуждение, вам нужно надеть прочную обувь и выбрать рюкзак, чтобы освободить руки для лазания. На тропе нет тени.",
+                webSite = "https://www.fs.usda.gov/recarea/coconino/recarea/?recid=55264"
             };
             #endregion
 
@@ -373,20 +711,30 @@ namespace Project.Data
             {
                 name = "Mayan Museum of Cancun",
                 rating = 4.2M,
-                mainPhoto = photo12
+                mainPhoto = photo12,
+                location = "Hotelera Cancun Quintana Roo Blvd. Kukulcan Km 16. 5 Esq. Gucumatz, Канкун 77504 Мексика",
+                phoneNumber = "+ 52 998 885 3842",
+                description = "Канкун - это не только отели и прекрасные пляжи. Ривьера Майя простирается к югу от Канкуна и названа в честь цивилизации майя. Музей майя (Museo Maya) посвящен демонстрации того, что делало эту культуру такой особенной. Museo Maya - это хорошо оформленный музей, который должен быть в вашем списке вещей, которые стоит увидеть в Канкуне, если вам нравится изучать культуру. В музее есть большие выставочные залы и хорошо сохранившиеся артефакты из штата Кинтана-Роо и нескольких других руин за пределами этого района. Большинство дисплеев на английском и испанском языках.",
+                webSite = "https://www.inah.gob.mx/red-de-museos/313-museo-maya-de-cancun"
             };
             Landmark landmark10 = new Landmark
             {
                 name = "Руины Эль-Рей",
                 rating = 4,
                 mainPhoto = photo13,
-                photos = new List<Photo> { photo14 }
+                photos = new List<Photo> { photo14 },
+                location = "Blvd Kukulcan Km 17 Zona Hotelera, Канкун 77500 Мексика",
+                phoneNumber = "+52 983 837 2411",
+                description = "Руины Эль-Рей расположены в центре отельной части Канкуна, почти на самом берегу лагуны, и примыкают к полю для гольфа отеля «Хилтон». Проще всего добираться сюда автобусом или на арендованном авто, чтобы запарковаться близ одного из отелей. Время работы: 8:00 — 17:00.",
+                webSite = "https://www.inah.gob.mx/zonas/95-zona-arqueologica-el-rey"
             };
             Landmark landmark11 = new Landmark
             {
                 name = "Пляж Playa Delfines",
                 rating = 4.4M,
-                mainPhoto = photo15
+                mainPhoto = photo15,
+                location = "Boulevard Kukulkan, Punta Nizuc - Cancun 335 Zona Hotelera, Канкун 77500 Мексика",
+                description = "Пляж Дельфинов (Playa Delfines) - это долгожданная передышка от переполненных пляжей и шумных ночных клубов, которыми стал известен Канкун. Этот тихий песчаный пляж расположен недалеко от гостиничной зоны, на одной из самых высоких точек города. Отсюда открываются великолепные панорамные виды. Это идеальное место для неспешной прогулки, ловли волн или просто отдыха."
             };
             #endregion
 
@@ -399,19 +747,30 @@ namespace Project.Data
                 reviews = new List<Review>
                 {
                     dataBase.reviews.Where(review => review.header.Equals("Лучше билет am/pm.")).Single()
-                }
+                },
+                location = "20 West 34th Street, Нью-Йорк, NY 10001",
+                phoneNumber = "+1 212-736-3100",
+                description = "Небоскреб Эмпайр Стейт Билдинг — одно из самых известных зданий в мире. Его авторы — архитектурное агентство «Шрив, Лэмб и Хармон» — первыми в истории решились создать проект здания с более чем сотней этажей. Открытый на Махэттене в 1931 году, построенный меньше, чем за полтора года он справедливо считался «восьмым чудом света», что и было отражено в росписи его холла. Но в 70-х постройка Всемирного торгового центра лишила его пальмы первенства среди самых высоких зданий, а рост числа небоскребов не только в США, но и в других странах заставил потускнеть ореол уникальности.",
+                webSite = "https://www.esbnyc.com/buy-tickets"
             };
             Landmark landmark13 = new Landmark
             {
                 name = "Бруклинский мост",
                 rating = 4.3M,
-                mainPhoto = photo17
+                mainPhoto = photo17,
+                location = "Нью-Йорк, NY 10038",
+                description = "Бруклинский мост — это не просто соединительная магистраль между Бруклином и Манхэттеном, это одна из главных достопримечательностей Нью-Йорка, можно сказать, визитная карточка города. Это мост-рекордсмен, сооружение со своей, местами трагичной, но, тем не менее, захватывающей историей. Идея построить мост необычной конструкции(подвесной) с применением опять - таки необычных строительных материалов(сталь, покрытую специальным сплавом, вместо тяжеловесного чугуна) пришла в голову Джону Реблингу.",
+                webSite = "https://www1.nyc.gov/html/dot/html/infrastructure/bridges.shtml"
             };
             Landmark landmark14 = new Landmark
             {
                 name = "Центральный парк",
                 rating = 4.4M,
-                mainPhoto = photo18
+                mainPhoto = photo18,
+                location = "59th to 110th Street Manhattan Borough, from Central Park West to 5th Avenue, Нью-Йорк, NY 10022",
+                phoneNumber = "(212) 310-6600",
+                description = "Центральный парк (Central Park) Нью-Йорка в районе Манхэттен — одно из самых любимых мест отдыха местных жителей и многочисленных туристов. Они приезжают сюда не только для того, чтобы полюбоваться природой (а Центральный парк очень красив) и покормить белок. На территории парка расположены фонтан Bethesda, музыкальные часы, скульптуры и памятники, театр под открытым небом Delacorte Theater, Театр марионеток (The Swedish Cottage Marionette Theatre), зоопарк, замок Belvedere, музей современного искусства «Метрополитен» (Metropolitan Museum) и многое другое.",
+                webSite = "https://www.centralparknyc.org/"
             };
             #endregion
 
@@ -420,14 +779,31 @@ namespace Project.Data
             {
                 name = "The Strip",
                 rating = 4.2M,
-                mainPhoto = photo19
+                mainPhoto = photo19,
+                location = "S Las Vegas Blvd, Лас-Вегас, NV 89109",
+                description = "Лас-Вегас-Стрип (англ. Las Vegas Strip) — примерно семикилометровый участок бульвара Лас-Вегас в округе Кларк в штате Невада, США. Здесь находится большинство крупнейших гостиниц и казино агломерации Лас-Вегаса, при этом Стрип лежит за пределами самого города[1] и административно относится к пригородам — Парадайсу и Уинчестеру. В южной части Лас-Вегас-Стрип находится легкоузнаваемый символ Лас-Вегаса — знак Добро пожаловать в сказочный Лас-Вегас."
             };
             Landmark landmark16 = new Landmark
             {
                 name = "Bellagio Conservatory & Botanical Garden",
                 rating = 4.3M,
                 mainPhoto = photo20,
-                photos = new List<Photo> { photo21 }
+                photos = new List<Photo> { photo21 },
+                location = "Bellagio Conservatory & Botanical Garden",
+                phoneNumber = "+1 888-987-6667",
+                description = "Просторная центральная оранжерея, открывающаяся прямо при входе в Белладжио, была вдохновлена ​​зелеными рамками парижских консерваторий в стиле модерн. Несмотря на то, что Лас-Вегас расположен прямо посреди пустыни Мохаве, вы можете увидеть смену времен года во всей красе, когда консерватория и ботанический сад Белладжио превращаются пять раз в год с новыми цветами; возвышающиеся аниматронные бабочки и птицы; журчащие фонтаны и покачивающиеся фонари. Каждое из его сезонных «театральных представлений» элементов совершенно новое. Вы никогда не увидите одно и то же дважды. И каждый более транспортный, чем предыдущий. Это бесплатно, не требует усилий для навигации (если только вы не пытаетесь протолкнуться через всех любителей селфи со смартфонами). Это настоящий праздник для глаз: местные жители любят его не меньше туристов, и это одна из лучших бесплатных достопримечательностей города.",
+                webSite = "https://bellagio.mgmresorts.com/en/entertainment/conservatory-botanical-garden.html?icid=GMB_Entertainment_Conservatory"
+            };
+            Landmark landmark24 = new Landmark
+            {
+                name = "The Neon Museum",
+                rating = 4.5M,
+                mainPhoto = photo36,
+                photos = new List<Photo> { photo37 },
+                location = "770 Las Vegas Blvd N, Лас-Вегас, NV 89101-2010",
+                phoneNumber = "+1 702-387-6366",
+                description = "Неоновый музей - это некоммерческая организация, которая занимается исключительно сбором, сохранением, изучением и выставкой знаковых знаков Лас-Вегаса в образовательных, исторических, художественных и культурных целях. Подумайте обо всех тех казино, которые появлялись и уходили на протяжении многих лет, например, Сахара. Этот знак мог быть одним из самых знаковых знаков Лас-Вегаса, когда-либо украшавших Стрип, и его бросили бы в мусор, вырвали бы сборщиком из другого штата или каким-то другим образом нанесли бы ущерб истории Невады. Благодаря людям из Неонового музея эта нить истории Невады безукоризненно сохраняется и восстанавливается. И где лучше место для размещения впечатляюще визуального музея, чем бывшее лобби мотеля La Concha? Имущество было спасено от сноса, перенесено на территорию музея неоновых ламп и служит штаб-квартирой музея. Вы также найдете выставку под открытым небом или своего рода галерею, известную как Neon Boneyard, и сувенирный магазин.",
+                webSite = "https://www.neonmuseum.org/"
             };
             #endregion
 
@@ -438,18 +814,38 @@ namespace Project.Data
                 rating = 4.4M,
                 mainPhoto = photo22,
                 photos = new List<Photo> { photo23, photo1, photo10, photo11, photo13, photo14 },
+                location = "St Katharine's & Wapping, Лондон EC3N 4AB Англия",
+                phoneNumber = "+44 333 320 6000",
+                description = "Лондонский Тауэр стал символом не только Лондона, но и всей Великобритании. Он занимает особое место в британской истории, поэтому сейчас Тауэр — одна из самых посещаемых архитектурных и исторических достопримечательностей мира. По сути своей Тауэр — это крепость. Она стоит на северном берегу Темзы, является одним из старейших сооружений Англии и историческим центром Лондона. История этой крепости пестрая: изначально ее строили как оборонительный замок, а затем она служила и зоопарком, и монетным двором, и арсеналом, и тюрьмой, и обсерваторией, и хранилищем королевских драгоценностей.",
+                webSite = "https://www.hrp.org.uk/tower-of-london/#gs.imzFnKo/"
             };
             Landmark landmark18 = new Landmark
             {
                 name = "Британский музей",
                 rating = 4.5M,
-                mainPhoto = photo24
+                mainPhoto = photo24,
+                location = "Great Russell Street, Лондон WC1B 3DG Англия",
+                phoneNumber = "+44 20 7323 8000",
+                description = "Британский музей — центральный историко-археологический музей Великобритании и один из крупнейших музеев мира. Он был основан в 1753 году с разрешения британского парламента. Его экспозиция занимает 94 галереи, общая протяжённость которых составляет 4 км. В основу вошли коллекции трёх известных людей — графа Роберта Харли, врача Хэнса Слоуна и антиквара Роберта Коттона. От последнего музей получил огромную коллекцию книг, которая положила начало созданию Британской библиотеки.",
+                webSite = "https://www.britishmuseum.org/"
+            };
+            Landmark landmark25 = new Landmark
+            {
+                name = "Natural History Museum",
+                rating = 4.5M,
+                mainPhoto = photo38,
+                photos = new List<Photo> { photo39 },
+                location = "Cromwell Road South Kensington, Лондон SW7 5BD Англия",
+                phoneNumber = "+44 20 7938 9123",
+                description = "Посмотрите сотни увлекательных интерактивных экспонатов в одном из самых красивых зданий Лондона - Музее естественной истории. Достопримечательности включают в себя популярную галерею динозавров, «Млекопитающие» с ее незабываемой моделью голубого кита и впечатляющий Центральный зал, в котором находится знаменитый музейный скелет диплодока. Не пропустите ультрасовременный Кокон, где во время самостоятельной экскурсии вы можете увидеть сотни увлекательных образцов и заглянуть в лаборатории, где вы можете увидеть ученых за работой. Музей предлагает обширную программу временных выставок и мероприятий, включая возможность присоединиться к экспертам в высокотехнологичной студии Аттенборо Дарвиновского центра для обсуждения актуальных вопросов о науке и природе.",
+                webSite = "https://www.nhm.ac.uk/"
             };
             #endregion
 
-            dataBase.landmarks.AddRange(landmark1, landmark2, landmark3, landmark4, landmark5, landmark6, landmark7, landmark8, landmark9, landmark10, landmark11, landmark12, landmark13, landmark14, landmark15, landmark16, landmark17, landmark18);
+            dataBase.landmarks.AddRange(landmark1, landmark2, landmark3, landmark4, landmark5, landmark6, landmark7, landmark8, landmark9, landmark10, landmark11, landmark12, landmark13, landmark14, landmark15, landmark16, landmark17, landmark18, landmark19, landmark20, landmark21, landmark22, landmark23, landmark24, landmark25, landmark26, landmark27);
             dataBase.SaveChanges();
-
+            #endregion
+            #region Reviews
             // Привязка review к landmark
             dataBase.reviews.Where(review => review.header.Equals("Красивое место")).Single().landmarkId =
                 dataBase.landmarks.Where(landmark => landmark.name.Equals("Hana Highway - Road to Hana")).Select(landmark => landmark.id).Single();
@@ -457,6 +853,21 @@ namespace Project.Data
                 dataBase.landmarks.Where(landmark => landmark.name.Equals("Empire state building")).Select(landmark => landmark.id).Single();
             dataBase.reviews.Where(review => review.header.Equals("После Оаху и карибов дорога не впечатлила.")).Single().landmarkId =
                 dataBase.landmarks.Where(landmark => landmark.name.Equals("Лагуна Азул")).Select(landmark => landmark.id).Single();
+
+            dataBase.reviews.Where(review => review.header.Equals("Ночная экскурсия по отелям Вегаса")).Single().landmarkId =
+                dataBase.landmarks.Where(landmark => landmark.name.Equals("Bellagio Conservatory & Botanical Garden")).Select(landmark => landmark.id).Single();
+            dataBase.reviews.Where(review => review.header.Equals("Красота да и только")).Single().landmarkId =
+                dataBase.landmarks.Where(landmark => landmark.name.Equals("Bellagio Conservatory & Botanical Garden")).Select(landmark => landmark.id).Single();
+            dataBase.reviews.Where(review => review.header.Equals("Впечатляет")).Single().landmarkId =
+                dataBase.landmarks.Where(landmark => landmark.name.Equals("The Strip")).Select(landmark => landmark.id).Single();
+            dataBase.reviews.Where(review => review.header.Equals("Fun but expensive")).Single().landmarkId =
+                dataBase.landmarks.Where(landmark => landmark.name.Equals("The Strip")).Select(landmark => landmark.id).Single();
+            dataBase.reviews.Where(review => review.header.Equals("Разочаровательно")).Single().landmarkId =
+                dataBase.landmarks.Where(landmark => landmark.name.Equals("The Neon Museum")).Select(landmark => landmark.id).Single();
+            dataBase.reviews.Where(review => review.header.Equals("Очень атмосферно!")).Single().landmarkId =
+                dataBase.landmarks.Where(landmark => landmark.name.Equals("The Neon Museum")).Select(landmark => landmark.id).Single();
+            #endregion
+
         }
 
         public void createDirection()
@@ -483,12 +894,13 @@ namespace Project.Data
             Photo photo19 = new Photo { image = Util.getByteImage(@"wwwroot\img\london.jpg"), name = @"img\london.jpg" };
             dataBase.photos.AddRange(photo1, photo2, photo3, photo4, photo5, photo6, photo7, photo8, photo9);
             #endregion
-
+            #region Directions
             Direction direction1 = new Direction {
                 landmarks = new List<Landmark>
                 {
                     dataBase.landmarks.Where(l => l.name.Equals("Upper Geyser Basin")).Single(),
-                    dataBase.landmarks.Where(l => l.name.Equals("Большой призматический источник")).Single()
+                    dataBase.landmarks.Where(l => l.name.Equals("Большой призматический источник")).Single(),
+                    dataBase.landmarks.Where(l => l.name.Equals("Old Faithful")).Single()
                 },
                 hotels = new List<Hotel>
                 {
@@ -511,7 +923,9 @@ namespace Project.Data
             Direction direction2 = new Direction {
                 landmarks = new List<Landmark>
                 {
-                    dataBase.landmarks.Where(l => l.name.Equals("Лагуна Азул")).Single()
+                    dataBase.landmarks.Where(l => l.name.Equals("Лагуна Азул")).Single(),
+                    dataBase.landmarks.Where(l => l.name.Equals("Остров дельфинов")).Single(),
+                    dataBase.landmarks.Where(l => l.name.Equals("Экологический парк Indigenous Eyes Reserva Ecológica Ojos Indígenas")).Single()
                 },
                 photos = new List<Photo> { photo12 },
                 mainPhoto = photo2,
@@ -537,7 +951,9 @@ namespace Project.Data
             Direction direction3 = new Direction {
                 landmarks = new List<Landmark>
                 {
-                    dataBase.landmarks.Where(l => l.name.Equals("Hana Highway - Road to Hana")).Single()
+                    dataBase.landmarks.Where(l => l.name.Equals("Hana Highway - Road to Hana")).Single(),
+                    dataBase.landmarks.Where(l => l.name.Equals("Кратер Халеакала")).Single(),
+                    dataBase.landmarks.Where(l => l.name.Equals("Rappel Maui Waterfalls and Rainforest Cliffs")).Single()
                 },
                 hotels = new List<Hotel>
                 {
@@ -561,7 +977,8 @@ namespace Project.Data
                 landmarks = new List<Landmark>
                 {
                     dataBase.landmarks.Where(l => l.name.Equals("Magic Kingdom")).Single(),
-                    dataBase.landmarks.Where(l => l.name.Equals("Universal Studios Florida")).Single()
+                    dataBase.landmarks.Where(l => l.name.Equals("Universal Studios Florida")).Single(),
+                    dataBase.landmarks.Where(l => l.name.Equals("Legoland Florida Resort")).Single()
                 },
                 hotels = new List<Hotel>
                 {
@@ -587,7 +1004,8 @@ namespace Project.Data
                 landmarks = new List<Landmark>
                 {
                     dataBase.landmarks.Where(l => l.name.Equals("Soldier Pass")).Single(),
-                    dataBase.landmarks.Where(l => l.name.Equals("Devil's Bridge Trail")).Single()
+                    dataBase.landmarks.Where(l => l.name.Equals("Devil's Bridge Trail")).Single(),
+                    dataBase.landmarks.Where(l => l.name.Equals("Cathedral Rock")).Single()
                 },
                 hotels = new List<Hotel>
                 {
@@ -663,6 +1081,7 @@ namespace Project.Data
                 landmarks = new List<Landmark>
                 {
                     dataBase.landmarks.Where(l => l.name.Equals("The Strip")).Single(),
+                    dataBase.landmarks.Where(l => l.name.Equals("The Neon Museum")).Single(),
                     dataBase.landmarks.Where(l => l.name.Equals("Bellagio Conservatory & Botanical Garden")).Single()
                 },
                 hotels = new List<Hotel>
@@ -688,6 +1107,7 @@ namespace Project.Data
                 landmarks = new List<Landmark>
                 {
                     dataBase.landmarks.Where(l => l.name.Equals("Лондонский Тауэр")).Single(),
+                    dataBase.landmarks.Where(l => l.name.Equals("Natural History Museum")).Single(),
                     dataBase.landmarks.Where(l => l.name.Equals("Британский музей")).Single()
                 },
                 hotels = new List<Hotel>
@@ -712,10 +1132,12 @@ namespace Project.Data
             dataBase.directions.AddRange(direction1, direction2, direction3, direction4, direction5, direction6, direction7, direction8, direction9);
 
             dataBase.SaveChanges();
+            #endregion
         }
 
         public void createHotel()
         {
+            #region photo
             Photo photo1 = new Photo {image = Util.getByteImage(@"wwwroot\img\nizuc-resort-and-spa.jpg"), name = @"img\nizuc-resort-and-spa.jpg"};
             Photo photo2 = new Photo {image = Util.getByteImage(@"wwwroot\img\nizuc-resort-and-spa1.jpg"), name = @"img\nizuc-resort-and-spa1.jpg"};
             Photo photo3 = new Photo {image = Util.getByteImage(@"wwwroot\img\nizuc-resort-and-spa2.jpg"), name = @"img\nizuc-resort-and-spa2.jpg"};
@@ -827,7 +1249,8 @@ namespace Project.Data
             Photo photo108 = new Photo { image = Util.getByteImage(@"wwwroot\img\taxi.png"), name = @"img\taxi.png" };
             Photo photo109 = new Photo { image = Util.getByteImage(@"wwwroot\img\river.png"), name = @"img\river.png" };
             dataBase.photos.AddRange(photo1, photo2, photo3, photo4, photo5, photo6, photo7, photo8, photo9, photo10, photo11, photo12, photo13, photo14, photo15, photo16, photo17, photo18, photo19, photo20, photo21, photo22, photo23, photo24, photo25, photo26, photo27, photo28, photo29, photo30, photo31, photo32, photo33, photo34, photo35, photo36, photo37, photo38, photo39, photo40, photo41, photo42, photo43, photo44, photo45, photo46, photo47, photo48, photo49, photo50, photo51, photo52, photo53, photo54, photo55, photo56, photo57, photo58, photo59, photo60, photo61, photo62, photo63, photo64, photo65, photo66, photo67, photo68, photo69, photo70, photo71, photo72, photo73, photo74, photo75, photo76, photo77, photo78, photo79, photo80, photo81, photo82, photo83, photo84, photo85, photo86, photo87, photo88, photo89, photo90, photo91, photo92, photo93, photo94, photo95, photo96, photo97, photo98, photo99, photo100, photo101, photo102, photo103, photo104, photo105, photo106, photo107, photo108, photo109);
-
+            #endregion
+            #region RoomEquipment
             RoomEquipment roomEquipment1 = new RoomEquipment { name = "Шторы, блокирующие свет", photo = photo91 };
             RoomEquipment roomEquipment2 = new RoomEquipment { name = "Обеденная зона", photo = photo91 };
             RoomEquipment roomEquipment3 = new RoomEquipment { name = "Диван-кровать", photo = photo91 };
@@ -854,14 +1277,16 @@ namespace Project.Data
             RoomEquipment roomEquipment24 = new RoomEquipment { name = "Обслуживание номеров", photo = photo96 };
             RoomEquipment roomEquipment25 = new RoomEquipment { name = "Мини-бар", photo = photo93 };
             dataBase.roomEquipment.AddRange(roomEquipment1, roomEquipment2, roomEquipment3, roomEquipment4, roomEquipment5, roomEquipment6, roomEquipment7, roomEquipment8, roomEquipment9, roomEquipment10, roomEquipment11, roomEquipment12, roomEquipment13, roomEquipment14, roomEquipment15, roomEquipment16, roomEquipment17, roomEquipment18, roomEquipment19, roomEquipment20, roomEquipment21, roomEquipment22, roomEquipment23, roomEquipment24);
-
+            #endregion
+            #region RoomType
             RoomType roomType1 = new RoomType { name = "С видом на океан", photo = photo109 };
             RoomType roomType2 = new RoomType { name = "Номера для некурящих", photo = photo105 };
             RoomType roomType3 = new RoomType { name = "Семейные номера", photo = photo91 };
             RoomType roomType4 = new RoomType { name = "С видом на город", photo = photo109 };
             RoomType roomType5 = new RoomType { name = "Номера-люксы", photo = photo91 };
             dataBase.roomTypes.AddRange(roomType1, roomType2, roomType3, roomType4, roomType5);
-
+            #endregion
+            #region Services
             Services services1 = new Services { name = "Бесплатная парковка", photo = photo98 };
             Services services2 = new Services { name = "Услуга парковки автомобиля сотрудником отеля", photo = photo98 };
             Services services3 = new Services { name = "Платная общественная парковка поблизости", photo = photo98 };
@@ -891,7 +1316,8 @@ namespace Project.Data
             Services services27 = new Services { name = "Пляж", photo = photo107 };
             Services services28 = new Services { name = "Услуги такси", photo = photo108 };
             dataBase.services.AddRange(services1, services2, services3, services4, services5, services6, services7, services8, services9, services10, services11, services12, services13, services14, services15, services16, services17, services18, services19, services20, services21, services22, services23, services24, services25, services26, services27, services28);
-
+            #endregion
+            #region Hotels
             Hotel hotel1 = new Hotel
             {
                 //https://www.tripadvisor.ru/Hotel_Review-g150807-d3580898-Reviews-NIZUC_Resort_and_Spa-Cancun_Yucatan_Peninsula.html
@@ -2241,10 +2667,28 @@ namespace Project.Data
             
             dataBase.hotels.AddRange(hotel1, hotel2, hotel3, hotel4, hotel5, hotel6, hotel7, hotel8, hotel9, hotel10, hotel11, hotel12, hotel13, hotel14, hotel15, hotel16, hotel17, hotel18, hotel19, hotel20, hotel21, hotel22, hotel23, hotel24, hotel25, hotel26, hotel27, hotel28, hotel29, hotel30);
             dataBase.SaveChanges();
+            #endregion
+            #region Reviews
+            dataBase.reviews.Where(review => review.header.Equals("Отличный отель")).Single().hotelId =
+                dataBase.hotels.Where(hotel => hotel.name.Equals("ARIA Resort & Casino")).Select(hotel => hotel.id).Single();
+            dataBase.reviews.Where(review => review.header.Equals("Превосходный отель")).Single().hotelId =
+                dataBase.hotels.Where(hotel => hotel.name.Equals("ARIA Resort & Casino")).Select(hotel => hotel.id).Single();
+            dataBase.reviews.Where(review => review.header.Equals("Bellagio - вегасовская классика")).Single().hotelId =
+                dataBase.hotels.Where(hotel => hotel.name.Equals("Bellagio Las Vegas")).Select(hotel => hotel.id).Single();
+            dataBase.reviews.Where(review => review.header.Equals("Крепкая 4-ка")).Single().hotelId =
+                dataBase.hotels.Where(hotel => hotel.name.Equals("The Cosmopolitan of Las Vegas, Autograph Collection")).Select(hotel => hotel.id).Single();
+            dataBase.reviews.Where(review => review.header.Equals("Неплохо")).Single().hotelId =
+                dataBase.hotels.Where(hotel => hotel.name.Equals("The Cosmopolitan of Las Vegas, Autograph Collection")).Select(hotel => hotel.id).Single();
+            dataBase.reviews.Where(review => review.header.Equals("Отличный пафосный отель")).Single().hotelId =
+                dataBase.hotels.Where(hotel => hotel.name.Equals("The Venetian Resort")).Select(hotel => hotel.id).Single();
+            dataBase.reviews.Where(review => review.header.Equals("Manuel worse manager in USA")).Single().hotelId =
+                dataBase.hotels.Where(hotel => hotel.name.Equals("The Venetian Resort")).Select(hotel => hotel.id).Single();
+            #endregion
         }
 
         public void createRestaurant()
         {
+            #region Photo
             Photo photo1 = new Photo {image = Util.getByteImage(@"wwwroot\img\lorenzillos.jpg"), name = @"img\lorenzillos.jpg"};
             Photo photo2 = new Photo {image = Util.getByteImage(@"wwwroot\img\lorenzillos1.jpg"), name = @"img\lorenzillos1.jpg"};
             Photo photo3 = new Photo {image = Util.getByteImage(@"wwwroot\img\lorenzillos2.jpg"), name = @"img\lorenzillos2.jpg"};
@@ -2337,8 +2781,8 @@ namespace Project.Data
             Photo photo90 = new Photo { image = Util.getByteImage(@"wwwroot\img\Vegan-Ronin2.jpg"), name = @"img\Vegan-Ronin2.jpg" };
             
             dataBase.photos.AddRange(photo1, photo2, photo3, photo4, photo5, photo6, photo7, photo8, photo9, photo10, photo11, photo12, photo13, photo14, photo15, photo16, photo17, photo18, photo19, photo20, photo21, photo22, photo23, photo24, photo25, photo26, photo27, photo28, photo29, photo30, photo31, photo32, photo33, photo34, photo35, photo36, photo37, photo38, photo39, photo40, photo41, photo42, photo43, photo44, photo45, photo46, photo47, photo48, photo49, photo50, photo51, photo52, photo53, photo54, photo55, photo56, photo57, photo58, photo59, photo60, photo61, photo62, photo63, photo64, photo65, photo66, photo67, photo68, photo69, photo70, photo71, photo72, photo73, photo74, photo75, photo76, photo77, photo78, photo79, photo80, photo81, photo82, photo83, photo84, photo85, photo86, photo87, photo88, photo89, photo90);
-
-
+            #endregion
+            #region Restaurants
             //direction 6 Канкун, Мексика
             Restaurant restaurant1 = new Restaurant
             {
@@ -2760,6 +3204,21 @@ namespace Project.Data
             };
             dataBase.restaurants.AddRange(restaurant1, restaurant2, restaurant3, restaurant4, restaurant5, restaurant6, restaurant7, restaurant8, restaurant9, restaurant10, restaurant11, restaurant12, restaurant13, restaurant14, restaurant15, restaurant16, restaurant17, restaurant18, restaurant19, restaurant20, restaurant21, restaurant22, restaurant23, restaurant24, restaurant25, restaurant26, restaurant27, restaurant28, restaurant29, restaurant30);
             dataBase.SaveChanges();
+            #endregion
+            #region Reviews
+            dataBase.reviews.Where(review => review.header.Equals("Вкусно!")).Single().restaurantId =
+                dataBase.restaurants.Where(restaurant => restaurant.name.Equals("Senor Frog's Las Vegas")).Select(restaurant => restaurant.id).Single();
+            dataBase.reviews.Where(review => review.header.Equals("Странный диско-барчик )")).Single().restaurantId =
+                dataBase.restaurants.Where(restaurant => restaurant.name.Equals("Senor Frog's Las Vegas")).Select(restaurant => restaurant.id).Single();
+            dataBase.reviews.Where(review => review.header.Equals("Незабываемый вечер")).Single().restaurantId =
+                dataBase.restaurants.Where(restaurant => restaurant.name.Equals("Le Cirque")).Select(restaurant => restaurant.id).Single();
+            dataBase.reviews.Where(review => review.header.Equals("спокойно! цирк не уехал")).Single().restaurantId =
+                dataBase.restaurants.Where(restaurant => restaurant.name.Equals("Le Cirque")).Select(restaurant => restaurant.id).Single();
+            dataBase.reviews.Where(review => review.header.Equals("Неистово рекомендую!")).Single().restaurantId =
+                dataBase.restaurants.Where(restaurant => restaurant.name.Equals("Triple George Grill")).Select(restaurant => restaurant.id).Single();
+            dataBase.reviews.Where(review => review.header.Equals("Превосходные стейки")).Single().restaurantId =
+                dataBase.restaurants.Where(restaurant => restaurant.name.Equals("Triple George Grill")).Select(restaurant => restaurant.id).Single();
+            #endregion
         }
     }
 }

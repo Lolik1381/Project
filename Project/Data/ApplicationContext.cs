@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Project.Models;
+using System.Collections.Generic;
 
 namespace Project.Context
 {
@@ -18,6 +19,8 @@ namespace Project.Context
         public DbSet<RoomEquipment> roomEquipment { get; set; }
         public DbSet<RoomType> roomTypes { get; set; }
         public DbSet<Services> services { get; set; }
+        
+
         public ApplicationContext(DbContextOptions<ApplicationContext> options) : base(options)
         {
             if (DefaultSettings.isFirstData)
