@@ -46,10 +46,10 @@
 
     <div class="content content-accaunt-2">
         <div class="wrapper-accaunt-content">
-            <div class="title">
+            <div class="title" style="width: 1040px;">
                 <span class="name-red">@ViewBag.hotel.name</span>
             </div>
-            <div class="rating rating-2">
+            <div class="rating rating-2" style="width: 1040px;">
                 <div class="rating_value rating_value-hidden">@ViewBag.hotel.rating</div>
                 <div class="rating_body">
                     <div class="rating_active"></div>
@@ -63,145 +63,148 @@
                 </div>
                 <div style="font-size: 14px; width: 100px; font-weight: bold; margin-left: 5px;">@ViewBag.hotel.reviews.Count отзывов</div>
             </div>
-            <p class="place-position position-static position-static-first">@ViewBag.hotel.location</p>
-            <p class="place-position position-static position-static-phone">@ViewBag.hotel.phoneNumber</p>
-            <div class="clearfix"></div>
-            <div class="information">
-                <p>Об этом месте</p>
-                <div class="time">
-                    @if (ViewBag.hotel.description != null)
-                    {
-                        <h4>Описание</h4>
-                        @ViewBag.hotel.description
-                    }
+            
+            <div style="width: 1040px;">
+                <p class="place-position position-static position-static-first">@ViewBag.hotel.location</p>
+                <p class="place-position position-static position-static-phone">@ViewBag.hotel.phoneNumber</p>
+                <div class="clearfix"></div>
+                <div class="information">
+                    <p>Об этом месте</p>
+                    <div class="time">
+                        @if (ViewBag.hotel.description != null)
+                        {
+                            <h4>Описание</h4>
+                            @ViewBag.hotel.description
+                        }
 
-                    <h4>Полезная информация</h4>
-                    <h5>КЛАСС ОТЕЛЯ</h5>
-                    <div class="rating rating-2" style="margin-top: 5px; margin-bottom: 10px;">
-                        <div class="rating_value rating_value-hidden">@ViewBag.hotel.countStars</div>
-                        <div class="rating_body">
-                            <div class="rating_active"></div>
-                            <div class="rating_items">
-                                <input type="radio" class="rating_item" value="1" name="rating">
-                                <input type="radio" class="rating_item" value="2" name="rating">
-                                <input type="radio" class="rating_item" value="3" name="rating">
-                                <input type="radio" class="rating_item" value="4" name="rating">
-                                <input type="radio" class="rating_item" value="5" name="rating">
+                        <h4>Полезная информация</h4>
+                        <h5>КЛАСС ОТЕЛЯ</h5>
+                        <div class="rating rating-2" style="margin-top: 5px; margin-bottom: 10px;">
+                            <div class="rating_value rating_value-hidden">@ViewBag.hotel.countStars</div>
+                            <div class="rating_body">
+                                <div class="rating_active"></div>
+                                <div class="rating_items">
+                                    <input type="radio" class="rating_item" value="1" name="rating">
+                                    <input type="radio" class="rating_item" value="2" name="rating">
+                                    <input type="radio" class="rating_item" value="3" name="rating">
+                                    <input type="radio" class="rating_item" value="4" name="rating">
+                                    <input type="radio" class="rating_item" value="5" name="rating">
+                                </div>
+                            </div>
+                        </div>
+
+                        @if (ViewBag.hotel.styleHotel != null)
+                        {
+                            <h5>СТИЛЬ ОТЕЛЯ</h5>
+                            @foreach (var style in getStyles(ViewBag.hotel.styleHotel))
+                            {
+                                <h5 style="color:#808080">@style</h5>
+                            }
+                        }
+
+                        <h5>ЯЗЫКИ, ИСПОЛЬЗУЕМЫЕ В ОБЩЕНИИ</h5>
+                        <h5 style="color: #808080;">@ViewBag.hotel.languages</h5>
+                    </div>
+                </div>
+
+                <!--image slider start-->
+                <div class="sim-slider">
+                    <ul class="sim-slider-list">
+                        <li><img src="data:image/jpeg;base64, @(Convert.ToBase64String(ViewBag.scenePhoto.image))" alt="screen" width="720"></li>    <!-- это экран -->
+                        <!--Загружать фото 1280*720-->
+                        @foreach (var hotelPhoto in ViewBag.hotelPhotos)
+                        {
+                            <li class="sim-slider-element">
+                                <img src="data:image/jpeg;base64, @(Convert.ToBase64String(hotelPhoto.image))" alt="N" width="720" height="405">
+                            </li>
+                        }
+                    </ul>
+                    <div class="sim-slider-arrow-left" style="background-image: url(data:image/jpeg;base64,@(Convert.ToBase64String(ViewBag.sliderArrowLeft.image)));"></div>
+                    <div class="sim-slider-arrow-right" style="background-image: url(data:image/jpeg;base64,@(Convert.ToBase64String(ViewBag.sliderArrowRight.image)));"></div>
+                    <div class="sim-slider-dots"></div>
+                </div>
+
+                <!--image slider end-->
+                <div class="clearfix"></div>
+                <div class="information information-about-hotel">
+                    <div class="hotel-conveniences">
+                        <h4 class="hotel-header">Услуги и удобства в отеле</h4>
+                        <div class="hotel-conveniences-feachers">
+                            <div class="feachers-left-column">
+                                @if (ViewBag.hotel.roomEquipment.Count >= 4)
+                                {
+                                    for (int i = 0; i < 4; i++)
+                                    {
+                                        <span class="icon" style="--backgroud-image: url(data:image/jpeg;base64,@(Convert.ToBase64String(ViewBag.hotel.roomEquipment[i].photo.image)));">@ViewBag.hotel.roomEquipment[i].name</span>
+                                    }
+                                    <span><a href="#popup" style="font-weight: bold;">Показать еще</a></span>
+                                }
+                                else
+                                {
+                                    foreach (var roomEquipment in ViewBag.hotel.roomEquipment)
+                                    {
+                                        <span class="icon" style="--backgroud-image: url(data:image/jpeg;base64,@(Convert.ToBase64String(roomEquipment.photo.image)));">@roomEquipment.name</span>
+                                    }
+                                }
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="hotel-equipment">
+                        <h4 class="hotel-header">Оснащенность номера</h4>
+                        <div class="hotel-conveniences-feachers" style="margin-left: 30px;">
+                            <div class="feachers-left-column">
+                                @if (ViewBag.hotel.services.Count >= 4)
+                                {
+                                    for (int i = 0; i < 4; i++)
+                                    {
+                                        <span class="icon" style="--backgroud-image: url(data:image/jpeg;base64,@(Convert.ToBase64String(ViewBag.hotel.services[i].photo.image)));">@ViewBag.hotel.services[i].name</span>
+                                    }
+                                    <span><a href="#popup" style="font-weight: bold;">Показать еще</a></span>
+                                }
+                                else
+                                {
+                                    foreach (var services in ViewBag.hotel.services)
+                                    {
+                                        <span class="icon" style="--backgroud-image: url(data:image/jpeg;base64,@(Convert.ToBase64String(services.photo.image)));">@services.name</span>
+                                    }
+                                }
                             </div>
                         </div>
                     </div>
-
-                    @if (ViewBag.hotel.styleHotel != null)
-                    {
-                        <h5>СТИЛЬ ОТЕЛЯ</h5>
-                        @foreach (var style in getStyles(ViewBag.hotel.styleHotel))
-                        {
-                            <h5 style="color:#808080">@style</h5>
-                        }
-                    }
-
-                    <h5>ЯЗЫКИ, ИСПОЛЬЗУЕМЫЕ В ОБЩЕНИИ</h5>
-                    <h5 style="color: #808080;">@ViewBag.hotel.languages</h5>
+                    <div class="hotel-type">
+                        <h4 class="hotel-header">Типы номеров</h4>
+                        <div class="hotel-conveniences-feachers" style="margin-left: 70px;">
+                            <div class="feachers-left-column">
+                                @if (ViewBag.hotel.roomType.Count >= 4)
+                                {
+                                    for (int i = 0; i < 4; i++)
+                                    {
+                                        <span class="icon" style="--backgroud-image: url(data:image/jpeg;base64,@(Convert.ToBase64String(ViewBag.hotel.roomType[i].photo.image)));">@ViewBag.hotel.roomType[i].name</span>
+                                    }
+                                    <span><a href="#popup" style="font-weight: bold;">Показать еще</a></span>
+                                }
+                                else
+                                {
+                                    foreach (var roomType in ViewBag.hotel.roomType)
+                                    {
+                                        <span class="icon" style="--backgroud-image: url(data:image/jpeg;base64,@(Convert.ToBase64String(roomType.photo.image)));">@roomType.name</span>
+                                    }
+                                }
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-
-            <!--image slider start-->
-            <div class="sim-slider">
-                <ul class="sim-slider-list">
-                    <li><img src="data:image/jpeg;base64, @(Convert.ToBase64String(ViewBag.scenePhoto.image))" alt="screen" width="720"></li>    <!-- это экран -->
-                    <!--Загружать фото 1280*720-->
-                    @foreach (var hotelPhoto in ViewBag.hotelPhotos)
-                    {
-                        <li class="sim-slider-element">
-                            <img src="data:image/jpeg;base64, @(Convert.ToBase64String(hotelPhoto.image))" alt="N" width="720" height="405">
-                        </li>
-                    }
-                </ul>
-                <div class="sim-slider-arrow-left" style="background-image: url(data:image/jpeg;base64,@(Convert.ToBase64String(ViewBag.sliderArrowLeft.image)));"></div>
-                <div class="sim-slider-arrow-right" style="background-image: url(data:image/jpeg;base64,@(Convert.ToBase64String(ViewBag.sliderArrowRight.image)));"></div>
-                <div class="sim-slider-dots"></div>
-            </div>
-            <!--image slider end-->
             <div class="clearfix"></div>
-            <div class="information information-about-hotel">
-                <div class="hotel-conveniences">
-                    <h4 class="hotel-header">Услуги и удобства в отеле</h4>
-                    <div class="hotel-conveniences-feachers">
-                        <div class="feachers-left-column">
-                            @if (ViewBag.hotel.roomEquipment.Count >= 4)
-                            {
-                                for (int i = 0; i < 4; i++)
-                                {
-                                    <span class="icon" style="--backgroud-image: url(data:image/jpeg;base64,@(Convert.ToBase64String(ViewBag.hotel.roomEquipment[i].photo.image)));">@ViewBag.hotel.roomEquipment[i].name</span>
-                                }
-                                <span><a href="#popup" style="font-weight: bold;">Показать еще</a></span>
-                            }
-                            else
-                            {
-                                foreach (var roomEquipment in ViewBag.hotel.roomEquipment)
-                                {
-                                    <span class="icon" style="--backgroud-image: url(data:image/jpeg;base64,@(Convert.ToBase64String(roomEquipment.photo.image)));">@roomEquipment.name</span>
-                                }
-                            }
-                        </div>
-                    </div>
-
-                </div>
-                <div class="hotel-equipment">
-                    <h4 class="hotel-header">Оснащенность номера</h4>
-                    <div class="hotel-conveniences-feachers" style="margin-left: 30px;">
-                        <div class="feachers-left-column">
-                            @if (ViewBag.hotel.services.Count >= 4)
-                            {
-                                for (int i = 0; i < 4; i++)
-                                {
-                                    <span class="icon" style="--backgroud-image: url(data:image/jpeg;base64,@(Convert.ToBase64String(ViewBag.hotel.services[i].photo.image)));">@ViewBag.hotel.services[i].name</span>
-                                }
-                                <span><a href="#popup" style="font-weight: bold;">Показать еще</a></span>
-                            }
-                            else
-                            {
-                                foreach (var services in ViewBag.hotel.services)
-                                {
-                                    <span class="icon" style="--backgroud-image: url(data:image/jpeg;base64,@(Convert.ToBase64String(services.photo.image)));">@services.name</span>
-                                }
-                            }
-                        </div>
-                    </div>
-                </div>
-                <div class="hotel-type">
-                    <h4 class="hotel-header">Типы номеров</h4>
-                    <div class="hotel-conveniences-feachers" style="margin-left: 70px;">
-                        <div class="feachers-left-column">
-                            @if (ViewBag.hotel.roomType.Count >= 4)
-                            {
-                                for (int i = 0; i < 4; i++)
-                                {
-                                    <span class="icon" style="--backgroud-image: url(data:image/jpeg;base64,@(Convert.ToBase64String(ViewBag.hotel.roomType[i].photo.image)));">@ViewBag.hotel.roomType[i].name</span>
-                                }
-                                <span><a href="#popup" style="font-weight: bold;">Показать еще</a></span>
-                            }
-                            else
-                            {
-                                foreach (var roomType in ViewBag.hotel.roomType)
-                                {
-                                    <span class="icon" style="--backgroud-image: url(data:image/jpeg;base64,@(Convert.ToBase64String(roomType.photo.image)));">@roomType.name</span>
-                                }
-                            }
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="clearfix"></div>
-            <div class="send-photo">
+            <div class="send-photo" style="width: 1040px; margin-top: 10px;">
                 <a href=@Html.Raw(Url.Action("Review", "Review", new { type = "Hotel", id = ViewBag.hotel.id })) class="send-btn">Написать отзыв</a>
                 <a href="#popup0" class="send-btn send-btn-2">Загрузить фотографию</a>
             </div>
             <div class="clearfix"></div>
 
             <!--rating-->
-            <form method="post" asp-controller="Hotel" asp-action="Index">
+            <form method="post" asp-controller="Hotel" asp-action="Index" style="width: 1040px;">
                 <div class="rating-conteiner">
                     <div class="ratings-wrapper">
                         <div class="rating">
@@ -486,7 +489,7 @@
             <div class="popup_content popup_content-for-information">
                 <a href="#" class="popup_close">X</a>
                 <form method="post" action="">
-                    <img src="img/Tripadvisor-logo-2.png" width="90">
+                    <img src="~/img/Tripadvisor-logo-2.png" width="90">
                     <h2 class="text-margin">Услуги</h2>
                     <div class="header-links">
                         <div class="hotel-equipment"><a href="#popup" style="padding-left: 25px;">Удобства в отеле</a></div>

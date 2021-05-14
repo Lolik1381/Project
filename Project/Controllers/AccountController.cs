@@ -208,6 +208,16 @@ namespace Project.Controllers
                 }
             }
 
+            bool isAdmin = false;
+            if (user != null)
+            {
+                IList<string> roles = await userManager.GetRolesAsync(user);
+                List<string> listRoles = new List<string>(roles);
+
+                isAdmin = listRoles.Find(role => role.Equals("admin")) != null ? true : false;
+            }
+            ViewBag.isAdmin = isAdmin;
+
             ViewBag.userId = userId;
             ViewBag.currentUserId = userManager.GetUserId(User);
             ViewBag.hrefUserProfile = $"/Account?userId={ViewBag.currentUserId}";

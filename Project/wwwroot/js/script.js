@@ -1,35 +1,3 @@
-/*var health = +50;
-
-function heal()
-{
-	var addHeal = +prompt('Текущее здоровье Биг Бонга равно: ' + health + 'Зардулья добавит сил: ');
-	health +=addHeal;
-}
-
-function strike()
-{
-	var delHeal = +prompt('Текущее здоровье Биг Бонга равно: ' + health + 'Герои убавят сил: ');
-	health -=delHeal;
-}
-
-
-while(health > 0 && health <100)
-{
-	strike();
-	if (health <= 0)
-	{
-		console.log('Монстр проиграл');
-		break;
-	}
-
-	heal();
-	if (health >= 100)
-	{
-		console.log('Монстр выйграл');
-		break;
-	}
-}*/
-
 function Sim(sldrId) {
 
 	let id = document.getElementById(sldrId);

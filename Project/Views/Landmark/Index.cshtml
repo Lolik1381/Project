@@ -37,12 +37,12 @@
 
     <div class="content content-accaunt-2">
         <div class="wrapper-accaunt-content">
-            <div class="title">
+            <div class="title" style="width: 1040px;">
                 <span>@ViewBag.landmark.name</span>
             </div>
-            <div class="rating rating-2">
+            <div class="rating rating-2" style="width: 1040px;">
                 <div class="rating_value rating_value-hidden">@ViewBag.landmark.rating</div>
-                <div class="rating_body">
+                <div class="rating_body" style="margin: unset;">
                     <div class="rating_active"></div>
                     <div class="rating_items">
                         <input type="radio" class="rating_item" value="1" name="rating">
@@ -54,41 +54,42 @@
                 </div>
                 <div style="font-size: 14px; width: 100px; font-weight: bold; margin-left: 5px;">@ViewBag.landmark.reviews.Count отзывов</div>
             </div>
-            <div class="information">
-                <p>Информация</p>
-                <div class="text-info">Предположительная<br>продолжительность</div>
-                <div class="time">1–2 часа</div>
-            </div>
 
+            <div style="width: 1040px;">
+                <div class="information">
+                    <p>Информация</p>
+                    <div class="text-info">Предположительная<br>продолжительность</div>
+                    <div class="time">1–2 часа</div>
+                </div>
 
-            <!--image slider start-->
-            <div class="sim-slider">
-                <ul class="sim-slider-list">
-                    <li><img src="data:image/jpeg;base64, @(Convert.ToBase64String(ViewBag.scenePhoto.image))" alt="screen" width="720"></li>    <!-- это экран -->
-                    <!--Загружать фото 1280*720-->
-                    @foreach (var landmarkPhoto in ViewBag.landmarkPhotos)
-                    {
-                        <li class="sim-slider-element">
-                            <img src="data:image/jpeg;base64, @(Convert.ToBase64String(landmarkPhoto.image))" alt="N" width="720" height="405">
-                        </li>
-                    }
-                </ul>
-                <div class="sim-slider-arrow-left" style="background-image: url(data:image/jpeg;base64,@(Convert.ToBase64String(ViewBag.sliderArrowLeft.image)));"></div>
-                <div class="sim-slider-arrow-right" style="background-image: url(data:image/jpeg;base64,@(Convert.ToBase64String(ViewBag.sliderArrowRight.image)));"></div>
-                <div class="sim-slider-dots"></div>
+                <!--image slider start-->
+                <div class="sim-slider">
+                    <ul class="sim-slider-list">
+                        <li><img src="data:image/jpeg;base64, @(Convert.ToBase64String(ViewBag.scenePhoto.image))" alt="screen" width="720"></li>    <!-- это экран -->
+                        <!--Загружать фото 1280*720-->
+                        @foreach (var landmarkPhoto in ViewBag.landmarkPhotos)
+                        {
+                            <li class="sim-slider-element">
+                                <img src="data:image/jpeg;base64, @(Convert.ToBase64String(landmarkPhoto.image))" alt="N" width="720" height="405">
+                            </li>
+                        }
+                    </ul>
+                    <div class="sim-slider-arrow-left" style="background-image: url(data:image/jpeg;base64,@(Convert.ToBase64String(ViewBag.sliderArrowLeft.image)));"></div>
+                    <div class="sim-slider-arrow-right" style="background-image: url(data:image/jpeg;base64,@(Convert.ToBase64String(ViewBag.sliderArrowRight.image)));"></div>
+                    <div class="sim-slider-dots"></div>
+                </div>
             </div>
             <!--image slider end-->
             <div class="clearfix"></div>
 
-            <div class="send-photo">
-                <p>Отправить</p>
+            <div class="send-photo" style="width: 1040px; margin-top: 10px;">
                 <a href=@Html.Raw(Url.Action("Review", "Review", new { type = "Landmark", id = ViewBag.landmark.id })) class="send-btn">Написать отзыв</a>
                 <a href="#popup0" class="send-btn send-btn-2">Загрузить фотографию</a>
             </div>
             <div class="clearfix"></div>
 
             <!--rating-->
-            <form method="post" asp-controller="Landmark" asp-action="Index">
+            <form method="post" asp-controller="Landmark" asp-action="Index" style="width: 1040px;">
                 <div class="rating-conteiner">
                     <div class="ratings-wrapper">
                         <div class="rating">

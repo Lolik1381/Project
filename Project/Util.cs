@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Http;
+using Project.Models;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -73,6 +74,31 @@ namespace Project
         public static bool belongNumberToInterval(int number, int min, int max)
         {
             return number >= min && number <= max;
+        }
+
+        public static Photo getPhotoByImage(IFormFile file)
+        {
+            return new Photo
+            {
+                image = getByteImage(file),
+                name = file.FileName
+            };
+        }
+
+        public static List<Photo> getPhotosByImage(List<IFormFile> files)
+        {
+            List<Photo> photos = new List<Photo>();
+
+            files.ForEach(file =>
+            {
+                photos.Add(new Photo
+                {
+                    image = getByteImage(file),
+                    name = file.FileName
+                });
+            });
+
+            return photos;
         }
     }
 }

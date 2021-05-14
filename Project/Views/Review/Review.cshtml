@@ -25,7 +25,7 @@
         </div>
     </div>
 
-    <div class="content">
+    <div class="content" style="width: 1300px;">
         <div class="wrapper-places">
             <form method="post" asp-controller="Review" asp-action="Index">
                 <input type="text" name="searchText" class="text-search search-places" placeholder="Поиск мест..">
@@ -36,7 +36,7 @@
             <div class="places">
                 @foreach (var information in ViewBag.reviewInformation)
                 {
-                    <div class="places-place">
+                    <div class="places-place" style="height: 430px;">
                         <div class="place-image">
                             <img src="data:image/jpeg;base64, @(Convert.ToBase64String(information.mainPhoto.image))" alt="">
                         </div>
@@ -83,7 +83,7 @@
                                     <input asp-for="Files" type="file" multiple>
                                     <span asp-validation-for="Files"></span>
                                 </div>
-                                <input type="submit" value="Отправить" class="send-publish">
+                                <input type="submit" value="Отправить" class="send-publish" style="margin-left: 200px;">
                             </div>
 
                             <input asp-for="Type" type="hidden" value="@information.type" />
