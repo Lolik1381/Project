@@ -1,4 +1,30 @@
-﻿// Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
-// for details on configuring this project to bundle and minify static web assets.
+﻿var startVisibleDirectionOne = 0;
 
-// Write your JavaScript code.
+function plusSlides(n) {
+    var slides = document.getElementsByClassName("slide");
+    if (startVisibleDirectionOne + 3 + n < slides.length) {
+        for (var i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+
+        for (var i = startVisibleDirectionOne + n; i < startVisibleDirectionOne + n + 4; ++i) {
+            slides[i].style.display = "block"
+        }
+        startVisibleDirectionOne += n;
+    }
+}
+
+function minusSlides(n) {
+    var slides = document.getElementsByClassName("slide");
+
+    if (startVisibleDirectionOne - n >= 0) {
+        for (var i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+
+        for (var i = startVisibleDirectionOne - n; i < startVisibleDirectionOne - n + 4; ++i) {
+            slides[i].style.display = "block"
+        }
+        startVisibleDirectionOne -= n;
+    }
+}

@@ -1,8 +1,73 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
+﻿<!DOCTYPE html>
+<html lang="en">
+<head runat="server">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="~/js/site.js"></script>
+</head>
+<body>
+    <div class="header">
+        
+        <div class="header-login">
+            <div class="wrapper">
+                <div class="conteiner">
+                    <img src="~/img/TRIP-2.png" alt="" class="logo" style="margin-top: 4px;">
 
-@foreach (var b in ViewBag.Users)
-{
-    @b.Name
-}
+                    @if (!User.Identity.IsAuthenticated)
+                    {
+                        <a asp-controller="Account" asp-action="Login" class="nav_1">Вход</a>
+                        <a asp-controller="Account" asp-action="Register" class="nav_1" style="width:110px;">Регистрация</a>
+                    }
+                    else
+                    {
+                        <a href=@ViewBag.hrefUserProfile class="nav_1 nav_1-1" style="display: block; margin-top: -0px;">
+                            <img src="data:image/jpeg;base64, @(Convert.ToBase64String(ViewBag.photoProfile.image))" alt="" class="img-enter">
+                        </a>
+                        <a href=@Url.Action("Index", "Review") class="nav_2">Написать отзыв</a>
+                    }
+                </div>
+
+                <div class="foto_preview">
+                    <div class="conteiner_p">
+                        <p>Отправляйся в путешествие прямо сейчас!</p>
+                    </div>
+
+                    <img src="img/header_foto.jpeg" alt="" width="600" class="preview_foto">
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="content">
+        <div class="wrapper">
+            <p>Направления, которые любят путешественники</p>
+
+            <div class="slider middle">
+                <div class="slides">
+                    @foreach (var direction in ViewBag.directions)
+                    {
+                    <a href=@Url.Action("Index", "Direction", new { id = direction.id }) class="slide">
+                        <img src="data:image/jpeg;base64, @(Convert.ToBase64String(direction.mainPhoto.image))" alt="" height="150" class="img-slide">
+                        <div class="shadow">
+                            <div class="text-over-photo">@direction.name</div>
+                        </div>
+                    </a>
+                    }
+                </div>
+
+                <a class="prev" onclick="minusSlides(1)">&#10094;</a>
+                <a class="next" onclick="plusSlides(1)">&#10095;</a>
+            </div>
+
+
+        </div>
+    </div>
+    <div class="footer"></div>
+
+    <script>
+        plusSlides(1)
+        minusSlides(1)
+    </script>
+</body>
+</html>

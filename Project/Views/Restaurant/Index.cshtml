@@ -1,0 +1,323 @@
+﻿@model Project.ViewModels.FindModel
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style-1.css">
+    <title>Tripadvisor: прочтите отзывы, сравните цены и забронируйте</title>
+</head>
+<body>
+    <div class="header header-account">
+
+        <div class="header-login">
+            <div class="wrapper">
+                <div class="conteiner">
+                    <a href="/" style="display: block; float: left; margin-top: 0; margin-left: 0; margin-top: -5px;">
+                        <img src="~/img/TRIP-2.png" alt="" class="logo">
+                    </a>
+
+                    @if (!User.Identity.IsAuthenticated)
+                    {
+                        <a asp-controller="Account" asp-action="Login" class="nav_1">Вход</a>
+                        <a asp-controller="Account" asp-action="Register" class="nav_1" style="width:110px;">Регистрация</a>
+                    }
+                    else
+                    {
+                        <a href=@ViewBag.hrefUserProfile class="nav_1 nav_1-1" style="display: block; margin-top: -0px;">
+                            <img src="data:image/jpeg;base64, @(Convert.ToBase64String(ViewBag.photoProfile.image))" alt="" class="img-enter">
+                        </a>
+                        <a href=@Url.Action("Index", "Review") class="nav_2">Написать отзыв</a>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="content content-accaunt-2">
+        <div class="wrapper-accaunt-content">
+            <div class="title" style="width:1040px;">
+                <span class="name-red" style="color: #ff5d5d !important;">@ViewBag.restaurant.name</span>
+            </div>
+            <div class="rating rating-2" style="width:1040px;">
+                <div class="rating_value rating_value-hidden">@ViewBag.restaurant.rating</div>
+                <div class="rating_body">
+                    <div class="rating_active"></div>
+                    <div class="rating_items">
+                        <input type="radio" class="rating_item" value="1" name="rating">
+                        <input type="radio" class="rating_item" value="2" name="rating">
+                        <input type="radio" class="rating_item" value="3" name="rating">
+                        <input type="radio" class="rating_item" value="4" name="rating">
+                        <input type="radio" class="rating_item" value="5" name="rating">
+                    </div>
+                </div>
+                <div style="font-size: 14px; width: 100px; font-weight: bold; margin-left: 5px;">@ViewBag.restaurant.reviews.Count отзывов</div>
+            </div>
+            <div style="width: 1040px;">
+                <p class="place-position position-static position-static-first">@ViewBag.restaurant.location</p>
+                @if (ViewBag.restaurant.phone != null)
+                {
+                    <p class="place-position position-static position-static-phone">@ViewBag.restaurant.phone</p>
+                }
+                @if (ViewBag.restaurant.webSite != null)
+                {
+                    <p class="place-position position-static position-static-web"><a href=@ViewBag.restaurant.webSite style="color: #545454;">Веб-сайт</a></p>
+                }
+
+                <div class="clearfix"></div>
+                <div class="information">
+                    <p>Подробнее</p>
+                    <div class="text-info" style="font-weight: normal;">ТИП КУХНИ</div>
+                    <div class="time">@ViewBag.restaurant.typeCuisine</div>
+                    <div class="text-info" style="font-weight: normal;">СПЕЦИАЛИЗИРОВАННОЕ МЕНЮ</div>
+                    <div class="time">@ViewBag.restaurant.specialMenu</div>
+                    <div class="text-info" style="font-weight: normal;">ВРЕМЯ ПРИЕМА ПИЩИ</div>
+                    <div class="time">Обед, Ужин</div><br>
+                    <a href="#popup2" class="edit-ref" style="padding-left: 0px;">Показать все сведения</a>
+                </div>
+
+
+                <!--image slider start-->
+                <div class="sim-slider">
+                    <ul class="sim-slider-list">
+                        <li><img src="data:image/jpeg;base64, @(Convert.ToBase64String(ViewBag.scenePhoto.image))" alt="screen" width="720"></li>    <!-- это экран -->
+                        <!--Загружать фото 1280*720-->
+                        @foreach (var restaurantPhoto in ViewBag.restaurantPhotos)
+                        {
+                            <li class="sim-slider-element">
+                                <img src="data:image/jpeg;base64, @(Convert.ToBase64String(restaurantPhoto.image))" alt="N" width="720" height="405">
+                            </li>
+                        }
+                    </ul>
+                    <div class="sim-slider-arrow-left" style="background-image: url(data:image/jpeg;base64,@(Convert.ToBase64String(ViewBag.sliderArrowLeft.image)));"></div>
+                    <div class="sim-slider-arrow-right" style="background-image: url(data:image/jpeg;base64,@(Convert.ToBase64String(ViewBag.sliderArrowRight.image)));"></div>
+                    <div class="sim-slider-dots"></div>
+                </div>
+            </div>
+
+            <!--image slider end-->
+            <div class="clearfix"></div>
+
+            <div class="clearfix"></div>
+            <div class="send-photo" style="width: 1040px; margin-top: 10px;">
+                <a href=@Html.Raw(Url.Action("Review", "Review", new { type = "Restaurant", id = ViewBag.restaurant.id })) class="send-btn">Написать отзыв</a>
+                <a href="#popup0" class="send-btn send-btn-2">Загрузить фотографию</a>
+            </div>
+            <div class="clearfix"></div>
+
+            <!--rating-->
+            <form method="post" asp-controller="Restaurant" asp-action="Index" style="width: 1040px;">
+                <div class="rating-conteiner">
+                    <div class="ratings-wrapper">
+                        <div class="rating">
+                            <div class="rating_value">@Math.Round(ViewBag.restaurant.rating, 1)</div>
+                            <div class="rating_body">
+                                <div class="rating_active"></div>
+                                <div class="rating_items">
+                                    <input type="radio" class="rating_item" value="1" name="rating">
+                                    <input type="radio" class="rating_item" value="2" name="rating">
+                                    <input type="radio" class="rating_item" value="3" name="rating">
+                                    <input type="radio" class="rating_item" value="4" name="rating">
+                                    <input type="radio" class="rating_item" value="5" name="rating">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="rating rating-2">
+                            <input type="checkbox" asp-for="CheckboxrRating5">
+                            <div style="font-size: 14px; width: 100px; font-weight: bold; margin-left: 5px;">Отлично</div>
+                            <div class="rating_value rating_value-hidden">5</div>
+                            <div class="rating_body">
+                                <div class="rating_active"></div>
+                                <div class="rating_items">
+                                    <input type="radio" class="rating_item" value="1" name="rating">
+                                    <input type="radio" class="rating_item" value="2" name="rating">
+                                    <input type="radio" class="rating_item" value="3" name="rating">
+                                    <input type="radio" class="rating_item" value="4" name="rating">
+                                    <input type="radio" class="rating_item" value="5" name="rating">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="rating rating-2">
+                            <input type="checkbox" asp-for="CheckboxrRating4">
+                            <div style="font-size: 14px; width: 100px; font-weight: bold; margin-left: 5px;">Очень хорошо</div>
+                            <div class="rating_value rating_value-hidden">4</div>
+                            <div class="rating_body">
+                                <div class="rating_active"></div>
+                                <div class="rating_items">
+                                    <input type="radio" class="rating_item" value="1" name="rating">
+                                    <input type="radio" class="rating_item" value="2" name="rating">
+                                    <input type="radio" class="rating_item" value="3" name="rating">
+                                    <input type="radio" class="rating_item" value="4" name="rating">
+                                    <input type="radio" class="rating_item" value="5" name="rating">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="rating rating-2">
+                            <input type="checkbox" asp-for="CheckboxrRating3">
+                            <div style="font-size: 14px; width: 100px; font-weight: bold; margin-left: 5px;">Неплохо</div>
+                            <div class="rating_value rating_value-hidden">3</div>
+                            <div class="rating_body">
+                                <div class="rating_active"></div>
+                                <div class="rating_items">
+                                    <input type="radio" class="rating_item" value="1" name="rating">
+                                    <input type="radio" class="rating_item" value="2" name="rating">
+                                    <input tpye="radio" class="rating_item" value="3" name="rating" style="width:20px;">
+                                    <input type="radio" class="rating_item" value="4" name="rating">
+                                    <input type="radio" class="rating_item" value="5" name="rating">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="rating rating-2">
+                            <input type="checkbox" asp-for="CheckboxrRating2">
+                            <div style="font-size: 14px; width: 100px; font-weight: bold; margin-left: 5px;">Плохо</div>
+                            <div class="rating_value rating_value-hidden">2</div>
+                            <div class="rating_body">
+                                <div class="rating_active"></div>
+                                <div class="rating_items">
+                                    <input type="radio" class="rating_item" value="1" name="rating">
+                                    <input type="radio" class="rating_item" value="2" name="rating">
+                                    <input type="radio" class="rating_item" value="3" name="rating">
+                                    <input type="radio" class="rating_item" value="4" name="rating">
+                                    <input type="radio" class="rating_item" value="5" name="rating">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="rating rating-2">
+                            <input type="checkbox" asp-for="CheckboxrRating1">
+                            <div style="font-size: 14px; width: 100px; font-weight: bold; margin-left: 5px;">Ужасно</div>
+                            <div class="rating_value rating_value-hidden">1</div>
+                            <div class="rating_body">
+                                <div class="rating_active"></div>
+                                <div class="rating_items">
+                                    <input type="radio" class="rating_item" value="1" name="rating">
+                                    <input type="radio" class="rating_item" value="2" name="rating">
+                                    <input type="radio" class="rating_item" value="3" name="rating">
+                                    <input type="radio" class="rating_item" value="4" name="rating">
+                                    <input type="radio" class="rating_item" value="5" name="rating">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="type-visited">
+                        <p class="period-type">Период</p>
+                        <div>
+                            <label asp-for="CheckboxDate1" class="float-div"></label>
+                            <input asp-for="CheckboxDate1" />
+                            <span asp-validation-for="CheckboxDate1"></span>
+                        </div>
+                        <div>
+                            <label asp-for="CheckboxDate2" class="float-div"></label>
+                            <input asp-for="CheckboxDate2" />
+                            <span asp-validation-for="CheckboxDate2"></span>
+                        </div>
+                        <div>
+                            <label asp-for="CheckboxDate3" class="float-div"></label>
+                            <input asp-for="CheckboxDate3" />
+                            <span asp-validation-for="CheckboxDate3"></span>
+                        </div>
+                        <div>
+                            <label asp-for="CheckboxDate4" class="float-div"></label>
+                            <input asp-for="CheckboxDate4" />
+                            <span asp-validation-for="CheckboxDate4"></span>
+                        </div>
+                    </div>
+                    <input type="text" name="textField" class="text-search" placeholder="Поиск отзывов..">
+                    <input type="hidden" name="Id" value="@ViewBag.restaurant.id" />
+                    <input type="submit" value="Готово" class="well-done-btn">
+                </div>
+            </form>
+
+            <!--end rating-->
+            <!--message-->
+            <div class="message-conteiner message-conteiner-margin">
+                @foreach (var review in ViewBag.reviews)
+                {
+                    <div class="message message-width">
+                        <a href=@Url.Action("Index", "Account", new { userId = review.user.Id })>
+                            <img src="data:image/jpeg;base64, @(Convert.ToBase64String(review.user.profile.mainPhoto.image))" alt="">
+                        </a>
+                        <span class="name">@review.user.profile.name @review.user.profile.lastName</span>
+                        <span class="write">написал(а) отзыв</span>
+                        <p class="date">@review.created</p>
+                        <div class="rating rating-2" style="clear: both; padding-top: 8px;">
+                            <div class="rating_value rating_value-hidden">@review.rating</div>
+                            <div class="rating_body">
+                                <div class="rating_active"></div>
+                                <div class="rating_items">
+                                    <input type="radio" class="rating_item" value="1" name="rating">
+                                    <input type="radio" class="rating_item" value="2" name="rating">
+                                    <input type="radio" class="rating_item" value="3" name="rating">
+                                    <input type="radio" class="rating_item" value="4" name="rating">
+                                    <input type="radio" class="rating_item" value="5" name="rating">
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#" class="message-place">@review.header</a>
+                        <p class="message-message">@review.description</p>
+
+                        @if (review.photos.Count > 0)
+                        {
+                            <div class="photo-adder">
+                                @foreach (var image in review.photos)
+                                {
+                                    <div class="img_preview">
+                                        <img src="data:image/jpeg;base64, @(Convert.ToBase64String(image.image))">
+                                    </div>
+                                }
+                            </div>
+                        }
+                    </div>
+                }
+            </div>
+            <!--end massage-->
+        </div>
+    </div>
+    <div class="footer"></div>
+
+    <div id="popup0" class="popup">
+        <a href="#" class="popup_area"></a>
+        <div class="popup_body">
+            <div class="popup_content">
+                <a href="#" class="popup_close">X</a>
+                <div class="popup_title popup_title-accaunt">Выберите фото на обложку</div>
+                <div class="popup_text">
+                    <form method="post" asp-controller="Restaurant" asp-action="AddPhoto" enctype="multipart/form-data">
+                        <input type="file" name="photo" multiple>
+                        <input type="hidden" name="restaurantId" value="@ViewBag.restaurant.id" />
+                        <input type="submit" value="Подтвердить">
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div id="popup2" class="popup">
+        <a href="#" class="popup_area"></a>
+        <div class="popup_body">
+            <div class="popup_content" style="overflow: auto;">
+                <a href="#" class="popup_close">X</a>
+                <form method="post" action="">
+                    <p style="margin-top: 0px;">Подробнее</p>
+                    <div class="text-info" style="font-weight: normal;">ТИП КУХНИ</div>
+                    <div class="time">@ViewBag.restaurant.typeCuisine</div>
+                    <div class="text-info" style="font-weight: normal;">СПЕЦИАЛИЗИРОВАННОЕ МЕНЮ</div>
+                    <div class="time">@ViewBag.restaurant.specialMenu</div>
+                    <div class="text-info" style="font-weight: normal;">ВРЕМЯ ПРИЕМА ПИЩИ</div>
+                    <div class="time">Обед, Ужин</div><br>
+                    <div class="text-info" style="font-weight: normal;">УСЛУГИ</div>
+                    <div class="time">Еда на вынос, Места для сидения, Имеется парковка, Телевизор, Детские стульчики для кормления, Доступ для кресел-каталок, Подают алкоголь, Принимаются кредитные карты, Обслуживание посетителей за столиками</div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="~/js/script.js"></script>
+    <script>new Sim()</script>
+    <script src="~/js/script2.js"></script>
+</body>
+</html>

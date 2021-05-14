@@ -1,0 +1,265 @@
+﻿@functions 
+{
+    public UserAccountReview getUserAccountReviewById(List<UserAccountReview> userAccountReviews, int id)
+    {
+        foreach(var userReview in userAccountReviews)
+        {
+            if (userReview.reviewId == id)
+            {
+                return userReview;
+            }
+        }
+
+        return null;
+    }
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Ваш аккаунт</title>
+</head>
+<body>
+    <div class="header header-account">
+        <div class="header-login">
+            <div class="wrapper">
+                <div class="conteiner">
+                    <a href="/" style="display: block; float: left; margin-top: 0; margin-left: 0; margin-top: -5px;">
+                        <img src="data:image/jpeg;base64, @(Convert.ToBase64String(@ViewBag.defaultSityImage.image))" alt="" class="logo">
+                    </a>
+                    @if (ViewBag.currentUserId.Equals(ViewBag.userId))
+                    {
+                        <form method="post" action="post">
+                            <input type="submit" value="Выйти" formaction="~/Account/Logout" class="nav_1 nav-form" />
+                        </form>
+                    }
+                    else
+                    {
+                        <a href=@ViewBag.hrefUserProfile class="nav_1 nav_1-1" style="display: block; margin-top: -0px;">
+                            <img src="data:image/jpeg;base64, @(Convert.ToBase64String(@ViewBag.mainPhoto))" alt="" class="img-enter">
+                        </a>
+                    }
+
+                    <a href=@Url.Action("Index", "Review") class="nav_2">Написать отзыв</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="content content-accaunt">
+        @if (ViewBag.backgroundPhoto != null)
+        {
+            <div class="photo-add" style="background-image: url(data:image/jpeg;base64,@(Convert.ToBase64String(@ViewBag.backgroundPhoto)));">
+                @if (ViewBag.currentUserId.Equals(ViewBag.userId))
+                {
+                    <div class="wrapper-accaunt-content">
+                        <div class="text-add">
+                            <img src="img/gallery.png" alt="" width="15">
+                            <a href="#popup" class="ref-add-fhoto">Изменить фото обложки</a>
+                        </div>
+                    </div>
+                }
+            </div>
+        }
+        else
+        {
+            <div class="photo-add">
+                @if (ViewBag.currentUserId.Equals(ViewBag.userId))
+                {
+                    <div class="wrapper-accaunt-content">
+                        <div class="text-add">
+                            <img src="img/gallery.png" alt="" width="15">
+                            <a href="#popup" class="ref-add-fhoto">Добавить фото обложки</a>
+                        </div>
+                    </div>
+                }
+            </div>
+        }
+
+        <div class="wrapper-accaunt-content">
+            <div class="wrapper-position">
+                <div class="header-profile">
+                    <img src="data:image/jpeg;base64,@(Convert.ToBase64String(@ViewBag.mainPhoto))" alt="">
+                    <div class="about-header-profile">
+                        <p>@ViewBag.name @ViewBag.lastName</p>
+                        <p class="publ">Публикации</p>
+                        <span>@ViewBag.countPublications</span>
+                    </div>
+                    @if (ViewBag.currentUserId.Equals(ViewBag.userId))
+                    {
+                        <a class="account-edit" href="#popup_adder">Редактировать профиль</a>
+                    }
+
+                    @if (ViewBag.isAdmin)
+                    {
+                        <a class="account-edit" href=@Url.Action("Index", "Admin")>Панель админа</a>
+                    }
+                </div>
+                
+                <div style="width: 1040px;">
+                    <div class="about-wrapper">
+                        <div class="about-profile">
+                            <span>Обо мне</span>
+                            <div class="ob-container">
+                                <p style="--backgroud-image: url(data:image/jpeg;base64,@(Convert.ToBase64String(ViewBag.adressIcon.image)));">@ViewBag.placeResidence</p>
+                                <p style="--backgroud-image: url(data:image/jpeg;base64,@(Convert.ToBase64String(ViewBag.plusIcon.image)));">В сообществе с @ViewBag.create</p>
+
+                                @if (ViewBag.personalInformation == null && ViewBag.currentUserId.Equals(ViewBag.userId))
+                                {
+                                    <a href="#popup_adder" style="--backgroud-image: url(data:image/jpeg;base64,@(Convert.ToBase64String(ViewBag.plusIcon.image)));">Напишите подробнее о себе</a>
+                                }
+                                else
+                                {
+                                    <p>@ViewBag.personalInformation</p>
+                                }
+
+                                @if (ViewBag.hrefWebSite == null && ViewBag.currentUserId.Equals(ViewBag.userId))
+                                {
+                                    <a href="#popup_adder" style="--backgroud-image: url(data:image/jpeg;base64,@(Convert.ToBase64String(ViewBag.plusIcon.image)));">Добавьте веб-сайт</a>
+                                }
+                                else
+                                {
+                                    <p>@ViewBag.hrefWebSite</p>
+                                }
+                            </div>
+                        </div>
+
+                    </div>
+
+                    @if (@ViewBag.countPublications == 0)
+                    {
+                        <div class="repost">
+                            <span>Поделитесь советами для путешественников</span>
+                            <div class="ob-container">
+                                <a href=@Url.Action("Index", "Review") class="add-feedback">Написать отзыв</a>
+                            </div>
+                        </div>
+                    }
+
+                    <div class="message-conteiner">
+                        @foreach (var review in ViewBag.reviews)
+                        {
+                            <div class="message message-width">
+                                <a href=@Url.Action("Index", "Account", new { userId = review.user.Id })>
+                                    <img src="data:image/jpeg;base64, @(Convert.ToBase64String(review.user.profile.mainPhoto.image))" alt="">
+                                </a>
+                                <span class="name">@review.user.profile.name @review.user.profile.lastName</span>
+                                <span class="write">написал(а) отзыв</span>
+                                <p class="date">@review.created</p>
+
+                                @if (review.photos.Count > 0)
+                                {
+                                    <div class="photo-adder" style="margin-top: 50px;">
+                                        @foreach (var image in review.photos)
+                                        {
+                                            <div class="img_preview">
+                                                <img src="data:image/jpeg;base64, @(Convert.ToBase64String(image.image))">
+                                            </div>
+                                        }
+                                    </div>
+                                }
+
+                                <div class="rating rating-2" style="clear: both; padding-top: 8px;">
+                                    <div class="rating_value rating_value-hidden">@review.rating</div>
+                                    <div class="rating_body">
+                                        <div class="rating_active"></div>
+                                        <div class="rating_items">
+                                            <input type="radio" class="rating_item" value="1" name="rating">
+                                            <input type="radio" class="rating_item" value="2" name="rating">
+                                            <input type="radio" class="rating_item" value="3" name="rating">
+                                            <input type="radio" class="rating_item" value="4" name="rating">
+                                            <input type="radio" class="rating_item" value="5" name="rating">
+                                        </div>
+                                    </div>
+                                </div>
+                                <a href="#" class="message-place">@review.header</a>
+                                <p class="message-message">@review.description</p>
+
+                                <div class="rating-place">
+                                    <img src="data:image/jpeg;base64, @(Convert.ToBase64String(getUserAccountReviewById(ViewBag.belongReviews, review.id).photo.image))" alt="" class="img-place">
+                                    @if (getUserAccountReviewById(ViewBag.belongReviews, review.id).type.Equals("Hotel"))
+                                    {
+                                        <a href=@Url.Action("Index", "Hotel", new { Id = getUserAccountReviewById(ViewBag.belongReviews, review.id).id }) class="ref-place">@getUserAccountReviewById(ViewBag.belongReviews, review.id).name</a>
+                                    }
+                                    else if (getUserAccountReviewById(ViewBag.belongReviews, review.id).type.Equals("Landmark"))
+                                    {
+                                        <a href=@Url.Action("Index", "Landmark", new { Id = getUserAccountReviewById(ViewBag.belongReviews, review.id).id }) class="ref-place">@getUserAccountReviewById(ViewBag.belongReviews, review.id).name</a>
+                                    }
+                                    else if (getUserAccountReviewById(ViewBag.belongReviews, review.id).type.Equals("Restaurant"))
+                                    {
+                                        <a href=@Url.Action("Index", "Restaurant", new { Id = getUserAccountReviewById(ViewBag.belongReviews, review.id).id }) class="ref-place">@getUserAccountReviewById(ViewBag.belongReviews, review.id).name</a>
+                                    }
+
+                                    <div class="message-rating message-rating-place">
+                                        @for (int i = 0; i < Math.Round(getUserAccountReviewById(ViewBag.belongReviews, review.id).rating); ++i)
+                                        {
+                                            <div class="message-rating-green"></div>
+                                        }
+
+                                        @for (int i = 0; i < 5 - Math.Round(getUserAccountReviewById(ViewBag.belongReviews, review.id).rating); ++i)
+                                        {
+                                            <div class="message-rating-white"></div>
+                                        }
+                                    </div>
+                                    <div class="feedback">@getUserAccountReviewById(ViewBag.belongReviews, review.id).countReview отзыв(ов)</div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+
+                <div class="clearfix"></div>
+            </div>
+
+        </div>
+        <div class="footer"></div>
+
+
+        <div id="popup" class="popup">
+            <a href="#" class="popup_area"></a>
+            <div class="popup_body">
+                <div class="popup_content">
+                    <a href="#" class="popup_close">X</a>
+                    <div class="popup_title popup_title-accaunt">Выберите фото на обложку</div>
+                    <div class="popup_text">
+                        <form action="" method="post" enctype="multipart/form-data">
+                            <input type="file" name="backgroundAccauntPhoto">
+                            <input type="submit" value="Подтвердить" formaction="~/Account/BackgroundPhoto">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="popup_adder" class="popup">
+            <a href="#" class="popup_area"></a>
+            <div class="popup_body">
+                <div class="popup_content popup_content-adder" style="width: 276px;">
+                    <div class="popup_title popup_title-adder">Расскажите о себе по-подробнее</div>
+                    <div class="popup_text">
+                        <form action="" method="post" enctype="multipart/form-data">
+                            <label>Ваше фото<sup>*</sup></label><br />
+                            <input type="file" name="mainPhoto"><br />
+                            <label>Фамилия и имя:<sup>*</sup></label><br />
+                            <input type="text" name="name" required /><br />
+                            <label>Место проживания:<sup>*</sup></label><br />
+                            <input type="text" name="homePlace" required /><br />
+                            <label>Веб-сайт:</label><br />
+                            <input type="text" name="website" /><br />
+                            <label>О себе:<sup>*</sup></label><br />
+                            <input type="text" name="personalInformation" required /><br />
+                            <input type="submit" value="Подтвердить" formaction="~/Account/EditAccount">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="~/js/script.js"></script>
+    <script>new Sim()</script>
+    <script src="~/js/script2.js"></script>
+</body>
+</html>

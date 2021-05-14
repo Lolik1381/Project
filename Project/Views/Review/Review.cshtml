@@ -1,0 +1,102 @@
+﻿@model Project.ViewModels.ReviewModel
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style-1.css">
+    <title>Tripadvisor: прочтите отзывы, сравните цены и забронируйте</title>
+</head>
+<body>
+    <div class="header header-account">
+
+        <div class="header-login">
+            <div class="wrapper">
+                <div class="conteiner">
+                    <a href="/" style="display: block; float: left; margin-top: 0; margin-left: 0; margin-top: -5px;">
+                        <img src="~/img/TRIP-2.png" alt="" class="logo">
+                    </a>
+                    <a href=@ViewBag.hrefUserProfile class="nav_1 nav_1-1" style="display: block; margin-top: -0px;">
+                        <img src="data:image/jpeg;base64, @(Convert.ToBase64String(ViewBag.photoProfile.image))" alt="" class="img-enter">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="content" style="width: 1300px;">
+        <div class="wrapper-places">
+            <form method="post" asp-controller="Review" asp-action="Index">
+                <input type="text" name="searchText" class="text-search search-places" placeholder="Поиск мест..">
+                <input type="submit" value="Готово" name="enter-data" class="well-done-btn well-done-btn-places">
+            </form>
+
+            <div class="clearfix"></div>
+            <div class="places">
+                @foreach (var information in ViewBag.reviewInformation)
+                {
+                    <div class="places-place" style="height: 430px;">
+                        <div class="place-image">
+                            <img src="data:image/jpeg;base64, @(Convert.ToBase64String(information.mainPhoto.image))" alt="">
+                        </div>
+                        @if (information.type.Equals("Hotel"))
+                        {
+                            <a href=@Url.Action("Index", "Hotel", new { Id = information.id }) class="place-title">@information.name</a>
+                        }
+                        else if (information.type.Equals("Landmark"))
+                        {
+                            <a href=@Url.Action("Index", "Landmark", new { Id = information.id }) class="place-title">@information.name</a>
+                        }
+                        else if (information.type.Equals("Restaurant"))
+                        {
+                            <a href=@Url.Action("Index", "Restaurant", new { Id = information.id }) class="place-title">@information.name</a>
+                        }
+
+                        <p class="place-position">@information.place</p>
+                        <form method="post" asp-controller="Review" asp-action="Review" enctype="multipart/form-data">
+                            <div class="rating rating-places-place rating_set">
+                                <div class="rating_value rating_value-hidden">0.5</div>
+                                <div class="rating_body">
+                                    <div class="rating_active"></div>
+                                    <div class="rating_items">
+                                        <input type="radio" class="rating_item" value="1" name="rating">
+                                        <input type="radio" class="rating_item" value="2" name="rating">
+                                        <input type="radio" class="rating_item" value="3" name="rating">
+                                        <input type="radio" class="rating_item" value="4" name="rating">
+                                        <input type="radio" class="rating_item" value="5" name="rating">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-publish">
+                                <h4>Заголовок Вашего отзыва</h4>
+                                <input type="text" asp-for="Name" placeholder="Опишите кратко свою поездку или какую-нибудь интересную деталь" required>
+                                <h4>Ваш отзыв</h4>
+                                <textarea name="Description" asp-for="Description" placeholder="Делясь своим опытом, Вы помогаете другим путешественникам сделать правильный выбор и составить план идеальной поездки" required></textarea>
+                                <h4>Когда Вы посетили этот объект?</h4>
+                                <div>
+                                    <input asp-for="Date" style="margin-bottom: 10px;" required />
+                                    <span asp-validation-for="Date"></span>
+                                </div>
+                                <h4>Прикрепите фотографии с поездки</h4>
+                                <div>
+                                    <input asp-for="Files" type="file" multiple>
+                                    <span asp-validation-for="Files"></span>
+                                </div>
+                                <input type="submit" value="Отправить" class="send-publish" style="margin-left: 200px;">
+                            </div>
+
+                            <input asp-for="Type" type="hidden" value="@information.type" />
+                            <input asp-for="Id" type="hidden" value="@information.id" />
+                        </form>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+    <div class="footer"></div>
+
+    <script src="~/js/script.js"></script>
+    <script src="~/js/script2.js"></script>
+</body>
+</html>
