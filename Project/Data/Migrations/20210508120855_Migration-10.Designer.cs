@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using Project.Context;
@@ -9,9 +10,10 @@ using Project.Context;
 namespace Project.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    partial class ApplicationContextModelSnapshot : ModelSnapshot
+    [Migration("20210508120855_Migration-10")]
+    partial class Migration10
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -411,13 +413,7 @@ namespace Project.Migrations
                     b.Property<decimal>("rating")
                         .HasColumnType("numeric");
 
-                    b.Property<string>("services")
-                        .HasColumnType("text");
-
                     b.Property<string>("specialMenu")
-                        .HasColumnType("text");
-
-                    b.Property<string>("timeEating")
                         .HasColumnType("text");
 
                     b.Property<string>("typeCuisine")

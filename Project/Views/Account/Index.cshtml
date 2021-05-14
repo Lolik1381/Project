@@ -22,12 +22,12 @@
 	<title>Ваш аккаунт</title>
 </head>
 <body>
-	<div class="header header-account">
-		<div class="header-login">
-			<div class="wrapper">
+    <div class="header header-account">
+        <div class="header-login">
+            <div class="wrapper">
                 <div class="conteiner">
                     <a href="/" style="display: block; float: left; margin-top: 0; margin-left: 0; margin-top: -5px;">
-                        <img src="~/img/TRIP-2.png" alt="" class="logo">
+                        <img src="data:image/jpeg;base64, @(Convert.ToBase64String(@ViewBag.defaultSityImage.image))" alt="" class="logo">
                     </a>
                     @if (ViewBag.currentUserId.Equals(ViewBag.userId))
                     {
@@ -44,15 +44,13 @@
 
                     <a href=@Url.Action("Index", "Review") class="nav_2">Написать отзыв</a>
                 </div>
-			</div>
-		</div>
-	</div>
-
+            </div>
+        </div>
+    </div>
 
     <div class="content content-accaunt">
         @if (ViewBag.backgroundPhoto != null)
         {
-            @*style="background-image: url(data:image/jpeg;base64,@(Convert.ToBase64String(ViewBag.sliderArrowLeft.image)));"*@
             <div class="photo-add" style="background-image: url(data:image/jpeg;base64,@(Convert.ToBase64String(@ViewBag.backgroundPhoto)));">
                 @if (ViewBag.currentUserId.Equals(ViewBag.userId))
                 {
@@ -85,6 +83,7 @@
                 <div class="header-profile">
                     <img src="data:image/jpeg;base64,@(Convert.ToBase64String(@ViewBag.mainPhoto))" alt="">
                     <div class="about-header-profile">
+                        @*style="--backgroud-image: url(data:image/jpeg;base64,@(Convert.ToBase64String(ViewBag.hotel.roomEquipment[i].photo.image)));"*@
                         <p>@ViewBag.name @ViewBag.lastName</p>
                         <p class="publ">Публикации</p>
                         <span>@ViewBag.countPublications</span>
@@ -98,12 +97,12 @@
                     <div class="about-profile">
                         <span>Обо мне</span>
                         <div class="ob-container">
-                            <p>@ViewBag.placeResidence</p>
-                            <p>В сообществе с @ViewBag.create</p>
+                            <p style="--backgroud-image: url(data:image/jpeg;base64,@(Convert.ToBase64String(ViewBag.adressIcon.image)));">@ViewBag.placeResidence</p>
+                            <p style="--backgroud-image: url(data:image/jpeg;base64,@(Convert.ToBase64String(ViewBag.plusIcon.image)));">В сообществе с @ViewBag.create</p>
 
                             @if (ViewBag.personalInformation == null && ViewBag.currentUserId.Equals(ViewBag.userId))
                             {
-                                <a href="#popup_adder">Напишите подробнее о себе</a>
+                                <a href="#popup_adder" style="--backgroud-image: url(data:image/jpeg;base64,@(Convert.ToBase64String(ViewBag.plusIcon.image)));">Напишите подробнее о себе</a>
                             }
                             else
                             {
@@ -112,7 +111,7 @@
 
                             @if (ViewBag.hrefWebSite == null && ViewBag.currentUserId.Equals(ViewBag.userId))
                             {
-                                <a href="#popup_adder">Добавьте веб-сайт</a>
+                                <a href="#popup_adder" style="--backgroud-image: url(data:image/jpeg;base64,@(Convert.ToBase64String(ViewBag.plusIcon.image)));">Добавьте веб-сайт</a>
                             }
                             else
                             {
@@ -128,7 +127,7 @@
                     <div class="repost">
                         <span>Поделитесь советами для путешественников</span>
                         <div class="ob-container">
-                            <a href="#" class="add-feedback">Написать отзыв</a>
+                            <a href=@Url.Action("Index", "Review") class="add-feedback">Написать отзыв</a>
                         </div>
                     </div>
                 }
@@ -136,28 +135,57 @@
                 <div class="message-conteiner">
                     @foreach (var review in ViewBag.reviews)
                     {
-                        <div class="message">
-                            <img src="data:image/jpeg;base64,@(Convert.ToBase64String(review.user.profile.mainPhoto.image))" alt="">
+                        <div class="message message-width">
+                            <a href=@Url.Action("Index", "Account", new { userId = review.user.Id })>
+                                <img src="data:image/jpeg;base64, @(Convert.ToBase64String(review.user.profile.mainPhoto.image))" alt="">
+                            </a>
                             <span class="name">@review.user.profile.name @review.user.profile.lastName</span>
                             <span class="write">написал(а) отзыв</span>
                             <p class="date">@review.created</p>
-                            <div class="message-rating" style="display: block; margin-top: 50px;">
-                                @for (int i = 0; i < Math.Round(review.rating); ++i)
-                                {
-                                    <div class="message-rating-green"></div>
-                                }
 
-                                @for (int i = 0; i < 5 - Math.Round(review.rating); ++i)
-                                {
-                                    <div class="message-rating-white"></div>
-                                }
+                            @if (review.photos.Count > 0)
+                            {
+                                <div class="photo-adder" style="margin-top: 50px;">
+                                    @foreach (var image in review.photos)
+                                    {
+                                        <div class="img_preview">
+                                            <img src="data:image/jpeg;base64, @(Convert.ToBase64String(image.image))">
+                                        </div>
+                                    }
+                                </div>
+                            }
+
+                            <div class="rating rating-2" style="clear: both; padding-top: 8px;">
+                                <div class="rating_value rating_value-hidden">@review.rating</div>
+                                <div class="rating_body">
+                                    <div class="rating_active"></div>
+                                    <div class="rating_items">
+                                        <input type="radio" class="rating_item" value="1" name="rating">
+                                        <input type="radio" class="rating_item" value="2" name="rating">
+                                        <input type="radio" class="rating_item" value="3" name="rating">
+                                        <input type="radio" class="rating_item" value="4" name="rating">
+                                        <input type="radio" class="rating_item" value="5" name="rating">
+                                    </div>
+                                </div>
                             </div>
-                            <br />
-                            <div class="message-place">@review.header</div>
+                            <a href="#" class="message-place">@review.header</a>
                             <p class="message-message">@review.description</p>
+
                             <div class="rating-place">
                                 <img src="data:image/jpeg;base64, @(Convert.ToBase64String(getUserAccountReviewById(ViewBag.belongReviews, review.id).photo.image))" alt="" class="img-place">
-                                <a href="#" class="ref-place">@getUserAccountReviewById(ViewBag.belongReviews, review.id).name</a>
+                                @if (getUserAccountReviewById(ViewBag.belongReviews, review.id).type.Equals("Hotel"))
+                                {
+                                    <a href=@Url.Action("Index", "Hotel", new { Id = getUserAccountReviewById(ViewBag.belongReviews, review.id).id }) class="ref-place">@getUserAccountReviewById(ViewBag.belongReviews, review.id).name</a>
+                                }
+                                else if (getUserAccountReviewById(ViewBag.belongReviews, review.id).type.Equals("Landmark"))
+                                {
+                                    <a href=@Url.Action("Index", "Landmark", new { Id = getUserAccountReviewById(ViewBag.belongReviews, review.id).id }) class="ref-place">@getUserAccountReviewById(ViewBag.belongReviews, review.id).name</a>
+                                }
+                                else if (getUserAccountReviewById(ViewBag.belongReviews, review.id).type.Equals("Restaurant"))
+                                {
+                                    <a href=@Url.Action("Index", "Restaurant", new { Id = getUserAccountReviewById(ViewBag.belongReviews, review.id).id }) class="ref-place">@getUserAccountReviewById(ViewBag.belongReviews, review.id).name</a>
+                                }
+
                                 <div class="message-rating message-rating-place">
                                     @for (int i = 0; i < Math.Round(getUserAccountReviewById(ViewBag.belongReviews, review.id).rating); ++i)
                                     {
@@ -222,5 +250,9 @@
             </div>
         </div>
     </div>
+
+    <script src="~/js/script.js"></script>
+    <script>new Sim()</script>
+    <script src="~/js/script2.js"></script>
 </body>
 </html>

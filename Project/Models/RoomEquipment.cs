@@ -13,5 +13,8 @@ namespace Project.Models
 
         [Required]
         public Photo photo { get; set; }
+
+        [Required]
+        public List<Hotel> hotelRoomEquiment { get; set; }
     }
 }

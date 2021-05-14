@@ -36,8 +36,16 @@ namespace Project.Data
 
             Photo photo2 = new Photo { image = Util.getByteImage(@"wwwroot\img\sliderLeft.png"), name = "sliderLeft.jpg" };
             Photo photo3 = new Photo { image = Util.getByteImage(@"wwwroot\img\sliderRight.png"), name = "sliderRight.jpg" };
+            Photo photo4 = new Photo { image = Util.getByteImage(@"wwwroot\img\defaultUserAccountImage.jpg"), name = "defaultUserAccountImage" };
+            Photo photo5 = new Photo { image = Util.getByteImage(@"wwwroot\img\maxresdefault3.jpg"), name = "defaultLoginImage" };
+            Photo photo6 = new Photo { image = Util.getByteImage(@"wwwroot\img\TRIP-2.png"), name = "defaultSityImage" };
+            Photo photo7 = new Photo { image = Util.getByteImage(@"wwwroot\img\maxresdefault4.jpg"), name = "defaultRegisterImage" };
+            Photo photo8 = new Photo { image = Util.getByteImage(@"wwwroot\img\maxresdefault5.jpg"), name = "defaultAdditionalInformationImage" };
+            Photo photo9 = new Photo { image = Util.getByteImage(@"wwwroot\img\aboutme.png"), name = "aboutMeIcon" };
+            Photo photo10 = new Photo { image = Util.getByteImage(@"wwwroot\img\plus.png"), name = "plusIcon" };
+            Photo photo11 = new Photo { image = Util.getByteImage(@"wwwroot\img\iconAdress.png"), name = "adressIcon" };
 
-            dataBase.photos.AddRange(photo1, photo2, photo3);
+            dataBase.photos.AddRange(photo1, photo2, photo3, photo4, photo5, photo6, photo7, photo8, photo9, photo10, photo11);
             dataBase.SaveChanges();
         }
 

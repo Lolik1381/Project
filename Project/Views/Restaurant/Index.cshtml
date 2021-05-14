@@ -5,11 +5,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style-1.css">
     <title>Tripadvisor: прочтите отзывы, сравните цены и забронируйте</title>
 </head>
 <body>
     <div class="header header-account">
+
         <div class="header-login">
             <div class="wrapper">
                 <div class="conteiner">
@@ -38,10 +39,10 @@
     <div class="content content-accaunt-2">
         <div class="wrapper-accaunt-content">
             <div class="title">
-                <span>@ViewBag.landmark.name</span>
+                <span class="name-red" style="color: #ff5d5d !important;">@ViewBag.restaurant.name</span>
             </div>
             <div class="rating rating-2">
-                <div class="rating_value rating_value-hidden">@ViewBag.landmark.rating</div>
+                <div class="rating_value rating_value-hidden">@ViewBag.restaurant.rating</div>
                 <div class="rating_body">
                     <div class="rating_active"></div>
                     <div class="rating_items">
@@ -52,12 +53,21 @@
                         <input type="radio" class="rating_item" value="5" name="rating">
                     </div>
                 </div>
-                <div style="font-size: 14px; width: 100px; font-weight: bold; margin-left: 5px;">@ViewBag.landmark.reviews.Count отзывов</div>
+                <div style="font-size: 14px; width: 100px; font-weight: bold; margin-left: 5px;">@ViewBag.restaurant.reviews.Count отзывов</div>
             </div>
+            <p class="place-position position-static position-static-first">@ViewBag.restaurant.location</p>
+            <p class="place-position position-static position-static-phone">@ViewBag.restaurant.phone</p>
+            <p class="place-position position-static position-static-phone position-static-web"><a href=@ViewBag.restaurant.webSite style="color: #545454;">Веб-сайт</a></p>
+            <div class="clearfix"></div>
             <div class="information">
-                <p>Информация</p>
-                <div class="text-info">Предположительная<br>продолжительность</div>
-                <div class="time">1–2 часа</div>
+                <p>Подробнее</p>
+                <div class="text-info" style="font-weight: normal;">ТИП КУХНИ</div>
+                <div class="time">@ViewBag.restaurant.typeCuisine</div>
+                <div class="text-info" style="font-weight: normal;">СПЕЦИАЛИЗИРОВАННОЕ МЕНЮ</div>
+                <div class="time">@ViewBag.restaurant.specialMenu</div>
+                <div class="text-info" style="font-weight: normal;">ВРЕМЯ ПРИЕМА ПИЩИ</div>
+                <div class="time">Обед, Ужин</div><br>
+                <a href="#popup2" class="edit-ref" style="padding-left: 0px;">Показать все сведения</a>
             </div>
 
 
@@ -66,10 +76,10 @@
                 <ul class="sim-slider-list">
                     <li><img src="data:image/jpeg;base64, @(Convert.ToBase64String(ViewBag.scenePhoto.image))" alt="screen" width="720"></li>    <!-- это экран -->
                     <!--Загружать фото 1280*720-->
-                    @foreach (var landmarkPhoto in ViewBag.landmarkPhotos)
+                    @foreach (var restaurantPhoto in ViewBag.restaurantPhotos)
                     {
                         <li class="sim-slider-element">
-                            <img src="data:image/jpeg;base64, @(Convert.ToBase64String(landmarkPhoto.image))" alt="N" width="720" height="405">
+                            <img src="data:image/jpeg;base64, @(Convert.ToBase64String(restaurantPhoto.image))" alt="N" width="720" height="405">
                         </li>
                     }
                 </ul>
@@ -80,19 +90,20 @@
             <!--image slider end-->
             <div class="clearfix"></div>
 
+            <div class="clearfix"></div>
             <div class="send-photo">
                 <p>Отправить</p>
-                <a href=@Html.Raw(Url.Action("Review", "Review", new { type = "Landmark", id = ViewBag.landmark.id })) class="send-btn">Написать отзыв</a>
+                <a href=@Html.Raw(Url.Action("Review", "Review", new { type = "Restaurant", id = ViewBag.restaurant.id })) class="send-btn">Написать отзыв</a>
                 <a href="#popup0" class="send-btn send-btn-2">Загрузить фотографию</a>
             </div>
             <div class="clearfix"></div>
 
             <!--rating-->
-            <form method="post" asp-controller="Landmark" asp-action="Index">
+            <form method="post" asp-controller="Restaurant" asp-action="Index">
                 <div class="rating-conteiner">
                     <div class="ratings-wrapper">
                         <div class="rating">
-                            <div class="rating_value">@Math.Round(ViewBag.landmark.rating, 1)</div>
+                            <div class="rating_value">@Math.Round(ViewBag.restaurant.rating, 1)</div>
                             <div class="rating_body">
                                 <div class="rating_active"></div>
                                 <div class="rating_items">
@@ -205,10 +216,11 @@
                         </div>
                     </div>
                     <input type="text" name="textField" class="text-search" placeholder="Поиск отзывов..">
-                    <input type="hidden" name="Id" value="@ViewBag.landmark.id" />
+                    <input type="hidden" name="Id" value="@ViewBag.restaurant.id" />
                     <input type="submit" value="Готово" class="well-done-btn">
                 </div>
             </form>
+
             <!--end rating-->
             <!--message-->
             <div class="message-conteiner message-conteiner-margin">
@@ -263,12 +275,33 @@
                 <a href="#" class="popup_close">X</a>
                 <div class="popup_title popup_title-accaunt">Выберите фото на обложку</div>
                 <div class="popup_text">
-                    <form method="post" asp-controller="Landmark" asp-action="AddPhoto" enctype="multipart/form-data">
+                    <form method="post" asp-controller="Restaurant" asp-action="AddPhoto" enctype="multipart/form-data">
                         <input type="file" name="photo" multiple>
-                        <input type="hidden" name="landmarkId" value="@ViewBag.landmark.id" />
-                        <input type="submit" value="Подтвердить"></p>
+                        <input type="hidden" name="restaurantId" value="@ViewBag.restaurant.id" />
+                        <input type="submit" value="Подтвердить">
                     </form>
                 </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div id="popup2" class="popup">
+        <a href="#" class="popup_area"></a>
+        <div class="popup_body">
+            <div class="popup_content" style="overflow: auto;">
+                <a href="#" class="popup_close">X</a>
+                <form method="post" action="">
+                    <p style="margin-top: 0px;">Подробнее</p>
+                    <div class="text-info" style="font-weight: normal;">ТИП КУХНИ</div>
+                    <div class="time">@ViewBag.restaurant.typeCuisine</div>
+                    <div class="text-info" style="font-weight: normal;">СПЕЦИАЛИЗИРОВАННОЕ МЕНЮ</div>
+                    <div class="time">@ViewBag.restaurant.specialMenu</div>
+                    <div class="text-info" style="font-weight: normal;">ВРЕМЯ ПРИЕМА ПИЩИ</div>
+                    <div class="time">Обед, Ужин</div><br>
+                    <div class="text-info" style="font-weight: normal;">УСЛУГИ</div>
+                    <div class="time">Еда на вынос, Места для сидения, Имеется парковка, Телевизор, Детские стульчики для кормления, Доступ для кресел-каталок, Подают алкоголь, Принимаются кредитные карты, Обслуживание посетителей за столиками</div>
+                </form>
 
             </div>
         </div>

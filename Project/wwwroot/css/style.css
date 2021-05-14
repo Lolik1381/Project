@@ -654,7 +654,8 @@ input[name="r"] {
     display: block;
     width: 15px;
     height: 15px;
-    background-image: url(../img/icon-adress.png);
+/*    background-image: url(../img/icon-adress.png);*/
+    background-image: var(--backgroud-image);
     background-size: 15px 15px;
     float: left;
     position: absolute;
@@ -669,24 +670,28 @@ input[name="r"] {
 }
 
 .repost .public-photo:before {
-    background-image: url(../img/camera.png);
+/*    background-image: url(../img/camera.png);*/
+    background-image: var(--backgroud-image);
     background-size: 20px 20px;
 }
 
 .repost .add-feedback:before {
-    background-image: url(../img/note.png);
+/*    background-image: url(../img/note.png);*/
+    background-image: var(--backgroud-image);
     background-size: 18px 18px;
     background-repeat: no-repeat;
 }
 
 .about-profile p:nth-child(2):before {
-    background-image: url(../img/aboutme.png);
+/*    background-image: url(../img/aboutme.png);*/
+    background-image: var(--backgroud-image);
     background-size: 14px 14px;
     background-repeat: no-repeat;
 }
 
 .about-profile a:before {
-    background-image: url(../img/plus.png);
+/*    background-image: url(../img/plus.png);*/
+    background-image: var(--backgroud-image);
     background-size: 14px 14px;
     background-repeat: no-repeat;
 }
@@ -1522,7 +1527,7 @@ span.sim-dot {
     color: #006699;
     font-weight: bold;
     display: block;
-    width: 200px;
+    width: 400px;
     margin-left: 20px;
     float: left;
     font-size: 20px;
@@ -1664,6 +1669,7 @@ span.sim-dot {
 }
 
 .form-publish input[type="text"],
+.form-publish input[type="password"],
 .form-publish textarea {
     width: 500px;
     height: 35px;
@@ -1713,12 +1719,12 @@ span.sim-dot {
     display: block;
     width: 15px;
     height: 15px;
-    background-image: url(img/icon-adress.png);
+    background-image: url(../img/iconAdress.png);
     background-size: 15px 15px;
     float: left;
 }
 .position-static-phone:before {
-    background-image: url(img/phone.png);
+    background-image: url(../img/phone.png);
     background-size: 14px 14px;
     background-repeat: no-repeat;
 }
@@ -1817,11 +1823,19 @@ span.sim-dot {
     color: black;
 }
 
-/*Иконки*/
-.hotel-conveniences-feachers .for-bedroom:before {
-    background-image: url(img/for-bedroom.png);
+.validation-summary-errors li {
+    list-style-type: none;
+    color: red;
+    font-style: italic;
+    font-size: 16px;
+    font-weight: bold;
 }
-.hotel-conveniences-feachers .cup-of-tea:before {
+
+/*Иконки*/
+.hotel-conveniences-feachers .icon:before {
+    background-image: var(--backgroud-image, ../img/cup-of-tea.png);
+}
+/*.hotel-conveniences-feachers .cup-of-tea:before {
     background-image: url(img/cup-of-tea.png);
 }
 .hotel-conveniences-feachers .kitchen:before {

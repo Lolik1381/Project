@@ -12,5 +12,8 @@ namespace Project.Models
         public string name;
         public decimal rating;
         public int countReview;
+
+        public string type;
+        public int? id;
     }
 }

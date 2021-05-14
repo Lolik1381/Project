@@ -10,6 +10,7 @@ namespace Project.ViewModels
     {
         [Required]
         [Display(Name = "Балл")]
+        [Range(1, 5, ErrorMessage = "Необходимо указать рейтинг")]
         public decimal Rating { get; set; }
 
         [Required]
@@ -31,6 +32,7 @@ namespace Project.ViewModels
         [HiddenInput]
         public string Type { get; set; }
 
+        [HiddenInput]
         public int Id { get; set; }
     }
 }

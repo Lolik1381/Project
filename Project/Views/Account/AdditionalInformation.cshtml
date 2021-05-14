@@ -1,39 +1,73 @@
 ﻿@model Project.ViewModels.AdditionalInformationViewModel
 
-<h2>Дополните информацию о себе</h2>
-<form method="post" asp-controller="Account" asp-action="AdditionalInformation">
-    <div asp-validation-summary="ModelOnly"></div>
-    <div>
-        <label asp-for="Name"></label><br />
-        <input asp-for="Name" />
-        <span asp-validation-for="Name"></span>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style-1.css">
+    <title>Самолет: прочтите отзывы, сравните цены и забронируйте</title>
+</head>
+<body>
+    <div class="header">
+        <div class="header-login">
+            <div class="wrapper wrapper-enter">
+                <div class="conteiner">
+                    <img src="data:image/jpeg;base64, @(Convert.ToBase64String(@ViewBag.defaultSityImage.image))" alt="" class="logo">
+                </div>
+
+                <div class="places-place" style="height:510px;">
+                    <div class="place-image">
+                        <img src="data:image/jpeg;base64, @(Convert.ToBase64String(@ViewBag.defaultAdditionalInformationImage.image))" alt="">
+                    </div>
+
+                    <form method="post" asp-controller="Account" asp-action="AdditionalInformation">
+                        <h1 style="position: relative; top: 30px; left: 20px; font-size: 40px;">Добро пожаловать!</h1>
+                        <div asp-validation-summary="ModelOnly"></div>
+                        <div class="form-publish">
+                            <h4>Фимилия*</h4>
+                            <div>
+                                <input asp-for="Name" required />
+                                <span asp-validation-for="Name"></span>
+                            </div>
+                            <h4>Имя*</h4>
+                            <div>
+                                <input asp-for="Lastname" required />
+                                <span asp-validation-for="Lastname"></span>
+                            </div>
+                            <h4>Город проживания*</h4>
+                            <div>
+                                <input asp-for="City" required />
+                                <span asp-validation-for="City"></span>
+                            </div>
+                            <h4>Страна проживания*</h4>
+                            <div>
+                                <input asp-for="Country" required />
+                                <span asp-validation-for="Country"></span>
+                            </div>
+                            <h4>Веб-сайт</h4>
+                            <div>
+                                <input asp-for="Websity" />
+                                <span asp-validation-for="Websity"></span>
+                            </div>
+                            <h4>О себе</h4>
+                            <div>
+                                <input asp-for="PersonalInformation" style="width: 380px;" />
+                                <span asp-validation-for="PersonalInformation"></span>
+                            </div>
+
+                            <input type="submit" value="Регистрация" class="send-publish" style="position: relative; bottom: 67px !important; left: 410px;">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
-    <div>
-        <label asp-for="Lastname"></label><br />
-        <input asp-for="Lastname" />
-        <span asp-validation-for="Lastname"></span>
+
+    <div class="content">
+        <div class="wrapper">
+        </div>
     </div>
-    <div>
-        <label asp-for="City"></label><br />
-        <input asp-for="City" />
-        <span asp-validation-for="City"></span>
-    </div>
-    <div>
-        <label asp-for="Country"></label><br />
-        <input asp-for="Country" />
-        <span asp-validation-for="Country"></span>
-    </div>
-    <div>
-        <label asp-for="Websity"></label><br />
-        <input asp-for="Websity" />
-        <span asp-validation-for="Websity"></span>
-    </div>
-    <div>
-        <label asp-for="PersonalInformation"></label><br />
-        <input asp-for="PersonalInformation" />
-        <span asp-validation-for="PersonalInformation"></span>
-    </div>
-    <div>
-        <input type="submit" value="Подтвердить" />
-    </div>
-</form>
+    <div class="footer"></div>
+</body>
+</html>
